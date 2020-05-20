@@ -17,6 +17,7 @@ namespace FlightControlWeb
         /// <param name="args"></param>
         public static void Main(string[] args)
         {
+            Console.WriteLine(args);
             CreateHostBuilder(args).Build().Run();
         }
 
