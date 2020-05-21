@@ -1,8 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "w9Q5KMrAf48qwjlhRqUaXdxcHF5Vl+GmCH4htgX4lXpFhXxCrU9xrwiPxnFf6jz9pXPKJ0H7XSvINSnnCU2q+Q==",
+  "dgSpecHash": "RZpt+wkFfuSFBoDFG2Umb+NLa5QO/jKuyGRiFjWMgtEv91OT3aHmW8PqumN5hAF09b5genp4xph7czJtII9/CQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\amit\\Documents\\GitHub\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Lenovo\\Desktop\\לימודים\\תכנות מתקדם 2\\MS4\\GitHub\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.data.sqlite\\3.1.4\\microsoft.data.sqlite.3.1.4.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.data.sqlite.core\\3.1.4\\microsoft.data.sqlite.core.3.1.4.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.0.2\\sqlitepclraw.bundle_e_sqlite3.2.0.2.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\sqlitepclraw.core\\2.0.2\\sqlitepclraw.core.2.0.2.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.0.2\\sqlitepclraw.lib.e_sqlite3.2.0.2.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\sqlitepclraw.provider.dynamic_cdecl\\2.0.2\\sqlitepclraw.provider.dynamic_cdecl.2.0.2.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
+  ],
   "logs": []
 }
