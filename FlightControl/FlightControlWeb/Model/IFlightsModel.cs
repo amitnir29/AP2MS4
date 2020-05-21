@@ -11,9 +11,9 @@ namespace FlightControlWeb.Model
     {
         public FlightPlan GetFlightPlan(string id);
 
-        public IList<Flight.Flight> GetAllFlights();
+        public IList<Flight.Flight> GetAllFlights(string relativeTo);
 
-        public IList<Flight.Flight> GetAllFlightsSync();
+        public IList<Flight.Flight> GetAllFlightsSync(string relativeTo);
 
         public void AddFlightPlan(FlightPlan plan);
 
