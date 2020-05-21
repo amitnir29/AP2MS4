@@ -1,13 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace FlightControlWeb.Flight
 {
-    public class FlightPlane
+    public class FlightPlan
     {
+        private string id;
+        public string getID()
+        {
+            return id;
+        }
+
+
         private int passengers;
         [JsonPropertyName("passengers")]
         public int Passengers
@@ -44,8 +52,9 @@ namespace FlightControlWeb.Flight
         }
 
 
-        public FlightPlane(int passengers, string company, InitialLocation initialLocation, IList<FlightStatus> segments)
+        public FlightPlan(string id, int passengers, string company, InitialLocation initialLocation, IList<FlightStatus> segments)
         {
+            this.id = id;
             Passengers = passengers;
             Company = company;
             InitLocation = initialLocation;
