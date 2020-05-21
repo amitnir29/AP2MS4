@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-using FlightControlWeb.DB;
+using FlightControlWeb.Model;
 
 namespace FlightControlWeb.HTTPServer
 {
@@ -13,29 +13,30 @@ namespace FlightControlWeb.HTTPServer
     [ApiController]
     public class FlightsController : ControllerBase
     {
-        private static IFlightsDB flightsDB;
+        private static IFlightsModel flightsModel;
 
-        // GET: api/Flights
-        [HttpGet]
-        public IEnumerable<string> Get()
+        // GET: api/Flights/relative_to=<DATE_TIME>
+        [HttpGet("{relative_to}")]
+        public IList<Flight.Flight> Get(string relativeTo)
         {
-            return new string[] { "value1", "value2" };
+            return flightsModel.GetAllFlights(relativeTo);
         }
 
 
-        // GET: api/Flights/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        // GET: api/Flights/relative_to=<DATE_TIME>&sync_all
+        [HttpGet("{relative_to}&sync_all")]
+        public IList<Flight.Flight> GetSynchAll(string relativeTo)
         {
-            return "value";
+            return flightsModel.GetAllFlightsSync(relativeTo);
         }
+
 
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
         public void Delete(string id)
         {
-            flightsDB.DeleteFlightPlan(id);
+            flightsModel.DeleteFlight(id);
         }
     }
 }
