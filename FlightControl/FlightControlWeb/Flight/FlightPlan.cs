@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FlightControlWeb.Flight
 {
-    public class FlightPlane
+    public class FlightPlan
     {
         private int passengers;
         [JsonPropertyName("passengers")]
@@ -44,7 +44,7 @@ namespace FlightControlWeb.Flight
         }
 
 
-        public FlightPlane(int passengers, string company, InitialLocation initialLocation, IList<FlightStatus> segments)
+        public FlightPlan(int passengers, string company, InitialLocation initialLocation, IList<FlightStatus> segments)
         {
             Passengers = passengers;
             Company = company;
