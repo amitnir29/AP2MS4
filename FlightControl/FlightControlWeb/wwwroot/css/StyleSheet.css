@@ -1,0 +1,31 @@
+﻿body {
+    //background-color:darkblue;
+}
+
+.flight_details{
+    border: solid;
+    margin-top: 20px;
+    padding: 25px;
+    box-sizing: border-box;
+}
+.container {
+   // border: dotted;
+    box-sizing: border-box;
+}
+#mapid {
+    height: 400px;
+}
+#planes li{
+    height: 40px;
+}
+.btn{
+     float:right;
+     margin-right:300px;
+}
+/*.btn:active, .active {
+    background-color: red;
+    color: white;
+}*/
+/*.button{
+    margin-top:500px;
+}*/
