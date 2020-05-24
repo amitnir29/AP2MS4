@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-using FlightControlWeb.Flight;
-
 namespace FlightControlWeb.Model
 {
-    public interface IFlightsModel
+    public class FLightsModel : IFlightsModel
     {
+
         /// <summary>
         /// Get a flight plan from the database and return it.
         /// </summary>
