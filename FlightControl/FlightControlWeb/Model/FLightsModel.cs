@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FlightControlWeb.DB;
+using FlightControlWeb.Flight;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,12 +10,19 @@ namespace FlightControlWeb.Model
     public class FLightsModel : IFlightsModel
     {
 
+        private IFlightsDB dataBase;
+
         /// <summary>
         /// Get a flight plan from the database and return it.
         /// </summary>
         /// <param name="id"> The id of the flight plan. </param>
         /// <returns> The flight plan. </returns>
-        public FlightPlan GetFlightPlan(string id);
+        public FlightPlan GetFlightPlan(string id)
+        {
+            var res = dataBase.GetFlightPlan(id);
+            res.Wait();
+            return res.Result;
+        }
 
 
         /// <summary>
