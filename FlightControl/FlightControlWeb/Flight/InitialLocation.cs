@@ -44,7 +44,7 @@ namespace FlightControlWeb.Flight
         {
             Longitude = longitude;
             Latitude = latitude;
-            Time = time.ToString("yyyy-MM-ddThh:mm:ssZ");
+            Time = time.ToString("yyyy-MM-ddTHH:mm:ssZ");
         }
     }
 }

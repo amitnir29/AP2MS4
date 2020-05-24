@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FlightControlWeb.Model
     {
-        public class FlightsHandler : IFlightsModel
+        public class FlightsHandler /*: IFlightsModel*/
         {
 
             private IFlightsDB dataBase;
@@ -31,10 +31,10 @@ namespace FlightControlWeb.Model
             /// </summary>
             /// <param name="relativeTo"> The current time at the user's </param>
             /// <returns> All the flights. </returns>
-            public Task<IList<Flight.Flight>> GetAllFlights(DateTime relativeTo)
+            /*public Task<IList<Flight.Flight>> GetAllFlights(DateTime relativeTo)
             {
 
-            }
+            }*/
 
 
             /// <summary>
@@ -42,7 +42,7 @@ namespace FlightControlWeb.Model
             /// </summary>
             /// <param name="relativeTo"> Time at the student's. </param>
             /// <returns> All the flights. </returns>
-            public IList<Flight.Flight> GetAllFlightsSync(DateTime relativeTo);
+            //public IList<Flight.Flight> GetAllFlightsSync(DateTime relativeTo);
 
 
 

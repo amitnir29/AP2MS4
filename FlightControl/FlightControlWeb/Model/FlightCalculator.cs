@@ -18,7 +18,7 @@ namespace FlightControlWeb.Model
         public Flight.Flight CreateFlightFromPlan(FlightPlan plan, DateTime relativeTo, bool isExternal)
         {
             // Get launch time.
-            DateTime launch = DateTime.Parse(plan.InitLocation.Time);
+            DateTime launch = DateTime.ParseExact(plan.InitLocation.Time, "yyyy-MM-ddTHH:mm:ssZ", null).ToUniversalTime();
 
             // If time is before launch return null - no flight at this time.
             if (relativeTo < launch)
@@ -31,26 +31,39 @@ namespace FlightControlWeb.Model
 
             
 
-            DateTime temp = relativeTo;
+            DateTime temp = launch;
+            DateTime last = launch;
+
             int i;
+
+            IList<FlightStatus> segments = new List<FlightStatus>(plan.Segments);
+            segments.Insert(0, new FlightStatus(plan.InitLocation.Longitude, plan.InitLocation.Latitude, 0));
 
             // Iterate over al segments of the flight plan. Find the first segment which its time is
             // greater then the time in the requested flight.
-            for (i = 0; temp < relativeTo && i < plan.Segments.Count; temp = temp.AddSeconds(plan.Segments[i].DeltaTime)) ;
+            for (i = 0; temp < relativeTo && i < plan.Segments.Count; last = temp,  temp = temp.AddSeconds(plan.Segments[i++].DeltaTime)) ;
 
-            // The given time might be greater than the landing time.
-            // In such a case, return null - no flight at this time.
-            if (i == plan.Segments.Count) return null;
+            // The given time might be greater than the landing time or equal to it.
+            if (i == plan.Segments.Count)
+            {
+                // If equal, return a flight corresponds to the landing.
+                if (temp.Equals(relativeTo))
+                    return new Flight.Flight(plan.GetID(), plan.Segments[plan.Segments.Count - 1].Longitude,
+                    plan.Segments[plan.Segments.Count - 1].Latitude, plan.Passengers, plan.Company, launch, isExternal);
+
+                // If greater, return null - no flight at this time.
+                return null;
+            }   
 
 
             // Otherwise, calculate the corresponding longitude and latitude.
-            double newLongitude = (plan.Segments[i - 1].Longitude * plan.Segments[i].DeltaTime +
-                plan.Segments[i].Longitude * plan.Segments[i - 1].DeltaTime) /
-                (plan.Segments[i - 1].DeltaTime + plan.Segments[i].DeltaTime);
+            double newLongitude = (segments[i - 1].Longitude * (temp - relativeTo).TotalSeconds +
+                segments[i].Longitude * (relativeTo - last).TotalSeconds) /
+                segments[i].DeltaTime;
 
-            double newLatitude = (plan.Segments[i - 1].Latitude * plan.Segments[i].DeltaTime +
-                plan.Segments[i].Latitude * plan.Segments[i - 1].DeltaTime) /
-                (plan.Segments[i - 1].DeltaTime + plan.Segments[i].DeltaTime);
+            double newLatitude = (segments[i - 1].Latitude * (temp - relativeTo).TotalSeconds +
+                segments[i].Latitude * (relativeTo - last).TotalSeconds) /
+                segments[i].DeltaTime;
 
 
             // Return flight based on the above calculations.
