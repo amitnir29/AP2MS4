@@ -25,12 +25,20 @@ namespace FlightControlWeb.Model
         }
 
 
+        private CreateFlightFromPlan(FlightPlan plan, DateTime relativeTo)
+        {
+        }
+
+
         /// <summary>
         /// Get all flights from this server.
         /// </summary>
         /// <param name="relativeTo"> The current time at the user's </param>
         /// <returns> All the flights. </returns>
-        public IList<Flight.Flight> GetAllFlights(string relativeTo);
+        public Task<IList<Flight.Flight>> GetAllFlights(DateTime relativeTo)
+        {
+
+        }
 
 
         /// <summary>
@@ -38,7 +46,7 @@ namespace FlightControlWeb.Model
         /// </summary>
         /// <param name="relativeTo"> Time at the student's. </param>
         /// <returns> All the flights. </returns>
-        public IList<Flight.Flight> GetAllFlightsSync(string relativeTo);
+        public IList<Flight.Flight> GetAllFlightsSync(DateTime relativeTo);
 
 
 
