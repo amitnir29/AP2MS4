@@ -9,9 +9,13 @@ namespace FlightControlWeb.Model
 {
     public interface IFlightsModel
     {
-        public IList<Flight.Flight> GetAllFlights();
+        public FlightPlan GetFlightPlan(string id);
 
-        public IList<Flight.Flight> GetAllFlightsSync();
+        public IList<Flight.Flight> GetAllFlights(string relativeTo);
+
+        public IList<Flight.Flight> GetAllFlightsSync(string relativeTo);
+
+        public void AddFlightPlan(FlightPlan plan);
 
         public void DeleteFlight(string id);
     }

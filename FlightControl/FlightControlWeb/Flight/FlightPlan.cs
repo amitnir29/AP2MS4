@@ -9,8 +9,8 @@ namespace FlightControlWeb.Flight
 {
     public class FlightPlan
     {
-        private string id;
-        public string getID()
+        private readonly string id;
+        public string GetID()
         {
             return id;
         }
