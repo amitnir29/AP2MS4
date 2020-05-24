@@ -17,17 +17,15 @@ namespace FlightControlWeb.HTTPServer
 
         // GET: api/Flights/relative_to=<DATE_TIME>
         [HttpGet("relative_to={relativeTo}")]
-        public IList<Flight.Flight> Get(string relativeTo)
+        public Task<IList<Flight.Flight>> Get(string relativeTo)
         {
-            var res = flightsModel.GetAllFlights(DateTime.Parse(relativeTo));
-            res.Wait();
-            return res.Result;
+            return flightsModel.GetAllFlights(DateTime.Parse(relativeTo));
         }
 
 
         // GET: api/Flights/relative_to=<DATE_TIME>&sync_all
         [HttpGet("relative_to={relativeToo}&sync_all")]
-        public IList<Flight.Flight> GetSynchAll(string relativeTo)
+        public Task<IList<Flight.Flight>> GetSynchAll(string relativeTo)
         {
             return flightsModel.GetAllFlightsSync(DateTime.Parse(relativeTo));
         }
