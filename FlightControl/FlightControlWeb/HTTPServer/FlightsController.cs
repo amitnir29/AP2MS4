@@ -16,7 +16,7 @@ namespace FlightControlWeb.HTTPServer
         private static IFlightsModel flightsModel;
 
         // GET: api/Flights/relative_to=<DATE_TIME>
-        [HttpGet("{relative_to}")]
+        [HttpGet("relative_to={relativeTo}")]
         public IList<Flight.Flight> Get(string relativeTo)
         {
             return flightsModel.GetAllFlights(relativeTo);
@@ -24,7 +24,7 @@ namespace FlightControlWeb.HTTPServer
 
 
         // GET: api/Flights/relative_to=<DATE_TIME>&sync_all
-        [HttpGet("{relative_to}&sync_all")]
+        [HttpGet("relative_to={relativeToo}&sync_all")]
         public IList<Flight.Flight> GetSynchAll(string relativeTo)
         {
             return flightsModel.GetAllFlightsSync(relativeTo);
