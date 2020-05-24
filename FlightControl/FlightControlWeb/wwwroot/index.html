@@ -36,45 +36,107 @@
             i++;
         }, 200);
     </script>
+    <!--
     <button type="button" class="btn btn-dark">Dark Mode?</button>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8">
-                    <div id="mapid"></div>
-                    <script src="js/map.js">
-                    </script>
-                    <div class="flight_details">
-                        <h3>flight details</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-                    </div>
-
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <div id="mapid"></div>
+                <script src="js/map.js">
+                </script>
+                <div class="flight_details">
+                    <h3>flight details</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
                 </div>
-                <div id="planes" class="col-sm-4">
-                    <h3>List of planes</h3>
-                    <!-- comment <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>-->
-                    <div class="list-group">
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Local Flights
-                            <span class="badge badge-info badge-pill">3</span>
-                        </li>
-                        <a href="#" class="list-group-item list-group-item-action list-group-item-info">First Plane</a>
-                        <a href="#" class="list-group-item list-group-item-action list-group-item-info">Second Plane</a>
-                        <a href="#" class="list-group-item list-group-item-action list-group-item-info">Third Plane</a>
 
-                    </div>
-                    <div class="list-group">
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Extrenal Flights
-                            <span class="badge badge-primary badge-pill">3</span>
-                        </li>
-                        <a href="#" class="list-group-item list-group-item-action list-group-item-primary">First Plane</a>
-                        <a href="#" class="list-group-item list-group-item-action list-group-item-primary">Second Plane</a>
-                        <a href="#" class="list-group-item list-group-item-action list-group-item-primary">Third Plane</a>
-
-                    </div>
-                </div>
             </div>
+            <div id="planes" class="col-sm-4">
+                <h3>List of planes</h3>
+                <!-- comment <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    <div class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Local Flights
+            <span class="badge badge-info badge-pill">3</span>
+        </li>
+        <a href="#" class="list-group-item list-group-item-action list-group-item-info">First Plane</a>
+        <a href="#" class="list-group-item list-group-item-action list-group-item-info">Second Plane</a>
+        <a href="#" class="list-group-item list-group-item-action list-group-item-info">Third Plane</a>
+
+    </div>
+    <div class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Extrenal Flights
+            <span class="badge badge-primary badge-pill">3</span>
+        </li>
+        <a href="#" class="list-group-item list-group-item-action list-group-item-primary">First Plane</a>
+        <a href="#" class="list-group-item list-group-item-action list-group-item-primary">Second Plane</a>
+        <a href="#" class="list-group-item list-group-item-action list-group-item-primary">Third Plane</a>
+
+    </div>
+    </div>
+    </div>
+    </div>
+    -->
+    <br />
+    <h2>Test:</h2>
+    <button id="btnGetNumsList" onclick="getAllNums()">Get all nums</button>
+    <br />
+    <input type="number" id="getNumById" />
+    <button id="btnGetNumsList" onclick="getNum()">Get num</button>
+    <br />
+    <input type="number" id="newNumInput" />
+    <button id="btnGetNumsList" onclick="postNum()">Post num</button>
+    <br />
+    <input type="number" id="putNumInputId" />
+    <input type="number" id="putNumInputValue" />
+    <button id="btnGetNumsList" onclick="postNum()">Put num</button>
+    <br />
+    <input type="number" id="deleteNumInput" />
+    <button id="btnGetNumsList" onclick="postNum()">Delete num</button>
+
+    <script>
+        async function getAllNums() {
+            const path = "api/Test";
+            const response = await fetch(path);
+            console.log(response);
+            const responseArr = await response.json();
+            await console.log(responseArr);
+        }
+
+
+
+        async function getNum() {
+            const path = "api/Test/" + document.getElementById("getNumById").value;
+            const response = await fetch(path);
+            console.log(response);
+            const responseArr = await response.json();
+            await console.log(responseArr);
+        }
+
+
+        async function postNum() {
+            const path = "api/Test";
+            const currDate = new Date();
+            const newNum = {
+                Id: parseInt(currDate.getSeconds().toString() + currDate.getMinutes().toString() + currDate.getHours().toString()),
+                Value: parseInt(document.getElementById("newNumInput").value)
+            };
+            console.log(newNum);
+            console.log(JSON.stringify(newNum));
+            const response = await fetch(path, {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newNum)
+            });
+            console.log(response);
+        }
+
+
+
+    </script>
 </body>
-</html >
+</html>

@@ -5,8 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Client\" />
-    <Folder Include="Server\" />
+    <Compile Remove="Client\**" />
+    <Compile Remove="Server\**" />
+    <Content Remove="Client\**" />
+    <Content Remove="Server\**" />
+    <EmbeddedResource Remove="Client\**" />
+    <EmbeddedResource Remove="Server\**" />
+    <None Remove="Client\**" />
+    <None Remove="Server\**" />
   </ItemGroup>
 
   <ItemGroup>
