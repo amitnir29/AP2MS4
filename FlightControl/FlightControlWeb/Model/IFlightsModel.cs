@@ -30,7 +30,7 @@ namespace FlightControlWeb.Model
         /// </summary>
         /// <param name="relativeTo"> Time at the student's. </param>
         /// <returns> All the flights. </returns>
-        public IList<Flight.Flight> GetAllFlightsSync(DateTime relativeTo);
+        public Task<IList<Flight.Flight>> GetAllFlightsSync(DateTime relativeTo);
 
 
 
