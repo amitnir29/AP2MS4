@@ -46,13 +46,19 @@ namespace FlightControlWeb.Model
         /// Add a flight plan to the database.
         /// </summary>
         /// <param name="plan"> The flight plan to add. </param>
-        public void AddFlightPlan(FlightPlan plan);
+        public void AddFlightPlan(FlightPlan plan)
+        {
+            dataBase.PostFlightPlan(plan);
+        }
 
 
         /// <summary>
         /// Delete a flight plan from the data base.
         /// </summary>
         /// <param name="id"> The id of the flight to delete. </param>
-        public void DeleteFlight(string id);
+        public void DeleteFlight(string id)
+        {
+            dataBase.DeleteFlightPlan(id);
+        }
     }
 }
