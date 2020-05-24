@@ -19,7 +19,9 @@ namespace FlightControlWeb.HTTPServer
         [HttpGet("relative_to={relativeTo}")]
         public IList<Flight.Flight> Get(string relativeTo)
         {
-            return flightsModel.GetAllFlights(relativeTo);
+            var res = flightsModel.GetAllFlights(DateTime.Parse(relativeTo));
+            res.Wait();
+            return res.Result;
         }
 
 
@@ -27,7 +29,7 @@ namespace FlightControlWeb.HTTPServer
         [HttpGet("relative_to={relativeToo}&sync_all")]
         public IList<Flight.Flight> GetSynchAll(string relativeTo)
         {
-            return flightsModel.GetAllFlightsSync(relativeTo);
+            return flightsModel.GetAllFlightsSync(DateTime.Parse(relativeTo));
         }
 
 
