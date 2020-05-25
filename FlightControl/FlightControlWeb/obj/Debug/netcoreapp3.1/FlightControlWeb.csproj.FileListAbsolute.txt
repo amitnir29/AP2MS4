@@ -174,7 +174,6 @@ D:\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.
 D:\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.csprojAssemblyReference.cache
 D:\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.csproj.CoreCompileInputs.cache
 D:\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.MvcApplicationPartsAssemblyInfo.cache
 D:\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.AssemblyInfoInputs.cache
@@ -186,3 +185,4 @@ D:\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.
 D:\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.dll
 D:\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.pdb
 D:\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.genruntimeconfig.cache
+D:\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.csprojAssemblyReference.cache
