@@ -42,11 +42,47 @@
                     </script>
                 </div>
             </div>
-            <div class="col-sm" id="flightsList">
-                <script src="js/flightListNode.js">
-                </script>
+            <div class="col-sm" id="flightsLists">
                 <script src="js/flightsList.js">
                 </script>
+                <button id="testbtn" onclick="aLoc()">add local</button>
+                <button id="testbtn" onclick="aExt()">add external</button>
+                <br />
+                <button id="testbtn" onclick="rlLoc()">remove last local</button>
+                <button id="testbtn" onclick="rlExt()">remove last external</button>
+                <br />
+                <button id="testbtn" onclick="rrLoc()">remove random local</button>
+                <button id="testbtn" onclick="rrExt()">remove random external</button>
+                <br />
+                <!--Local flights list-->
+                <table id="localFlights" class="table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">
+                                Local Flights
+                            </th>
+                            <th scope="col">
+                                Delete Flight
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--add here the flights-->
+                    </tbody>
+                </table>
+                <!--External flights list-->
+                <table id="externalFlights" class="table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">
+                                External Flights
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--add here the flights-->
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
