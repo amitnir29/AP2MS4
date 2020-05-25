@@ -45,6 +45,6 @@ namespace FlightControlWeb.Model
         /// Delete a flight plan from the data base.
         /// </summary>
         /// <param name="id"> The id of the flight to delete. </param>
-        public void DeleteFlight(string id);
+        public Task DeleteFlight(string id);
     }
 }

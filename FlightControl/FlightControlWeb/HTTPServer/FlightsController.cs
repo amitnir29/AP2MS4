@@ -17,22 +17,22 @@ namespace FlightControlWeb.HTTPServer
 
         // GET: api/Flights/relative_to=<DATE_TIME>
         [HttpGet]
-        public Task<IList<Flight.Flight>> Get([FromQuery(Name ="relative_to")] string relativeTo)
+        public async Task<IList<Flight.Flight>> Get([FromQuery(Name ="relative_to")] string relativeTo)
         {
             bool syncAll = Request.Query.ContainsKey("sync_all");
 
             if (syncAll)
-                return flightsModel.GetAllFlights(DateTime.Parse(relativeTo));
-            return flightsModel.GetAllFlightsSync(DateTime.Parse(relativeTo));
+                return await flightsModel.GetAllFlights(DateTime.Parse(relativeTo));
+            return await flightsModel.GetAllFlightsSync(DateTime.Parse(relativeTo));
         }
 
 
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(string id)
+        public async void Delete(string id)
         {
-            flightsModel.DeleteFlight(id);
+            await flightsModel.DeleteFlight(id);
         }
     }
 }
