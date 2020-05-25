@@ -14,7 +14,7 @@ namespace FlightControlWeb.Model
         /// </summary>
         /// <param name="id"> The id of the flight plan. </param>
         /// <returns> The flight plan. </returns>
-        public FlightPlan GetFlightPlan(string id);
+        public Task<FlightPlan> GetFlightPlan(string id);
 
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace FlightControlWeb.Model
         /// Add a flight plan to the database.
         /// </summary>
         /// <param name="plan"> The flight plan to add. </param>
-        public void AddFlightPlan(FlightPlan plan);
+        public Task AddFlightPlan(FlightPlan plan);
 
 
         /// <summary>

@@ -13,7 +13,7 @@ namespace FlightControlWeb.HTTPServer
     [ApiController]
     public class FlightsController : ControllerBase
     {
-        private static IFlightsModel flightsModel;
+        private IFlightsModel flightsModel;
 
         // GET: api/Flights/relative_to=<DATE_TIME>
         [HttpGet]
