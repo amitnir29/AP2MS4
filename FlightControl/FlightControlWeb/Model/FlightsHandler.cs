@@ -31,10 +31,17 @@ namespace FlightControlWeb.Model
             /// </summary>
             /// <param name="relativeTo"> The current time at the user's </param>
             /// <returns> All the flights. </returns>
-            /*public Task<IList<Flight.Flight>> GetAllFlights(DateTime relativeTo)
+            public async Task<IList<Flight.Flight>> GetAllFlights(DateTime relativeTo)
             {
+                IList<Flight.Flight> flights = new List<Flight.Flight>();
 
-            }*/
+                await foreach (var flightPlan in dataBase.GetIterator())
+                {
+                    flights.Add(calculator.CreateFlightFromPlan(flightPlan, relativeTo, false));
+                }
+
+                return flights;
+            }
 
 
             /// <summary>
@@ -42,7 +49,7 @@ namespace FlightControlWeb.Model
             /// </summary>
             /// <param name="relativeTo"> Time at the student's. </param>
             /// <returns> All the flights. </returns>
-            //public IList<Flight.Flight> GetAllFlightsSync(DateTime relativeTo);
+            //public async Task<IList<Flight.Flight>> GetAllFlightsSync(DateTime relativeTo);
 
 
 
