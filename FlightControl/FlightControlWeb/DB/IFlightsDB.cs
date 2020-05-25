@@ -13,7 +13,7 @@ namespace FlightControlWeb.DB
 
         public Task<FlightPlan> GetFlightPlan(string id);
 
-        public void DeleteFlightPlan(string id);
+        public Task DeleteFlightPlan(string id);
 
         public IAsyncEnumerable<FlightPlan> GetIterator();
     }
