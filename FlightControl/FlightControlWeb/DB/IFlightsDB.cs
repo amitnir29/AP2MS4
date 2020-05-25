@@ -9,7 +9,7 @@ namespace FlightControlWeb.DB
 {
     interface IFlightsDB
     {
-        void PostFlightPlan(FlightPlan flightPlan);
+        public Task PostFlightPlan(FlightPlan flightPlan);
 
         public Task<FlightPlan> GetFlightPlan(string id);
 

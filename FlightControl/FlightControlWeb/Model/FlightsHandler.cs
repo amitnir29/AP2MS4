@@ -18,11 +18,9 @@ namespace FlightControlWeb.Model
             /// </summary>
             /// <param name="id"> The id of the flight plan. </param>
             /// <returns> The flight plan. </returns>
-            public FlightPlan GetFlightPlan(string id)
+            public async Task<FlightPlan> GetFlightPlan(string id)
             {
-                var res = dataBase.GetFlightPlan(id);
-                res.Wait();
-                return res.Result;
+                return await dataBase.GetFlightPlan(id);
             }
 
 
@@ -57,9 +55,9 @@ namespace FlightControlWeb.Model
             /// Add a flight plan to the database.
             /// </summary>
             /// <param name="plan"> The flight plan to add. </param>
-            public void AddFlightPlan(FlightPlan plan)
+            public async Task AddFlightPlan(FlightPlan plan)
             {
-                dataBase.PostFlightPlan(plan);
+                await dataBase.PostFlightPlan(plan);
             }
 
 
