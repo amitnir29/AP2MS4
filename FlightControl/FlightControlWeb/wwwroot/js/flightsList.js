@@ -17,17 +17,19 @@ class flightsList {
     }
 
     /**
-     * update the flights lists when receiving the new lists.
-     * @param {Array[FlightWrapper]} newLocalFlights an array of the new local flights
-     * @param {Array[FlightWrapper]} newExternalFlights an array of the external local flights
+     * update the flights data when receiving the new flights list.
+     * @param {Array[FlightWrapper]} newLocalFlights an array of the new flights
      */
-    updateLists(newLocalFlights, newExternalFlights) {
-        const newLocalFlightsIdSet = this.FlightsWrappersListToIdSet(newLocalFlights);
-        const newExternalFlightsIdSet = this.FlightsWrappersListToIdSet(newExternalFlights);
+    updateFlights(newFlights) {
+        const flightsDivisor = new FlightsDivisor();
+        twoFlightsObject = flightsDivisor.divideFlightsToTwoArrays(newFlights, flight => flight.flightDetails.is_external);
+        const newLocalFlights = twoFlightsObject.trueFlightsArray;
+        const newExternalFlights = twoFlightsObject.falseFlightsArray;
+
         //first remove gone flights: 
-        this.removeGoneFlights(newLocalFlightsIdSet, newExternalFlightsIdSet);
+        this.removeGoneFlights(newLocalFlights, newExternalFlights);
         //now add the new flights:
-        this.addNewFlights(newExternalFlightsIdSet, newExternalFlightsIdSet, newLocalFlights, newExternalFlights);
+        this.addNewFlights(newLocalFlights, newExternalFlights);
         //good. now set the current lists to be the new lists.
         this.localFlightsArray = newLocalFlights;
         this.externalFlightsArray = newExternalFlights;
@@ -49,10 +51,12 @@ class flightsList {
 
     /**
      * remove form current flights dictionary and from html tables all flights that are not in the new lists.
-     * @param {Set[string]} newLocalFlightsIdSet the new local flights set of FlightWrappers ids.
-     * @param {Set[string]} newExternalFlightsIdSet the new external flights set of FlightWrappers ids.
+     * @param {Array[FlightWrapper]} newLocalFlightsArray an array of the new local flights
+     * @param {Array[FlightWrapper]} newExternalFlightsArray an array of the external local flights
      */
-    removeGoneFlights(newLocalFlightsIdSet, newExternalFlightsIdSet) {
+    removeGoneFlights(newLocalFlightsArray, newExternalFlightsArray) {
+        const newLocalFlightsIdSet = this.FlightsWrappersListToIdSet(newLocalFlightsArray);
+        const newExternalFlightsIdSet = this.FlightsWrappersListToIdSet(newExternalFlightsArray);
         const currentLocalFlightsIdSet = this.FlightsWrappersListToIdSet(this.localFlightsArray);
         const currentExternalFlightsIdSet = this.FlightsWrappersListToIdSet(this.externalFlightsArray);
         //loop on all the current flights. 
@@ -86,39 +90,29 @@ class flightsList {
 
     /**
      * add to html and flights dictionary the new flights that are not in current page.
-     * @param {Set[string]} newLocalFlightsIdSet the new local flights set of FlightWrappers ids.
-     * @param {Set[string]} newExternalFlightsIdSet the new external flights set of FlightWrappers ids.
      * @param {Array[FlightWrapper]} newLocalFlightsArray an array of the new local flights
      * @param {Array[FlightWrapper]} newExternalFlightsArray an array of the external local flights
      */
-    addNewFlights(newLocalFlightsIdSet, newExternalFlightsIdSet, newLocalFlightsArray, newExternalFlightsArray) {
+    addNewFlights(newLocalFlightsArray, newExternalFlightsArray) {
         //first loop on local flights
-        for (const newLocalFlightId of newLocalFlightsIdSet) {
-            //if this id is not in the current flights dictionary
-            if (!(newLocalFlightId in this.allFlightsDict)) {
-                //add it to the dictionary and the html
-                flightWrapperOfThisId = newLocalFlightsArray.find(item => item.id === newLocalFlightId);
-                if (flightWrapperOfThisId) {
-                    this.allFlightsDict[newLocalFlightId] = flightWrapperOfThisId;
-                    this.addTolocalFlightsHtml(flightWrapperOfThisId);
-                } else {
-                    //TODO error
-                }
+        for (const newLocalFlight of newLocalFlightsArray) {
+            //if the new flight is not in the dictionary, meaning it is new
+            if (!(newLocalFlight.id in this.allFlightsDict)) {
+                //add it to the html
+                this.addTolocalFlightsHtml(flightWrapperOfThisId);
             }
+            //add to the dictionary if new, update if existed
+            this.allFlightsDict[newLocalFlightId] = flightWrapperOfThisId;
         }
         //now loop in external flights
-        for (const newExternalFlightId of newExternalFlightsIdSet) {
-            //if this id is not in the current flights dictionary
+        for (const newExternalFlight of newExternalFlightsIdSet) {
+            //if the new flight is not in the dictionary, meaning it is new
             if (!(newExternalFlightId in this.allFlightsDict)) {
-                //add it to the dictionary and the html
-                flightWrapperOfThisId = newExternalFlightsArray.find(item => item.id === newExternalFlightId);
-                if (flightWrapperOfThisId) {
-                    this.allFlightsDict[newExternalFlightId] = flightWrapperOfThisId;
-                    this.addTolocalFlightsHtml(flightWrapperOfThisId);
-                } else {
-                    //TODO error
-                }
+                //add it to the html
+                this.addToExternalFlightsHtml(flightWrapperOfThisId);
             }
+            //add to the dictionary if new, update if existed
+            this.allFlightsDict[newExternalFlightId] = flightWrapperOfThisId;
         }
     }
 
