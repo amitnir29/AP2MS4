@@ -5,7 +5,7 @@
      * @returns {Array[FlightWrapper]}
      * */
     getFlights() {
-        console.error("still haven't implemented the actual communication with the server"); //TODO
+        console.error("still haven't implemented the actual communication with the server"); //TODO server request
         let flightsArray; //should be const and get the return value from the server
         const flightWrappersArray = [];
         for (flight of flightsArray) {

@@ -29,7 +29,7 @@
         const idSet = new Set();
         //for each flightWrapper, add its id to the set
         for (const flightWrapper of flightWrapperArray) {
-            idSet.add(flightWrapper.id); //TODO check if this is the way to access id
+            idSet.add(flightWrapper.id);
         }
         return idSet;
     }

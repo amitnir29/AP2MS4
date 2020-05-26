@@ -221,7 +221,7 @@ class flightsList {
 
 }
 
-
+//TODO these are testing functions. delete them when can actually connect to the server.
 
 function checkL(elem) {
     console.log("local");
@@ -253,21 +253,21 @@ function aLoc() {
     const styler = new FlightListRowStyler();
     styler.makeUnpressed(newRow);
     //set the row's id to the flight's is
-    newRow.setAttribute("id", x.toString());//TODO make sure we get the id this way
+    newRow.setAttribute("id", x.toString());
     x++;
     //add the cell that displays the flight info
     const rowData = newRow.insertCell(-1);
     //add function call onclick to show this flight
-    rowData.onclick = e => checkL(e.target.parentNode.id); //TODO don't know if this way works. may need the line above.
+    rowData.onclick = e => checkL(e.target.parentNode.id); 
     //add text for the cell
     rowData.innerHTML = "local" + l;
     l++;
     //add the cell that deletes the flight
     const rowDeleteButton = newRow.insertCell(-1);
     //add function call onclick to show this flight
-    rowDeleteButton.onclick = e => check2(e.target.parentNode.id); //TODO don't know if this way works. may need the line above.
+    rowDeleteButton.onclick = e => check2(e.target.parentNode.id);
     //add delete image
-    rowDeleteButton.innerHTML = "DELETE";//TODO change to image
+    rowDeleteButton.innerHTML = "DELETE";
 }
 
 function aExt() {
@@ -276,12 +276,12 @@ function aExt() {
     const styler = new FlightListRowStyler();
     styler.makeUnpressed(newRow);
     //set the row's id to the flight's is
-    newRow.setAttribute("id", x.toString());//TODO make sure we get the id this way
+    newRow.setAttribute("id", x.toString());
     x++;
     //add the cell that displays the flight info
     const rowData = newRow.insertCell(-1);
     //add function call onclick to show this flight
-    rowData.onclick = e => checkE(e.target.parentNode.id); //TODO don't know if this way works. may need the line above.
+    rowData.onclick = e => checkE(e.target.parentNode.id);
     //add text for the cell
     rowData.innerHTML = "external" + e;
     e++;
