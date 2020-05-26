@@ -29,3 +29,11 @@
 /*.button{
     margin-top:500px;
 }*/
+
+.pressed-row{
+    background-color: lightblue;
+}
+
+.unpressed-row {
+    background-color: white;
+}
