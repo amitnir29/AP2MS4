@@ -5,11 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="FlightPlansDB.db" />
+    <None Remove="FlightsServersDB.db" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="FlightPlansDB.db">
+    <Content Include="FlightsServersDB.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

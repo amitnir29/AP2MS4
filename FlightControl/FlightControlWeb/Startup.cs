@@ -42,7 +42,9 @@ namespace FlightControlWeb
 
             services.AddControllers();
 
-            services.AddSingleton(new MyFlightsDB("Data Source=.\\FlightPlansDB.db;Version=3;"));
+            services.AddSingleton(new MyFlightsDB("Data Source=.\\FlightsServersDB.db;Version=3;"));
+            services.AddSingleton(new MyServersDB("Data Source=.\\FlightsServersDB.db;Version=3;"));
+            services.AddSingleton(new MyFlightsServersDB("Data Source=.\\FlightsServersDB.db;Version=3;"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

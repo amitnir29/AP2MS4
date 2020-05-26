@@ -34,7 +34,6 @@ C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4
 C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.dll
 C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.pdb
 C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.genruntimeconfig.cache
-C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\FlightPlansDB.db
 C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
 C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
@@ -82,3 +81,4 @@ C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4
 C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.csproj.CoreCompileInputs.cache
 C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\FlightsServersDB.db
