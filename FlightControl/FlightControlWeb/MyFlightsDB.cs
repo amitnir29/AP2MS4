@@ -22,7 +22,7 @@ namespace FlightControlWeb
             connectionString = con;
         }
 
-        public async void DeleteFlightPlan(string id)
+        public async Task DeleteFlightPlan(string id)
         {
             using SQLiteConnection con = new SQLiteConnection(connectionString);
             await con.OpenAsync();
@@ -51,10 +51,10 @@ namespace FlightControlWeb
             int rows = await NumOfRows();
             using SQLiteConnection con = new SQLiteConnection(connectionString);
             await con.OpenAsync();
-            for (int i = 1; i <= rows; ++i)
+            using var command = new SQLiteCommand("SELECT * FROM FlightPlans", con);
+            using SQLiteDataReader rdr = (SQLiteDataReader)await command.ExecuteReaderAsync();
+            while (await rdr.ReadAsync())
             {
-                using var command = new SQLiteCommand("SELECT * FROM FlightPlans WHERE index = '" + i.ToString() + "'", con);
-                using SQLiteDataReader rdr = (SQLiteDataReader)await command.ExecuteReaderAsync();
                 string tryid = rdr.GetString(1);
                 int pass = rdr.GetInt32(2);
                 string comp = rdr.GetString(3);
@@ -67,7 +67,7 @@ namespace FlightControlWeb
             }
         }
 
-        public async void PostFlightPlan(FlightPlan flightPlan)
+        public async Task PostFlightPlan(FlightPlan flightPlan)
         {
             using SQLiteConnection con = new SQLiteConnection(connectionString);
             await con.OpenAsync();
