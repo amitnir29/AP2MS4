@@ -22,6 +22,17 @@
      */
     getFlightPlan(flightId) {
         //TODO server request
+        $.ajax({
+            url: "api/FlightPlan/" + flightId,
+            type: "get", //send it through get method
+        success: function (data) {
+            return JSON.parse(data);
+        },
+        error: function (xhr) {
+            //TODO - pretty alert
+        }
+
+        });
     }
 
     /**
