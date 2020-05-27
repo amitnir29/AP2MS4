@@ -9,6 +9,7 @@ namespace FlightControlWeb.DB
 {
     interface IFlightsDB
     {
+<<<<<<< HEAD
 
         public Task<ActionResult<FlightPlan>> PostFlightPlan(FlightPlan flightPlan);
 
@@ -18,5 +19,15 @@ namespace FlightControlWeb.DB
 
         public Task<ActionResult<IEnumerable<FlightPlan>>> GetIterator();
 
+=======
+        public Task PostFlightPlan(FlightPlan flightPlan);
+
+        public Task<FlightPlan> GetFlightPlan(string id);
+
+        public Task DeleteFlightPlan(string id);
+
+        public IAsyncEnumerable<FlightPlan> GetIterator();
+        //public IAsyncEnumerable<FlightPlan> GetIterator();
+>>>>>>> server
     }
 }

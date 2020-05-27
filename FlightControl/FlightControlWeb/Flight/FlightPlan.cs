@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
@@ -10,7 +10,7 @@ namespace FlightControlWeb.Flight
     public class FlightPlan
     {
         private string id;
-        public string getID()
+        public string GetID()
         {
             return id;
         }
@@ -59,6 +59,15 @@ namespace FlightControlWeb.Flight
             Company = company;
             InitLocation = initialLocation;
             Segments = segments;
+        }
+
+        public FlightPlan(FlightPlanDB fp)
+        {
+            Passengers = fp.Passengers;
+            id = fp.GetID();
+            Company = fp.Company;
+            InitLocation = JsonSerializer.Deserialize<InitialLocation>(fp.InitLocation);
+            Segments = JsonSerializer.Deserialize<IList<FlightStatus>>(fp.Segments);
         }
     }
 }
