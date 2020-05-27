@@ -27,7 +27,7 @@ class FlightsGetter {
             }
 
         });
-        /*code for post request
+        /*code for post request TODO add to json adder
         $.ajax({
             url: "api/FlighPlan",
             type: "post", //send it through get method
