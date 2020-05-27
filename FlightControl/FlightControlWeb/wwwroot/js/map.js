@@ -165,7 +165,7 @@ class Map {
         let wrap = this.getWrapper(selected);
         wrap.planeIconReference.setIcon(PlaneIconDeselected);
         //erase the lines
-        removeSegmentsPoly(poly_segments);
+        removeSegmentsPoly(this.polySegments);
     }
 
     removeSegmentsPoly() {

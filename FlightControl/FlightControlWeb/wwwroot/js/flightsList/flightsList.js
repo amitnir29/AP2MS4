@@ -216,6 +216,19 @@ class FlightsList {
      * @param {FlightWrapper} flight
      */
     deleteFlight(flight) {
+        $.ajax({
+            url: "api/Flights/" + flightId,
+            type: 'DELETE', //send it through get method
+
+            success: function (response) {
+                //return JSON.parse(data);
+            },
+            error: function (xhr) {
+                //TODO - pretty alert
+
+            }
+
+        });
         this.removeFlightFromTables(flight.id);
     }
 
