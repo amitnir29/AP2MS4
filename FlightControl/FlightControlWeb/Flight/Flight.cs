@@ -43,7 +43,7 @@ namespace FlightControlWeb.Flight
 
 
         private InitialLocation status;
-        InitialLocation Status
+        public InitialLocation Status
         {
             get => status;
             set => status = value;
