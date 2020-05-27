@@ -58,104 +58,205 @@
 })();
 
 /* end of code from github*/
-let mymap = L.map('mapid').setView([51.505, -0.09], 13);
-L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoidW5kdmlrIiwiYSI6ImNrYWg3amZiNDBkcjcyeW81d3JibHRyaTgifQ.67Dwm_vni6DbznyF0bB1ZA', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox/streets-v11',
-    tileSize: 512,
-    zoomOffset: -1,
-    accessToken: 'your.mapbox.access.token'
-}).addTo(mymap);
-const PlaneIconDeselected = L.icon({
-    iconUrl: '../assets/plane2.webp',
-    shadowUrl: '../assets/blank-pic.png',
+let planeGenericIcon = L.Icon.extend({
+    options: {
+        shadowUrl: '../assets/blank-pic.png',
 
-    iconSize: [84, 85], // size of the icon
-    shadowSize: [50, 64], // size of the shadow
-    iconAnchor: [42, 42], // point of the icon which will correspond to marker's location
-    shadowAnchor: [4, 62],  // the same for the shadow
-    popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+        iconSize: [84, 85], // size of the icon
+        shadowSize: [50, 64], // size of the shadow
+        iconAnchor: [42, 42], // point of the icon which will correspond to marker's location
+        shadowAnchor: [4, 62],  // the same for the shadow
+        popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+    }
 });
-const PlaneIconSelected = L.icon({
-    iconUrl: '../assets/plane-selected.png',
-    shadowUrl: '../assets/blank-pic.png',
 
-    iconSize: [84, 85], // size of the icon
-    shadowSize: [50, 64], // size of the shadow
-    iconAnchor: [42, 42], // point of the icon which will correspond to marker's location
-    shadowAnchor: [4, 62],  // the same for the shadow
-    popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
-});
-function deselectPlane() {
-    //use the deselected texture
-    if (getMarker(selected) != null)
-        getMarker(selected).setIcon(PlaneIconDeselected);
-    //erase the lines
-    removeSegmentsPoly(poly_segments);
-}
-function removeSegmentsPoly(poly_segments) {
-    for (let poly of poly_segments) {
-        poly.remove();
-    }
-    poly_segments = []
-}
-function getMarker(object) {
-    for (let marker of Markers) {
-        if (object == marker)
-            return marker;
-    }
-    return null;
-}
-function drawSegments(segments, poly_segments) {
-    for (let i = 0; i < segments.length - 1; i++) {
-        console.log(segments[i]);
-        let polygon = L.polygon([
-            [segments[i].latitude, segments[i].longitude],
-            [segments[i + 1].latitude, segments[i + 1].longitude]
-            // [51.503, -0.06],
-        ], {
-            color: 'blue',
-            fillColor: '#f03',
-            fillOpacity: 1.0,
-            weight: 8,
-            radius: 500
+const deselectedPlaneIcon = new planeGenericIcon({ iconUrl: '../assets/plane2.webp' }),
+    selectedPlaneIcon = new planeGenericIcon({ iconUrl: '../assets/plane-selected.png' });
+
+class Map {
+    constructor(flightEventHandler) {
+        this.flightEventHandler = flightEventHandler;
+        //initialize map
+        this.mymap = L.map('mapid').setView([51.505, -0.09], 13);
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoidW5kdmlrIiwiYSI6ImNrYWg3amZiNDBkcjcyeW81d3JibHRyaTgifQ.67Dwm_vni6DbznyF0bB1ZA', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            maxZoom: 18,
+            id: 'mapbox/streets-v11',
+            tileSize: 512,
+            zoomOffset: -1,
+            accessToken: 'your.mapbox.access.token'
         }).addTo(mymap);
-        console.log(polygon);
-        poly_segments.push(polygon);
-    }
-}
-//function of event clicking on plane
-function clickOnPlane(e) {
+        mymap.on('click', this.onMapClick);
 
-    //console.log(document.getElementById("flightDetails").children.item(1).innerHTML = "this is a flight details");
-    const fd = document.getElementById("flightDetails");
-    fd.innerHTML = "<h3>flight details</h3>\
-    <p> Flight details</p >";
-    console.log(e.target);
-    //if we clicked on the same plane, do nothing
-    if (selected === e.sourceTarget) { }
-    else {
-        //remove the last one polys
+        this.polySegments = [];
+        this.selected = null;
+        this.selectedId = -1;
+        this.locations = {};
+        this.colors = ['red', 'blue', 'purple', 'Indigo', 'green', 'cyan', 'olive', 'pink', 'Teal', 'Chocolate', 'Black', 'gray', 'LawnGreen','DarkBlue']
+    }
+
+    updateFlights(flightWrappers) {
+        //erase the previous icons
+        for (let wrapper in this.flightWrappers) {
+            if (!wrapper in flightWrappers)
+                wrapper.planeIconReference.remove();
+        }
+        let flag = true;
+        //erase the current segments and flight details, only if the plane didnt disspear
+        for (let newWrapper in this.flightWrappers) {
+            if (newWrapper.id == this.selectedId) {
+                flag = false;
+            }
+        }
+        //if didn't find the plane
+        if (flag) {
+            removeSegmentsPoly();
+            this.flightEventHandler.eraseFlightDetails();
+        }
+
+        //update with the new flights
+        this.flightWrappers = flightWrappers;
+        //draw new icons and link them to the wrappers
+        for (wrapper of this.flightWrappers) {
+
+            //caculate the angle of the plane
+            //log-log/lat-lat
+            //default val for first run
+            let angle = 45;
+            let idkey = wrapper.id;
+            if ((idkey in this.locations)) {
+                m = (wrapper.flightDetails.longitude - this.locations.idkey.longitude) / (wrapper.flightDetails.latitude - this.locations.idkey.latitude);
+                let theta = Math.atan2(m);
+                //the default picure is in 45 degress angle
+                angle = (theta * 180 / Math.PI) - 45;
+            }
+            let long = wrapper.flightDetails.longitude;
+            let lat = wrapper.flightDetails.latitude;
+            let planeMarker = L.marker([lat, long], { icon: deselectedPlaneIcon, rotationAngle: angle, rotationOrigin: "center" }).on('click', this.clickOnPlane).addTo(this.mymap);
+            wrapper.planeIconReference = planeMarker;
+            cords = {
+                "latitude": lat,
+                "longitude": long,
+            }
+            this.locations.idkey = cords;
+        }
+
+    }
+
+    //deselect the plane if clicked on map
+    onMapClick(event) {
+        if (selected != null) {
+            this.flightEventHandler.hidePressedFlight(selected);
+            /*deselectPlane();
+            selected = null;
+            this.selectedId = -1;*/
+            
+
+        }
+        //this.selected = null;
+
+        //get the correct 
+        //const fd = document.getElementById("flightDetails");
+        //fd.innerHTML = "";
+    }
+
+    deselectPlane() {
+        //use the deselected texture
+        let wrap = this.getWrapper(selected);
+        wrap.planeIconReference.setIcon(PlaneIconDeselected);
+        //erase the lines
         removeSegmentsPoly(poly_segments);
-        selected = e.target;
-        //get its segments somehow, request to server or store in client- TBD
-        drawSegments(segments, poly_segments);
-        //change the icon to be selected
-        if (getMarker(selected) != null)
-            getMarker(selected).setIcon(PlaneIconSelected);
     }
-}
 
-//deselect the plane if clicked on map
-function onMapClick(e) {
-    if (selected != null) {
-        deselectPlane();
-        selected = null;
+    removeSegmentsPoly() {
+        for (let poly of this.polySegments) {
+            poly.remove();
+        }
+        this.polySegments = []
     }
-    const fd = document.getElementById("flightDetails");
-    fd.innerHTML = "";
+    //function of event clicking on plane
+    onClickPlane(e) {
+        //console.log(document.getElementById("flightDetails").children.item(1).innerHTML = "this is a flight details");
+        //console.log(e.target);
+        //if we clicked on the same plane, do nothing
+        //if (selected === e.sourceTarget) { }
+        if (selected != e.sourceTarget) {
+            
+           
+            
+            let wrap = this.getWrapper(selected);
+            this.flightEventHandler.showPressedFlight(wrap);
+            
+
+            
+        }
+    }
+    getWrapper(object) {
+        for (let wrapper of this.flightWrappers) {
+            if (object == marker.planeIconReference)
+                return marker;
+        }
+        return null;
+    }
+    calculateAngle(flight) {
+
+    }
+    showPressedFlight(wrapper, plan) {
+        //save the new selected
+        this.selected = wrapper;
+        this.selectedId = wrapper.id;
+        //remove the last one polys
+        removeSegmentsPoly(this.poly_segments);
+        //change the icon to be a selected one
+        wrap.planeIconReference.setIcon(selectedPlaneIcon);
+        //segments = []
+        this.drawSegments(plan, this.poly_segments);
+    }
+    hidePressedFlight() {
+        deselectPlane();
+        this.selected = null;
+        this.selectedId = -1;
+    }
+    drawSegments(segments, poly_segments) {
+        for (let i = 0; i < segments.length - 1; i++) {
+            console.log(segments[i]);
+            let polygon = L.polygon([
+                [segments[i].latitude, segments[i].longitude],
+                [segments[i + 1].latitude, segments[i + 1].longitude]
+                // [51.503, -0.06],
+            ], {
+                color: array[Math.floor(Math.random() * array.length)],
+                fillColor: '#f03',
+                fillOpacity: 1.0,
+                weight: 8,
+                radius: 500
+            }).addTo(mymap);
+            console.log(polygon);
+            poly_segments.push(polygon);
+        }
+    }
+    deleteFlight(wrapper) {
+        //erase the flight icon
+        wrapper.planeIconReference.remove();
+        //remove from the list of flights
+        const index = this.flightWrappers.indexOf(wrapper);
+        if (index > -1) {
+            this.flightWrappers.splice(index, 1);
+        }
+        //if it was pressed, it was unselected before already
+
+    }
+
 }
+//let mymap = 
+
+
+
+
+
+
+
+
 
 //takes plane object- TBD
 function addPlaneToMap() {
@@ -165,20 +266,20 @@ function addPlaneToMap() {
 
 //important VARS
 //pointer to the selected plane
-let selected = null;
+//let selected = null;
 //an example of segments of a flightplan
-segments = [{ "longitude": -0.08, "latitude": 51.509, }, { "longitude": -0.06, "latitude": 51.503, }, { "longitude": -0.00, "latitude": 53, }, { "longitude": 1, "latitude": 53, }]
+//segments = [{ "longitude": -0.08, "latitude": 51.509, }, { "longitude": -0.06, "latitude": 51.503, }, { "longitude": -0.00, "latitude": 53, }, { "longitude": 1, "latitude": 53, }]
 //array of current drawn segments
-poly_segments = []
+//poly_segments = []
 
 //our test plane marker
-let planeMarker = L.marker([51.5, -0.09], { icon: PlaneIconDeselected, rotationAngle: 45 }).on('click', clickOnPlane).addTo(mymap);
+//let planeMarker = L.marker([51.5, -0.09], { icon: deselectedPlaneIcon, rotationAngle: 45 }).on('click', clickOnPlane).addTo(mymap);
 //list of all plane markers
-let Markers = [planeMarker];
+//let Markers = [planeMarker];
 
 
-mymap.on('click', onMapClick);
-let planeIcon = L.Icon.extend({
+
+/*let planeIcon = L.Icon.extend({
     options: {
         shadowUrl: '../assets/blank-pic.png',
         rotationAngle: 90,
@@ -188,7 +289,7 @@ let planeIcon = L.Icon.extend({
         shadowAnchor: [4, 62],  // the same for the shadow
         popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
     }
-});
+});*/
 
 //let markersLayer = L.featureGroup([planeMarker])
     //.bindPopup('Hello world!')
@@ -222,6 +323,28 @@ let planeIcon = L.Icon.extend({
         console.log("yay");
     }
     // do some stuff…
+    const PlaneIconDeselected = L.icon({
+    iconUrl: '../assets/plane2.webp',
+    shadowUrl: '../assets/blank-pic.png',
+
+    iconSize: [84, 85], // size of the icon
+    shadowSize: [50, 64], // size of the shadow
+    iconAnchor: [42, 42], // point of the icon which will correspond to marker's location
+    shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+
+
+const PlaneIconSelected = L.icon({
+    iconUrl: '../assets/plane-selected.png',
+    shadowUrl: '../assets/blank-pic.png',
+
+    iconSize: [84, 85], // size of the icon
+    shadowSize: [50, 64], // size of the shadow
+    iconAnchor: [42, 42], // point of the icon which will correspond to marker's location
+    shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
 });*/
 //order is long,lat 
 
@@ -235,6 +358,3 @@ let planeIcon = L.Icon.extend({
     //console.log(testPlane);
 });*/
 //mymap.animate = false;
-
-
-
