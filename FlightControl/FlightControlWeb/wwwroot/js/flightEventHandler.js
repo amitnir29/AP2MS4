@@ -54,7 +54,7 @@
         if (_currentPressedFlight !== null) {
             this._currentPressedFlight = null;
             this._flightList.hidePressedFlight(flightWrapper);
-            this._map.hidePressedFlight(flightWrapper);
+            this._map.hidePressedFlight();
             this._flightDetails.hidePressedFlight();
         }
     }
@@ -71,6 +71,7 @@
         if (flightWrapper === this._currentPressedFlight) {
             this._currentPressedFlight = null;
             this._flightDetails.hidePressedFlight();
+            this._map.hidePressedFlight();
         }
         this._flightList.deleteFlight(flightWrapper);
         this._map.deleteFlight(flightWrapper);
