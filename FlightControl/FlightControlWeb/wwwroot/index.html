@@ -28,9 +28,9 @@
 
     <!--TODO remove this one, just test-->
     <script src="js/flightsList/flightListRowStyler.js"></script>
+
 </head>
 <body>
-
     <div class="container">
         <div class="row">
             <div class="col-sm" id="mapAndFlightDetails">
@@ -90,6 +90,12 @@
             </div>
         </div>
     </div>
+
+    <!--call the start of the client-->
+    <script src="js/ClientHandler.js">
+        const c = new ClientHandler();
+        c.startClient();
+    </script>
 
 </body>
 </html>

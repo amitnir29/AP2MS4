@@ -1,8 +1,10 @@
 ﻿class FlightDetails {
 
 
-    constructor() {
+    constructor(flightEventHandler) {
         this._flightDetailsText = document.getElementById("flightDetailsText"); //TODO change to the actual panel.
+        //the flight info click event handler
+        this._flightEventHandler = flightEventHandler;
     }
 
     /**

@@ -1,7 +1,7 @@
 ﻿/**
  * This class handles the flights list.
  * */
-class flightsList {
+class FlightsList {
     constructor(flightEventHandler) {
         //list of local flights
         this._localFlightsArray = null;

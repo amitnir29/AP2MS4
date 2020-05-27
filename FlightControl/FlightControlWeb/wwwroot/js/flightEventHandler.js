@@ -6,7 +6,7 @@
         this._currentPressedFlight = null;
     }
 
-    set flightList(newFlightList) {
+    set flightsList(newFlightList) {
         this._flightList = newFlightList;
     }
     set map(newMap) {

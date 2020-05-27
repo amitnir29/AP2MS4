@@ -248,6 +248,8 @@ class Map {
     }
 
 }
+
+
 //let mymap = 
 
 
@@ -259,6 +261,8 @@ class Map {
 
 
 //takes plane object- TBD
+
+
 function addPlaneToMap() {
     //add to Markers array
     //draw it in correct position
