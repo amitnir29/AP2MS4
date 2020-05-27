@@ -69,7 +69,13 @@ namespace FlightControlWeb.Model
                 await foreach (var server in serversDB.GetIterator())
                 {
                     HTTPClient client = new HTTPClient(server);
-                    externalFlights.Add(client.GetFlights(relativeTo.ToString("yyyy-MM-ddTHH:mm:ssZ")));
+                    var externals = client.GetFlights(relativeTo.ToString("yyyy-MM-ddTHH:mm:ssZ"));
+
+                    foreach(var flight in externals.GetAwaiter().GetResult())
+                    {
+                        flight.IsExternal = true;
+                    }
+                    externalFlights.Add(externals);
                 }
 
                 await localFlights;
