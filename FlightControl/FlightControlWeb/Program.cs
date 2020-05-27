@@ -22,12 +22,12 @@ namespace FlightControlWeb
         /// <param name="args"></param>
         public static void Main(string[] args)
         {
-            //CreateHostBuilder(args).Build().Run();
-            MyFlightsServersDB flightsServers = new MyFlightsServersDB("Data Source=.\\FlightsServersDB.db;Version=3;");
+            CreateHostBuilder(args).Build().Run();
+            //MyFlightsServersDB flightsServers = new MyFlightsServersDB("Data Source=.\\FlightsServersDB.db;Version=3;");
             //flightsServers.PostFlightServer(new FlightServer("AYRTRY", "SERTRY"));
             //flightsServers.PostFlightServer(new FlightServer("AYRTRY2", "SERTRY"));
             //flightsServers.PostFlightServer(new FlightServer("AYRTRY3", "SERTRY1"));
-            flightsServers.DeleteServer("SERTRY");
+            //flightsServers.DeleteServer("SERTRY");
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
