@@ -11,9 +11,10 @@ namespace FlightControlWeb.Model
         public class FlightsHandler: IFlightsModel
         {
 
-            private IFlightsDB dataBase;
-            private IFlightCalculator calculator;
-            private IHTTPClient client;
+            private IFlightsDB flightsDB = new MyFlightsDB();
+            private IFlightsServersDB flightsServersDB = new MyFlightsServersDB();
+            private IServersDB serversDB = new MyServersDB();
+            private IFlightCalculator calculator = new FlightCalculator();
 
             /// <summary>
             /// Get a flight plan from the database and return it.
@@ -22,9 +23,17 @@ namespace FlightControlWeb.Model
             /// <returns> The flight plan. </returns>
             public async Task<FlightPlan> GetFlightPlan(string id)
             {
-                var local = await dataBase.GetFlightPlan(id);
+                var local = await flightsDB.GetFlightPlan(id);
 
-                return local != null ? local : await client.GetFlightPlan(id);
+                if (local != null)
+                    return local;
+
+                var relevantServer = await flightsServersDB.GetFlightServer(id);
+                var server = await serversDB.GetServer(relevantServer.ServerId);
+
+                IHTTPClient client = new HTTPClient(server);
+
+                return await client.GetFlightPlan(id);
             }
 
 
@@ -37,7 +46,7 @@ namespace FlightControlWeb.Model
             {
                 IList<Flight.Flight> flights = new List<Flight.Flight>();
 
-                await foreach (var flightPlan in dataBase.GetIterator())
+                await foreach (var flightPlan in flightsDB.GetIterator())
                 {
                     flights.Add(calculator.CreateFlightFromPlan(flightPlan, relativeTo, false));
                 }
@@ -55,12 +64,24 @@ namespace FlightControlWeb.Model
             {
                 Task<IList<Flight.Flight>> localFlights = GetAllFlights(relativeTo);
 
-                Task<IList<Flight.Flight>> externalFlights = client.GetFlights(relativeTo.ToString("yyyy-MM-ddTHH:mm:ssZ"));
+                IList<Task<IList<Flight.Flight>>> externalFlights = new List<Task<IList<Flight.Flight>>>();
+
+                await foreach (var server in serversDB.GetIterator())
+                {
+                    HTTPClient client = new HTTPClient(server);
+                    externalFlights.Add(client.GetFlights(relativeTo.ToString("yyyy-MM-ddTHH:mm:ssZ")));
+                }
 
                 await localFlights;
-                await externalFlights;
 
-                return localFlights.Result.Union(externalFlights.Result).ToList();
+                var temp = localFlights;
+
+                foreach (var list in externalFlights)
+                {
+                    temp.Result.Concat(list.Result);
+                }
+
+                return temp.Result;
             }
 
 
@@ -71,7 +92,7 @@ namespace FlightControlWeb.Model
             /// <param name="plan"> The flight plan to add. </param>
             public async Task AddFlightPlan(FlightPlan plan)
             {
-                await dataBase.PostFlightPlan(plan);
+                await flightsDB.PostFlightPlan(plan);
             }
 
 
@@ -81,7 +102,7 @@ namespace FlightControlWeb.Model
             /// <param name="id"> The id of the flight to delete. </param>
             public async Task DeleteFlight(string id)
             {
-                await dataBase.DeleteFlightPlan(id);
+                await flightsDB.DeleteFlightPlan(id);
             }
         }
     }
