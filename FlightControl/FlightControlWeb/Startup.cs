@@ -42,8 +42,8 @@ namespace FlightControlWeb
 
             services.AddControllers();
 
-            services.AddSingleton(new MyFlightsDB("Data Source=.\\FlightsServersDB.db;Version=3;"));
-            services.AddSingleton(new MyServersDB("Data Source=.\\FlightsServersDB.db;Version=3;"));
+            services.AddSingleton(new MyFlightsDB("Data Source=.\\MyFlightsDB.db;Version=3;"));
+            services.AddSingleton(new MyServersDB("Data Source=.\\ServersDB.db;Version=3;"));
             services.AddSingleton(new MyFlightsServersDB("Data Source=.\\FlightsServersDB.db;Version=3;"));
         }
 
