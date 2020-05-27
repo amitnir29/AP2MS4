@@ -1,5 +1,6 @@
 ﻿using FlightControlWeb.DB;
 using FlightControlWeb.Flight;
+using FlightControlWeb.Model.HTTPClinet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +8,12 @@ using System.Threading.Tasks;
 
 namespace FlightControlWeb.Model
     {
-        public class FlightsHandler /*: IFlightsModel*/
+        public class FlightsHandler: IFlightsModel
         {
 
             private IFlightsDB dataBase;
             private IFlightCalculator calculator;
+            private IHTTPClient client;
 
             /// <summary>
             /// Get a flight plan from the database and return it.
@@ -20,7 +22,9 @@ namespace FlightControlWeb.Model
             /// <returns> The flight plan. </returns>
             public async Task<FlightPlan> GetFlightPlan(string id)
             {
-                return await dataBase.GetFlightPlan(id);
+                var local = await dataBase.GetFlightPlan(id);
+
+                return local != null ? local : await client.GetFlightPlan(id);
             }
 
 
@@ -47,7 +51,17 @@ namespace FlightControlWeb.Model
             /// </summary>
             /// <param name="relativeTo"> Time at the student's. </param>
             /// <returns> All the flights. </returns>
-            //public async Task<IList<Flight.Flight>> GetAllFlightsSync(DateTime relativeTo);
+            public async Task<IList<Flight.Flight>> GetAllFlightsSync(DateTime relativeTo)
+            {
+                Task<IList<Flight.Flight>> localFlights = GetAllFlights(relativeTo);
+
+                Task<IList<Flight.Flight>> externalFlights = client.GetFlights(relativeTo.ToString("yyyy-MM-ddTHH:mm:ssZ"));
+
+                await localFlights;
+                await externalFlights;
+
+                return localFlights.Result.Union(externalFlights.Result).ToList();
+            }
 
 
 
