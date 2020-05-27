@@ -16,5 +16,11 @@ namespace FlightControlWeb.DB
         public Task DeleteFlightPlan(string id);
 
         public IAsyncEnumerable<FlightPlan> GetIterator();
+<<<<<<< HEAD
     }
 }
+=======
+        //public IAsyncEnumerable<FlightPlan> GetIterator();
+    }
+}
+>>>>>>> server
