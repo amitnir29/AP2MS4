@@ -19,7 +19,13 @@ namespace FlightControlWeb.HTTPServer
         [HttpGet]
         public async Task<IList<Server>> Get()
         {
-            return await dataBase.GetAllServers();
+            IList<Server> servers = new List<Server>();
+            await foreach (var server in dataBase.GetIterator())
+            {
+                servers.Add(server);
+            }
+
+            return servers;
         }
 
         // POST: api/Servers
