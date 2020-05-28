@@ -2,25 +2,29 @@
     /*background-color:darkblue;*/
 }
 
-.flight_details{
+.flight_details {
     border: solid;
     margin-top: 20px;
     padding: 25px;
     box-sizing: border-box;
 }
+
 .container {
-   // border: dotted;
+    // border: dotted;
     box-sizing: border-box;
 }
+
 #mapid {
     height: 400px;
 }
-#planes li{
+
+#planes li {
     height: 40px;
 }
-.btn{
-     float:right;
-     margin-right:300px;
+
+.btn {
+    float: right;
+    margin-right: 300px;
 }
 /*.btn:active, .active {
     background-color: red;
@@ -30,10 +34,15 @@
     margin-top:500px;
 }*/
 
-.pressed-row{
+.pressed-row {
     background-color: lightblue;
 }
 
 .unpressed-row {
     background-color: white;
+}
+
+.table-container {
+    height: 40vh; /*TODO this sets the table height. check if this is a good size*/
+    overflow: auto;
 }
