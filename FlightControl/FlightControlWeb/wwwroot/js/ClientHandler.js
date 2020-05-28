@@ -1,6 +1,13 @@
 ﻿class ClientHandler {
     constructor() {
         this._flightsGetter = new FlightsGetter();
+        //get all the necessary scripts here, instead of in index.html
+        //$.getScript("js/flightsList/flightListRowIdConverter.js");
+        /*var newScript = document.createElement('script');
+        newScript.type = 'text/javascript';
+        newScript.src = 'js/flightsList/flightListRowIdConverter.js';
+        document.getElementsByTagName('head')[0].appendChild(newScript);*/
+
     }
 
     startClient() {
