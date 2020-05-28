@@ -75,6 +75,7 @@ const deselectedPlaneIcon = new planeGenericIcon({ iconUrl: '../assets/plane2.we
 
 class Map {
     constructor(flightEventHandler) {
+        console.log("got to map contsructor");
         this.flightEventHandler = flightEventHandler;
         //initialize map
         this.mymap = L.map('mapid').setView([51.505, -0.09], 13);
@@ -85,8 +86,8 @@ class Map {
             tileSize: 512,
             zoomOffset: -1,
             accessToken: 'your.mapbox.access.token'
-        }).addTo(mymap);
-        mymap.on('click', this.onMapClick);
+        }).addTo(this.mymap);
+        this.mymap.on('click', this.onMapClick);
 
         this.polySegments = [];
         this.selected = null;
