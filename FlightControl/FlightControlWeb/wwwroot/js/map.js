@@ -126,7 +126,8 @@ class Map {
             let angle = 45;
             let idkey = wrapper.id;
             if ((idkey in this.locations)) {
-                m = (wrapper.flightDetails.longitude - this.locations.idkey.longitude) / (wrapper.flightDetails.latitude - this.locations.idkey.latitude);
+                m = (wrapper.flightDetails.longitude - this.locations.idkey.longitude) /
+                    (wrapper.flightDetails.latitude - this.locations.idkey.latitude);
                 let theta = Math.atan2(m);
                 //the default picure is in 45 degress angle
                 angle = (theta * 180 / Math.PI) - 45;

@@ -1,6 +1,6 @@
 ﻿//var dateFormat = require('dateformat');
 class FlightsGetter {
-
+    //TODO remove var
     /**
      * gets a flights array as json from the server, converts it to an array of FlightWrappers.
      * @returns {Array[FlightWrapper]}
@@ -8,9 +8,12 @@ class FlightsGetter {
     getFlights() {
         //+ new Date().getTime()
         let now = new Date();
-        now.setUTCSeconds(Date.now);
+        //now = now.setUTCSeconds(Date.now);
         //dateFormat(now,"yyyy-MM-ddTHH:mm:ssZ");
-        var formatted = $.datepicker.formatDate("yyyy-MM-ddTHH:mm:ssZ", now);
+        
+        //var formatted = $("#datepicker").datepicker.formatDate("yyyy-MM-ddTHH:mm:ssZ", now);
+        let formatted = now.toISOString().split(".")[0] + "Z";
+        console.log(now);
 
         console.error("still haven't implemented the actual communication with the server"); //TODO server request
         let flightsArray; //should be const and get the return value from the server

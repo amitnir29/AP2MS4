@@ -26,73 +26,78 @@
     <title>Hello World</title>
     <link href="css/StyleSheet.css" rel="stylesheet" type="text/css" />
 
-    <!--TODO remove this one, just test-->
+
     <script src="js/flightsList/flightListRowStyler.js"></script>
     <script src="js/flightsGetter.js"></script>
     <script src="js/flightEventHandler.js"></script>
     <script src="js/flightsList/flightListRowIdConverter.js"></script>
     <script src="js/ClientHandler.js"></script>
-
+   
 </head>
-    <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm" id="mapAndFlightDetails">
-                    Map:
-                    <div id="mapid">
-                        <script src="js/map.js">
-                        </script>
-                    </div>
-                    Flight Details:
-                    <div class="flight_details" id="flightDetails">
-                        <script src="js/flightDetails.js">
-                        </script>
-                        <p id="flightDetailsText"></p>
-                    </div>
-                </div>
-                <div class="col-sm" id="flightsLists">
-                    <script src="js/flightsList/flightsList.js">
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm" id="mapAndFlightDetails">
+                Map:
+                <div id="mapid">
+                    <script src="js/map.js">
                     </script>
-                    <button id="testbtn" onclick="aLoc()">add local</button>
-                    <button id="testbtn" onclick="aExt()">add external</button>
-                    <br />
-                    <button id="testbtn" onclick="rlLoc()">remove last local</button>
-                    <button id="testbtn" onclick="rlExt()">remove last external</button>
-                    <br />
-                    <button id="testbtn" onclick="rrLoc()">remove random local</button>
-                    <button id="testbtn" onclick="rrExt()">remove random external</button>
-                    <br />
-                    <!--Local flights list-->
-    <table id="localFlights" class="table table-hover table-striped">
-        <thead>
-            <tr>
-                <th scope="col">
-                    Local Flights
-                </th>
-                <th scope="col">
-                    Delete Flight
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <!--add here the flights-->
-        </tbody>
-    </table>
-    <!--External flights list-->
-    <table id="externalFlights" class="table table-hover table-striped">
-        <thead>
-            <tr>
-                <th scope="col">
-                    External Flights
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <!--add here the flights-->
-        </tbody>
-    </table>
-    </div>
-    </div>
+                </div>
+                Flight Details:
+                <div class="flight_details" id="flightDetails">
+                    <script src="js/flightDetails.js">
+                    </script>
+                    <p id="flightDetailsText"></p>
+                </div>
+            </div>
+            <div class="col-sm" id="flightsLists">
+                <!--TODO remove this include. this is just for testing-->
+                <script src="js/flightsList/flightsList.js">
+                </script>
+                <button id="testbtn" onclick="aLoc()">add local</button>
+                <button id="testbtn" onclick="aExt()">add external</button>
+                <br />
+                <button id="testbtn" onclick="rlLoc()">remove last local</button>
+                <button id="testbtn" onclick="rlExt()">remove last external</button>
+                <br />
+                <button id="testbtn" onclick="rrLoc()">remove random local</button>
+                <button id="testbtn" onclick="rrExt()">remove random external</button>
+                <br />
+                <!--Local flights list-->
+                <div class="table-container">
+                    <table id="localFlights" class="table table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">
+                                    Local Flights
+                                </th>
+                                <th scope="col">
+                                    Delete Flight
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--add here the flights-->
+                        </tbody>
+                    </table>
+                </div>
+                <!--External flights list-->
+                <div class="table-container">
+                    <table id="externalFlights" class="table table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">
+                                    External Flights
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--add here the flights-->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!--call the start of the client-->
@@ -103,5 +108,5 @@
         c.startClient();
     </script>
 
-    </body>
+</body>
 </html>
