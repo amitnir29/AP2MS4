@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29911.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlightControlWeb", "FlightControlWeb\FlightControlWeb.csproj", "{F3BF6130-9C05-43CF-BD4B-8C8CD46A0FCA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightControlWebUnitTests", "FlightControlWebUnitTests\FlightControlWebUnitTests.csproj", "{BD9EA8D3-D875-4220-84DA-4CCA1725896A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F3BF6130-9C05-43CF-BD4B-8C8CD46A0FCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3BF6130-9C05-43CF-BD4B-8C8CD46A0FCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3BF6130-9C05-43CF-BD4B-8C8CD46A0FCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3BF6130-9C05-43CF-BD4B-8C8CD46A0FCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD9EA8D3-D875-4220-84DA-4CCA1725896A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD9EA8D3-D875-4220-84DA-4CCA1725896A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD9EA8D3-D875-4220-84DA-4CCA1725896A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD9EA8D3-D875-4220-84DA-4CCA1725896A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {604D3DB7-919C-481D-908E-7AF436DC9062}
+	EndGlobalSection
+EndGlobal
