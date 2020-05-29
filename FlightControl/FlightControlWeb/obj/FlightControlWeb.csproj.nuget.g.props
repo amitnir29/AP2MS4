@@ -16,7 +16,7 @@
     <Import Project="$(NuGetPackageRoot)entityframework\6.3.0\buildTransitive\EntityFramework.props" Condition="Exists('$(NuGetPackageRoot)entityframework\6.3.0\buildTransitive\EntityFramework.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgEntityFramework Condition=" '$(PkgEntityFramework)' == '' ">C:\Users\Lenovo\.nuget\packages\entityframework\6.3.0</PkgEntityFramework>
-    <PkgSystem_Data_SQLite_EF6 Condition=" '$(PkgSystem_Data_SQLite_EF6)' == '' ">C:\Users\Lenovo\.nuget\packages\system.data.sqlite.ef6\1.0.112.2</PkgSystem_Data_SQLite_EF6>
+    <PkgEntityFramework Condition=" '$(PkgEntityFramework)' == '' ">C:\Users\amit\.nuget\packages\entityframework\6.3.0</PkgEntityFramework>
+    <PkgSystem_Data_SQLite_EF6 Condition=" '$(PkgSystem_Data_SQLite_EF6)' == '' ">C:\Users\amit\.nuget\packages\system.data.sqlite.ef6\1.0.112.2</PkgSystem_Data_SQLite_EF6>
   </PropertyGroup>
 </Project>
