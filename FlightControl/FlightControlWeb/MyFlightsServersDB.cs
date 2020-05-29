@@ -1,9 +1,7 @@
 ﻿using FlightControlWeb.DB;
 using FlightControlWeb.Servers;
-using System;
+using Microsoft.Data.Sqlite;
 using System.Collections.Generic;
-using System.Data.SQLite;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace FlightControlWeb
@@ -19,7 +17,7 @@ namespace FlightControlWeb
 
         public async Task DeleteServer(string serverid)
         {
-            using SQLiteConnection con = new SQLiteConnection(connectionString);
+            using SqliteConnection con = new SQLiteConnection(connectionString);
             await con.OpenAsync();
             using var command = new SQLiteCommand("DELETE FROM FlightsServers WHERE serverid = '" + serverid + "'", con);
             await command.ExecuteNonQueryAsync();
