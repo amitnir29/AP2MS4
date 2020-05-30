@@ -1,9 +1,6 @@
 ﻿using FlightControlWeb.DB;
 using FlightControlWeb.Servers;
-<<<<<<< HEAD
-=======
 using Microsoft.Data.Sqlite;
->>>>>>> origin/servertest
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;

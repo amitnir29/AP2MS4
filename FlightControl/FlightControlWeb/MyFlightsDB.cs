@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-﻿using FlightControlWeb.Flight;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Threading.Tasks;
-using FlightControlWeb.DB;
-using Microsoft.Extensions.Configuration;
-using System.Data.SQLite;
-=======
 ﻿using Dapper;
 using FlightControlWeb.Flight;
 using Microsoft.AspNetCore.Mvc;
@@ -21,7 +11,7 @@ using FlightControlWeb.DB;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using Microsoft.Extensions.Configuration;
->>>>>>> origin/servertest
+
 
 namespace FlightControlWeb
 {

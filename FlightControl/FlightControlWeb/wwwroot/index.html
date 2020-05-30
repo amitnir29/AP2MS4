@@ -101,20 +101,42 @@
     </div>
 
 
+    <script>
+        function submitFile(files) {
+            if (files.length > 0) {
+                let fileReader = new FileReader();
+                fileReader.readAsText(files[0]);
+                $.ajax({
+                    url: "api/FlightPlan",
+                    type: "post", //send it through get method
+                    data: fileReader.result,//the json file
+                    contentType: "application/json",
 
-    <form>
-        <!--- Replace image for the input file tag. By clicking the image file explorer is opened. --->
-        <label for="upload-file">
-            <img src="upload_file.png" id="upload-file-img" />
-        </label>
+             success: function (data) {
+                        //flightsArray = JSON.parse(data);
 
+                console.log("success");
+                    },
+                    error: function (xhr) {
+                        //TODO - pretty alert
+                    }
+
+                });
+            }
+        }
+
+    </script>
+
+
+    <form method="POST" action="uploadFile">
         <!--- Set a maximum file size on the client side. --->
-        <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
-        <input id="upload-file" type="file" />
-        <button type="submit" id="submit-button"> SUBMIT </button>
+        <input type="file" class="custom-file-input" id="jsonFileInput" onchange="submitFile(this.files)" />
+        <label class="custom-file-label" for="jsonFileInput">Choose JSON file</label>
     </form>
 
 
+
+    
 
     <!--call the start of the client-->
 

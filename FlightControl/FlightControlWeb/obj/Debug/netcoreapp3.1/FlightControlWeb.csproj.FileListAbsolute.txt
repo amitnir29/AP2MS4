@@ -255,3 +255,4 @@ F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\net
 F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
 F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\Dapper.dll

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "pY3KcWbK9MAtQ0dGTyNHNGwZFUo1JklsD68I1mi2gk27rzGufhF/C3M7UAGTBWo7u1G/F7VnhZ3rRWs+I6gpEA==",
+  "dgSpecHash": "6gHvyyc2XXk/bizGu3qJQg6lstfb7Iu5DDObN60WVpm6uoIjsdw5SsEC0gp9WycVLe4Rkx81rly56DBgUz6qVQ==",
   "success": true,
   "projectFilePath": "F:\\programming\\Visual Studio\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\carme\\.nuget\\packages\\dapper\\2.0.35\\dapper.2.0.35.nupkg.sha512",
     "C:\\Users\\carme\\.nuget\\packages\\entityframework\\6.3.0\\entityframework.6.3.0.nupkg.sha512",
     "C:\\Users\\carme\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\carme\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
@@ -116,7 +117,7 @@
     "C:\\Users\\carme\\.nuget\\packages\\system.reflection\\4.3.0\\system.reflection.4.3.0.nupkg.sha512",
     "C:\\Users\\carme\\.nuget\\packages\\system.reflection.emit\\4.3.0\\system.reflection.emit.4.3.0.nupkg.sha512",
     "C:\\Users\\carme\\.nuget\\packages\\system.reflection.emit.ilgeneration\\4.3.0\\system.reflection.emit.ilgeneration.4.3.0.nupkg.sha512",
-    "C:\\Users\\carme\\.nuget\\packages\\system.reflection.emit.lightweight\\4.3.0\\system.reflection.emit.lightweight.4.3.0.nupkg.sha512",
+    "C:\\Users\\carme\\.nuget\\packages\\system.reflection.emit.lightweight\\4.7.0\\system.reflection.emit.lightweight.4.7.0.nupkg.sha512",
     "C:\\Users\\carme\\.nuget\\packages\\system.reflection.extensions\\4.3.0\\system.reflection.extensions.4.3.0.nupkg.sha512",
     "C:\\Users\\carme\\.nuget\\packages\\system.reflection.metadata\\1.6.0\\system.reflection.metadata.1.6.0.nupkg.sha512",
     "C:\\Users\\carme\\.nuget\\packages\\system.reflection.primitives\\4.3.0\\system.reflection.primitives.4.3.0.nupkg.sha512",
