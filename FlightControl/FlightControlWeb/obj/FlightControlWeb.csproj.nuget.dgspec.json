@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Lenovo\\Desktop\\לימודים\\תכנות מתקדם 2\\MS4\\גיבוי עובד חלקי\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj": {}
+    "C:\\Users\\Lenovo\\Desktop\\לימודים\\תכנות מתקדם 2\\MS4\\GitHub\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Lenovo\\Desktop\\לימודים\\תכנות מתקדם 2\\MS4\\גיבוי עובד חלקי\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj": {
+    "C:\\Users\\Lenovo\\Desktop\\לימודים\\תכנות מתקדם 2\\MS4\\GitHub\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lenovo\\Desktop\\לימודים\\תכנות מתקדם 2\\MS4\\גיבוי עובד חלקי\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj",
+        "projectUniqueName": "C:\\Users\\Lenovo\\Desktop\\לימודים\\תכנות מתקדם 2\\MS4\\GitHub\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj",
         "projectName": "FlightControlWeb",
-        "projectPath": "C:\\Users\\Lenovo\\Desktop\\לימודים\\תכנות מתקדם 2\\MS4\\גיבוי עובד חלקי\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj",
+        "projectPath": "C:\\Users\\Lenovo\\Desktop\\לימודים\\תכנות מתקדם 2\\MS4\\GitHub\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj",
         "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lenovo\\Desktop\\לימודים\\תכנות מתקדם 2\\MS4\\גיבוי עובד חלקי\\AP2MS4\\FlightControl\\FlightControlWeb\\obj\\",
+        "outputPath": "C:\\Users\\Lenovo\\Desktop\\לימודים\\תכנות מתקדם 2\\MS4\\GitHub\\AP2MS4\\FlightControl\\FlightControlWeb\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

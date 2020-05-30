@@ -34,66 +34,82 @@
     <script src="js/ClientHandler.js"></script>
 
 </head>
-    <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm" id="mapAndFlightDetails">
-                    Map:
-                    <div id="mapid">
-                        <script src="js/map.js">
-                        </script>
-                    </div>
-                    Flight Details:
-                    <div class="flight_details" id="flightDetails">
-                        <script src="js/flightDetails.js">
-                        </script>
-                        <p id="flightDetailsText"></p>
-                    </div>
-                </div>
-                <div class="col-sm" id="flightsLists">
-                    <script src="js/flightsList/flightsList.js">
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm" id="mapAndFlightDetails">
+                Map:
+                <div id="mapid">
+                    <script src="js/map.js">
                     </script>
-                    <button id="testbtn" onclick="aLoc()">add local</button>
-                    <button id="testbtn" onclick="aExt()">add external</button>
-                    <br />
-                    <button id="testbtn" onclick="rlLoc()">remove last local</button>
-                    <button id="testbtn" onclick="rlExt()">remove last external</button>
-                    <br />
-                    <button id="testbtn" onclick="rrLoc()">remove random local</button>
-                    <button id="testbtn" onclick="rrExt()">remove random external</button>
-                    <br />
-                    <!--Local flights list-->
-    <table id="localFlights" class="table table-hover table-striped">
-        <thead>
-            <tr>
-                <th scope="col">
-                    Local Flights
-                </th>
-                <th scope="col">
-                    Delete Flight
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <!--add here the flights-->
-        </tbody>
-    </table>
-    <!--External flights list-->
-    <table id="externalFlights" class="table table-hover table-striped">
-        <thead>
-            <tr>
-                <th scope="col">
-                    External Flights
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <!--add here the flights-->
-        </tbody>
-    </table>
+                </div>
+                Flight Details:
+                <div class="flight_details" id="flightDetails">
+                    <script src="js/flightDetails.js">
+                    </script>
+                    <p id="flightDetailsText"></p>
+                </div>
+            </div>
+            <div class="col-sm" id="flightsLists">
+                <script src="js/flightsList/flightsList.js">
+                </script>
+                <button id="testbtn" onclick="aLoc()">add local</button>
+                <button id="testbtn" onclick="aExt()">add external</button>
+                <br />
+                <button id="testbtn" onclick="rlLoc()">remove last local</button>
+                <button id="testbtn" onclick="rlExt()">remove last external</button>
+                <br />
+                <button id="testbtn" onclick="rrLoc()">remove random local</button>
+                <button id="testbtn" onclick="rrExt()">remove random external</button>
+                <br />
+                <!--Local flights list-->
+                <table id="localFlights" class="table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">
+                                Local Flights
+                            </th>
+                            <th scope="col">
+                                Delete Flight
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--add here the flights-->
+                    </tbody>
+                </table>
+                <!--External flights list-->
+                <table id="externalFlights" class="table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">
+                                External Flights
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--add here the flights-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-    </div>
-    </div>
+
+
+
+    <form>
+        <!--- Replace image for the input file tag. By clicking the image file explorer is opened. --->
+        <label for="upload-file">
+            <img src="upload_file.png" id="upload-file-img" />
+        </label>
+
+        <!--- Set a maximum file size on the client side. --->
+        <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
+        <input id="upload-file" type="file" />
+        <button type="submit" id="submit-button"> SUBMIT </button>
+    </form>
+
+
 
     <!--call the start of the client-->
 
@@ -103,5 +119,5 @@
         c.startClient();
     </script>
 
-    </body>
+</body>
 </html>
