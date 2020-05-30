@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using FlightControlWeb.Flight;
@@ -32,6 +33,8 @@ namespace FlightControlWeb.HTTPServer
         [HttpPost]
         public async Task Post([FromBody] FlightPlan plan)
         {
+            Debug.WriteLine("c#############################");
+            Debug.WriteLine(plan.Company);
             await flightsModel.AddFlightPlan(plan);
         }
     }

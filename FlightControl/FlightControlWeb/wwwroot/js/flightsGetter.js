@@ -17,13 +17,15 @@ class FlightsGetter {
         let flightsArray; //should be const and get the return value from the server
         //TODO server request
         $.ajax({
-            url: "api/Flights/" + "?relative_to=UTC" + formatted + "&sync_all",
+            url: "api/Flights/" + "?relative_to=" + formatted + "&sync_all",
             type: "get", //send it through get method
 
             success: function (data) {
+                console.log(data);
                 flightsArray= JSON.parse(data);
             },
             error: function (xhr) {
+                console.log(xhr);
                 //TODO - pretty alert
             }
 
@@ -42,6 +44,7 @@ class FlightsGetter {
 
         });*/
         const flightWrappersArray = [];
+        console.log(flightsArray);
         for (flight of flightsArray) {
             flightWrappersArray.push(new FlightWrapper(flight));
         }
