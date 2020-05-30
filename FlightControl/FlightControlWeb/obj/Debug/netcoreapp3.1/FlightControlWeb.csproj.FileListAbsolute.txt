@@ -94,7 +94,6 @@ F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\net
 F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.MvcApplicationPartsAssemblyInfo.cache
 F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.csproj.CopyComplete
 =======
-<<<<<<< HEAD
 C:\Users\amit\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.csprojAssemblyReference.cache
 C:\Users\amit\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.csproj.CoreCompileInputs.cache
 C:\Users\amit\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.MvcApplicationPartsAssemblyInfo.cache
@@ -115,7 +114,6 @@ C:\Users\amit\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\n
 C:\Users\amit\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.dll
 C:\Users\amit\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.pdb
 C:\Users\amit\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.genruntimeconfig.cache
-=======
 C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -201,4 +199,59 @@ C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4
 C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\netstandard2.1\SQLite.Interop.dll
 C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.csproj.CopyComplete
->>>>>>> server
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\Microsoft.Data.Sqlite.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\SQLitePCLRaw.batteries_v2.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\SQLitePCLRaw.nativelibrary.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\SQLitePCLRaw.core.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\SQLitePCLRaw.provider.dynamic_cdecl.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\runtimes\alpine-x64\native\libe_sqlite3.so
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\runtimes\linux-arm\native\libe_sqlite3.so
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\runtimes\linux-arm64\native\libe_sqlite3.so
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\runtimes\linux-armel\native\libe_sqlite3.so
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\runtimes\linux-musl-x64\native\libe_sqlite3.so
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\libe_sqlite3.so
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\runtimes\linux-x86\native\libe_sqlite3.so
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\libe_sqlite3.dylib
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\e_sqlite3.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\e_sqlite3.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\e_sqlite3.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\e_sqlite3.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\EntityFramework.SqlServer.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\EntityFramework.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\System.CodeDom.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\System.Data.SQLite.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\System.Data.SQLite.EF6.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\netstandard2.0\SQLite.Interop.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\netstandard2.1\SQLite.Interop.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\netstandard2.0\SQLite.Interop.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\netstandard2.1\SQLite.Interop.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\netstandard2.0\SQLite.Interop.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\netstandard2.1\SQLite.Interop.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\netstandard2.0\SQLite.Interop.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\netstandard2.1\SQLite.Interop.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
