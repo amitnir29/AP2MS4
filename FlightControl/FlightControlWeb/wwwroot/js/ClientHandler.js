@@ -43,7 +43,7 @@
      */
     async clientIteration(flightsList, map) {
         try {
-        newFlightsArray = await this._flightsGetter.getFlights();
+        let newFlightsArray = await this._flightsGetter.getFlights();
         flightsList.updateFlights(newFlightsArray);
         //TODO call the function of the map
         } catch (e) {
