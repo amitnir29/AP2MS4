@@ -4,9 +4,9 @@
 class FlightsList {
     constructor(flightEventHandler) {
         //list of local flights
-        this._localFlightsArray = null;
+        this._localFlightsArray = [];
         //list of external flights
-        this._externalFlightsArray = null;
+        this._externalFlightsArray = [];
         //dictionary of all flights, with FlightWrapper's id as keys and FlightWrapper as values
         this._allFlightsDict = {};
         //the local flights html table
@@ -28,7 +28,7 @@ class FlightsList {
      */
     updateFlights(newFlights) {
         const flightsDivisor = new FlightsDivisor();
-        twoFlightsObject = flightsDivisor.divideFlightsToTwoArrays(newFlights, flight => flight.flightDetails.is_external);
+        const twoFlightsObject = flightsDivisor.divideFlightsToTwoArrays(newFlights, flight => flight.flightDetails.is_external);
         const newLocalFlights = twoFlightsObject.trueFlightsArray;
         const newExternalFlights = twoFlightsObject.falseFlightsArray;
         //first remove gone flights: 

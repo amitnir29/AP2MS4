@@ -41,9 +41,13 @@
      * @param {FlightsList} flightsList
      * @param {Map} map
      */
-    clientIteration(flightsList, map) {
-        newFlightsArray = this._flightsGetter.getFlights();
+    async clientIteration(flightsList, map) {
+        try {
+        let newFlightsArray = await this._flightsGetter.getFlights();
         flightsList.updateFlights(newFlightsArray);
         //TODO call the function of the map
+        } catch (e) {
+            console.log(e);
+        }
     }
 }

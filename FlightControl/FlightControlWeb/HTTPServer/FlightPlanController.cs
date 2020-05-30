@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+<<<<<<< HEAD
+=======
+using System.Diagnostics;
+>>>>>>> origin/servertest
 using System.Linq;
 using System.Threading.Tasks;
 using FlightControlWeb.Flight;
@@ -32,6 +36,11 @@ namespace FlightControlWeb.HTTPServer
         [HttpPost]
         public async Task Post([FromBody] FlightPlan plan)
         {
+<<<<<<< HEAD
+=======
+            Debug.WriteLine("c#############################");
+            Debug.WriteLine(plan.Company);
+>>>>>>> origin/servertest
             await flightsModel.AddFlightPlan(plan);
         }
     }

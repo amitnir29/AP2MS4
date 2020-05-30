@@ -32,7 +32,8 @@
     <script src="js/flightEventHandler.js"></script>
     <script src="js/flightsList/flightListRowIdConverter.js"></script>
     <script src="js/ClientHandler.js"></script>
-   
+    <script src="js/flightsList/flightsDivisor.js"></script>
+    <script src="js/flightWrapper.js"></script>
 </head>
 <body>
     <div class="container">
@@ -51,7 +52,6 @@
                 </div>
             </div>
             <div class="col-sm" id="flightsLists">
-                <!--TODO remove this include. this is just for testing-->
                 <script src="js/flightsList/flightsList.js">
                 </script>
                 <button id="testbtn" onclick="aLoc()">add local</button>
@@ -99,6 +99,22 @@
             </div>
         </div>
     </div>
+
+
+
+    <form>
+        <!--- Replace image for the input file tag. By clicking the image file explorer is opened. --->
+        <label for="upload-file">
+            <img src="upload_file.png" id="upload-file-img" />
+        </label>
+
+        <!--- Set a maximum file size on the client side. --->
+        <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
+        <input id="upload-file" type="file" />
+        <button type="submit" id="submit-button"> SUBMIT </button>
+    </form>
+
+
 
     <!--call the start of the client-->
 

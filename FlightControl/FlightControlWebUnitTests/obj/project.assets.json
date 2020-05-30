@@ -9,6 +9,43 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+      "Dapper/2.0.35": {
+        "type": "package",
+        "dependencies": {
+          "System.Reflection.Emit.Lightweight": "4.7.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Dapper.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Dapper.dll": {}
+        }
+      },
+      "EntityFramework/6.3.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "4.6.0",
+          "System.CodeDom": "4.6.0",
+          "System.ComponentModel.Annotations": "4.6.0",
+          "System.Configuration.ConfigurationManager": "4.6.0",
+          "System.Data.SqlClient": "4.7.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/EntityFramework.SqlServer.dll": {},
+          "lib/netstandard2.1/EntityFramework.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/EntityFramework.SqlServer.dll": {},
+          "lib/netstandard2.1/EntityFramework.dll": {}
+        },
+        "build": {
+          "buildTransitive/EntityFramework.props": {},
+          "buildTransitive/EntityFramework.targets": {}
+        }
+      },
+>>>>>>> origin/servertest
       "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -55,6 +92,27 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Razor.Runtime.dll": {}
         }
       },
+<<<<<<< HEAD
+=======
+      "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {}
+        }
+      },
+      "Microsoft.Bcl.HashCode/1.1.0": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.1/Microsoft.Bcl.HashCode.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/Microsoft.Bcl.HashCode.dll": {}
+        }
+      },
+>>>>>>> origin/servertest
       "Microsoft.CodeAnalysis.Analyzers/2.9.4": {
         "type": "package",
         "build": {
@@ -309,6 +367,7 @@
           "build/netstandard1.0/Microsoft.CodeCoverage.targets": {}
         }
       },
+<<<<<<< HEAD
       "Microsoft.Extensions.DependencyInjection/3.1.0": {
         "type": "package",
         "dependencies": {
@@ -379,6 +438,8 @@
           "build/netstandard1.0/Microsoft.CodeCoverage.targets": {}
         }
       },
+=======
+>>>>>>> origin/servertest
       "Microsoft.CSharp/4.6.0": {
         "type": "package",
         "compile": {
@@ -568,7 +629,10 @@
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.4"
+<<<<<<< HEAD
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
         },
         "compile": {
           "lib/netcoreapp3.1/Microsoft.Extensions.DependencyInjection.dll": {}
@@ -578,10 +642,14 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
       "Microsoft.Extensions.DependencyInjection.Abstractions/3.1.0": {
 =======
       "Microsoft.Extensions.DependencyInjection.Abstractions/3.1.4": {
 >>>>>>> FlightsModel
+=======
+      "Microsoft.Extensions.DependencyInjection.Abstractions/3.1.4": {
+>>>>>>> origin/servertest
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
@@ -591,7 +659,10 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> origin/servertest
       "Microsoft.Extensions.DependencyModel/3.1.4": {
         "type": "package",
         "dependencies": {
@@ -650,7 +721,10 @@
           "lib/netcoreapp3.1/Microsoft.Extensions.Primitives.dll": {}
         }
       },
+<<<<<<< HEAD
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
       "Microsoft.NET.Test.Sdk/16.5.0": {
         "type": "package",
         "dependencies": {
@@ -666,10 +740,14 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
       "Microsoft.NETCore.Platforms/2.1.2": {
 =======
       "Microsoft.NETCore.Platforms/3.0.0": {
 >>>>>>> FlightsModel
+=======
+      "Microsoft.NETCore.Platforms/3.0.0": {
+>>>>>>> origin/servertest
         "type": "package",
         "compile": {
           "lib/netstandard1.0/_._": {}
@@ -927,6 +1005,9 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/servertest
       "Microsoft.VisualStudio.Web.CodeGeneration/3.1.3": {
         "type": "package",
         "dependencies": {
@@ -1044,6 +1125,7 @@
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
         }
       },
+<<<<<<< HEAD
       "MSTest.TestAdapter/2.1.0": {
         "type": "package",
         "dependencies": {
@@ -1067,6 +1149,8 @@
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
         }
       },
+=======
+>>>>>>> origin/servertest
       "Microsoft.Win32.Registry/4.6.0": {
         "type": "package",
         "dependencies": {
@@ -1119,7 +1203,10 @@
         }
       },
       "MSTest.TestFramework/2.1.0": {
+<<<<<<< HEAD
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
         "type": "package",
         "compile": {
           "lib/netstandard1.0/Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll": {},
@@ -1180,6 +1267,9 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/servertest
       "Newtonsoft.Json/11.0.2": {
         "type": "package",
         "compile": {
@@ -1187,6 +1277,7 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+<<<<<<< HEAD
 =======
       "Newtonsoft.Json/9.0.1": {
         "type": "package",
@@ -1220,6 +1311,8 @@
         "runtime": {
           "lib/netstandard1.0/Newtonsoft.Json.dll": {}
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
         }
       },
       "NuGet.Frameworks/5.0.0": {
@@ -1272,7 +1365,10 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> origin/servertest
       "runtime.native.System.Data.SqlClient.sni/4.6.0": {
         "type": "package",
         "dependencies": {
@@ -1281,7 +1377,10 @@
           "runtime.win-x86.runtime.native.System.Data.SqlClient.sni": "4.4.0"
         }
       },
+<<<<<<< HEAD
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
       "runtime.native.System.IO.Compression/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -1414,7 +1513,10 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> origin/servertest
       "runtime.win-arm64.runtime.native.System.Data.SqlClient.sni/4.4.0": {
         "type": "package",
         "runtimeTargets": {
@@ -1442,6 +1544,36 @@
           }
         }
       },
+<<<<<<< HEAD
+=======
+      "SQLite/3.13.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard1.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/libsqlite3.so": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/osx-x64/native/libsqlite3.dylib": {
+            "assetType": "native",
+            "rid": "osx-x64"
+          },
+          "runtimes/win7-x64/native/sqlite3.dll": {
+            "assetType": "native",
+            "rid": "win7-x64"
+          },
+          "runtimes/win7-x86/native/sqlite3.dll": {
+            "assetType": "native",
+            "rid": "win7-x86"
+          }
+        }
+      },
+>>>>>>> origin/servertest
       "SQLitePCLRaw.bundle_e_sqlite3/2.0.2": {
         "type": "package",
         "dependencies": {
@@ -1458,7 +1590,11 @@
           "lib/netcoreapp3.0/SQLitePCLRaw.nativelibrary.dll": {}
         }
       },
+<<<<<<< HEAD
       "SQLitePCLRaw.core/2.0.2": {
+=======
+      "SQLitePCLRaw.core/2.0.3": {
+>>>>>>> origin/servertest
         "type": "package",
         "dependencies": {
           "System.Memory": "4.5.3"
@@ -1541,7 +1677,10 @@
           "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll": {}
         }
       },
+<<<<<<< HEAD
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
       "System.AppContext/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -1571,7 +1710,10 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> origin/servertest
       "System.CodeDom/4.6.0": {
         "type": "package",
         "compile": {
@@ -1581,7 +1723,10 @@
           "lib/netstandard2.0/System.CodeDom.dll": {}
         }
       },
+<<<<<<< HEAD
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
       "System.Collections/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -1615,10 +1760,14 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
       "System.Collections.Immutable/1.5.0": {
 =======
       "System.Collections.Immutable/1.7.1": {
 >>>>>>> FlightsModel
+=======
+      "System.Collections.Immutable/1.7.1": {
+>>>>>>> origin/servertest
         "type": "package",
         "compile": {
           "lib/netstandard2.0/System.Collections.Immutable.dll": {}
@@ -1628,6 +1777,18 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+      "System.ComponentModel.Annotations/4.7.0": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.1/System.ComponentModel.Annotations.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/System.ComponentModel.Annotations.dll": {}
+        }
+      },
+>>>>>>> origin/servertest
       "System.Composition/1.0.31": {
         "type": "package",
         "dependencies": {
@@ -1742,6 +1903,7 @@
           "lib/netstandard1.0/System.Composition.TypedParts.dll": {}
         }
       },
+<<<<<<< HEAD
       "System.Console/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -1763,6 +1925,8 @@
           "lib/netstandard2.1/System.ComponentModel.Annotations.dll": {}
         }
       },
+=======
+>>>>>>> origin/servertest
       "System.Configuration.ConfigurationManager/4.6.0": {
         "type": "package",
         "dependencies": {
@@ -1873,7 +2037,10 @@
         },
         "runtime": {
           "lib/netstandard2.1/System.Data.SQLite.EF6.dll": {}
+<<<<<<< HEAD
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
         }
       },
       "System.Diagnostics.Debug/4.3.0": {
@@ -1888,6 +2055,7 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
       "System.Diagnostics.DiagnosticSource/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -1900,11 +2068,16 @@
         "compile": {
           "lib/netstandard1.3/_._": {}
 =======
+=======
+>>>>>>> origin/servertest
       "System.Diagnostics.DiagnosticSource/4.7.1": {
         "type": "package",
         "compile": {
           "lib/netstandard1.3/System.Diagnostics.DiagnosticSource.dll": {}
+<<<<<<< HEAD
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
         },
         "runtime": {
           "lib/netstandard1.3/System.Diagnostics.DiagnosticSource.dll": {}
@@ -1977,6 +2150,7 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
       "System.Globalization/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -1987,6 +2161,8 @@
         "compile": {
           "ref/netstandard1.3/System.Globalization.dll": {}
 =======
+=======
+>>>>>>> origin/servertest
       "System.Drawing.Common/4.6.0": {
         "type": "package",
         "dependencies": {
@@ -2010,6 +2186,7 @@
           }
         }
       },
+<<<<<<< HEAD
       "System.Dynamic.Runtime/4.0.11": {
         "type": "package",
         "dependencies": {
@@ -2036,6 +2213,8 @@
           "lib/netstandard1.3/System.Dynamic.Runtime.dll": {}
         }
       },
+=======
+>>>>>>> origin/servertest
       "System.Globalization/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -2045,7 +2224,10 @@
         },
         "compile": {
           "ref/netstandard1.3/System.Globalization.dll": {}
+<<<<<<< HEAD
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
         }
       },
       "System.Globalization.Calendars/4.3.0": {
@@ -2361,6 +2543,7 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
       "System.Reflection.Emit.Lightweight/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -2375,6 +2558,8 @@
         "runtime": {
           "lib/netstandard1.3/System.Reflection.Emit.Lightweight.dll": {}
 =======
+=======
+>>>>>>> origin/servertest
       "System.Reflection.Emit.Lightweight/4.7.0": {
         "type": "package",
         "compile": {
@@ -2382,7 +2567,10 @@
         },
         "runtime": {
           "lib/netcoreapp2.0/_._": {}
+<<<<<<< HEAD
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
         }
       },
       "System.Reflection.Extensions/4.3.0": {
@@ -2398,6 +2586,9 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/servertest
       "System.Reflection.Metadata/1.6.0": {
         "type": "package",
         "compile": {
@@ -2407,8 +2598,11 @@
           "lib/netstandard2.0/System.Reflection.Metadata.dll": {}
         }
       },
+<<<<<<< HEAD
 =======
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
       "System.Reflection.Primitives/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -2457,6 +2651,9 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/servertest
       "System.Runtime.CompilerServices.Unsafe/4.5.2": {
         "type": "package",
         "compile": {
@@ -2466,8 +2663,11 @@
           "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         }
       },
+<<<<<<< HEAD
 =======
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
       "System.Runtime.Extensions/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -2548,6 +2748,7 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       "System.Runtime.Serialization.Primitives/4.1.1": {
         "type": "package",
@@ -2562,6 +2763,8 @@
           "lib/netstandard1.3/System.Runtime.Serialization.Primitives.dll": {}
         }
       },
+=======
+>>>>>>> origin/servertest
       "System.Security.AccessControl/4.6.0": {
         "type": "package",
         "dependencies": {
@@ -2581,7 +2784,10 @@
           }
         }
       },
+<<<<<<< HEAD
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
       "System.Security.Cryptography.Algorithms/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -2757,7 +2963,10 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> origin/servertest
       "System.Security.Cryptography.ProtectedData/4.6.0": {
         "type": "package",
         "compile": {
@@ -2773,7 +2982,10 @@
           }
         }
       },
+<<<<<<< HEAD
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
       "System.Security.Cryptography.X509Certificates/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -2818,6 +3030,7 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
       "System.Text.Encoding/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -2858,6 +3071,22 @@
         }
       },
       "System.Security.Principal.Windows/4.6.0": {
+=======
+      "System.Security.Permissions/4.6.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Security.AccessControl": "4.6.0",
+          "System.Windows.Extensions": "4.6.0"
+        },
+        "compile": {
+          "ref/netcoreapp3.0/System.Security.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/System.Security.Permissions.dll": {}
+        }
+      },
+      "System.Security.Principal.Windows/4.6.0": {
+>>>>>>> origin/servertest
         "type": "package",
         "compile": {
           "ref/netcoreapp3.0/System.Security.Principal.Windows.dll": {}
@@ -2871,14 +3100,20 @@
             "rid": "unix"
           },
           "runtimes/win/lib/netcoreapp2.1/System.Security.Principal.Windows.dll": {
+<<<<<<< HEAD
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
             "assetType": "runtime",
             "rid": "win"
           }
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> origin/servertest
       "System.Text.Encoding/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -2890,7 +3125,29 @@
           "ref/netstandard1.3/System.Text.Encoding.dll": {}
         }
       },
+<<<<<<< HEAD
 >>>>>>> FlightsModel
+=======
+      "System.Text.Encoding.CodePages/4.5.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "2.1.2",
+          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/System.Text.Encoding.CodePages.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Text.Encoding.CodePages.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/netcoreapp2.0/System.Text.Encoding.CodePages.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
+        }
+      },
+>>>>>>> origin/servertest
       "System.Text.Encoding.Extensions/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -2904,6 +3161,9 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/servertest
       "System.Text.Encodings.Web/4.5.0": {
         "type": "package",
         "compile": {
@@ -2911,7 +3171,12 @@
         },
         "runtime": {
           "lib/netstandard2.0/System.Text.Encodings.Web.dll": {}
+<<<<<<< HEAD
 =======
+=======
+        }
+      },
+>>>>>>> origin/servertest
       "System.Text.Json/4.7.2": {
         "type": "package",
         "compile": {
@@ -2919,7 +3184,10 @@
         },
         "runtime": {
           "lib/netcoreapp3.0/System.Text.Json.dll": {}
+<<<<<<< HEAD
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
         }
       },
       "System.Text.RegularExpressions/4.3.0": {
@@ -2959,6 +3227,9 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/servertest
       "System.Threading.Tasks.Extensions/4.5.3": {
         "type": "package",
         "compile": {
@@ -2966,6 +3237,7 @@
         },
         "runtime": {
           "lib/netcoreapp2.1/_._": {}
+<<<<<<< HEAD
 =======
       "System.Threading.Tasks.Extensions/4.3.0": {
         "type": "package",
@@ -2980,6 +3252,8 @@
         "runtime": {
           "lib/netstandard1.0/System.Threading.Tasks.Extensions.dll": {}
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
         }
       },
       "System.Threading.Timer/4.3.0": {
@@ -2994,7 +3268,10 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> origin/servertest
       "System.Windows.Extensions/4.6.0": {
         "type": "package",
         "dependencies": {
@@ -3013,7 +3290,10 @@
           }
         }
       },
+<<<<<<< HEAD
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
       "System.Xml.ReaderWriter/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -3103,6 +3383,7 @@
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
 <<<<<<< HEAD
+<<<<<<< HEAD
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.3"
 =======
           "Dapper": "2.0.35",
@@ -3112,6 +3393,17 @@
           "System.Data.SQLite": "1.0.112.2",
           "System.Data.SQLite.Core": "1.0.112.2"
 >>>>>>> FlightsModel
+=======
+          "Dapper": "2.0.35",
+          "Microsoft.Data.Sqlite": "3.1.4",
+          "Microsoft.Data.Sqlite.Core": "3.1.4",
+          "Microsoft.EntityFrameworkCore.Sqlite": "3.1.4",
+          "Microsoft.EntityFrameworkCore.Sqlite.Core": "3.1.4",
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.3",
+          "SQLitePCLRaw.core": "2.0.3",
+          "System.Data.SQLite": "1.0.112.2",
+          "sqlite": "3.13.0"
+>>>>>>> origin/servertest
         },
         "compile": {
           "bin/placeholder/FlightControlWeb.dll": {}
@@ -3158,6 +3450,75 @@
       ]
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    "Dapper/2.0.35": {
+      "sha512": "/xAgd8BO8EDnJ0sURWEV8LptHHvTKxoYiT63YUF2U/yWE2VyUCqR2jcrtEyNngT9Kjzppecz95UKiBla3PnR7g==",
+      "type": "package",
+      "path": "dapper/2.0.35",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "dapper.2.0.35.nupkg.sha512",
+        "dapper.nuspec",
+        "lib/net461/Dapper.dll",
+        "lib/net461/Dapper.xml",
+        "lib/netstandard2.0/Dapper.dll",
+        "lib/netstandard2.0/Dapper.xml"
+      ]
+    },
+    "EntityFramework/6.3.0": {
+      "sha512": "mEvhoXscTyLFMcnbLzKlbWdx6N8fCY2IMe4drjUTMFqOqI4KThnTPXr1m50oXDJAn5PvCy2e90IcwN/OxkJUjg==",
+      "type": "package",
+      "path": "entityframework/6.3.0",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/EntityFramework.props",
+        "build/EntityFramework.targets",
+        "build/Microsoft.Data.Entity.Build.Tasks.dll",
+        "buildTransitive/EntityFramework.props",
+        "buildTransitive/EntityFramework.targets",
+        "content/net40/App.config.install.xdt",
+        "content/net40/App.config.transform",
+        "content/net40/Web.config.install.xdt",
+        "content/net40/Web.config.transform",
+        "entityframework.6.3.0.nupkg.sha512",
+        "entityframework.nuspec",
+        "lib/net40/EntityFramework.SqlServer.dll",
+        "lib/net40/EntityFramework.SqlServer.xml",
+        "lib/net40/EntityFramework.dll",
+        "lib/net40/EntityFramework.xml",
+        "lib/net45/EntityFramework.SqlServer.dll",
+        "lib/net45/EntityFramework.SqlServer.xml",
+        "lib/net45/EntityFramework.dll",
+        "lib/net45/EntityFramework.xml",
+        "lib/netstandard2.1/EntityFramework.SqlServer.dll",
+        "lib/netstandard2.1/EntityFramework.SqlServer.xml",
+        "lib/netstandard2.1/EntityFramework.dll",
+        "lib/netstandard2.1/EntityFramework.xml",
+        "tools/EntityFramework6.PS2.psd1",
+        "tools/EntityFramework6.PS2.psm1",
+        "tools/EntityFramework6.psd1",
+        "tools/EntityFramework6.psm1",
+        "tools/about_EntityFramework6.help.txt",
+        "tools/init.ps1",
+        "tools/install.ps1",
+        "tools/net40/any/ef6.exe",
+        "tools/net40/any/ef6.pdb",
+        "tools/net40/win-x86/ef6.exe",
+        "tools/net40/win-x86/ef6.pdb",
+        "tools/net45/any/ef6.exe",
+        "tools/net45/any/ef6.pdb",
+        "tools/net45/win-x86/ef6.exe",
+        "tools/net45/win-x86/ef6.pdb",
+        "tools/netcoreapp3.0/any/ef6.dll",
+        "tools/netcoreapp3.0/any/ef6.pdb",
+        "tools/netcoreapp3.0/any/ef6.runtimeconfig.json"
+      ]
+    },
+>>>>>>> origin/servertest
     "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
       "sha512": "Y4rs5aMEXY8G7wJo5S3EEt6ltqyOTr/qOeZzfn+hw/fuQj5GppGckMY5psGLETo1U9hcT5MmAhaT5xtusM1b5g==",
       "type": "package",
@@ -3211,6 +3572,61 @@
         "microsoft.aspnetcore.razor.runtime.nuspec"
       ]
     },
+<<<<<<< HEAD
+=======
+    "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
+      "sha512": "yuvf07qFWFqtK3P/MRkEKLhn5r2UbSpVueRziSqj0yJQIKFwG1pq9mOayK3zE5qZCTs0CbrwL9M6R8VwqyGy2w==",
+      "type": "package",
+      "path": "microsoft.bcl.asyncinterfaces/1.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Bcl.AsyncInterfaces.dll",
+        "lib/net461/Microsoft.Bcl.AsyncInterfaces.xml",
+        "lib/netstandard2.0/Microsoft.Bcl.AsyncInterfaces.dll",
+        "lib/netstandard2.0/Microsoft.Bcl.AsyncInterfaces.xml",
+        "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll",
+        "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.xml",
+        "microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
+        "microsoft.bcl.asyncinterfaces.nuspec",
+        "ref/net461/Microsoft.Bcl.AsyncInterfaces.dll",
+        "ref/netstandard2.0/Microsoft.Bcl.AsyncInterfaces.dll",
+        "ref/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "Microsoft.Bcl.HashCode/1.1.0": {
+      "sha512": "J2G1k+u5unBV+aYcwxo94ip16Rkp65pgWFb0R6zwJipzWNMgvqlWeuI7/+R+e8bob66LnSG+llLJ+z8wI94cHg==",
+      "type": "package",
+      "path": "microsoft.bcl.hashcode/1.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Bcl.HashCode.dll",
+        "lib/net461/Microsoft.Bcl.HashCode.xml",
+        "lib/netcoreapp2.1/Microsoft.Bcl.HashCode.dll",
+        "lib/netcoreapp2.1/Microsoft.Bcl.HashCode.xml",
+        "lib/netstandard2.0/Microsoft.Bcl.HashCode.dll",
+        "lib/netstandard2.0/Microsoft.Bcl.HashCode.xml",
+        "lib/netstandard2.1/Microsoft.Bcl.HashCode.dll",
+        "lib/netstandard2.1/Microsoft.Bcl.HashCode.xml",
+        "microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
+        "microsoft.bcl.hashcode.nuspec",
+        "ref/net461/Microsoft.Bcl.HashCode.dll",
+        "ref/netcoreapp2.1/Microsoft.Bcl.HashCode.dll",
+        "ref/netstandard2.0/Microsoft.Bcl.HashCode.dll",
+        "ref/netstandard2.1/Microsoft.Bcl.HashCode.dll",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+>>>>>>> origin/servertest
     "Microsoft.CodeAnalysis.Analyzers/2.9.4": {
       "sha512": "alIJhS0VUg/7x5AsHEoovh/wRZ0RfCSS7k5pDSqpRLTyuMTtRgj6OJJPRApRhJHOGYYsLakf1hKeXFoDwKwNkg==",
       "type": "package",
@@ -3384,6 +3800,7 @@
       "sha512": "NfBz3b5hFSbO+7xsCNryD+p8axsIJFTG7qM3jvMTC/MqYrU6b8E1b6JoRj5rJSOBB+pSunk+CMqyGQTOWHeDUg==",
       "type": "package",
       "path": "microsoft.codeanalysis.workspaces.common/3.3.1",
+<<<<<<< HEAD
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3592,6 +4009,29 @@
         "ref/netstandard2.1/Microsoft.Bcl.HashCode.dll",
         "useSharedDesignerContext.txt",
         "version.txt"
+=======
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Microsoft.CodeAnalysis.Workspaces.dll",
+        "lib/netstandard2.0/Microsoft.CodeAnalysis.Workspaces.pdb",
+        "lib/netstandard2.0/Microsoft.CodeAnalysis.Workspaces.xml",
+        "lib/netstandard2.0/cs/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "lib/netstandard2.0/de/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "lib/netstandard2.0/es/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "lib/netstandard2.0/fr/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "lib/netstandard2.0/it/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "lib/netstandard2.0/ja/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "lib/netstandard2.0/ko/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "lib/netstandard2.0/pl/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "lib/netstandard2.0/pt-BR/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "lib/netstandard2.0/ru/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "lib/netstandard2.0/tr/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "lib/netstandard2.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "lib/netstandard2.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "microsoft.codeanalysis.workspaces.common.3.3.1.nupkg.sha512",
+        "microsoft.codeanalysis.workspaces.common.nuspec"
+>>>>>>> origin/servertest
       ]
     },
     "Microsoft.CodeCoverage/16.5.0": {
@@ -4025,7 +4465,10 @@
         "lib/netstandard2.0/Microsoft.Extensions.Primitives.xml",
         "microsoft.extensions.primitives.3.1.4.nupkg.sha512",
         "microsoft.extensions.primitives.nuspec"
+<<<<<<< HEAD
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
       ]
     },
     "Microsoft.NET.Test.Sdk/16.5.0": {
@@ -4049,16 +4492,22 @@
       ]
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
     "Microsoft.NETCore.Platforms/2.1.2": {
       "sha512": "mOJy3M0UN+LUG21dLGMxaWZEP6xYpQEpLuvuEQBaownaX4YuhH6NmNUlN9si+vNkAS6dwJ//N1O4DmLf2CikVg==",
       "type": "package",
       "path": "microsoft.netcore.platforms/2.1.2",
 =======
+=======
+>>>>>>> origin/servertest
     "Microsoft.NETCore.Platforms/3.0.0": {
       "sha512": "TsETIgVJb/AKoYfSP+iCxkuly5d3inZjTdx/ItZLk2CxY85v8083OBS3uai84kK3/baLnS5/b5XGs6zR7SuuHQ==",
       "type": "package",
       "path": "microsoft.netcore.platforms/3.0.0",
+<<<<<<< HEAD
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -4066,10 +4515,14 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/netstandard1.0/_._",
 <<<<<<< HEAD
+<<<<<<< HEAD
         "microsoft.netcore.platforms.2.1.2.nupkg.sha512",
 =======
         "microsoft.netcore.platforms.3.0.0.nupkg.sha512",
 >>>>>>> FlightsModel
+=======
+        "microsoft.netcore.platforms.3.0.0.nupkg.sha512",
+>>>>>>> origin/servertest
         "microsoft.netcore.platforms.nuspec",
         "runtime.json",
         "useSharedDesignerContext.txt",
@@ -4313,6 +4766,9 @@
       ]
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/servertest
     "Microsoft.VisualStudio.Web.CodeGeneration/3.1.3": {
       "sha512": "17orw41YWWt91nWrStbfwKv/BbnRXx68sZuQqgTCSWIOUME24Q9URF2kGXN08Zr1JND4VTkrTFFh2N/z7WbHQg==",
       "type": "package",
@@ -4725,8 +5181,11 @@
         "microsoft.visualstudio.web.codegenerators.mvc.nuspec"
       ]
     },
+<<<<<<< HEAD
 =======
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
     "Microsoft.Win32.Primitives/4.3.0": {
       "sha512": "9ZQKCWxH7Ijp9BfahvL2Zyf1cJIk8XYLF6Yjzr2yi0b2cOut/HQ31qf1ThHAgCc3WiZMdnWcfJCgN82/0UunxA==",
       "type": "package",
@@ -4766,7 +5225,10 @@
       ]
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> origin/servertest
     "Microsoft.Win32.Registry/4.6.0": {
       "sha512": "Xuqo5Lf5h1eUAbT8sJwNSEgusyEcQQQcza1R8dxJ6q/1vLSU1SG/WxtgiCPAth14dz/IjBXCxWT/+6E9glX33w==",
       "type": "package",
@@ -4843,7 +5305,10 @@
         "version.txt"
       ]
     },
+<<<<<<< HEAD
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
     "MSTest.TestAdapter/2.1.0": {
       "sha512": "roxWjDyH5S+XlibaHM96VswxYq4vfbB53Ys9k3Qr2F1uNH+VpgIbygNQvtZUxSoAaI7aNSMMKA/HBfZPg5QDCA==",
       "type": "package",
@@ -5022,6 +5487,9 @@
       ]
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/servertest
     "Newtonsoft.Json/11.0.2": {
       "sha512": "IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
       "type": "package",
@@ -5030,6 +5498,7 @@
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.md",
+<<<<<<< HEAD
 =======
     "Newtonsoft.Json/9.0.1": {
       "sha512": "U82mHQSKaIk+lpSVCbWYKNavmNH1i5xrExDEquU1i6I5pV6UMOqRnJRSlKO3cMPfcpp0RgDY+8jUXHdQ4IfXvw==",
@@ -5040,6 +5509,8 @@
         ".nupkg.metadata",
         ".signature.p7s",
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
         "lib/net20/Newtonsoft.Json.dll",
         "lib/net20/Newtonsoft.Json.xml",
         "lib/net35/Newtonsoft.Json.dll",
@@ -5051,6 +5522,9 @@
         "lib/netstandard1.0/Newtonsoft.Json.dll",
         "lib/netstandard1.0/Newtonsoft.Json.xml",
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/servertest
         "lib/netstandard1.3/Newtonsoft.Json.dll",
         "lib/netstandard1.3/Newtonsoft.Json.xml",
         "lib/netstandard2.0/Newtonsoft.Json.dll",
@@ -5061,6 +5535,7 @@
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
         "newtonsoft.json.11.0.2.nupkg.sha512",
         "newtonsoft.json.nuspec"
+<<<<<<< HEAD
 =======
         "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.dll",
         "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.xml",
@@ -5070,6 +5545,8 @@
         "newtonsoft.json.nuspec",
         "tools/install.ps1"
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
       ]
     },
     "NuGet.Frameworks/5.0.0": {
@@ -5146,7 +5623,10 @@
       ]
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> origin/servertest
     "runtime.native.System.Data.SqlClient.sni/4.6.0": {
       "sha512": "WRq11dBcJYyAbrUVguvv3BqNGl5ub60mZxUd+xaxNsSOb7tMLQxjbiyD/hF6FSl1akiom7GMttPDa3TW+UmnAQ==",
       "type": "package",
@@ -5162,7 +5642,10 @@
         "version.txt"
       ]
     },
+<<<<<<< HEAD
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
     "runtime.native.System.IO.Compression/4.3.0": {
       "sha512": "INBPonS5QPEgn7naufQFXJEp3zX6L4bwHgJ/ZH78aBTpeNfQMtf7C6VrAFhlq2xxWBveIOWyFzQjJ8XzHMhdOQ==",
       "type": "package",
@@ -5332,7 +5815,10 @@
       ]
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> origin/servertest
     "runtime.win-arm64.runtime.native.System.Data.SqlClient.sni/4.4.0": {
       "sha512": "LbrynESTp3bm5O/+jGL8v0Qg5SJlTV08lpIpFesXjF6uGNMWqFnUQbYBJwZTeua6E/Y7FIM1C54Ey1btLWupdg==",
       "type": "package",
@@ -5381,6 +5867,30 @@
         "version.txt"
       ]
     },
+<<<<<<< HEAD
+=======
+    "SQLite/3.13.0": {
+      "sha512": "MJfRiz2p6aMVOxrxGMdVzhpzI0oxTgZSwC8eVuOpV8L7yYaFUu8q/OFYwv9P0/aZ/pdEu24O6gma6wZJMTun9A==",
+      "type": "package",
+      "path": "sqlite/3.13.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/net45/SQLite.props",
+        "lib/netstandard1.0/_._",
+        "runtimes/linux-x64/native/libsqlite3.so",
+        "runtimes/osx-x64/native/libsqlite3.dylib",
+        "runtimes/win10-arm/nativeassets/uap10.0/sqlite3.dll",
+        "runtimes/win10-x64/nativeassets/uap10.0/sqlite3.dll",
+        "runtimes/win10-x86/nativeassets/uap10.0/sqlite3.dll",
+        "runtimes/win7-x64/native/sqlite3.dll",
+        "runtimes/win7-x86/native/sqlite3.dll",
+        "sqlite-version.txt",
+        "sqlite.3.13.0.nupkg.sha512",
+        "sqlite.nuspec"
+      ]
+    },
+>>>>>>> origin/servertest
     "SQLitePCLRaw.bundle_e_sqlite3/2.0.2": {
       "sha512": "OVPI/nh5AqfLCIKhAYqjCa6AHhc7oKApGcGM3UhMRSerFiBx58nSpGwxVFdMgjOCWZR+fA49nzsnKlWp5hFo8w==",
       "type": "package",
@@ -5399,15 +5909,26 @@
         "sqlitepclraw.bundle_e_sqlite3.nuspec"
       ]
     },
+<<<<<<< HEAD
     "SQLitePCLRaw.core/2.0.2": {
       "sha512": "TFSBX426OelS1tkaVC254NVVlrJIe9YLhWPkEvuqJj2104QpmDmEYOhfdfDJD1E/2SmqDhoRw1ek5cQHj8olcQ==",
       "type": "package",
       "path": "sqlitepclraw.core/2.0.2",
+=======
+    "SQLitePCLRaw.core/2.0.3": {
+      "sha512": "9LO3qT7tP+0qBAQxg/PGLHPcsKri4H2zIiiMEg+7EGrnBbuUnJg1tcfKiiqFtRp74kZSAV6N0ZeSGYiodqYnoQ==",
+      "type": "package",
+      "path": "sqlitepclraw.core/2.0.3",
+>>>>>>> origin/servertest
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/netstandard2.0/SQLitePCLRaw.core.dll",
+<<<<<<< HEAD
         "sqlitepclraw.core.2.0.2.nupkg.sha512",
+=======
+        "sqlitepclraw.core.2.0.3.nupkg.sha512",
+>>>>>>> origin/servertest
         "sqlitepclraw.core.nuspec"
       ]
     },
@@ -5453,7 +5974,10 @@
         "sqlitepclraw.provider.dynamic_cdecl.nuspec"
       ]
     },
+<<<<<<< HEAD
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
     "System.AppContext/4.3.0": {
       "sha512": "fKC+rmaLfeIzUhagxY17Q9siv/sPrjjKcfNg1Ic8IlQkZLipo8ljcaZQu4VtI4Jqbzjc2VTjzGLF6WmsRXAEgA==",
       "type": "package",
@@ -5525,7 +6049,10 @@
       ]
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> origin/servertest
     "System.CodeDom/4.6.0": {
       "sha512": "ArWGZOxPhOaJUd4YgvbTxGZDbVDJHPAOQNiJIpbRDPW6v2NT5xkallQv1zpu8Rwwb5Z3iZ1jwWA4gSQuWgR+jw==",
       "type": "package",
@@ -5549,7 +6076,10 @@
         "version.txt"
       ]
     },
+<<<<<<< HEAD
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
     "System.Collections/4.3.0": {
       "sha512": "3Dcj85/TBdVpL5Zr+gEEBUuFe2icOnLalmEh9hfck1PTYbbyWuZgh4fmm2ysCLTrqLQw6t3TgTyJ+VLp+Qb+Lw==",
       "type": "package",
@@ -5687,6 +6217,7 @@
       ]
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
     "System.Collections.Immutable/1.5.0": {
       "sha512": "EXKiDFsChZW0RjrZ4FYHu9aW6+P4MCgEDCklsVseRfhoO0F+dXeMSsMRAlVXIo06kGJ/zv+2w1a2uc2+kxxSaQ==",
       "type": "package",
@@ -5697,6 +6228,8 @@
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
 =======
+=======
+>>>>>>> origin/servertest
     "System.Collections.Immutable/1.7.1": {
       "sha512": "B43Zsz5EfMwyEbnObwRxW5u85fzJma3lrDeGcSAV1qkhSRTNY5uXAByTn9h9ddNdhM+4/YoLc/CI43umjwIl9Q==",
       "type": "package",
@@ -5709,7 +6242,10 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net461/System.Collections.Immutable.dll",
         "lib/net461/System.Collections.Immutable.xml",
+<<<<<<< HEAD
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
         "lib/netstandard1.0/System.Collections.Immutable.dll",
         "lib/netstandard1.0/System.Collections.Immutable.xml",
         "lib/netstandard1.3/System.Collections.Immutable.dll",
@@ -5719,15 +6255,20 @@
         "lib/portable-net45+win8+wp8+wpa81/System.Collections.Immutable.dll",
         "lib/portable-net45+win8+wp8+wpa81/System.Collections.Immutable.xml",
 <<<<<<< HEAD
+<<<<<<< HEAD
         "system.collections.immutable.1.5.0.nupkg.sha512",
 =======
         "system.collections.immutable.1.7.1.nupkg.sha512",
 >>>>>>> FlightsModel
+=======
+        "system.collections.immutable.1.7.1.nupkg.sha512",
+>>>>>>> origin/servertest
         "system.collections.immutable.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
     },
+<<<<<<< HEAD
 <<<<<<< HEAD
     "System.Composition/1.0.31": {
       "sha512": "I+D26qpYdoklyAVUdqwUBrEIckMNjAYnuPJy/h9dsQItpQwVREkDFs4b4tkBza0kT2Yk48Lcfsv2QQ9hWsh9Iw==",
@@ -5762,6 +6303,8 @@
       "type": "package",
       "path": "system.composition.convention/1.0.31",
 =======
+=======
+>>>>>>> origin/servertest
     "System.ComponentModel.Annotations/4.7.0": {
       "sha512": "0YFqjhp/mYkDGpU0Ye1GjE53HMp9UVfGN7seGpAMttAC0C40v5gw598jCgpbBLMmCo0E5YRLBv5Z2doypO49ZQ==",
       "type": "package",
@@ -5851,6 +6394,7 @@
         "version.txt"
       ]
     },
+<<<<<<< HEAD
     "System.Configuration.ConfigurationManager/4.6.0": {
       "sha512": "gkNklXxdmB3r4SQTUzRhESZAb3MotgDz24XYi2R/bIjJ10SF0KHJ/qTEwi9CLyIAOTjmCo8Vx8+rKldLaiW7Ig==",
       "type": "package",
@@ -5879,12 +6423,49 @@
       "type": "package",
       "path": "system.console/4.3.0",
 >>>>>>> FlightsModel
+=======
+    "System.Composition/1.0.31": {
+      "sha512": "I+D26qpYdoklyAVUdqwUBrEIckMNjAYnuPJy/h9dsQItpQwVREkDFs4b4tkBza0kT2Yk48Lcfsv2QQ9hWsh9Iw==",
+      "type": "package",
+      "path": "system.composition/1.0.31",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "system.composition.1.0.31.nupkg.sha512",
+        "system.composition.nuspec"
+      ]
+    },
+    "System.Composition.AttributedModel/1.0.31": {
+      "sha512": "NHWhkM3ZkspmA0XJEsKdtTt1ViDYuojgSND3yHhTzwxepiwqZf+BCWuvCbjUt4fe0NxxQhUDGJ5km6sLjo9qnQ==",
+      "type": "package",
+      "path": "system.composition.attributedmodel/1.0.31",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/netstandard1.0/System.Composition.AttributedModel.dll",
+        "lib/portable-net45+win8+wp8+wpa81/System.Composition.AttributedModel.dll",
+        "system.composition.attributedmodel.1.0.31.nupkg.sha512",
+        "system.composition.attributedmodel.nuspec"
+      ]
+    },
+    "System.Composition.Convention/1.0.31": {
+      "sha512": "GLjh2Ju71k6C0qxMMtl4efHa68NmWeIUYh4fkUI8xbjQrEBvFmRwMDFcylT8/PR9SQbeeL48IkFxU/+gd0nYEQ==",
+      "type": "package",
+      "path": "system.composition.convention/1.0.31",
+>>>>>>> origin/servertest
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/servertest
         "lib/netstandard1.0/System.Composition.Convention.dll",
         "lib/portable-net45+win8+wp8+wpa81/System.Composition.Convention.dll",
         "system.composition.convention.1.0.31.nupkg.sha512",
@@ -5936,6 +6517,32 @@
         "system.composition.typedparts.nuspec"
       ]
     },
+<<<<<<< HEAD
+=======
+    "System.Configuration.ConfigurationManager/4.6.0": {
+      "sha512": "gkNklXxdmB3r4SQTUzRhESZAb3MotgDz24XYi2R/bIjJ10SF0KHJ/qTEwi9CLyIAOTjmCo8Vx8+rKldLaiW7Ig==",
+      "type": "package",
+      "path": "system.configuration.configurationmanager/4.6.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.Configuration.ConfigurationManager.dll",
+        "lib/net461/System.Configuration.ConfigurationManager.xml",
+        "lib/netstandard2.0/System.Configuration.ConfigurationManager.dll",
+        "lib/netstandard2.0/System.Configuration.ConfigurationManager.xml",
+        "ref/net461/System.Configuration.ConfigurationManager.dll",
+        "ref/net461/System.Configuration.ConfigurationManager.xml",
+        "ref/netstandard2.0/System.Configuration.ConfigurationManager.dll",
+        "ref/netstandard2.0/System.Configuration.ConfigurationManager.xml",
+        "system.configuration.configurationmanager.4.6.0.nupkg.sha512",
+        "system.configuration.configurationmanager.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+>>>>>>> origin/servertest
     "System.Console/4.3.0": {
       "sha512": "DHDrIxiqk1h03m6khKWV2X8p/uvN79rgSqpilL6uzpmSfxfU5ng8VcPtW4qsDsQDHiTv6IPV9TmD5M/vElPNLg==",
       "type": "package",
@@ -5972,6 +6579,7 @@
         "ref/xamarinwatchos10/_._",
         "system.console.4.3.0.nupkg.sha512",
         "system.console.nuspec"
+<<<<<<< HEAD
 =======
         "lib/MonoAndroid10/_._",
         "lib/MonoTouch10/_._",
@@ -6000,6 +6608,8 @@
         "ref/xamarinwatchos10/_._",
         "system.console.4.3.0.nupkg.sha512",
         "system.console.nuspec"
+=======
+>>>>>>> origin/servertest
       ]
     },
     "System.Data.SqlClient/4.7.0": {
@@ -6152,7 +6762,10 @@
         "system.data.sqlite.ef6.1.0.112.2.nupkg.sha512",
         "system.data.sqlite.ef6.nuspec",
         "tools/net40/install.ps1"
+<<<<<<< HEAD
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
       ]
     },
     "System.Diagnostics.Debug/4.3.0": {
@@ -6224,6 +6837,7 @@
       ]
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
     "System.Diagnostics.DiagnosticSource/4.3.0": {
       "sha512": "tD6kosZnTAGdrEa0tZSuFyunMbt/5KYDnHdndJYGqZoNy00XVXyACd5d6KnE1YgYv3ne2CjtAfNXo/fwEhnKUA==",
       "type": "package",
@@ -6234,6 +6848,8 @@
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
 =======
+=======
+>>>>>>> origin/servertest
     "System.Diagnostics.DiagnosticSource/4.7.1": {
       "sha512": "j81Lovt90PDAq8kLpaJfJKV/rWdWuEk6jfV+MBkee33vzYLEUsy4gXK8laa9V2nZlLM9VM9yA/OOQxxPEJKAMw==",
       "type": "package",
@@ -6246,7 +6862,10 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net45/System.Diagnostics.DiagnosticSource.dll",
         "lib/net45/System.Diagnostics.DiagnosticSource.xml",
+<<<<<<< HEAD
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
         "lib/net46/System.Diagnostics.DiagnosticSource.dll",
         "lib/net46/System.Diagnostics.DiagnosticSource.xml",
         "lib/netstandard1.1/System.Diagnostics.DiagnosticSource.dll",
@@ -6256,14 +6875,20 @@
         "lib/portable-net45+win8+wpa81/System.Diagnostics.DiagnosticSource.dll",
         "lib/portable-net45+win8+wpa81/System.Diagnostics.DiagnosticSource.xml",
 <<<<<<< HEAD
+<<<<<<< HEAD
         "system.diagnostics.diagnosticsource.4.3.0.nupkg.sha512",
         "system.diagnostics.diagnosticsource.nuspec"
 =======
+=======
+>>>>>>> origin/servertest
         "system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512",
         "system.diagnostics.diagnosticsource.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
+<<<<<<< HEAD
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
       ]
     },
     "System.Diagnostics.TextWriterTraceListener/4.3.0": {
@@ -6494,7 +7119,10 @@
       ]
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> origin/servertest
     "System.Drawing.Common/4.6.0": {
       "sha512": "2A3spjjoPZnvpVh/sDTzd+0H8ZqTdr+hH/6obB8MMfG81EJ85PmxCKDBxhBVQiA25PliKAZ1sKogDcq9mSnFEA==",
       "type": "package",
@@ -6534,6 +7162,7 @@
         "version.txt"
       ]
     },
+<<<<<<< HEAD
     "System.Dynamic.Runtime/4.0.11": {
       "sha512": "db34f6LHYM0U0JpE+sOmjar27BnqTVkbLJhgfwMpTdgTigG/Hna3m2MYVwnFzGGKnEJk2UXFuoVTr8WUbU91/A==",
       "type": "package",
@@ -6606,6 +7235,8 @@
       ]
     },
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
     "System.Globalization/4.3.0": {
       "sha512": "kYdVd2f2PAdFGblzFswE4hkNANJBKRmsfa2X5LG2AcWE1c7/4t0pYae1L8vfZ5xvE2nK/R9JprtToA61OSHWIg==",
       "type": "package",
@@ -7630,6 +8261,7 @@
       ]
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
     "System.Reflection.Emit.Lightweight/4.3.0": {
       "sha512": "oadVHGSMsTmZsAF864QYN1t1QzZjIcuKU3l2S9cZOwDdDueNTrqq1yRj7koFfIGEnKpt6NjpL3rOzRhs4ryOgA==",
       "type": "package",
@@ -7640,6 +8272,8 @@
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
 =======
+=======
+>>>>>>> origin/servertest
     "System.Reflection.Emit.Lightweight/4.7.0": {
       "sha512": "a4OLB4IITxAXJeV74MDx49Oq2+PsF6Sml54XAFv+2RyWwtDBcabzoxiiJRhdhx+gaohLh4hEGCLQyBozXoQPqA==",
       "type": "package",
@@ -7649,14 +8283,20 @@
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
+<<<<<<< HEAD
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
         "lib/MonoAndroid10/_._",
         "lib/MonoTouch10/_._",
         "lib/net45/_._",
         "lib/netcore50/System.Reflection.Emit.Lightweight.dll",
 <<<<<<< HEAD
+<<<<<<< HEAD
         "lib/netstandard1.3/System.Reflection.Emit.Lightweight.dll",
 =======
+=======
+>>>>>>> origin/servertest
         "lib/netcoreapp2.0/_._",
         "lib/netstandard1.0/System.Reflection.Emit.Lightweight.dll",
         "lib/netstandard1.0/System.Reflection.Emit.Lightweight.xml",
@@ -7664,7 +8304,10 @@
         "lib/netstandard2.0/System.Reflection.Emit.Lightweight.dll",
         "lib/netstandard2.0/System.Reflection.Emit.Lightweight.xml",
         "lib/netstandard2.1/_._",
+<<<<<<< HEAD
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
         "lib/portable-net45+wp8/_._",
         "lib/wp80/_._",
         "lib/xamarinios10/_._",
@@ -7675,9 +8318,13 @@
         "ref/MonoTouch10/_._",
         "ref/net45/_._",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         "ref/netcoreapp2.0/_._",
 >>>>>>> FlightsModel
+=======
+        "ref/netcoreapp2.0/_._",
+>>>>>>> origin/servertest
         "ref/netstandard1.0/System.Reflection.Emit.Lightweight.dll",
         "ref/netstandard1.0/System.Reflection.Emit.Lightweight.xml",
         "ref/netstandard1.0/de/System.Reflection.Emit.Lightweight.xml",
@@ -7690,11 +8337,17 @@
         "ref/netstandard1.0/zh-hans/System.Reflection.Emit.Lightweight.xml",
         "ref/netstandard1.0/zh-hant/System.Reflection.Emit.Lightweight.xml",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         "ref/netstandard2.0/System.Reflection.Emit.Lightweight.dll",
         "ref/netstandard2.0/System.Reflection.Emit.Lightweight.xml",
         "ref/netstandard2.1/_._",
 >>>>>>> FlightsModel
+=======
+        "ref/netstandard2.0/System.Reflection.Emit.Lightweight.dll",
+        "ref/netstandard2.0/System.Reflection.Emit.Lightweight.xml",
+        "ref/netstandard2.1/_._",
+>>>>>>> origin/servertest
         "ref/portable-net45+wp8/_._",
         "ref/wp80/_._",
         "ref/xamarinios10/_._",
@@ -7702,17 +8355,23 @@
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._",
 <<<<<<< HEAD
+<<<<<<< HEAD
         "runtimes/aot/lib/netcore50/_._",
         "system.reflection.emit.lightweight.4.3.0.nupkg.sha512",
         "system.reflection.emit.lightweight.nuspec"
 =======
+=======
+>>>>>>> origin/servertest
         "runtimes/aot/lib/netcore50/System.Reflection.Emit.Lightweight.dll",
         "runtimes/aot/lib/netcore50/System.Reflection.Emit.Lightweight.xml",
         "system.reflection.emit.lightweight.4.7.0.nupkg.sha512",
         "system.reflection.emit.lightweight.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
+<<<<<<< HEAD
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
       ]
     },
     "System.Reflection.Extensions/4.3.0": {
@@ -7773,6 +8432,9 @@
       ]
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/servertest
     "System.Reflection.Metadata/1.6.0": {
       "sha512": "COC1aiAJjCoA5GBF+QKL2uLqEBew4JsCkQmoHKbN3TlOZKa2fKLz5CpiRQKDz0RsAOEGsVKqOD5bomsXq/4STQ==",
       "type": "package",
@@ -7794,8 +8456,11 @@
         "version.txt"
       ]
     },
+<<<<<<< HEAD
 =======
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
     "System.Reflection.Primitives/4.3.0": {
       "sha512": "5RXItQz5As4xN2/YUDxdpsEkMhvw3e6aNveFXUn4Hl/udNTCNhnKp8lT9fnc3MhvGKh1baak5CovpuQUXHAlIA==",
       "type": "package",
@@ -8057,6 +8722,9 @@
       ]
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/servertest
     "System.Runtime.CompilerServices.Unsafe/4.5.2": {
       "sha512": "wprSFgext8cwqymChhrBLu62LMg/1u92bU+VOwyfBimSPVFXtsNqEWC92Pf9ofzJFlk4IHmJA75EDJn1b2goAQ==",
       "type": "package",
@@ -8082,8 +8750,11 @@
         "version.txt"
       ]
     },
+<<<<<<< HEAD
 =======
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
     "System.Runtime.Extensions/4.3.0": {
       "sha512": "guW0uK0fn5fcJJ1tJVXYd7/1h5F+pea1r7FLSOz/f8vPEqbR2ZAknuRDvTQ8PzAilDveOxNjSfr0CHfIQfFk8g==",
       "type": "package",
@@ -8389,6 +9060,7 @@
       ]
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     "System.Runtime.Serialization.Primitives/4.1.1": {
       "sha512": "HZ6Du5QrTG8MNJbf4e4qMO3JRAkIboGT5Fk804uZtg3Gq516S7hAqTm2UZKUHa7/6HUGdVy3AqMQKbns06G/cg==",
@@ -8463,6 +9135,8 @@
         "system.runtime.serialization.primitives.nuspec"
       ]
     },
+=======
+>>>>>>> origin/servertest
     "System.Security.AccessControl/4.6.0": {
       "sha512": "gmlk6khICtVhiUnVBBtlsH0H/5QFDqhTZgtpp3AX14wWE6OIE+BX95NLD+X4AolXnIy/oXpNNmXYnsNfW1KuDQ==",
       "type": "package",
@@ -8509,7 +9183,10 @@
         "version.txt"
       ]
     },
+<<<<<<< HEAD
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
     "System.Security.Cryptography.Algorithms/4.3.0": {
       "sha512": "W1kd2Y8mYSCgc3ULTAZ0hOP2dSdG5YauTb1089T0/kRcN2MpSAW1izOFROrJgxSlMn3ArsgHXagigyi+ibhevg==",
       "type": "package",
@@ -8698,7 +9375,10 @@
       ]
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> origin/servertest
     "System.Security.Cryptography.ProtectedData/4.6.0": {
       "sha512": "zdCsTOakmbAQVyOI6+ZadvXZgzSiFiY5nXAfGUQNGrz3ofc9sjehpXRvqYb3vWUsvloYFILSpiQCjiZVFKRBjA==",
       "type": "package",
@@ -8744,7 +9424,10 @@
         "version.txt"
       ]
     },
+<<<<<<< HEAD
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
     "System.Security.Cryptography.X509Certificates/4.3.0": {
       "sha512": "t2Tmu6Y2NtJ2um0RtcuhP7ZdNNxXEgUm2JeoA/0NvlMjAhKCnM1NX07TDl3244mVp3QU6LPEhT3HTtH1uF7IYw==",
       "type": "package",
@@ -8802,7 +9485,10 @@
       ]
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> origin/servertest
     "System.Security.Permissions/4.6.0": {
       "sha512": "W3Uxog9KCZAmGYsOFHgJnb7L2q+SDbxS3vGnFHmErUnXuIjWYpIh1KVTlua7qmPdrlRCkAcTF9dImv+jciBPOQ==",
       "type": "package",
@@ -8884,7 +9570,10 @@
         "version.txt"
       ]
     },
+<<<<<<< HEAD
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
     "System.Text.Encoding/4.3.0": {
       "sha512": "BiIg+KWaSDOITze6jGQynxg64naAPtqGHBwDrLaCtixsa5bKiR8dpPOHA7ge3C0JJQizJE+sfkz1wV+BAKAYZw==",
       "type": "package",
@@ -8954,6 +9643,9 @@
       ]
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/servertest
     "System.Text.Encoding.CodePages/4.5.1": {
       "sha512": "4J2JQXbftjPMppIHJ7IC+VXQ9XfEagN92vZZNoG12i+zReYlim5dMoXFC1Zzg7tsnKDM7JPo5bYfFK4Jheq44w==",
       "type": "package",
@@ -8989,8 +9681,11 @@
         "version.txt"
       ]
     },
+<<<<<<< HEAD
 =======
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
     "System.Text.Encoding.Extensions/4.3.0": {
       "sha512": "YVMK0Bt/A43RmwizJoZ22ei2nmrhobgeiYwFzC4YAN+nue8RF6djXDMog0UCn+brerQoYVyaS+ghy9P/MUVcmw==",
       "type": "package",
@@ -9060,6 +9755,9 @@
       ]
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/servertest
     "System.Text.Encodings.Web/4.5.0": {
       "sha512": "Xg4G4Indi4dqP1iuAiMSwpiWS54ZghzR644OtsRCm/m/lBMG8dUBhLVN7hLm8NNrNTR+iGbshCPTwrvxZPlm4g==",
       "type": "package",
@@ -9075,7 +9773,14 @@
         "lib/netstandard2.0/System.Text.Encodings.Web.xml",
         "system.text.encodings.web.4.5.0.nupkg.sha512",
         "system.text.encodings.web.nuspec",
+<<<<<<< HEAD
 =======
+=======
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+>>>>>>> origin/servertest
     "System.Text.Json/4.7.2": {
       "sha512": "TcMd95wcrubm9nHvJEQs70rC0H/8omiSGGpU4FQ/ZA1URIqD4pjmFJh2Mfv1yH1eHgJDWTi2hMDXwTET+zOOyg==",
       "type": "package",
@@ -9094,7 +9799,10 @@
         "lib/netstandard2.0/System.Text.Json.xml",
         "system.text.json.4.7.2.nupkg.sha512",
         "system.text.json.nuspec",
+<<<<<<< HEAD
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
@@ -9323,6 +10031,9 @@
       ]
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/servertest
     "System.Threading.Tasks.Extensions/4.5.3": {
       "sha512": "+MvhNtcvIbqmhANyKu91jQnvIRVSTiaOiFNfKWwXGHG48YAb4I/TyH8spsySiPYla7gKal5ZnF3teJqZAximyQ==",
       "type": "package",
@@ -9356,6 +10067,7 @@
         "system.threading.tasks.extensions.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
+<<<<<<< HEAD
 =======
     "System.Threading.Tasks.Extensions/4.3.0": {
       "sha512": "npvJkVKl5rKXrtl1Kkm6OhOUaYGEiF9wFbppFRWSMoApKzt2PiPHT2Bb8a5sAWxprvdOAtvaARS9QYMznEUtug==",
@@ -9373,6 +10085,8 @@
         "system.threading.tasks.extensions.4.3.0.nupkg.sha512",
         "system.threading.tasks.extensions.nuspec"
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
       ]
     },
     "System.Threading.Timer/4.3.0": {
@@ -9431,7 +10145,10 @@
       ]
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> origin/servertest
     "System.Windows.Extensions/4.6.0": {
       "sha512": "GL4izk0KgeyXklUOHViAk7y1IOYVYcn8nDpJZgcCqNzTGv2xd+8rgGgMKMo8G9nvfEuRCrNxWnGc74EiuYH2YA==",
       "type": "package",
@@ -9453,7 +10170,10 @@
         "version.txt"
       ]
     },
+<<<<<<< HEAD
 >>>>>>> FlightsModel
+=======
+>>>>>>> origin/servertest
     "System.Xml.ReaderWriter/4.3.0": {
       "sha512": "GrprA+Z0RUXaR4N7/eW71j1rgMnEnEVlgii49GZyAjTH7uliMnrOU3HNFBr6fEDBCJCIdlVNq9hHbaDR621XBA==",
       "type": "package",
@@ -9739,9 +10459,12 @@
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
+<<<<<<< HEAD
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
           },
+=======
+>>>>>>> origin/servertest
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
