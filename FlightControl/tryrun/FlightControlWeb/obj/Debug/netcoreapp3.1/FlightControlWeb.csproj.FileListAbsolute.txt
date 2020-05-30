@@ -1,0 +1,44 @@
+<<<<<<< HEAD
+C:\Users\amit\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.csprojAssemblyReference.cache
+C:\Users\amit\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.csproj.CoreCompileInputs.cache
+C:\Users\amit\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\amit\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.AssemblyInfoInputs.cache
+C:\Users\amit\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.AssemblyInfo.cs
+C:\Users\amit\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\amit\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\amit\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\Users\amit\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\FlightControlWeb.exe
+C:\Users\amit\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\FlightControlWeb.deps.json
+C:\Users\amit\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\FlightControlWeb.runtimeconfig.json
+C:\Users\amit\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\FlightControlWeb.runtimeconfig.dev.json
+C:\Users\amit\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\FlightControlWeb.dll
+C:\Users\amit\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\FlightControlWeb.pdb
+C:\Users\amit\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.RazorTargetAssemblyInfo.cache
+C:\Users\amit\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\staticwebassets\FlightControlWeb.StaticWebAssets.Manifest.cache
+C:\Users\amit\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\staticwebassets\FlightControlWeb.StaticWebAssets.xml
+C:\Users\amit\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.dll
+C:\Users\amit\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.pdb
+C:\Users\amit\Documents\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.genruntimeconfig.cache
+=======
+C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\FlightControlWeb.exe
+C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.csprojAssemblyReference.cache
+C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.AssemblyInfoInputs.cache
+C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.AssemblyInfo.cs
+C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.RazorTargetAssemblyInfo.cache
+C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\staticwebassets\FlightControlWeb.StaticWebAssets.Manifest.cache
+C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\staticwebassets\FlightControlWeb.StaticWebAssets.xml
+C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\FlightControlWeb.deps.json
+C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\FlightControlWeb.runtimeconfig.json
+C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\FlightControlWeb.runtimeconfig.dev.json
+C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\FlightControlWeb.dll
+C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\FlightControlWeb.pdb
+C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.dll
+C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.pdb
+C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.genruntimeconfig.cache
+C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4\FlightControl\FlightControlWeb\bin\Debug\netcoreapp3.1\FlightsServersDB.db
+>>>>>>> server
+C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\לימודים\תכנות מתקדם 2\MS4\GitHub\AP2MS4\FlightControl\FlightControlWeb\obj\Debug\netcoreapp3.1\FlightControlWeb.MvcApplicationPartsAssemblyInfo.cache
