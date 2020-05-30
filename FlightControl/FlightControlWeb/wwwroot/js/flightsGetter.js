@@ -8,9 +8,10 @@ class FlightsGetter {
     getFlights() {
         //+ new Date().getTime()
         let now = new Date();
-        now.setUTCSeconds(Date.now);
+        //now.setUTCSeconds(Date.now);
         //dateFormat(now,"yyyy-MM-ddTHH:mm:ssZ");
-        var formatted = $.datepicker.formatDate("yyyy-MM-ddTHH:mm:ssZ", now);
+        //var formatted = $.datepicker.formatDate("yyyy-MM-ddTHH:mm:ssZ", now);
+        let formatted = now.toISOString().split(".")[0] + "Z";
 
         console.error("still haven't implemented the actual communication with the server"); //TODO server request
         let flightsArray; //should be const and get the return value from the server

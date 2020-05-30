@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FlightControlWeb.DB;
+using FlightControlWeb.Model;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,6 +32,10 @@ namespace FlightControlWeb
         {
             services.AddControllers();
 
+            services.AddSingleton<IFlightsDB, MyFlightsDB>();
+            services.AddSingleton<IFlightsServersDB, MyFlightsServersDB>();
+            services.AddSingleton<IServersDB, MyServersDB>();
+            services.AddSingleton<IFlightsModel, FlightsHandler>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
