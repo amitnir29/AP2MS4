@@ -103,28 +103,36 @@
 
     <script>
         function submitFile(files) {
-            if (files.length > 0) {
-                let fileReader = new FileReader();
-                fileReader.readAsText(files[0]);
+            files = [...files];
+            files.forEach(uploadFile);
+        }
+        function uploadFile(file) {
+            let reader = new FileReader()
+            reader.onload = function (e) {
+                // The file's text will be printed here
+                //document.write(e.target.result)
+                console.log(e.target.result)
                 $.ajax({
                     url: "api/FlightPlan",
                     type: "post", //send it through get method
-                    data: fileReader.result,//the json file
+                    data: e.target.result,//the json file
                     contentType: "application/json",
 
-             success: function (data) {
+                    success: function (data) {
                         //flightsArray = JSON.parse(data);
-
-                console.log("success");
+                        //consloe
+                        console.log("success in posting json");
+                        console.log(data);
                     },
                     error: function (xhr) {
-                        //TODO - pretty alert
+                        console.log("got to error in posting json");
+                        console.log(xhr);
                     }
 
                 });
-            }
+            };
+            reader.readAsText(file)
         }
-
     </script>
 
 
