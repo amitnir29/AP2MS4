@@ -46,3 +46,11 @@
     height: 40vh; /*TODO this sets the table height. check if this is a good size*/
     overflow: auto;
 }
+label {
+    margin-top: 550px;
+    /*height: 600px;*/
+    background-color: black;
+}
+.alert {
+    margin-top: 40px;
+}
