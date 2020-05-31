@@ -29,12 +29,12 @@ class FlightsGetter {
                     flightsArray = data;
                     console.log("data", data);
 
-                    for (flight of flightsArray) {
+                    for (let flight of flightsArray) {
                         flightWrappersArray.push(new FlightWrapper(flight));
                     }
                 },
                 error: function (xhr) {
-                    console.log(xhr);
+                    //console.log(xhr);
                     //TODO - pretty alert
                 }
 

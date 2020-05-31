@@ -75,7 +75,7 @@ const deselectedPlaneIcon = new planeGenericIcon({ iconUrl: '../assets/plane2.we
 
 class Map {
     constructor(flightEventHandler) {
-        console.log("got to map contsructor");
+        //console.log("got to map contsructor");
         this.flightEventHandler = flightEventHandler;
         //initialize map
         this.mymap = L.map('mapid').setView([51.505, -0.09], 13);
@@ -221,7 +221,7 @@ class Map {
     }
     drawSegments(segments, poly_segments) {
         for (let i = 0; i < segments.length - 1; i++) {
-            console.log(segments[i]);
+            //console.log(segments[i]);
             let polygon = L.polygon([
                 [segments[i].latitude, segments[i].longitude],
                 [segments[i + 1].latitude, segments[i + 1].longitude]
@@ -233,7 +233,7 @@ class Map {
                 weight: 8,
                 radius: 500
             }).addTo(mymap);
-            console.log(polygon);
+            //console.log(polygon);
             poly_segments.push(polygon);
         }
     }

@@ -34,6 +34,9 @@ namespace FlightControlWeb.Flight
         }
 
 
+        public FlightStatus() { }
+
+
         /// <summary>
         /// A constructor.
         /// </summary>

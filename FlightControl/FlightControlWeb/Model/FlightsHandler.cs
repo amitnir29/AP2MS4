@@ -74,7 +74,9 @@ namespace FlightControlWeb.Model
 
                 IList<Task<IList<Flight.Flight>>> externalFlights = new List<Task<IList<Flight.Flight>>>();
 
-                await foreach (var server in serversDB.GetIterator())
+                var serversUpdates = new List<Task>();
+
+            await foreach (var server in serversDB.GetIterator())
                 {
                     HTTPClient client = new HTTPClient(server);
                     var externals = client.GetFlights(relativeTo.ToString("yyyy-MM-ddTHH:mm:ssZ"));
@@ -82,6 +84,8 @@ namespace FlightControlWeb.Model
                     foreach(var flight in externals.GetAwaiter().GetResult())
                     {
                         flight.IsExternal = true;
+                        var serverUpdate = flightsServersDB.PostFlightServer(new Servers.FlightServer(flight.FlightID, server.Id));
+                        serversUpdates.Add(serverUpdate);
                     }
                     externalFlights.Add(externals);
                 }
@@ -93,6 +97,11 @@ namespace FlightControlWeb.Model
                 foreach (var list in externalFlights)
                 {
                     temp.Result.Concat(list.Result);
+                }
+
+                foreach (var update in serversUpdates)
+                {
+                    await update;
                 }
 
                 return temp.Result;

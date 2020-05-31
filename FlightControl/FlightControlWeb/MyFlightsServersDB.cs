@@ -67,7 +67,11 @@ namespace FlightControlWeb
         {
             using SQLiteConnection con = new SQLiteConnection(connectionString);
             await con.OpenAsync();
-            using var command = new SQLiteCommand("INSERT into FlightsServers (flightid, serverid) VALUES (@FId, @SId)", con);
+
+            using var command = new SQLiteCommand("IF NOT EXISTS(select flightid from FlightsServers where flightid=@FId)" +
+                "BEGIN" +
+                "INSERT into FlightsServers (flightid, serverid) VALUES (@FId, @SId)" +
+                "END", con);
             command.Parameters.AddWithValue("@FId", fs.FlightId);
             command.Parameters.AddWithValue("@SId", fs.ServerId);
             try

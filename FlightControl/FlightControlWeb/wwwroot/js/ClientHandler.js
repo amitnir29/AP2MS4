@@ -47,7 +47,7 @@
         flightsList.updateFlights(newFlightsArray);
         //TODO call the function of the map
         } catch (e) {
-            console.log(e);
+            //console.log(e);
         }
     }
 }

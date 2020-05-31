@@ -9,6 +9,8 @@ namespace FlightControlWeb.Flight
 {
     public class FlightPlan
     {
+        private static IIDGenerator idGenerator = new IDGenerator("AYR");
+
         private string id;
         public string GetID()
         {
@@ -52,9 +54,15 @@ namespace FlightControlWeb.Flight
         }
 
 
-        public FlightPlan(string id, int passengers, string company, InitialLocation initialLocation, IList<FlightStatus> segments)
+        public FlightPlan()
         {
-            this.id = id;
+            this.id = idGenerator.GenerateID();
+        }
+
+
+        public FlightPlan(int passengers, string company, InitialLocation initialLocation, IList<FlightStatus> segments)
+        {
+            this.id = idGenerator.GenerateID();
             Passengers = passengers;
             Company = company;
             InitLocation = initialLocation;

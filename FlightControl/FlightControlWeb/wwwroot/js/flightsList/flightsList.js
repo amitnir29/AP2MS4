@@ -66,7 +66,7 @@ class FlightsList {
                     delete this._allFlightsDict[currentFlightWrapperId];
                 } else {
                     //TODO error
-                    console.error("at flightsList.removeGoneFlights, reached 'else' condition in loop");
+                    //console.error("at flightsList.removeGoneFlights, reached 'else' condition in loop");
                 }
             }
         }
@@ -237,22 +237,22 @@ class FlightsList {
 //TODO these are testing functions. delete them when can actually connect to the server.
 
 function checkL(elem) {
-    console.log("local");
-    console.log(document.getElementById(elem));
+    //console.log("local");
+    //console.log(document.getElementById(elem));
     const styler = new FlightListRowStyler();
     styler.makePressed(document.getElementById(elem));
 }
 
 function checkE(elem) {
-    console.log("external");
-    console.log(document.getElementById(elem));
+    //console.log("external");
+    //console.log(document.getElementById(elem));
     const styler = new FlightListRowStyler();
     styler.makePressed(document.getElementById(elem));
 }
 
 function check2(elem) {
-    console.log("delete");
-    console.log(document.getElementById(elem));
+    //console.log("delete");
+    //console.log(document.getElementById(elem));
     const styler = new FlightListRowStyler();
     styler.makeUnpressed(document.getElementById(elem));
 }

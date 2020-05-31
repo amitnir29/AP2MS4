@@ -111,7 +111,7 @@
             reader.onload = function (e) {
                 // The file's text will be printed here
                 //document.write(e.target.result)
-                console.log(e.target.result)
+                //console.log(e.target.result)
                 $.ajax({
                     url: "api/FlightPlan",
                     type: "post", //send it through get method
@@ -121,12 +121,12 @@
                     success: function (data) {
                         //flightsArray = JSON.parse(data);
                         //consloe
-                        console.log("success in posting json");
-                        console.log(data);
+                        //console.log("success in posting json");
+                        //console.log(data);
                     },
                     error: function (xhr) {
-                        console.log("got to error in posting json");
-                        console.log(xhr);
+                        //console.log("got to error in posting json");
+                        //console.log(xhr);
                     }
 
                 });
@@ -150,7 +150,7 @@
 
     <script>
         const c = new ClientHandler();
-        console.log("started client handler");
+        //console.log("started client handler");
         c.startClient();
     </script>
 

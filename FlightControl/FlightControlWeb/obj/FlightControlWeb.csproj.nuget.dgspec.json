@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Documents\\GitHub\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj": {}
+    "C:\\Users\\amit\\Documents\\GitHub\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj": {}
   },
   "projects": {
-    "D:\\Documents\\GitHub\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj": {
+    "C:\\Users\\amit\\Documents\\GitHub\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Documents\\GitHub\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj",
+        "projectUniqueName": "C:\\Users\\amit\\Documents\\GitHub\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj",
         "projectName": "FlightControlWeb",
-        "projectPath": "D:\\Documents\\GitHub\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj",
-        "packagesPath": "C:\\Users\\Ron\\.nuget\\packages\\",
-        "outputPath": "D:\\Documents\\GitHub\\AP2MS4\\FlightControl\\FlightControlWeb\\obj\\",
+        "projectPath": "C:\\Users\\amit\\Documents\\GitHub\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj",
+        "packagesPath": "C:\\Users\\amit\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\amit\\Documents\\GitHub\\AP2MS4\\FlightControl\\FlightControlWeb\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Ron\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\amit\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -54,6 +57,10 @@
               "target": "Package",
               "version": "[3.1.3, )"
             },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            },
             "System.Data.SQLite": {
               "target": "Package",
               "version": "[1.0.112.2, )"
@@ -77,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

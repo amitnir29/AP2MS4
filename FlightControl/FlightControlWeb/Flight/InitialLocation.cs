@@ -34,6 +34,12 @@ namespace FlightControlWeb.Flight
         }
 
 
+        public InitialLocation()
+        {
+
+        }
+
+
         /// <summary>
         /// A constructor.
         /// </summary>
