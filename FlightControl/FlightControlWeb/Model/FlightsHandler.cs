@@ -56,7 +56,9 @@ namespace FlightControlWeb.Model
 
                 await foreach (var flightPlan in flightsDB.GetIterator())
                 {
-                    flights.Add(calculator.CreateFlightFromPlan(flightPlan, relativeTo, false));
+                    var res = calculator.CreateFlightFromPlan(flightPlan, relativeTo, false);
+                    if (res != null)
+                        flights.Add(res);
                 }
 
                 return flights;
@@ -70,6 +72,7 @@ namespace FlightControlWeb.Model
             /// <returns> All the flights. </returns>
             public async Task<IList<Flight.Flight>> GetAllFlightsSync(DateTime relativeTo)
             {
+            Console.WriteLine("start");
                 Task<IList<Flight.Flight>> localFlights = GetAllFlights(relativeTo);
 
                 IList<Task<IList<Flight.Flight>>> externalFlights = new List<Task<IList<Flight.Flight>>>();
@@ -104,6 +107,8 @@ namespace FlightControlWeb.Model
                     await update;
                 }
 
+                Console.WriteLine("hi");
+                Console.WriteLine(temp.Result);
                 return temp.Result;
             }
 
