@@ -28,9 +28,9 @@ class FlightsList {
      */
     updateFlights(newFlights) {
         const flightsDivisor = new FlightsDivisor();
-        const twoFlightsObject = flightsDivisor.divideFlightsToTwoArrays(newFlights, flight => flight.flightDetails.is_external);
-        const newLocalFlights = twoFlightsObject.trueFlightsArray;
-        const newExternalFlights = twoFlightsObject.falseFlightsArray;
+        const twoFlightsObject = flightsDivisor.divideFlightsToTwoArrays(newFlights, flight => flight.is_external);
+        const newLocalFlights = twoFlightsObject.falseFlightsArray;
+        const newExternalFlights = twoFlightsObject.trueFlightsArray;
         //first remove gone flights: 
         this.removeGoneFlights(newLocalFlights, newExternalFlights);
         //now add the new flights:
