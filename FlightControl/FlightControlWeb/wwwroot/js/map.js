@@ -78,7 +78,7 @@ class Map {
         //console.log("got to map contsructor");
         this.flightEventHandler = flightEventHandler;
         //initialize map
-        this.mymap = L.map('mapid').setView([51.505, -0.09], 13);
+        this.mymap = L.map('mapid').setView([51.505, -0.09], 10);
         L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoidW5kdmlrIiwiYSI6ImNrYWg3amZiNDBkcjcyeW81d3JibHRyaTgifQ.67Dwm_vni6DbznyF0bB1ZA', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
             maxZoom: 18,
@@ -88,7 +88,7 @@ class Map {
             accessToken: 'your.mapbox.access.token'
         }).addTo(this.mymap);
         this.mymap.on('click', this.onMapClick);
-
+        this.flightWrappers = [];
         this.polySegments = [];
         this.selected = null;
         this.selectedId = -1;
@@ -97,10 +97,14 @@ class Map {
     }
 
     updateFlights(flightWrappers) {
+        let flightWrappers2 = [...flightWrappers];
         //erase the previous icons
         for (let wrapper in this.flightWrappers) {
-            if (!wrapper in flightWrappers)
-                wrapper.planeIconReference.remove();
+            //if (!wrapper in flightWrappers) {
+            console.log("removed someone");
+            console.log(wrapper);
+            wrapper.planeIconReference.remove();
+           // }
         }
         let flag = true;
         //erase the current segments and flight details, only if the plane didnt disspear
@@ -111,15 +115,16 @@ class Map {
         }
         //if didn't find the plane
         if (flag) {
-            removeSegmentsPoly();
-            this.flightEventHandler.eraseFlightDetails();
+            this.removeSegmentsPoly();
+            //this.flightEventHandler.eraseFlightDetails();
         }
 
         //update with the new flights
-        this.flightWrappers = flightWrappers;
+        this.flightWrappers = flightWrappers2;
+        console.log('this is the wrappers' + this.flightWrappers);
         //draw new icons and link them to the wrappers
-        for (wrapper of this.flightWrappers) {
-
+        for (let wrapper of this.flightWrappers) {
+            console.log("show wrapper");
             //caculate the angle of the plane
             //log-log/lat-lat
             //default val for first run
@@ -134,15 +139,17 @@ class Map {
             }
             let long = wrapper.flightDetails.longitude;
             let lat = wrapper.flightDetails.latitude;
-            let planeMarker = L.marker([lat, long], { icon: deselectedPlaneIcon, rotationAngle: angle, rotationOrigin: "center" }).on('click', this.clickOnPlane).addTo(this.mymap);
+            let planeMarker = L.marker([lat, long], { icon: deselectedPlaneIcon, rotationAngle: angle, rotationOrigin: "center" });
+            planeMarker.on('click', this.clickOnPlane).addTo(this.mymap);
+            console.log(planeMarker);
             wrapper.planeIconReference = planeMarker;
-            cords = {
+            let cords = {
                 "latitude": lat,
                 "longitude": long,
             }
             this.locations.idkey = cords;
         }
-
+        console.log("the last wrappers is", this.flightWrappers);
     }
 
     //deselect the plane if clicked on map
