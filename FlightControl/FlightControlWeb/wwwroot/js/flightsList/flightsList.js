@@ -61,9 +61,11 @@ class FlightsList {
                 if (currentFlightWrapperId in currentLocalFlightsIdSet) {
                     this.removeFlightFromTables(currentFlightWrapperId);
                     delete this._allFlightsDict[currentFlightWrapperId];
+                    this._flightEventHandler.flightRemoved(currentFlightWrapperId);
                 } else if (currentFlightWrapperId in currentExternalFlightsIdSet) {
                     this.removeFlightFromTables(currentFlightWrapperId);
                     delete this._allFlightsDict[currentFlightWrapperId];
+                    this._flightEventHandler.flightRemoved(currentFlightWrapperId);
                 } else {
                     //TODO error
                     //console.error("at flightsList.removeGoneFlights, reached 'else' condition in loop");

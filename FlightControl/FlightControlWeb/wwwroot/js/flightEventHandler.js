@@ -88,6 +88,17 @@
         this._map.deleteFlight(flightWrapper);
     }
 
+    /**
+     * handle remove of flight
+     * @param {string} flightWrapperId
+     */
+    flightRemoved(flightWrapperId) {
+        if (this._currentPressedFlight.id === flightWrapperId) {
+            this._flightDetails.hidePressedFlight();
+            this._currentPressedFlight = null;
+        }
+    }
+
 
 
 }
