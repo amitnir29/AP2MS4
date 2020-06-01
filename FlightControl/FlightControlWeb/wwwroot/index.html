@@ -34,10 +34,13 @@
     <script src="js/ClientHandler.js"></script>
     <script src="js/flightsList/flightsDivisor.js"></script>
     <script src="js/flightWrapper.js"></script>
+    <script src="js/ErrorHandler.js"></script>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="main_class">
+
         <div class="row">
+
             <div class="col-sm" id="mapAndFlightDetails">
                 Map:
                 <div id="mapid">
@@ -50,6 +53,11 @@
                     </script>
                     <p id="flightDetailsText"></p>
                 </div>
+                <form method="POST" action="uploadFile">
+                    <!--- Set a maximum file size on the client side. --->
+                    <input type="file" class="custom-file-input" id="jsonFileInput" onchange="submitFile(this.files)" />
+                    <label class="custom-file-label" for="jsonFileInput">Choose JSON file</label>
+                </form>
             </div>
             <div class="col-sm" id="flightsLists">
                 <script src="js/flightsList/flightsList.js">
@@ -98,6 +106,8 @@
                 </div>
             </div>
         </div>
+        <div class="container" id="error_list">
+        </div>
     </div>
 
 
@@ -121,7 +131,7 @@
                     success: function (data) {
                         //flightsArray = JSON.parse(data);
                         //consloe
-                        //console.log("success in posting json");
+                        console.log("success in posting json");
                         //console.log(data);
                     },
                     error: function (xhr) {
@@ -136,11 +146,7 @@
     </script>
 
 
-    <form method="POST" action="uploadFile">
-        <!--- Set a maximum file size on the client side. --->
-        <input type="file" class="custom-file-input" id="jsonFileInput" onchange="submitFile(this.files)" />
-        <label class="custom-file-label" for="jsonFileInput">Choose JSON file</label>
-    </form>
+   
 
 
 
