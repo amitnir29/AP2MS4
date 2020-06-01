@@ -9,7 +9,7 @@
     }
 
     get planeIconReference() {
-        return this._planeIcon;
+        return this._planeIconReference;
     }
 
     set planeIconReference(newReference) {
