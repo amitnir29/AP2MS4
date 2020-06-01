@@ -147,7 +147,7 @@ class Map {
 
     //deselect the plane if clicked on map
     onMapClick(event) {
-        if (selected != null) {
+        if (this.selected != null) {
             this.flightEventHandler.hidePressedFlight(selected);
             /*deselectPlane();
             selected = null;
@@ -227,7 +227,7 @@ class Map {
                 [segments[i + 1].latitude, segments[i + 1].longitude]
                 // [51.503, -0.06],
             ], {
-                color: array[Math.floor(Math.random() * array.length)],
+                color: array[Math.floor(Math.random() * this.colors.length)],
                 fillColor: '#f03',
                 fillOpacity: 1.0,
                 weight: 8,
