@@ -109,7 +109,7 @@ class Map {
         let flag = true;
         //erase the current segments and flight details, only if the plane didnt disspear
         for (let newWrapper of this.flightWrappers) {
-            if (newWrapper.id == this.selectedId) {
+            if (newWrapper.id === this.selectedId) {
                 flag = false;
             }
         }
@@ -154,7 +154,7 @@ class Map {
 
     //deselect the plane if clicked on map
     onMapClick(event) {
-        if (this.selected != null) {
+        if (this.selected !== null) {
             this.flightEventHandler.hidePressedFlight(selected);
             /*deselectPlane();
             selected = null;
@@ -189,7 +189,7 @@ class Map {
         //console.log(e.target);
         //if we clicked on the same plane, do nothing
         //if (selected === e.sourceTarget) { }
-        if (selected != e.sourceTarget) {
+        if (selected !== e.sourceTarget) {
             
            
             
@@ -202,7 +202,7 @@ class Map {
     }
     getWrapper(object) {
         for (let wrapper of this.flightWrappers) {
-            if (object == marker.planeIconReference)
+            if (object === marker.planeIconReference)
                 return marker;
         }
         return null;
@@ -222,7 +222,7 @@ class Map {
         this.drawSegments(plan, this.poly_segments);
     }
     hidePressedFlight() {
-        deselectPlane();
+        this.deselectPlane();
         this.selected = null;
         this.selectedId = -1;
     }

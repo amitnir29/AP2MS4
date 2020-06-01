@@ -233,7 +233,7 @@ class FlightsList {
      */
     deleteFlight(flight) {
         $.ajax({
-            url: "api/Flights/" + flightId,
+            url: "api/Flights/" + flight.id,
             type: 'DELETE', //send it through get method
 
             success: function (response) {
