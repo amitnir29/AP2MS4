@@ -53,20 +53,20 @@ namespace FlightControlWeb.Flight
 
 
         [JsonPropertyName("longitude")]
-        private double Longitude
+        public double Longitude
         {
             get => status.Longitude;
         }
 
         [JsonPropertyName("latitude")]
-        private double Latitude
+        public double Latitude
         {
             get => status.Latitude;
         }
 
 
         [JsonPropertyName("date_time")]
-        private string Time
+        public string Time
         {
             get => status.Time;
         }
