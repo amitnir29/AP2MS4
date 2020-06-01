@@ -94,6 +94,8 @@ class FlightsList {
             if (!(newLocalFlight.id in this._allFlightsDict)) {
                 //add it to the html
                 this.addTolocalFlightsHtml(newLocalFlight);
+            } else {
+                this.updateFlightHtml(newLocalFlight);
             }
             //add to the dictionary if new, update if existed
             this._allFlightsDict[newLocalFlight.id] = newLocalFlight;
@@ -104,6 +106,8 @@ class FlightsList {
             if (!(newExternalFlight.id in this._allFlightsDict)) {
                 //add it to the html
                 this.addToExternalFlightsHtml(newExternalFlight);
+            } else {
+                this.updateFlightHtml(newLocalFlight);
             }
             //add to the dictionary if new, update if existed
             this._allFlightsDict[newExternalFlight.id] = newExternalFlight;
@@ -121,6 +125,16 @@ class FlightsList {
         s += "company: " + flight.flightDetails.company_name + "\n";
         s += "at coordinates (lon,lat): (" + flight.flightDetails.longitude + "," + flight.flightDetails.latitude + ")"
         return s;
+    }
+
+    /**
+     * update the cell data
+     * @param {FlightWrapper} flight
+     */
+    updateFlightHtml(flight) {
+        const flightRow = document.getElementById(this._idConverter.flightWrapperIdToListRowId(flight.id));
+        const flightData = flightRow.cells[0];
+        flightData.innerHTML = this.flightWrapperDataToShow(flight);
     }
 
     /**
