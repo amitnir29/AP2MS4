@@ -99,7 +99,7 @@ class Map {
     updateFlights(flightWrappers) {
         let flightWrappers2 = [...flightWrappers];
         //erase the previous icons
-        for (let wrapper in this.flightWrappers) {
+        for (let wrapper of this.flightWrappers) {
             //if (!wrapper in flightWrappers) {
             console.log("removed someone");
             console.log(wrapper);
@@ -108,7 +108,7 @@ class Map {
         }
         let flag = true;
         //erase the current segments and flight details, only if the plane didnt disspear
-        for (let newWrapper in this.flightWrappers) {
+        for (let newWrapper of this.flightWrappers) {
             if (newWrapper.id == this.selectedId) {
                 flag = false;
             }
@@ -174,7 +174,7 @@ class Map {
         let wrap = this.getWrapper(selected);
         wrap.planeIconReference.setIcon(PlaneIconDeselected);
         //erase the lines
-        removeSegmentsPoly(this.polySegments);
+        this.removeSegmentsPoly(this.polySegments);
     }
 
     removeSegmentsPoly() {
@@ -215,9 +215,9 @@ class Map {
         this.selected = wrapper;
         this.selectedId = wrapper.id;
         //remove the last one polys
-        removeSegmentsPoly(this.poly_segments);
+        this.removeSegmentsPoly(this.poly_segments);
         //change the icon to be a selected one
-        wrap.planeIconReference.setIcon(selectedPlaneIcon);
+        wrapper.planeIconReference.setIcon(selectedPlaneIcon);
         //segments = []
         this.drawSegments(plan, this.poly_segments);
     }

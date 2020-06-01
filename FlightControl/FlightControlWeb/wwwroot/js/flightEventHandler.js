@@ -20,19 +20,21 @@
      * get the flight plan that matches the input id from the server
      * @param {string} flightId the id of the flight plan to get
      */
-    getFlightPlan(flightId) {
+    async getFlightPlan(flightId) {
+        let flightPlan;
         //TODO server request
-        $.ajax({
+        await $.ajax({
             url: "api/FlightPlan/" + flightId,
             type: "get", //send it through get method
-        success: function (data) {
-            return JSON.parse(data);
+            success: function (data) {
+                flightPlan=data;
         },
         error: function (xhr) {
             //TODO - pretty alert
         }
 
         });
+        return flightPlan;
     }
 
     /**
@@ -62,7 +64,7 @@
      */
     hidePressedFlight(flightWrapper) {
         //if no flight is pressed, do nothing
-        if (_currentPressedFlight !== null) {
+        if (this._currentPressedFlight !== null) {
             this._currentPressedFlight = null;
             this._flightList.hidePressedFlight(flightWrapper);
             this._map.hidePressedFlight();
