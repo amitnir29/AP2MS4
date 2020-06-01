@@ -119,7 +119,7 @@ class Map {
         this.flightWrappers = flightWrappers;
         //draw new icons and link them to the wrappers
         for (wrapper of this.flightWrappers) {
-            console.log("sdasd");
+
             //caculate the angle of the plane
             //log-log/lat-lat
             //default val for first run
@@ -227,7 +227,7 @@ class Map {
                 [segments[i + 1].latitude, segments[i + 1].longitude]
                 // [51.503, -0.06],
             ], {
-                color: this.colors[Math.floor(Math.random() * this.colors.length)],
+                color: array[Math.floor(Math.random() * this.colors.length)],
                 fillColor: '#f03',
                 fillOpacity: 1.0,
                 weight: 8,
