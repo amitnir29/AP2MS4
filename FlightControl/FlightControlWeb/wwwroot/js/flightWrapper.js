@@ -1,7 +1,7 @@
 ﻿class FlightWrapper {
-    constructor(flightJsonObj) {
+    constructor(flightJsonObj, mapPlaneIconReference=null) {
         this._flightDetails = flightJsonObj;
-        this._planeIconReference  = null;
+        this._planeIconReference = mapPlaneIconReference;
     }
 
     get flightDetails() {
