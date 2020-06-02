@@ -42,15 +42,15 @@
      * don't do anything if the new pressed flight is the flight which is already pressed
      * @param {FlightWrapper} flightWrapper the flight to show
      */
-    showPressedFlight(flightWrapper) {
+    async showPressedFlight(flightWrapper) {
         //if this specific flight is already pressed, do nothing.
-        if (flightWrapper !== this._currentPressedFlight) {
+        if (this._currentPressedFlight ===null || flightWrapper.id !== this._currentPressedFlight.id) {
             //first make sure nothing else is pressed
             this.hidePressedFlight(flightWrapper);
             //now set the new pressed
             this._currentPressedFlight = flightWrapper;
             this._flightList.showPressedFlight(flightWrapper);
-            const flightPlan = this.getFlightPlan(flightWrapper.id);
+            const flightPlan = await this.getFlightPlan(flightWrapper.id);
             this._map.showPressedFlight(flightWrapper, flightPlan);
             this._flightDetails.showPressedFlight(flightPlan);
         }
@@ -81,7 +81,7 @@
      * @param {FlightWrapper} flightWrapper the flight to hide
      */
     deleteFlight(flightWrapper) {
-        if (flightWrapper === this._currentPressedFlight) {
+        if (flightWrapper.id === this._currentPressedFlight.id) {
             this._currentPressedFlight = null;
             this._flightDetails.hidePressedFlight();
             this._map.hidePressedFlight();
@@ -95,7 +95,10 @@
      * @param {string} flightWrapperId
      */
     flightRemoved(flightWrapperId) {
-        if (this._currentPressedFlight.id === flightWrapperId) {
+        if (this._currentPressedFlight === null) {
+            //TODO print error
+        }
+        else if (this._currentPressedFlight.id === flightWrapperId) {
             this._flightDetails.hidePressedFlight();
             this._currentPressedFlight = null;
         }

@@ -1,12 +1,12 @@
 ﻿//var dateFormat = require('dateformat');
 class FlightsGetter {
 
-    /*
+    
     constructor() {
         //dictionary from flight id to flight wrappers. saves the flights of previous iteration.
         this._prevFlights = {};
     }
-    */
+    
 
     /**
      * gets a flights array as json from the server, converts it to an array of FlightWrappers.
@@ -18,7 +18,7 @@ class FlightsGetter {
 
         let flightsArray;
         const flightWrappersArray = [];
-        console.log("sending GET of " + "api/Flights/" + "?relative_to=" + formatted + "&sync_all");
+        //console.log("sending GET of " + "api/Flights/" + "?relative_to=" + formatted + "&sync_all");
         let getPlaneIconFunc = this.getPlaneIcon;
 
         await $.ajax({
@@ -30,7 +30,7 @@ class FlightsGetter {
                 // do other actions
                 //TODO here we should get the JSON
                 flightsArray = data;
-                console.log("data", data);
+                //console.log("data", data);
                 ErrorHandler.showError("Hello there general kenobi");
                 
             },
@@ -42,10 +42,10 @@ class FlightsGetter {
 
         });
         for (let flight of flightsArray) {
-            //const planeIcon = this.getPlaneIcon(flight.flight_id);
-            flightWrappersArray.push(new FlightWrapper(flight));
+            const planeIcon = this.getPlaneIcon(flight.flight_id);
+            flightWrappersArray.push(new FlightWrapper(flight, planeIcon));
         }
-        //this.setNewFlightsDict(flightWrappersArray);
+        this.setNewFlightsDict(flightWrappersArray);
         return flightWrappersArray;
 
     }
@@ -57,20 +57,20 @@ class FlightsGetter {
      * return null if this flight is not in previous flights dict.
      * @param {string} id of the flight to get its plane icon.
      */
-    /*
+    
     getPlaneIcon(id) {
         if (id in this._prevFlights) {
             return this._prevFlights[id].planeIconReference;
         }
         return null;
     }
-    */
+    
     
     /**
      * get an array of the new flight wrappers and set the dictionary
      * @param {Array[FlightWrapper]} flightWrappersArray
      */
-    /*
+    
     setNewFlightsDict(flightWrappersArray) {
         //empty the dict.
         this._prevFlights = {};
@@ -79,6 +79,6 @@ class FlightsGetter {
             this._prevFlights[flightWrapper.id] = flightWrapper;
         }
     }
-    */
+    
     
 }
