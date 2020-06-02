@@ -27,11 +27,11 @@
             url: "api/FlightPlan/" + flightId,
             type: "get", //send it through get method
             success: function (data) {
-                flightPlan=data;
-        },
-        error: function (xhr) {
-            //TODO - pretty alert
-        }
+                flightPlan = data;
+            },
+            error: function (xhr) {
+                //TODO - pretty alert
+            }
 
         });
         return flightPlan;
@@ -44,9 +44,11 @@
      */
     async showPressedFlight(flightWrapper) {
         //if this specific flight is already pressed, do nothing.
-        if (this._currentPressedFlight ===null || flightWrapper.id !== this._currentPressedFlight.id) {
+        if (this._currentPressedFlight === null || flightWrapper.id !== this._currentPressedFlight.id) {
             //first make sure nothing else is pressed
-            this.hidePressedFlight(flightWrapper);
+            if (this._currentPressedFlight !== null) {
+                this.hidePressedFlight(this._currentPressedFlight);
+            }
             //now set the new pressed
             this._currentPressedFlight = flightWrapper;
             this._flightList.showPressedFlight(flightWrapper);
