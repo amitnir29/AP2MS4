@@ -46,6 +46,7 @@ namespace FlightControlWeb
 
             services.AddControllers();
 
+
             services.AddSingleton<IFlightsDB, MyFlightsDB>();
             services.AddSingleton<IFlightsServersDB, MyFlightsServersDB>();
             services.AddSingleton<IServersDB, MyServersDB>();

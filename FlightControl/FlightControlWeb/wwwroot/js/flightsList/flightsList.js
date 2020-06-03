@@ -28,9 +28,9 @@ class FlightsList {
      */
     updateFlights(newFlights) {
         const flightsDivisor = new FlightsDivisor();
-        const twoFlightsObject = flightsDivisor.divideFlightsToTwoArrays(newFlights, flight => flight.flightDetails.is_external);
-        const newLocalFlights = twoFlightsObject.trueFlightsArray;
-        const newExternalFlights = twoFlightsObject.falseFlightsArray;
+        const twoFlightsObject = flightsDivisor.divideFlightsToTwoArrays(newFlights, flight => flight.is_external);
+        const newLocalFlights = twoFlightsObject.falseFlightsArray;
+        const newExternalFlights = twoFlightsObject.trueFlightsArray;
         //first remove gone flights: 
         this.removeGoneFlights(newLocalFlights, newExternalFlights);
         //now add the new flights:
@@ -61,12 +61,14 @@ class FlightsList {
                 if (currentFlightWrapperId in currentLocalFlightsIdSet) {
                     this.removeFlightFromTables(currentFlightWrapperId);
                     delete this._allFlightsDict[currentFlightWrapperId];
+                    this._flightEventHandler.flightRemoved(currentFlightWrapperId);
                 } else if (currentFlightWrapperId in currentExternalFlightsIdSet) {
                     this.removeFlightFromTables(currentFlightWrapperId);
                     delete this._allFlightsDict[currentFlightWrapperId];
+                    this._flightEventHandler.flightRemoved(currentFlightWrapperId);
                 } else {
                     //TODO error
-                    console.error("at flightsList.removeGoneFlights, reached 'else' condition in loop");
+                    //console.error("at flightsList.removeGoneFlights, reached 'else' condition in loop");
                 }
             }
         }
@@ -94,6 +96,8 @@ class FlightsList {
             if (!(newLocalFlight.id in this._allFlightsDict)) {
                 //add it to the html
                 this.addTolocalFlightsHtml(newLocalFlight);
+            } else {
+                this.updateFlightHtml(newLocalFlight);
             }
             //add to the dictionary if new, update if existed
             this._allFlightsDict[newLocalFlight.id] = newLocalFlight;
@@ -104,6 +108,8 @@ class FlightsList {
             if (!(newExternalFlight.id in this._allFlightsDict)) {
                 //add it to the html
                 this.addToExternalFlightsHtml(newExternalFlight);
+            } else {
+                this.updateFlightHtml(newLocalFlight);
             }
             //add to the dictionary if new, update if existed
             this._allFlightsDict[newExternalFlight.id] = newExternalFlight;
@@ -117,10 +123,20 @@ class FlightsList {
      */
     flightWrapperDataToShow(flight) {
         let s = "";
-        s += "fight id: " + flight.id + "\n";
-        s += "company: " + flight.flightDetails.company_name + "\n";
-        s += "at coordinates (lon,lat): (" + flight.flightDetails.longitude + "," + flight.flightDetails.latitude + ")"
+        s += "fight id: " + flight.id;
+        s += ", company: " + flight.flightDetails.company_name;
+        s += ", at coordinates (lon,lat): (" + flight.flightDetails.longitude + "," + flight.flightDetails.latitude + ")"
         return s;
+    }
+
+    /**
+     * update the cell data
+     * @param {FlightWrapper} flight
+     */
+    updateFlightHtml(flight) {
+        const flightRow = document.getElementById(this._idConverter.flightWrapperIdToListRowId(flight.id));
+        const flightData = flightRow.cells[0];
+        flightData.innerHTML = this.flightWrapperDataToShow(flight);
     }
 
     /**
@@ -140,12 +156,16 @@ class FlightsList {
         rowData.onclick = e => this.callFlightOnClick(this.clickEventToFlightWrapperId(e));
         //add text for the cell
         rowData.innerHTML = this.flightWrapperDataToShow(flight);
+        //set the css styling
+        rowData.classList.add("flight-row-data");
         //add the cell that deletes the flight
         const rowDeleteButton = newRow.insertCell(-1);
         //add function call onclick to show this flight
         rowDeleteButton.onclick = e => this.callFlightDeleteEvent(this.clickEventToFlightWrapperId(e));
         //add delete image
         rowDeleteButton.innerHTML = "DELETE";//TODO change to image
+        //set the css styling
+        rowDeleteButton.classList.add("flight-delete");
     }
 
     /**
@@ -163,6 +183,8 @@ class FlightsList {
         const rowData = newRow.insertCell(-1);
         //add function call onclick to show this flight
         rowData.onclick = e => this.callFlightOnClick(this.clickEventToFlightWrapperId(e));
+        //set the css styling
+        rowData.classList.add("flight-row-data");
         //add text for the cell
         rowData.innerHTML = this.flightWrapperDataToShow(flight);
     }
@@ -217,7 +239,7 @@ class FlightsList {
      */
     deleteFlight(flight) {
         $.ajax({
-            url: "api/Flights/" + flightId,
+            url: "api/Flights/" + flight.id,
             type: 'DELETE', //send it through get method
 
             success: function (response) {
@@ -235,24 +257,24 @@ class FlightsList {
 }
 
 //TODO these are testing functions. delete them when can actually connect to the server.
-
+/*
 function checkL(elem) {
-    console.log("local");
-    console.log(document.getElementById(elem));
+    //console.log("local");
+    //console.log(document.getElementById(elem));
     const styler = new FlightListRowStyler();
     styler.makePressed(document.getElementById(elem));
 }
 
 function checkE(elem) {
-    console.log("external");
-    console.log(document.getElementById(elem));
+    //console.log("external");
+    //console.log(document.getElementById(elem));
     const styler = new FlightListRowStyler();
     styler.makePressed(document.getElementById(elem));
 }
 
 function check2(elem) {
-    console.log("delete");
-    console.log(document.getElementById(elem));
+    //console.log("delete");
+    //console.log(document.getElementById(elem));
     const styler = new FlightListRowStyler();
     styler.makeUnpressed(document.getElementById(elem));
 }
@@ -321,3 +343,5 @@ function rlLoc() {
 function rlExt() {
     document.getElementById("externalFlights").deleteRow(document.getElementById("externalFlights").rows.length - 1);
 }
+
+*/

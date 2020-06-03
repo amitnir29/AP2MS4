@@ -43,10 +43,32 @@ namespace FlightControlWeb.Flight
 
 
         private InitialLocation status;
+
+        [JsonIgnore]
         public InitialLocation Status
         {
             get => status;
             set => status = value;
+        }
+
+
+        [JsonPropertyName("longitude")]
+        public double Longitude
+        {
+            get => status.Longitude;
+        }
+
+        [JsonPropertyName("latitude")]
+        public double Latitude
+        {
+            get => status.Latitude;
+        }
+
+
+        [JsonPropertyName("date_time")]
+        public string Time
+        {
+            get => status.Time;
         }
 
 

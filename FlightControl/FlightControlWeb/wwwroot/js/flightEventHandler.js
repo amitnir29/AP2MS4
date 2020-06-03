@@ -20,19 +20,22 @@
      * get the flight plan that matches the input id from the server
      * @param {string} flightId the id of the flight plan to get
      */
-    getFlightPlan(flightId) {
+    async getFlightPlan(flightId) {
+        let flightPlan;
         //TODO server request
-        $.ajax({
+        await $.ajax({
             url: "api/FlightPlan/" + flightId,
             type: "get", //send it through get method
-        success: function (data) {
-            return JSON.parse(data);
-        },
-        error: function (xhr) {
-            //TODO - pretty alert
-        }
+            success: function (data) {
+                flightPlan = data;
+            },
+            error: function (xhr) {
+                //TODO - pretty alert
+                ErrorHandler.showError("Wasn't able to get flightplan");
+            }
 
         });
+        return flightPlan;
     }
 
     /**
@@ -40,15 +43,17 @@
      * don't do anything if the new pressed flight is the flight which is already pressed
      * @param {FlightWrapper} flightWrapper the flight to show
      */
-    showPressedFlight(flightWrapper) {
+    async showPressedFlight(flightWrapper) {
         //if this specific flight is already pressed, do nothing.
-        if (flightWrapper !== this._currentPressedFlight) {
+        if (this._currentPressedFlight === null || flightWrapper.id !== this._currentPressedFlight.id) {
             //first make sure nothing else is pressed
-            this.hidePressedFlight(flightWrapper);
+            if (this._currentPressedFlight !== null) {
+                this.hidePressedFlight(this._currentPressedFlight);
+            }
             //now set the new pressed
             this._currentPressedFlight = flightWrapper;
             this._flightList.showPressedFlight(flightWrapper);
-            const flightPlan = this.getFlightPlan(flightWrapper.id);
+            const flightPlan = await this.getFlightPlan(flightWrapper.id);
             this._map.showPressedFlight(flightWrapper, flightPlan);
             this._flightDetails.showPressedFlight(flightPlan);
         }
@@ -62,7 +67,7 @@
      */
     hidePressedFlight(flightWrapper) {
         //if no flight is pressed, do nothing
-        if (_currentPressedFlight !== null) {
+        if (this._currentPressedFlight !== null) {
             this._currentPressedFlight = null;
             this._flightList.hidePressedFlight(flightWrapper);
             this._map.hidePressedFlight();
@@ -79,13 +84,27 @@
      * @param {FlightWrapper} flightWrapper the flight to hide
      */
     deleteFlight(flightWrapper) {
-        if (flightWrapper === this._currentPressedFlight) {
+        if (this._currentPressedFlight!==null && flightWrapper.id === this._currentPressedFlight.id) {
             this._currentPressedFlight = null;
             this._flightDetails.hidePressedFlight();
             this._map.hidePressedFlight();
         }
         this._flightList.deleteFlight(flightWrapper);
         this._map.deleteFlight(flightWrapper);
+    }
+
+    /**
+     * handle remove of flight
+     * @param {string} flightWrapperId
+     */
+    flightRemoved(flightWrapperId) {
+        if (this._currentPressedFlight === null) {
+            //TODO print error
+        }
+        else if (this._currentPressedFlight.id === flightWrapperId) {
+            this._flightDetails.hidePressedFlight();
+            this._currentPressedFlight = null;
+        }
     }
 
 

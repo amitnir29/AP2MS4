@@ -14,6 +14,7 @@
         //milliseconds between each iteration
         const intervalLength = 1500;
         const secondCallDelay = 250;
+        ///const secondCallDelay = 25000000;
         //init the flightEventHandler
         const flightEventHandler = new FlightEventHandler();
         //init the screen parts
@@ -45,7 +46,7 @@
         try {
         let newFlightsArray = await this._flightsGetter.getFlights();
         flightsList.updateFlights(newFlightsArray);
-        //TODO call the function of the map
+        map.updateFlights(newFlightsArray);
         } catch (e) {
             console.log(e);
         }
