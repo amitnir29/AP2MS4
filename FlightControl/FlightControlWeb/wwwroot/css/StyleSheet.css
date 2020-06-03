@@ -2,35 +2,38 @@
     /*background-color:darkblue;*/
 }
 
-.flight_details {
-    border: solid;
+.flight-details {
     margin-top: 20px;
     padding: 25px;
     box-sizing: border-box;
 }
 
 .container {
-    // border: dotted;
-    box-sizing: border-box;
+    /*border: dotted;*/
+    /*box-sizing: border-box;*/
+    margin: 1em;
 }
 
 #mapid {
     height: 400px;
 }
 
+/*
 #planes li {
     height: 40px;
 }
+*/
 
+/*
 .btn {
     float: right;
     margin-right: 300px;
 }
-/*.btn:active, .active {
+.btn:active, .active {
     background-color: red;
     color: white;
-}*/
-/*.button{
+}
+.button{
     margin-top:500px;
 }*/
 
@@ -45,12 +48,32 @@
 .table-container {
     height: 40vh; /*TODO this sets the table height. check if this is a good size*/
     overflow: auto;
+    font-size: 0.75em;
 }
+
+.json-getter{
+    /*height: 20%;*/
+}
+
+.screen-col{
+    height: 90%;
+}
+
 label {
     margin-top: 550px;
     /*height: 600px;*/
     background-color: black;
 }
+
 .alert {
     margin-top: 40px;
+}
+
+.flight-delete{
+
+    /*TODO*/
+}
+
+.flight-row-data{
+    /*TODO*/
 }

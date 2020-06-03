@@ -123,9 +123,9 @@ class FlightsList {
      */
     flightWrapperDataToShow(flight) {
         let s = "";
-        s += "fight id: " + flight.id + "\n";
-        s += "company: " + flight.flightDetails.company_name + "\n";
-        s += "at coordinates (lon,lat): (" + flight.flightDetails.longitude + "," + flight.flightDetails.latitude + ")"
+        s += "fight id: " + flight.id;
+        s += ", company: " + flight.flightDetails.company_name;
+        s += ", at coordinates (lon,lat): (" + flight.flightDetails.longitude + "," + flight.flightDetails.latitude + ")"
         return s;
     }
 
@@ -156,12 +156,16 @@ class FlightsList {
         rowData.onclick = e => this.callFlightOnClick(this.clickEventToFlightWrapperId(e));
         //add text for the cell
         rowData.innerHTML = this.flightWrapperDataToShow(flight);
+        //set the css styling
+        rowData.classList.add("flight-row-data");
         //add the cell that deletes the flight
         const rowDeleteButton = newRow.insertCell(-1);
         //add function call onclick to show this flight
         rowDeleteButton.onclick = e => this.callFlightDeleteEvent(this.clickEventToFlightWrapperId(e));
         //add delete image
         rowDeleteButton.innerHTML = "DELETE";//TODO change to image
+        //set the css styling
+        rowDeleteButton.classList.add("flight-delete");
     }
 
     /**
@@ -179,6 +183,8 @@ class FlightsList {
         const rowData = newRow.insertCell(-1);
         //add function call onclick to show this flight
         rowData.onclick = e => this.callFlightOnClick(this.clickEventToFlightWrapperId(e));
+        //set the css styling
+        rowData.classList.add("flight-row-data");
         //add text for the cell
         rowData.innerHTML = this.flightWrapperDataToShow(flight);
     }
@@ -251,7 +257,7 @@ class FlightsList {
 }
 
 //TODO these are testing functions. delete them when can actually connect to the server.
-
+/*
 function checkL(elem) {
     //console.log("local");
     //console.log(document.getElementById(elem));
@@ -337,3 +343,5 @@ function rlLoc() {
 function rlExt() {
     document.getElementById("externalFlights").deleteRow(document.getElementById("externalFlights").rows.length - 1);
 }
+
+*/
