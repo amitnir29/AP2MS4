@@ -84,7 +84,7 @@
      * @param {FlightWrapper} flightWrapper the flight to hide
      */
     deleteFlight(flightWrapper) {
-        if (flightWrapper.id === this._currentPressedFlight.id) {
+        if (this._currentPressedFlight!==null && flightWrapper.id === this._currentPressedFlight.id) {
             this._currentPressedFlight = null;
             this._flightDetails.hidePressedFlight();
             this._map.hidePressedFlight();

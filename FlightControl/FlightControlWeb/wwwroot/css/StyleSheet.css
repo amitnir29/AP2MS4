@@ -8,6 +8,10 @@
     box-sizing: border-box;
 }
 
+#mainClass {
+    margin: 1em;
+}
+
 .container {
     /*border: dotted;*/
     /*box-sizing: border-box;*/
@@ -15,7 +19,9 @@
 }
 
 #mapid {
-    height: 400px;
+    width: 100%;
+    position: absolute;
+    height: 65%;
 }
 
 /*
@@ -45,17 +51,45 @@
     background-color: white;
 }
 
-.table-container {
-    height: 40vh; /*TODO this sets the table height. check if this is a good size*/
+.tables-container{
+    position:absolute;
+    height:80%;
+}
+
+.single-table-container {
+    height: 50%; /*TODO this sets the table height. check if this is a good size*/
     overflow: auto;
     font-size: 0.75em;
 }
 
-.json-getter{
-    /*height: 20%;*/
+#tablesAndJson {
+    width: 30%;
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
 }
 
-.screen-col{
+#mapAndFlightDetails {
+    position: absolute;
+    left: 5%;
+    width: 60%;
+    bottom: 5%;
+}
+
+#flightDetails {
+    position: absolute;
+    bottom: 5%;
+    height: 25%;
+    width: 100%;
+}
+
+
+#jsonGetter {
+    position:absolute;
+    height:15%;
+}
+
+.screen-col {
     height: 90%;
 }
 
@@ -69,11 +103,10 @@ label {
     margin-top: 40px;
 }
 
-.flight-delete{
-
+.flight-delete {
     /*TODO*/
 }
 
-.flight-row-data{
+.flight-row-data {
     /*TODO*/
 }
