@@ -31,6 +31,7 @@
             },
             error: function (xhr) {
                 //TODO - pretty alert
+                ErrorHandler.showError("Wasn't able to get flightplan");
             }
 
         });

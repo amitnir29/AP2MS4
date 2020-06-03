@@ -1,4 +1,5 @@
 ﻿class ErrorHandler {
+    //TODO- add a feature to prevent spamming the same messages
     static showError(msg) {
         let id = 1;
         let item = document.getElementById("error_list");
@@ -8,10 +9,9 @@
             '<strong>Error!</strong> '+msg;
         alert.id = "error-alert"+ id.toString() 
         item.insertBefore(alert, item.childNodes[0]);
-        //document.getElementById("error-alert").innerHTML += "loll";
-        $("#error-alert" + id.toString()).fadeTo(2000, 500).slideUp(500, function () {
-            //how much time until it disappears
-            $("#error-alert"+ id.toString()).slideUp(7000);
+        //fadeTo-how much time until it start to disappear
+        $("#error-alert" + id.toString()).fadeTo(6000, 500).slideUp(1300, "swing" , function () {    
+            //$("#error-alert"+ id.toString()).slideUp();
         });
         id += 1;
     }

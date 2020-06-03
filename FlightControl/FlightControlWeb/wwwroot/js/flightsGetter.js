@@ -31,12 +31,13 @@ class FlightsGetter {
                 //TODO here we should get the JSON
                 flightsArray = data;
                 //console.log("data", data);
-                ErrorHandler.showError("Hello there general kenobi");
+                //ErrorHandler.showError("Hello there general kenobi");
                 
             },
             error: function (xhr) {
-                console.log("failed get");
+                //console.log("failed get");
                 console.log(xhr);
+                ErrorHandler.showError("Wasn't able to get flights");
                 //TODO - pretty alert
             }
 

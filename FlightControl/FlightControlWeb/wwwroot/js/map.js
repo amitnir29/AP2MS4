@@ -95,7 +95,8 @@ class Map {
         this.selected = null;
         this.selectedId = -1;
         this.locations = {};
-        this.colors = ['red', 'blue', 'purple', 'Indigo', 'green', 'cyan', 'olive', 'pink', 'Teal', 'Chocolate', 'Black', 'gray', 'LawnGreen', 'DarkBlue']
+        //this.colors = ['red', 'purple', 'Indigo', 'green', 'cyan', 'olive', 'pink', 'Teal', 'Chocolate', 'Black', 'gray', 'LawnGreen', 'DarkBlue', 'FUCHSIA', 'SADDLEBROWN','DARKSLATEGRAY']
+        this.colors = [ 'black']
     }
 
     updateFlights(flightWrappers) {
@@ -198,6 +199,7 @@ class Map {
     }
     //function of event clicking on plane
     onClickPlane(e) {
+        //ErrorHandler.showError("Wasn't able to get flightplan");
         //console.log(document.getElementById("flightDetails").children.item(1).innerHTML = "this is a flight details");
         //console.log(e.target);
         //if we clicked on the same plane, do nothing
@@ -296,119 +298,4 @@ class Map {
         //if it was pressed, it was unselected before already
 
     }
-
 }
-
-
-//let mymap = 
-
-
-
-
-
-
-
-
-
-//takes plane object- TBD
-
-
-function addPlaneToMap() {
-    //add to Markers array
-    //draw it in correct position
-}
-
-//important VARS
-//pointer to the selected plane
-//let selected = null;
-//an example of segments of a flightplan
-//segments = [{ "longitude": -0.08, "latitude": 51.509, }, { "longitude": -0.06, "latitude": 51.503, }, { "longitude": -0.00, "latitude": 53, }, { "longitude": 1, "latitude": 53, }]
-//array of current drawn segments
-//poly_segments = []
-
-//our test plane marker
-//let planeMarker = L.marker([51.5, -0.09], { icon: deselectedPlaneIcon, rotationAngle: 45 }).on('click', clickOnPlane).addTo(mymap);
-//list of all plane markers
-//let Markers = [planeMarker];
-
-
-
-/*let planeIcon = L.Icon.extend({
-    options: {
-        shadowUrl: '../assets/blank-pic.png',
-        rotationAngle: 90,
-        iconSize: [84, 85], // size of the icon
-        shadowSize: [50, 64], // size of the shadow
-        iconAnchor: [45, 45], // point of the icon which will correspond to marker's location
-        shadowAnchor: [4, 62],  // the same for the shadow
-        popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
-    }
-});*/
-
-//let markersLayer = L.featureGroup([planeMarker])
-    //.bindPopup('Hello world!')
-    //.on('click', function () { alert('Clicked on a member of the group!'); })
-    //.addTo(mymap);
-//L.featureGroup().addTo(map);
-
-// populate map from stops…
-
-/*markersLayer.on("click", function (event) {
-    // Use the event to find the clicked element
-    var el = $(event.srcElement || event.target),
-        id = el.attr('id');
-
-    alert('Here is the markers ID: ' + id + '. Use it as you wish.')
-    let clickedMarker = event.layer;
-    console.log(typeof (clickedMarker));
-    console.log(`event creator is ${clickedMarker},`);
-    console.log(typeof (this));
-    console.log(`event creator is ${this},`);
-    console.log(typeof (this.options));
-    console.log(`event creator is ${this.options},`);
-    console.log(this.options.clickedMarker);
-    var attributes = event.layer.properties;
-    //console.log(attributes.name, attributes.desctiption, attributes.othervars);
-    //console.log(L.stamp(event.target));
-    console.log(L.stamp(event.sourceTarget));
-    console.log(L.stamp(planeMarker));
-    console.log(planeMarker);
-    if (event.sourceTarget == selected) {
-        console.log("yay");
-    }
-    // do some stuff…
-    const PlaneIconDeselected = L.icon({
-    iconUrl: '../assets/plane2.webp',
-    shadowUrl: '../assets/blank-pic.png',
-
-    iconSize: [84, 85], // size of the icon
-    shadowSize: [50, 64], // size of the shadow
-    iconAnchor: [42, 42], // point of the icon which will correspond to marker's location
-    shadowAnchor: [4, 62],  // the same for the shadow
-    popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
-});
-
-
-const PlaneIconSelected = L.icon({
-    iconUrl: '../assets/plane-selected.png',
-    shadowUrl: '../assets/blank-pic.png',
-
-    iconSize: [84, 85], // size of the icon
-    shadowSize: [50, 64], // size of the shadow
-    iconAnchor: [42, 42], // point of the icon which will correspond to marker's location
-    shadowAnchor: [4, 62],  // the same for the shadow
-    popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
-});
-});*/
-//order is long,lat 
-
-//let popup = L.popup();
-
-
-
-/*mymap.on('zoomend', function () {
-    let currentZoom = mymap.getZoom();
-    console.log(`current zoom ${currentZoom}`);
-    //console.log(testPlane);
-});*/
-//mymap.animate = false;
