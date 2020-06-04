@@ -63,7 +63,7 @@
 }
 
 #tablesAndJson {
-    width: 30%;
+    width: 40%;
     position: absolute;
     right: 5%;
     bottom: 5%;
@@ -72,7 +72,7 @@
 #mapAndFlightDetails {
     position: absolute;
     left: 5%;
-    width: 60%;
+    width: 50%;
     bottom: 5%;
 }
 

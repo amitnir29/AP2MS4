@@ -27,15 +27,10 @@ class FlightsGetter {
             //dataType: 'json',
 
             success: function (data) {
-                // do other actions
-                //TODO here we should get the JSON
+                //parse the json to this variable.
                 flightsArray = data;
-                //console.log("data", data);
-                //ErrorHandler.showError("Hello there general kenobi");
-                
             },
             error: function (xhr) {
-                //console.log("failed get");
                 console.log(xhr);
                 ErrorHandler.showError("Wasn't able to get flights");
                 //TODO - pretty alert
