@@ -55,8 +55,8 @@ class FlightsList {
         //find all the flight that should be removed because they are not in the new flights lists.
         for (const currentFlightWrapperId in this._allFlightsDict) {
             //if the current flight is not in the new lists
-            if (!(currentFlightWrapperId in newLocalFlightsIdSet) &&
-                !(currentFlightWrapperId in newExternalFlightsIdSet)) {
+            if (!newLocalFlightsIdSet.has(currentFlightWrapperId) &&
+                !currentFlightWrapperId.has(currentFlightWrapperId)) {
                 //remove the flight from the html and the flights dictionary. find which list it is in
                 if (currentFlightWrapperId in currentLocalFlightsIdSet) {
                     this.removeFlightFromTables(currentFlightWrapperId);
@@ -68,7 +68,7 @@ class FlightsList {
                     this._flightEventHandler.flightRemoved(currentFlightWrapperId);
                 } else {
                     //TODO error
-                    //console.error("at flightsList.removeGoneFlights, reached 'else' condition in loop");
+                    console.error("at flightsList.removeGoneFlights, reached 'else' condition in loop");
                 }
             }
         }
@@ -125,8 +125,6 @@ class FlightsList {
         let s = "";
         s += "fight id: " + flight.id;
         s += ", company: " + flight.flightDetails.company_name;
-        s += ", at coordinates (lon,lat): (" + parseFloat(flight.flightDetails.longitude).toFixed(2)
-            + "," + parseFloat(flight.flightDetails.latitude).toFixed(2) + ")";
         return s;
     }
 
@@ -253,7 +251,7 @@ class FlightsList {
             },
             error: function (xhr) {
                 //TODO - pretty alert error
-
+                ErrorHandler.showError("Coudln't delete flight " + flight.id + " from the server!");
             }
 
         });

@@ -31,8 +31,8 @@ class FlightsGetter {
                 flightsArray = data;
             },
             error: function (xhr) {
-                console.log(xhr);
-                ErrorHandler.showError("Wasn't able to get flights");
+                //console.log(xhr);
+                ErrorHandler.showError("Couldn't get flights from the server");
                 //TODO - pretty alert
             }
 

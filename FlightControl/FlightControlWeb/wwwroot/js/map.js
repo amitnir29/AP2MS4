@@ -56,17 +56,19 @@
         }
     });
 })();
+/* end of code from github*/
+
 const xMiddleRatio = 0.568;
 const yMiddleRatio = 0.417;
-/* end of code from github*/
+
 let planeGenericIcon = L.Icon.extend({
     options: {
         shadowUrl: '../assets/blank-pic.png',
 
         iconSize: [70, 70], // size of the icon
         shadowSize: [50, 64], // size of the shadow
-        //iconAnchor: [Math.floor(85*xMiddleRatio), Math.floor(85*yMiddleRatio)], // point of the icon which will correspond to marker's location
-        iconAnchor: [35, 35],
+       
+        iconAnchor: [35, 35], // point of the icon which will correspond to marker's location
         shadowAnchor: [4, 62],  // the same for the shadow
         popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
     }
@@ -98,16 +100,15 @@ class Map {
         //this.colors = ['red', 'purple', 'Indigo', 'green', 'cyan', 'olive', 'pink', 'Teal', 'Chocolate', 'Black', 'gray', 'LawnGreen', 'DarkBlue', 'FUCHSIA', 'SADDLEBROWN','DARKSLATEGRAY']
         this.colors = [ 'black']
     }
-
+    /**
+     * updates the map with a new array of flights
+     * @param {Array[FlightWrapper]} flightWrappers
+     */
     updateFlights(flightWrappers) {
         let flightWrappers2 = [...flightWrappers];
         //erase the previous icons
         for (let wrapper of this.flightWrappers) {
-            //if (!wrapper in flightWrappers) {
-            //console.log("removed someone");
-            //console.log(wrapper);
             wrapper.planeIconReference.remove();
-            // }
         }
         let flag = true;
         //erase the current segments and flight details, only if the plane didnt disspear
@@ -119,31 +120,14 @@ class Map {
         //if didn't find the plane
         if (flag) {
             this.removeSegmentsPoly();
-            //this.flightEventHandler.eraseFlightDetails();
         }
 
         //update with the new flights
         this.flightWrappers = flightWrappers2;
-        //console.log('this is the wrappers' + this.flightWrappers);
         //draw new icons and link them to the wrappers
         for (let wrapper of this.flightWrappers) {
-            //console.log("show wrapper");
-            //caculate the angle of the plane
-            //log-log/lat-lat
-            //default val for first run
-            let angle = 45;
-            let idkey = wrapper.id;
-            //if we have previous location, calculate the angle
-            if (idkey in this.locations) {
-                //console.log("if");
-                const y = (wrapper.flightDetails.longitude - this.locations[idkey].longitude);
-                const x = (wrapper.flightDetails.latitude - this.locations[idkey].latitude);
-                let theta = Math.atan2(y,x );
-                //the default picure is in 45 degress angle
-                angle = (theta * 180 / Math.PI) - 45;
-                //console.log("theta is", theta);
-            }
-            //console.log('angle is', angle);
+            //caculate the angle of the plane, the slope is log-log/lat-lat
+            
             let long = wrapper.flightDetails.longitude;
             let lat = wrapper.flightDetails.latitude;
             //if this is the selected one, keep its texture selected
@@ -151,6 +135,7 @@ class Map {
             if (wrapper.id === this.selectedId) {
                 icon = selectedPlaneIcon;
             }
+            let angle = this.calculateAngle(wrapper);
             let planeMarker = L.marker([lat, long], { icon: icon, rotationAngle: angle, rotationOrigin: "center" });
             planeMarker.on('click', this.onClickPlane,this)
             planeMarker.addTo(this.mymap);
@@ -161,24 +146,23 @@ class Map {
                 "longitude": long,
             }
 
-            this.locations[idkey] = cords;
+            this.locations[wrapper.id] = cords;
         }
-        //console.log("the last wrappers is", this.flightWrappers);
     }
 
-    //deselect the plane if clicked on map
+    /**
+     * event handler for clicking on an empty space in the map, deselectes the plane
+     * @param {Object} event
+     */
     onMapClick(event) {
         if (this.selected !== null) {
             this.flightEventHandler.hidePressedFlight(this.selected);
 
         }
-        //this.selected = null;
-
-        //get the correct 
-        //const fd = document.getElementById("flightDetails");
-        //fd.innerHTML = "";
     }
-
+    /**
+     * deselects the current selected plane
+     * */
     deselectPlane() {
         try {
             //use the deselected texture
@@ -190,7 +174,9 @@ class Map {
             console.log(e);
         }
     }
-
+    /**
+     * removes the polygons on the map that represent the flight plan
+     * */
     removeSegmentsPoly() {
         for (let poly of this.polySegments) {
             poly.remove();
@@ -198,17 +184,22 @@ class Map {
         this.polySegments = []
     }
     //function of event clicking on plane
+    /**
+     * event handler for clicking on a plane
+     * @param {any} e
+     */
     onClickPlane(e) {
         //ErrorHandler.showError("Wasn't able to get flightplan");
-        //console.log(document.getElementById("flightDetails").children.item(1).innerHTML = "this is a flight details");
-        //console.log(e.target);
         //if we clicked on the same plane, do nothing
-        //if (selected === e.sourceTarget) { }
         if (this.selected !== e.sourceTarget) {
             let wrap = this.getWrapper(e.sourceTarget);
             this.flightEventHandler.showPressedFlight(wrap);
         }
     }
+    /**
+     * finds a wrapper that has the same pointer as an object
+     * @param {Object} object
+     */
     getWrapper(object) {
         //first try comparing by id
         if ("id" in object) {
@@ -217,15 +208,37 @@ class Map {
                     return wrapper;
             }
         }
+        //compare by pointers
         for (let wrapper of this.flightWrappers) {
             if (object === wrapper.planeIconReference)
                 return wrapper;
         }
         return null;
     }
-    calculateAngle(flight) {
-
+    /**
+     * calculates the angle to draw the plane of a flight
+     * @param {FlightWrapper} wrapper of the flight
+     * @returns {Number} angle of the plane
+     */
+    calculateAngle(wrapper) {
+        //default val for first run
+        let angle = 45;
+        let idkey = wrapper.id;
+        //if we have previous location, calculate the angle
+        if (idkey in this.locations) {
+            const y = (wrapper.flightDetails.longitude - this.locations[idkey].longitude);
+            const x = (wrapper.flightDetails.latitude - this.locations[idkey].latitude);
+            let theta = Math.atan2(y, x);
+            //the default picure is in 45 degress angle
+            angle = (theta * 180 / Math.PI) - 45;
+        }
+        return angle;
     }
+    /**
+     * makes a plane be selected on the map
+     * @param {FlightWrapper} wrapper
+     * @param {any} plan
+     */
     showPressedFlight(wrapper, plan) {
         //save the new selected
         this.selected = wrapper;
@@ -235,14 +248,21 @@ class Map {
         //change the icon to be a selected one
         wrapper.planeIconReference.setIcon(selectedPlaneIcon);
         //segments = []
-        //console.log("getting plan", plan);
         this.drawSegments(plan, this.polySegments);
     }
+    /**
+     * hides the current selected flight
+     * */
     hidePressedFlight() {
         this.deselectPlane();
         this.selected = null;
         this.selectedId = -1;
     }
+    /**
+     * draws the flight plan of a flight onto the map
+     * @param {FlightPlan} plan of a flight
+     * @param {Array} poly_segments an array to store the polygons of the segments
+     */
     drawSegments(plan, poly_segments) {
         let i;
         let segments = plan.segments;
@@ -251,7 +271,6 @@ class Map {
             let polygon = L.polygon([
                 [plan.initial_location.latitude, plan.initial_location.longitude],
                 [segments[0].latitude, segments[0].longitude]
-                // [51.503, -0.06],
             ], {
                 color: this.colors[Math.floor(Math.random() * this.colors.length)],
                 fillColor: '#f03',
@@ -259,19 +278,16 @@ class Map {
                 weight: 8,
                 radius: 500
             }).addTo(this.mymap);
-            //console.log(polygon);
             poly_segments.push(polygon);
         } catch (e) {
             console.log(e);
         }
-        
-        for (i = 1; i < segments.length ; i++) {
-            //console.log(segments[i]);
+        //loop over the rest of the segments
+        for (i = 0; i < segments.length-1 ; i++) {
             try {
                 let polygon = L.polygon([
                     [segments[i].latitude, segments[i].longitude],
                     [segments[i + 1].latitude, segments[i + 1].longitude]
-                    // [51.503, -0.06],
                 ], {
                     color: this.colors[Math.floor(Math.random() * this.colors.length)],
                     fillColor: '#f03',
@@ -279,7 +295,6 @@ class Map {
                     weight: 8,
                     radius: 500
                 }).addTo(this.mymap);
-                //console.log(polygon);
                 poly_segments.push(polygon);
             } catch (e) {
                 console.log(e);
@@ -287,6 +302,10 @@ class Map {
            
         }
     }
+    /**
+     * deletes a flight from the map
+     * @param {FlightWrapper} wrapper of the flight to delete
+     */
     deleteFlight(wrapper) {
         //erase the flight icon
         wrapper.planeIconReference.remove();

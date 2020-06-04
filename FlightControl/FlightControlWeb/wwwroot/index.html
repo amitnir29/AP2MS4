@@ -121,10 +121,11 @@
                     success: function (data) {
                         //flightsArray = JSON.parse(data);
                         //consloe
-                        console.log("success in posting json");
+                        //console.log("success in posting json");
                         //console.log(data);
                     },
                     error: function (xhr) {
+                        ErrorHandler.showError("failed to post flightPlan to the server!")
                         //console.log("got to error in posting json");
                         //console.log(xhr);
                     }

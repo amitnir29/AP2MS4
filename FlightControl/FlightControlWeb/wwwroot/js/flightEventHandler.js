@@ -30,7 +30,7 @@
             },
             error: function (xhr) {
                 //TODO error alert
-                ErrorHandler.showError("Wasn't able to get flightplan");
+                ErrorHandler.showError("Couldn't get flightplan of " + flightId);
             }
 
         });
@@ -98,7 +98,8 @@
      */
     flightRemoved(flightWrapperId) {
         if (this._currentPressedFlight === null) {
-            //TODO print error alert
+            console.error("tried to remove a null value of flight!");
+
         }
         else if (this._currentPressedFlight.id === flightWrapperId) {
             this._flightDetails.hidePressedFlight();
