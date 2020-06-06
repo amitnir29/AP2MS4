@@ -102,7 +102,9 @@ label {
 .alert {
     margin-top: 40px;
 }
-
+#error_list {
+    margin-top: 800px;
+}
 .flight-delete {
     /*TODO*/
 }

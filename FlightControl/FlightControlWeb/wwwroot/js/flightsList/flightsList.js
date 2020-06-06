@@ -67,6 +67,7 @@ class FlightsList {
                     delete this._allFlightsDict[currentFlightWrapperId];
                     this._flightEventHandler.flightRemoved(currentFlightWrapperId);
                 } else {
+                    //TODO error
                     console.error("at flightsList.removeGoneFlights, reached 'else' condition in loop");
                 }
             }
@@ -124,8 +125,6 @@ class FlightsList {
         let s = "";
         s += "fight id: " + flight.id;
         s += ", company: " + flight.flightDetails.company_name;
-        s += ", at coordinates (lon,lat): (" + parseFloat(flight.flightDetails.longitude).toFixed(2)
-            + "," + parseFloat(flight.flightDetails.latitude).toFixed(2) + ")";
         return s;
     }
 
@@ -252,7 +251,7 @@ class FlightsList {
             },
             error: function (xhr) {
                 //TODO - pretty alert error
-
+                ErrorHandler.showError("Coudln't delete flight " + flight.id + " from the server!");
             }
 
         });
