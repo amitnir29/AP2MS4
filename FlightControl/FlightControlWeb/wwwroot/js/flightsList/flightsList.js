@@ -55,8 +55,8 @@ class FlightsList {
         //find all the flight that should be removed because they are not in the new flights lists.
         for (const currentFlightWrapperId in this._allFlightsDict) {
             //if the current flight is not in the new lists
-            if (!(currentFlightWrapperId in newLocalFlightsIdSet) &&
-                !(currentFlightWrapperId in newExternalFlightsIdSet)) {
+            if (!newLocalFlightsIdSet.has(currentFlightWrapperId) &&
+                !currentFlightWrapperId.has(currentFlightWrapperId)) {
                 //remove the flight from the html and the flights dictionary. find which list it is in
                 if (currentFlightWrapperId in currentLocalFlightsIdSet) {
                     this.removeFlightFromTables(currentFlightWrapperId);
@@ -67,8 +67,7 @@ class FlightsList {
                     delete this._allFlightsDict[currentFlightWrapperId];
                     this._flightEventHandler.flightRemoved(currentFlightWrapperId);
                 } else {
-                    //TODO error
-                    //console.error("at flightsList.removeGoneFlights, reached 'else' condition in loop");
+                    console.error("at flightsList.removeGoneFlights, reached 'else' condition in loop");
                 }
             }
         }
