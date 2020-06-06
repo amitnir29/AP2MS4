@@ -42,6 +42,12 @@
               "target": "Package",
               "version": "[2.0.35, )"
             },
+            "Microsoft.CodeAnalysis.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
             "Microsoft.Data.Sqlite": {
               "target": "Package",
               "version": "[3.1.4, )"
@@ -60,7 +66,7 @@
             },
             "System.Data.SQLite": {
               "target": "Package",
-              "version": "[1.0.112.2, )"
+              "version": "[1.0.113.1, )"
             }
           },
           "imports": [

@@ -46,9 +46,9 @@
         try {
         let newFlightsArray = await this._flightsGetter.getFlights();
         flightsList.updateFlights(newFlightsArray);
-        //TODO call the function of the map
+        map.updateFlights(newFlightsArray);
         } catch (e) {
-            //console.log(e);
+            console.log(e);
         }
     }
 }
