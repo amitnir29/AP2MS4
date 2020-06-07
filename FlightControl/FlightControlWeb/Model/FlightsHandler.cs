@@ -76,17 +76,17 @@ namespace FlightControlWeb.Model
             /// <returns> All the flights. </returns>
             public async Task<IList<Flight.Flight>> GetAllFlightsSync(DateTime relativeTo)
             {
-                Task<IList<Flight.Flight>> localFlights = GetAllFlights(relativeTo);
+                IList<Flight.Flight> localFlights = await GetAllFlights(relativeTo);
 
                 IList<Task<IList<Flight.Flight>>> externalFlights = new List<Task<IList<Flight.Flight>>>();
 
                 var serversUpdates = new List<Task>();
 
-            await foreach (var server in serversDB.GetIterator())
+                await foreach (var server in serversDB.GetIterator())
                 {
                     HTTPClient client = new HTTPClient(server);
                     var externals = client.GetFlights(relativeTo.ToString("yyyy-MM-ddTHH:mm:ssZ"));
-                    var res = externals.GetAwaiter().GetResult();
+                    var res = await externals;
 
                     if (res == null)
                         continue;
@@ -100,9 +100,9 @@ namespace FlightControlWeb.Model
                     externalFlights.Add(externals);
                 }
 
-                await localFlights;
+                //await localFlights;
 
-                var temp = localFlights.Result;
+                var temp = localFlights;
 
                 foreach (var list in externalFlights)
                 {
