@@ -94,3 +94,7 @@ label {
 .flight-row-data{
     /*TODO make beautiful*/
 }
+
+#flightPlanJson{
+    position:relative;
+}
