@@ -15,7 +15,7 @@ class FlightsGetter {
     async getFlights() {
         let now = new Date();
         let formatted = now.toISOString().split(".")[0] + "Z";
-
+        
         let flightsArray;
         const flightWrappersArray = [];
         //console.log("sending GET of " + "api/Flights/" + "?relative_to=" + formatted + "&sync_all");

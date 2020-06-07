@@ -2,46 +2,38 @@
     /*background-color:darkblue;*/
 }
 
-.flight-details {
-    margin-top: 20px;
-    padding: 25px;
-    box-sizing: border-box;
-}
-
 #mainClass {
     margin: 1em;
+    overflow: auto;
+    height: 95%;
+    width: 95%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
-.container {
-    /*border: dotted;*/
-    /*box-sizing: border-box;*/
-    margin: 1em;
+/*border for the map cells, for debug the cells*/
+#flightDetails, #flightsLists, #mapid, #flightPlanJson {
+    border: 1px solid black;
 }
+
 
 #mapid {
-    width: 100%;
-    position: absolute;
-    height: 65%;
+    width: 65%;
 }
 
-/*
-#planes li {
-    height: 40px;
+#flightDetailsText {
+    margin: 1em;
+    padding: 0.25em;
+    height: 90%;
+    border: 5px solid grey;
 }
-*/
 
-/*
-.btn {
-    float: right;
-    margin-right: 300px;
+#flightsLists {
+    width: 50%;
 }
-.btn:active, .active {
-    background-color: red;
-    color: white;
-}
-.button{
-    margin-top:500px;
-}*/
 
 .pressed-row {
     background-color: lightblue;
@@ -51,64 +43,54 @@
     background-color: white;
 }
 
-.tables-container{
-    position:absolute;
-    height:80%;
+.single-flights-list {
+    height: 50%;
+    border: 3px solid green;
 }
 
-.single-table-container {
-    height: 50%; /*TODO this sets the table height. check if this is a good size*/
-    overflow: auto;
-    font-size: 0.75em;
+.single-flights-list-body {
+    overflow-y: scroll;
+    height:70%;
 }
 
-#tablesAndJson {
-    width: 40%;
-    position: absolute;
-    right: 5%;
-    bottom: 5%;
+.single-flights-list-head{
+    height:30%;
 }
 
-#mapAndFlightDetails {
-    position: absolute;
-    left: 5%;
-    width: 50%;
-    bottom: 5%;
+.local-flight-data {
+    width: 80%;
 }
 
-#flightDetails {
-    position: absolute;
-    bottom: 5%;
-    height: 25%;
-    width: 100%;
+.flight-delete{
+    width:20%;
 }
 
-
-#jsonGetter {
-    position:absolute;
-    height:15%;
+/*
+#jsonFileLabel {
+    top: inherit;
+    right: inherit;
+    left: inherit;
 }
+    */
 
-.screen-col {
-    height: 90%;
-}
 
+/*
 label {
     margin-top: 550px;
-    /*height: 600px;*/
+    height: 600px; //this was in inside comment
     background-color: black;
 }
-
+*/
 .alert {
     margin-top: 40px;
 }
-#error_list {
-    margin-top: 800px;
-}
-.flight-delete {
-    /*TODO*/
+
+.red-x {
+    width: 40%;
+    display: block;
+    margin-right: 1em;
 }
 
-.flight-row-data {
-    /*TODO*/
+.flight-row-data{
+    /*TODO make beautiful*/
 }
