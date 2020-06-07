@@ -37,11 +37,15 @@ namespace FlightControlWeb.Model
                     return local;
 
                 var relevantServer = await flightsServersDB.GetFlightServer(id);
-                var server = await serversDB.GetServer(relevantServer.ServerId);
+                if (relevantServer != null) {
+                    var server = await serversDB.GetServer(relevantServer.ServerId);
 
-                IHTTPClient client = new HTTPClient(server);
+                    IHTTPClient client = new HTTPClient(server);
 
-                return await client.GetFlightPlan(id);
+                    return await client.GetFlightPlan(id);
+                }
+
+                return null;
             }
 
 
@@ -72,7 +76,6 @@ namespace FlightControlWeb.Model
             /// <returns> All the flights. </returns>
             public async Task<IList<Flight.Flight>> GetAllFlightsSync(DateTime relativeTo)
             {
-            Console.WriteLine("start");
                 Task<IList<Flight.Flight>> localFlights = GetAllFlights(relativeTo);
 
                 IList<Task<IList<Flight.Flight>>> externalFlights = new List<Task<IList<Flight.Flight>>>();
@@ -83,8 +86,12 @@ namespace FlightControlWeb.Model
                 {
                     HTTPClient client = new HTTPClient(server);
                     var externals = client.GetFlights(relativeTo.ToString("yyyy-MM-ddTHH:mm:ssZ"));
+                    var res = externals.GetAwaiter().GetResult();
 
-                    foreach(var flight in externals.GetAwaiter().GetResult())
+                    if (res == null)
+                        continue;
+
+                    foreach(var flight in res)
                     {
                         flight.IsExternal = true;
                         var serverUpdate = flightsServersDB.PostFlightServer(new Servers.FlightServer(flight.FlightID, server.Id));
@@ -95,11 +102,11 @@ namespace FlightControlWeb.Model
 
                 await localFlights;
 
-                var temp = localFlights;
+                var temp = localFlights.Result;
 
                 foreach (var list in externalFlights)
                 {
-                    temp.Result.Concat(list.Result);
+                    temp = temp.Concat(list.GetAwaiter().GetResult()).ToList();
                 }
 
                 foreach (var update in serversUpdates)
@@ -108,8 +115,8 @@ namespace FlightControlWeb.Model
                 }
 
                 Console.WriteLine("hi");
-                Console.WriteLine(temp.Result);
-                return temp.Result;
+                Console.WriteLine(temp);
+                return temp;
             }
 
 

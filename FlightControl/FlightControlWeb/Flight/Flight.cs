@@ -9,6 +9,7 @@ namespace FlightControlWeb.Flight
     public class Flight
     {
         private string flightID;
+        [Newtonsoft.Json.JsonProperty("flight_id")]
         [JsonPropertyName("flight_id")]
         public string FlightID
         {
@@ -18,6 +19,7 @@ namespace FlightControlWeb.Flight
 
 
         private int passengers;
+        [Newtonsoft.Json.JsonProperty("passengers")]
         [JsonPropertyName("passengers")]
         public int Passengers
         {
@@ -26,6 +28,7 @@ namespace FlightControlWeb.Flight
         }
 
         private string company;
+        [Newtonsoft.Json.JsonProperty("company_name")]
         [JsonPropertyName("company_name")]
         public string Company
         {
@@ -34,6 +37,7 @@ namespace FlightControlWeb.Flight
         }
 
         private bool isExternal;
+        [Newtonsoft.Json.JsonProperty("is_external")]
         [JsonPropertyName("is_external")]
         public bool IsExternal
         {
@@ -42,33 +46,36 @@ namespace FlightControlWeb.Flight
         }
 
 
-        private InitialLocation status;
+        private double longitude;
 
-        [JsonIgnore]
-        public InitialLocation Status
-        {
-            get => status;
-            set => status = value;
-        }
-
-
+        [Newtonsoft.Json.JsonProperty("longitude")]
         [JsonPropertyName("longitude")]
         public double Longitude
         {
-            get => status.Longitude;
+            get => longitude;
+            set => longitude = value;
         }
 
+
+        private double latitude;
+
+        [Newtonsoft.Json.JsonProperty("latitude")]
         [JsonPropertyName("latitude")]
         public double Latitude
         {
-            get => status.Latitude;
+            get => latitude;
+            set => latitude = value;
         }
 
 
+        private string time;
+
+        [Newtonsoft.Json.JsonProperty("date_time")]
         [JsonPropertyName("date_time")]
         public string Time
         {
-            get => status.Time;
+            get => time;
+            set => time = value;
         }
 
 
@@ -88,32 +95,13 @@ namespace FlightControlWeb.Flight
             Passengers = passengers;
             Company = company;
             IsExternal = isExternal;
-
-            Status = new InitialLocation(longitude, latitude, time);
+            Longitude = longitude;
+            Latitude = latitude;
+            Time = time.ToString("yyyy-MM-ddTHH:mm:ssZ");
         }
 
 
-        /// <summary>
-        /// The default constructor.
-        /// </summary>
-        /// <param name="flightID"> The id of the flight. </param>
-        /// <param name="longitude"> Longitude of the plane. </param>
-        /// <param name="latitude"> Latitude of the plane. </param>
-        /// <param name="passengers"> Number of passengers on flight. </param>
-        /// <param name="company"> The company of the flight. </param>
-        /// <param name="time"> Time relative to UTC </param>
-        /// <param name="isExternal"> Indicator if the flight is given from external server or not. </param>
-        public Flight(string flightID, string longitude, string latitude, int passengers, string company, string time, bool isExternal)
-        {
-            FlightID = flightID;
-            Passengers = passengers;
-            Company = company;
-            IsExternal = isExternal;
-
-            DateTime timeObj = DateTime.ParseExact(time, "yyyy-MM-ddTHH:mm:ssZ", null).ToUniversalTime();
-
-            Status = new InitialLocation(Double.Parse(longitude), Double.Parse(latitude), timeObj);
-        }
+        public Flight() { }
 
     }
 }
