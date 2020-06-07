@@ -39,68 +39,82 @@
     <script src="js/map.js"></script>
 </head>
 <body>
-    <div class="container" id="mainClass">
-
-        <div class="row">
-
-            <div class="col-sm-7 screen-col" id="mapAndFlightDetails">
-                <!--map-->
-                <div id="mapid"></div>
-                <!-- flight details -->
-                <div class="flight-details border" id="flightDetails">
-                    <p id="flightDetailsText"></p>
-                </div>
-            </div>
-            <div class="col-sm-5 screen-col" id="tablesAndJson">
-                <div class="tables-container">
-                    <!--Local flights list-->
-                    <div class="single-table-container">
-                        <table id="localFlights" class="table table-hover table-striped">
+    <table id="mainClass">
+        <tr id="mapAndLists" style="height:80%">
+            <td id="mapid">
+                map
+            </td>
+            <td id="flightsLists">
+                <!--Local flights list-->
+                <div class="single-flights-list">
+                    <div class="single-flights-list-head">
+                        <table id="localFlightsHeads" class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">
+                                    <th scope="col" class="local-flight-data">
                                         Local Flights
                                     </th>
-                                    <th scope="col">
+                                    <th scope="col" class="flight-delete">
                                         Delete Flight
                                     </th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <!--add here the flights-->
-                            </tbody>
                         </table>
                     </div>
-                    <!--External flights list-->
-                    <div class="single-table-container">
-                        <table id="externalFlights" class="table table-hover table-striped">
-                            <thead>
-                                <tr>
-                                    <th scope="col">
-                                        External Flights
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                    <div class="single-flights-list-body">
+                        <table id="localFlights" class="table">
+                            <tbody class="single-flights-list-body">
                                 <!--add here the flights-->
                             </tbody>
                         </table>
                     </div>
                 </div>
-                <!-- json file input -->
-                <form method="POST" action="uploadFile"id="jsonGetter" >
-                    <div class="costum-file">
-                        <input type="file" class="custom-file-input" id="jsonFileInput" onchange="submitFile(this.files)" />
-                        <label class="custom-file-label" for="jsonFileInput">Choose JSON file</label>
+                <!--External flights list-->
+                <div class="single-flights-list">
+                    <div class="single-flights-list-head">
+                        <table id="externalFlightsHead" class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="local-flight-data">
+                                        External Flights
+                                    </th>
+                                </tr>
+                            </thead>
+                        </table>
                     </div>
-                </form>
-            </div>
-        </div>
-        <div class="container" id="error_list">
-        </div>
+                    <div class="single-flights-list-body">
+                        <table id="externalFlights" class="table">
+                            <tbody class="single-flights-list-body">
+                                <!--add here the flights-->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr id="detailsAndJson" style="height:20%">
+            <td id="flightDetails">
+                <p id="flightDetailsText"></p>
+            </td>
+            <td id="flightPlanJson">
+                <div>
+                    <form method="POST" action="uploadFile" id="jsonGetter">
+                        <input type="file" class="custom-file-input" id="jsonFileInput" onchange="submitFile(this.files)">
+                        <label class="custom-file-label" for="jsonFileInput">Choose JSON file</label>
+                    </form>
+                </div>
+            </td>
+
+        </tr>
+
+    </table>
+
+
+    <div id="error_list">
     </div>
 
 
+    <!--code for the json input-->
     <script>
         function submitFile(files) {
             files = [...files];
@@ -136,15 +150,7 @@
         }
     </script>
 
-
-
-
-
-
-
-
     <!--call the start of the client-->
-
     <script>
         const c = new ClientHandler();
         //console.log("started client handler");
@@ -153,3 +159,6 @@
 
 </body>
 </html>
+
+
+

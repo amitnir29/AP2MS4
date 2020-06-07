@@ -56,7 +56,7 @@ class FlightsList {
         for (const currentFlightWrapperId in this._allFlightsDict) {
             //if the current flight is not in the new lists
             if (!newLocalFlightsIdSet.has(currentFlightWrapperId) &&
-                !currentFlightWrapperId.has(currentFlightWrapperId)) {
+                !newExternalFlightsIdSet.has(currentFlightWrapperId)) {
                 //remove the flight from the html and the flights dictionary. find which list it is in
                 if (currentFlightWrapperId in currentLocalFlightsIdSet) {
                     this.removeFlightFromTables(currentFlightWrapperId);
@@ -157,17 +157,17 @@ class FlightsList {
         rowData.innerHTML = this.flightWrapperDataToShow(flight);
         //set the css styling
         rowData.classList.add("flight-row-data");
+        rowData.classList.add("local-flight-data");
         //add the cell that deletes the flight
         const rowDeleteButton = newRow.insertCell(-1);
         //add function call onclick to show this flight
         rowDeleteButton.onclick = e => this.callFlightDeleteEvent(this.clickEventToFlightWrapperId(e));
         //add delete image
-        rowDeleteButton.innerHTML = "DELETE";
-        /*
-        let redX = document.createElement("img" + flight.id);
-        redX.src = "assets/red-x.png";
-        rowDeleteButton.appendChild(redX);
-        */
+        //rowDeleteButton.innerHTML = "DELETE";
+        let deleteImage = document.createElement("img");
+        deleteImage.src = "assets/red-x.png";
+        deleteImage.classList.add("red-x");
+        rowDeleteButton.appendChild(deleteImage);
         //set the css styling
         rowDeleteButton.classList.add("flight-delete");
     }
