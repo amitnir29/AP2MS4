@@ -7855,19 +7855,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\carme\\.nuget\\packages\\": {}
+    "C:\\Users\\amit\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\programming\\Visual Studio\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj",
+      "projectUniqueName": "C:\\Users\\amit\\Documents\\GitHub\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj",
       "projectName": "FlightControlWeb",
-      "projectPath": "F:\\programming\\Visual Studio\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj",
-      "packagesPath": "C:\\Users\\carme\\.nuget\\packages\\",
-      "outputPath": "F:\\programming\\Visual Studio\\AP2MS4\\FlightControl\\FlightControlWeb\\obj\\",
+      "projectPath": "C:\\Users\\amit\\Documents\\GitHub\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj",
+      "packagesPath": "C:\\Users\\amit\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\amit\\Documents\\GitHub\\AP2MS4\\FlightControl\\FlightControlWeb\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\carme\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\amit\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

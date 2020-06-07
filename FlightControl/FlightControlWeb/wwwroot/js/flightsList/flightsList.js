@@ -109,7 +109,7 @@ class FlightsList {
                 //add it to the html
                 this.addToExternalFlightsHtml(newExternalFlight);
             } else {
-                this.updateFlightHtml(newLocalFlight);
+                this.updateFlightHtml(newExternalFlight);
             }
             //add to the dictionary if new, update if existed
             this._allFlightsDict[newExternalFlight.id] = newExternalFlight;
