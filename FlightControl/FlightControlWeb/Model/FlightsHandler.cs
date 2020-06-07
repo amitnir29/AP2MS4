@@ -1,6 +1,7 @@
 ﻿using FlightControlWeb.DB;
 using FlightControlWeb.Flight;
 using FlightControlWeb.Model.HTTPClinet;
+using FlightControlWeb.Servers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -76,13 +77,15 @@ namespace FlightControlWeb.Model
             /// <returns> All the flights. </returns>
             public async Task<IList<Flight.Flight>> GetAllFlightsSync(DateTime relativeTo)
             {
-                IList<Flight.Flight> localFlights = await GetAllFlights(relativeTo);
+                // Get first all local flights.
+                Task<IList<Flight.Flight>> localFlights = GetAllFlights(relativeTo);
 
+                // Create a list contains lists 
                 IList<Task<IList<Flight.Flight>>> externalFlights = new List<Task<IList<Flight.Flight>>>();
 
-                var serversUpdates = new List<Task>();
+                IList<Task> serversUpdates = new List<Task>();
 
-                await foreach (var server in serversDB.GetIterator())
+                await foreach (Server server in serversDB.GetIterator())
                 {
                     HTTPClient client = new HTTPClient(server);
                     var externals = client.GetFlights(relativeTo.ToString("yyyy-MM-ddTHH:mm:ssZ"));
@@ -100,13 +103,11 @@ namespace FlightControlWeb.Model
                     externalFlights.Add(externals);
                 }
 
-                //await localFlights;
+                IList<Flight.Flight> temp = await localFlights;
 
-                var temp = localFlights;
-
-                foreach (var list in externalFlights)
+                foreach (var flightsList in externalFlights)
                 {
-                    temp = temp.Concat(list.GetAwaiter().GetResult()).ToList();
+                    temp = temp.Concat(await flightsList).ToList();
                 }
 
                 foreach (var update in serversUpdates)
@@ -114,8 +115,6 @@ namespace FlightControlWeb.Model
                     await update;
                 }
 
-                Console.WriteLine("hi");
-                Console.WriteLine(temp);
                 return temp;
             }
 
