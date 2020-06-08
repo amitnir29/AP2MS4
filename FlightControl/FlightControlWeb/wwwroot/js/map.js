@@ -189,7 +189,7 @@ class Map {
      * @param {any} e
      */
     onClickPlane(e) {
-        //ErrorHandler.showError("Wasn't able to get flightplan");
+        ErrorHandler.showError("Wasn't able to get flightplan");
         //if we clicked on the same plane, do nothing
         if (this.selected !== e.sourceTarget) {
             let wrap = this.getWrapper(e.sourceTarget);
