@@ -3,92 +3,54 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: var(--backgound-color);
+}
 
 .wrapper {
     padding: 1em;
     display: grid;
     grid-template-columns: 2fr 1fr;
-    grid-template-rows: 75% 20%;
+    grid-template-rows: 70% 25%;
     grid-gap: 1em;
     justify-items: stretch;
     align-items: stretch;
-    border: 5px solid;
-    min-height:460px;
+    /*border: 5px solid;*/
+    min-height: 460px;
+    background-color: var(--app-color);
+    color: var(--text-color);
 }
 
 
-#flightDetails, #flightsLists, #mapid, #flightPlanJson {
+#mapid {
     border: 1px solid black;
 }
 
 #flightDetailsText {
-    margin: 1em;
     padding: 0.25em;
-    border: 5px solid grey;
+    border: 5px solid var(--filght-details-border-color);
     min-height: 50%;
-}
-
-.pressed-row {
-    background-color: lightblue;
-}
-
-.unpressed-row {
-    background-color: white;
-}
-
-.single-flights-list {
-    border: 3px solid green;
-}
-
-#flightsLists {
-    display: grid;
-    /*grid-template-rows: 1fr 3fr;*/
-    grid-template-rows: 45%;
-    justify-items: stretch;
-    align-items: stretch;
-    border: 5px solid;
-}
-
-.single-flights-list-body {
-    overflow-y: scroll;
+    background-color:var(--flight-details-background-color);
 }
 
 .alert {
     margin-top: 40px;
 }
 
-.red-x {
-    width: 50%;
-    display: block;
-    margin-left: 50%;
-}
 
-.flight-row-data {
-    max-height:30%;
-    /*TODO make beautiful*/
-}
 
 #flightPlanJson {
     position: relative;
+    
 }
 
-.flights-list {
-    display: grid;
-    grid-template-rows: auto;
-    justify-items: stretch;
-    align-items: stretch;
-    grid-gap:0;
+.custom-file-label {
+    color: var(--text-color);
+    background-color: var(--json-label-background-color);
 }
 
-.local-flight-data{
-    width:80%;
-}
 
-.flight-delete{
-    width:20%;
-    text-align:center;
-}
 
-.table {
-    margin-bottom:0;
+.relativeContainer {
+    position: relative;
 }
