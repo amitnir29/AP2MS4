@@ -149,7 +149,7 @@ class FlightsList {
         this._rowStyler.makeUnpressed(newRow);
         //set the row's id to the flight's is
         newRow.setAttribute("id", this._idConverter.flightWrapperIdToListRowId(flight.id));
-        newRow.classList.add("flight-row-data");
+        newRow.classList.add("flight-row");
         //add the cell that displays the flight info
         const rowData = newRow.insertCell(-1);
         //add function call onclick to show this flight
@@ -157,8 +157,8 @@ class FlightsList {
         //add text for the cell
         rowData.innerHTML = this.flightWrapperDataToShow(flight);
         //set the css styling
-        rowData.classList.add("flight-row-data");
         rowData.classList.add("local-flight-data");
+        rowData.classList.add("flight-row-data");
         //add the cell that deletes the flight
         const rowDeleteButton = newRow.insertCell(-1);
         //add function call onclick to show this flight
@@ -184,7 +184,7 @@ class FlightsList {
         this._rowStyler.makeUnpressed(newRow);
         //set the row's id to the flight's is
         newRow.setAttribute("id", this._idConverter.flightWrapperIdToListRowId(flight.id));
-        newRow.classList.add("flight-row-data");
+        newRow.classList.add("flight-row");
         //add the cell that displays the flight info
         const rowData = newRow.insertCell(-1);
         //add function call onclick to show this flight

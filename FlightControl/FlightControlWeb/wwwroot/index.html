@@ -25,6 +25,9 @@
     <meta charset="utf-8" />
     <title>AYR flights tracker</title>
     <link href="css/StyleSheet.css" rel="stylesheet" type="text/css" />
+    <link href="css/ToggleButton.css" rel="stylesheet" type="text/css" />
+    <link href="css/DayModesVars.css" rel="stylesheet" type="text/css" />
+    <link href="css/FlightsListStyle.css" rel="stylesheet" type="text/css" />
 
     <script src="js/flightsList/flightsList.js"></script>
     <script src="js/flightsList/flightListRowStyler.js"></script>
@@ -39,6 +42,7 @@
     <script src="js/map.js"></script>
 </head>
 <body>
+
     <div class="wrapper">
         <!-- flights map -->
         <div id="mapid">
@@ -48,7 +52,7 @@
         <div id="flightsLists">
             <!--Local flights list-->
             <div class="flights-list">
-                <table id="localFlightsHeads" class="table no-margin">
+                <table id="localFlightsHeads" class="table no-margin table-head">
                     <thead>
                         <tr>
                             <th scope="col" class="local-flight-data">
@@ -70,7 +74,7 @@
             </div>
             <!--External flights list-->
             <div class="flights-list">
-                <table id="externalFlightsHead" class="table">
+                <table id="externalFlightsHead" class="table table-head">
                     <thead>
                         <tr>
                             <th scope="col" class="local-flight-data">
@@ -92,14 +96,24 @@
         <div id="flightDetails">
             <p id="flightDetailsText"></p>
         </div>
-        <!--json-->
-        <div id="flightPlanJson">
-            <div>
+        <!--json and dark/light mode button-->
+        <div class="relativeContainer">
+            <!--json-->
+            <div id="flightPlanJson">
                 <form method="POST" action="uploadFile" id="jsonGetter">
                     <input type="file" class="custom-file-input" id="jsonFileInput" onchange="submitFile(this.files)">
                     <label class="custom-file-label" for="jsonFileInput">Choose JSON file</label>
                 </form>
             </div>
+            <!--dark/light mode-->
+            <div id="dayModesButtonContainer">
+                <label class="switch">
+                    <input type="checkbox" id="switchBtn" name="theme">
+                    <span class="slider round"></span>
+                </label>
+                <label id="dayModeButton" for="switchBtn">light mode</label>
+            </div>
+
         </div>
 
     </div>
@@ -108,6 +122,20 @@
     <div id="error_list">
     </div>
 
+    <!-- code for the button -->
+    <script>
+        let checkbox = document.querySelector('input[name=theme]');
+
+        checkbox.addEventListener('change', function () {
+            if (this.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark')
+                document.getElementById("dayModeButton").textContent = "dark mode";
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light')
+                document.getElementById("dayModeButton").textContent = "light mode";
+            }
+        })
+    </script>
 
     <!--code for the json input-->
     <script>
