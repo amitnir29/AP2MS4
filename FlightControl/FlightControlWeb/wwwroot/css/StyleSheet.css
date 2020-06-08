@@ -1,38 +1,31 @@
-﻿body {
-    /*background-color:darkblue;*/
+﻿html, body, .wrapper {
+    height: 100%;
+    box-sizing: border-box;
 }
 
-#mainClass {
-    margin: 1em;
-    overflow: auto;
-    height: 95%;
-    width: 95%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+
+.wrapper {
+    padding: 1em;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 75% 20%;
+    grid-gap: 1em;
+    justify-items: stretch;
+    align-items: stretch;
+    border: 5px solid;
+    min-height:460px;
 }
 
-/*border for the map cells, for debug the cells*/
+
 #flightDetails, #flightsLists, #mapid, #flightPlanJson {
     border: 1px solid black;
-}
-
-
-#mapid {
-    width: 65%;
 }
 
 #flightDetailsText {
     margin: 1em;
     padding: 0.25em;
-    height: 90%;
     border: 5px solid grey;
-}
-
-#flightsLists {
-    width: 50%;
+    min-height: 50%;
 }
 
 .pressed-row {
@@ -44,57 +37,58 @@
 }
 
 .single-flights-list {
-    height: 50%;
     border: 3px solid green;
+}
+
+#flightsLists {
+    display: grid;
+    /*grid-template-rows: 1fr 3fr;*/
+    grid-template-rows: 45%;
+    justify-items: stretch;
+    align-items: stretch;
+    border: 5px solid;
 }
 
 .single-flights-list-body {
     overflow-y: scroll;
-    height:70%;
 }
 
-.single-flights-list-head{
-    height:30%;
-}
-
-.local-flight-data {
-    width: 80%;
-}
-
-.flight-delete{
-    width:20%;
-}
-
-/*
-#jsonFileLabel {
-    top: inherit;
-    right: inherit;
-    left: inherit;
-}
-    */
-
-
-/*
-label {
-    margin-top: 550px;
-    height: 600px; //this was in inside comment
-    background-color: black;
-}
-*/
 .alert {
     margin-top: 40px;
 }
 
 .red-x {
-    width: 40%;
+    width: 50%;
     display: block;
-    margin-right: 1em;
+    margin-left: 50%;
 }
 
-.flight-row-data{
+.flight-row-data {
+    max-height:30%;
     /*TODO make beautiful*/
 }
 
-#flightPlanJson{
-    position:relative;
+#flightPlanJson {
+    position: relative;
+}
+
+.flights-list {
+    display: grid;
+    grid-template-rows: auto;
+    justify-items: stretch;
+    align-items: stretch;
+    grid-gap:0;
+}
+
+.local-flight-data{
+    width:80%;
+}
+
+.flight-delete{
+    width:20%;
+    text-align:center;
+}
+
+.table {
+    margin-bottom:0;
 }

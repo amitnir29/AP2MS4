@@ -115,7 +115,7 @@ class FlightsList {
             this._allFlightsDict[newExternalFlight.id] = newExternalFlight;
         }
     }
-    
+
     /**
      * convert the input flight into a string to show in the flights list.
      * @param {FlightWrapper} flight the flight to convert.
@@ -149,6 +149,7 @@ class FlightsList {
         this._rowStyler.makeUnpressed(newRow);
         //set the row's id to the flight's is
         newRow.setAttribute("id", this._idConverter.flightWrapperIdToListRowId(flight.id));
+        newRow.classList.add("flight-row-data");
         //add the cell that displays the flight info
         const rowData = newRow.insertCell(-1);
         //add function call onclick to show this flight
@@ -161,7 +162,7 @@ class FlightsList {
         //add the cell that deletes the flight
         const rowDeleteButton = newRow.insertCell(-1);
         //add function call onclick to show this flight
-        rowDeleteButton.onclick = e => this.callFlightDeleteEvent(this.clickEventToFlightWrapperId(e));
+        rowDeleteButton.onclick = e => this.callFlightDeleteEvent(flight.id);
         //add delete image
         //rowDeleteButton.innerHTML = "DELETE";
         let deleteImage = document.createElement("img");
@@ -183,6 +184,7 @@ class FlightsList {
         this._rowStyler.makeUnpressed(newRow);
         //set the row's id to the flight's is
         newRow.setAttribute("id", this._idConverter.flightWrapperIdToListRowId(flight.id));
+        newRow.classList.add("flight-row-data");
         //add the cell that displays the flight info
         const rowData = newRow.insertCell(-1);
         //add function call onclick to show this flight
@@ -242,20 +244,23 @@ class FlightsList {
      * @param {FlightWrapper} flight
      */
     deleteFlight(flight) {
+        let id = (' ' + flight.id).slice(1);
         $.ajax({
-            url: "api/Flights/" + flight.id,
+            url: "api/Flights/" + id,
             type: 'DELETE', //send it through get method
 
             success: function (response) {
                 //return JSON.parse(data);
+
             },
             error: function (xhr) {
                 //TODO - pretty alert error
-                ErrorHandler.showError("Coudln't delete flight " + flight.id + " from the server!");
+                ErrorHandler.showError("Coudln't delete flight " + id + " from the server!");
             }
 
         });
         this.removeFlightFromTables(flight.id);
+        delete this._allFlightsDict[flight.id];
     }
 
 }

@@ -39,75 +39,70 @@
     <script src="js/map.js"></script>
 </head>
 <body>
-    <table id="mainClass">
-        <tr id="mapAndLists" style="height:80%">
-            <td id="mapid">
-                map
-            </td>
-            <td id="flightsLists">
-                <!--Local flights list-->
-                <div class="single-flights-list">
-                    <div class="single-flights-list-head">
-                        <table id="localFlightsHeads" class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col" class="local-flight-data">
-                                        Local Flights
-                                    </th>
-                                    <th scope="col" class="flight-delete">
-                                        Delete Flight
-                                    </th>
-                                </tr>
-                            </thead>
-                        </table>
-                    </div>
-                    <div class="single-flights-list-body">
-                        <table id="localFlights" class="table">
-                            <tbody class="single-flights-list-body">
-                                <!--add here the flights-->
-                            </tbody>
-                        </table>
-                    </div>
+    <div class="wrapper">
+        <!-- flights map -->
+        <div id="mapid">
+            map
+        </div>
+        <!-- flights list -->
+        <div id="flightsLists">
+            <!--Local flights list-->
+            <div class="flights-list">
+                <table id="localFlightsHeads" class="table no-margin">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="local-flight-data">
+                                Local Flights
+                            </th>
+                            <th scope="col" class="flight-delete">
+                                Delete Flight
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+                <div class="single-flights-list-body">
+                    <table id="localFlights" class="table">
+                        <tbody class="single-flights-list-body">
+                            <!--add here the flights-->
+                        </tbody>
+                    </table>
                 </div>
-                <!--External flights list-->
-                <div class="single-flights-list">
-                    <div class="single-flights-list-head">
-                        <table id="externalFlightsHead" class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col" class="local-flight-data">
-                                        External Flights
-                                    </th>
-                                </tr>
-                            </thead>
-                        </table>
-                    </div>
-                    <div class="single-flights-list-body">
-                        <table id="externalFlights" class="table">
-                            <tbody class="single-flights-list-body">
-                                <!--add here the flights-->
-                            </tbody>
-                        </table>
-                    </div>
+            </div>
+            <!--External flights list-->
+            <div class="flights-list">
+                <table id="externalFlightsHead" class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="local-flight-data">
+                                External Flights
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+                <div class="single-flights-list-body">
+                    <table id="externalFlights" class="table">
+                        <tbody class="single-flights-list-body">
+                            <!--add here the flights-->
+                        </tbody>
+                    </table>
                 </div>
-            </td>
-        </tr>
-        <tr id="detailsAndJson" style="height:20%">
-            <td id="flightDetails">
-                <p id="flightDetailsText"></p>
-            </td>
-            <td id="flightPlanJson">
-                <div>
-                    <form method="POST" action="uploadFile" id="jsonGetter">
-                        <input type="file" class="custom-file-input" id="jsonFileInput" onchange="submitFile(this.files)">
-                        <label class="custom-file-label" for="jsonFileInput">Choose JSON file</label>
-                    </form>
-                </div>
-            </td>
+            </div>
+        </div>
+        <!-- flight details-->
+        <div id="flightDetails">
+            <p id="flightDetailsText"></p>
+        </div>
+        <!--json-->
+        <div id="flightPlanJson">
+            <div>
+                <form method="POST" action="uploadFile" id="jsonGetter">
+                    <input type="file" class="custom-file-input" id="jsonFileInput" onchange="submitFile(this.files)">
+                    <label class="custom-file-label" for="jsonFileInput">Choose JSON file</label>
+                </form>
+            </div>
+        </div>
 
-        </tr>
-
-    </table>
+    </div>
 
 
     <div id="error_list">
