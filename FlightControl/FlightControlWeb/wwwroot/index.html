@@ -93,10 +93,20 @@
                     </table>
                 </div>
             </div>
+            <!--cover when drag and drop-->
+            <div class="dnd-shown dnd-cover">
+                <p>drag&drop flight plan json here</p>
+                <img id="dndImage" src="assets/dnd-white.png"/>
+            </div>
         </div>
-        <!-- flight details-->
-        <div id="flightDetails">
-            <p id="flightDetailsText"></p>
+        <div>
+            <!-- flight details-->
+            <div id="flightDetails">
+                <p id="flightDetailsText"></p>  
+            </div>
+            <!-- error messages -->
+            <div id="error_list">
+            </div>
         </div>
         <!--json and dark/light mode button-->
         <div class="relativeContainer">
@@ -121,8 +131,7 @@
     </div>
 
 
-    <div id="error_list">
-    </div>
+    
 
     <!-- code for the button -->
     <script>
@@ -132,9 +141,11 @@
             if (this.checked) {
                 document.documentElement.setAttribute('data-theme', 'dark')
                 document.getElementById("dayModeButton").textContent = "dark mode";
+                document.getElementById("dndImage").src = "assets/dnd-black.png";
             } else {
                 document.documentElement.setAttribute('data-theme', 'light')
                 document.getElementById("dayModeButton").textContent = "light mode";
+                document.getElementById("dndImage").src = "assets/dnd-white.png";
             }
         })
     </script>

@@ -11,22 +11,52 @@
     grid-template-rows: 45%;
     justify-items: stretch;
     align-items: stretch;
+    position: relative;
 }
 
-    #flightsLists.highlight {
-        border-color: purple;
-        color: purple;
-        //margin-top: 40px;
-        background-color: purple;
-        border: dotted;
+    #flightsLists .dnd-cover {
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        color: var(--text-color);
+        background-color: var(--unpressed-row-color);
     }
+
+        #flightsLists .dnd-cover p {
+            padding: 1em;
+            text-align: center;
+            font-size: 2em;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        #flightsLists .dnd-cover img {
+            display: block;
+            width: 33%;
+            margin-left: 33%;
+        }
+
+
+    #flightsLists .dnd-shown {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: -1;
+    }
+
+    #flightsLists.highlight .dnd-shown {
+        z-index: 1;
+    }
+
+
 .single-flights-list-body {
     overflow-y: scroll;
 }
 
 .red-x {
     display: block;
-    width:100%;
+    width: 100%;
 }
 
 .flight-row {

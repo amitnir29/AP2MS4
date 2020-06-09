@@ -29,15 +29,17 @@ body {
 #flightDetailsText {
     padding: 0.25em;
     border: 5px solid var(--filght-details-border-color);
-    min-height: 50%;
+    min-height: 5em;
     background-color:var(--flight-details-background-color);
 }
 
 .alert {
     margin-top: 0px;
-    //position: absolute;
-    //left: 100px;
-    //top: 650px;
+    /*
+    position: absolute;
+    left: 100px;
+    top: 650px;
+        */
 }
 
 
