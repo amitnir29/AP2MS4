@@ -13,6 +13,13 @@
     align-items: stretch;
 }
 
+    #flightsLists.highlight {
+        border-color: purple;
+        color: purple;
+        //margin-top: 40px;
+        background-color: purple;
+        border: dotted;
+    }
 .single-flights-list-body {
     overflow-y: scroll;
 }

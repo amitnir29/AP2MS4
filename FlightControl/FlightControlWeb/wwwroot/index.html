@@ -40,6 +40,8 @@
     <script src="js/ErrorHandler.js"></script>
     <script src="js/flightDetails.js"></script>
     <script src="js/map.js"></script>
+    <script src="js/uploadFile.js"></script>
+    
 </head>
 <body>
 
@@ -73,7 +75,7 @@
                 </div>
             </div>
             <!--External flights list-->
-            <div class="flights-list">
+            <div  class="flights-list">
                 <table id="externalFlightsHead" class="table table-head">
                     <thead>
                         <tr>
@@ -143,60 +145,7 @@
             files = [...files];
             files.forEach(uploadFile);
         }
-        function uploadFile(file) {
-            let reader = new FileReader()
-            reader.onload = function (e) {
-                // The file's text will be printed here
-                //document.write(e.target.result)
-                //console.log(e.target.result)
-                let file = e.target.result;
-                //console.log(file);
-                //check if it's a json file
-                try {
-                    JSON.parse(file);
-                } catch (e) {
-                    //output that it's wrong
-                    ErrorHandler.showError("Wrong file format! Please submit a JSON file!");
-                    return;
-                }
-                //if it's a json, check if has fileds
-                let obj = JSON.parse(file);
-                //console.log(obj);
-                fields = ["passengers", "company_name", 'initial_location', 'longitude', 'latitude', 'date_time', 'segments'];
-                let flag = false;
-                for (let field of fields) {
-                    if (!(field in obj)) {
-                        flag = true;
-                    }
-                }
-                //console.log("flag is ", flag);
-                //if there's at least one missing flag
-                if (flag) {
-                    ErrorHandler.showError("JSON file is missing some fields!");
-                    return;
-                }
-                $.ajax({
-                    url: "api/FlightPlan",
-                    type: "post", //send it through get method
-                    data: file,//the json file
-                    contentType: "application/json",
 
-                    success: function (data) {
-                        //flightsArray = JSON.parse(data);
-                        //consloe
-                        //console.log("success in posting json");
-                        //console.log(data);
-                    },
-                    error: function (xhr) {
-                        ErrorHandler.showError("failed to post flightPlan to the server!")
-                        //console.log("got to error in posting json");
-                        //console.log(xhr);
-                    }
-
-                });
-            };
-            reader.readAsText(file)
-        }
     </script>
 
     <!--call the start of the client-->
@@ -205,7 +154,7 @@
         //console.log("started client handler");
         c.startClient();
     </script>
-
+    <script src="js/DragAndDrop.js"></script>
 </body>
 </html>
 
