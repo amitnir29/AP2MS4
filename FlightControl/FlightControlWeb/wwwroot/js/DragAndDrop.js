@@ -1,6 +1,5 @@
 ﻿//get the item of the list, add to the dragover event to become a d&d zone, and drag leave come back
 let dropArea = document.getElementById('flightsLists');
-
   /*dropArea.addEventListener('dragenter', handlerFunction, false)
   dropArea.addEventListener('dragleave', handlerFunction, false)
   dropArea.addEventListener('dragover', handlerFunction, false)
@@ -13,23 +12,36 @@ let dropArea = document.getElementById('flightsLists');
         e.preventDefault()
         e.stopPropagation()
     }
-    ;['dragenter', 'dragover'].forEach(eventName => {
+    ;[ 'dragover'].forEach(eventName => {
         dropArea.addEventListener(eventName, highlight, false)
     })
 
-        ;['dragleave', 'drop'].forEach(eventName => {
-            dropArea.addEventListener(eventName, unhighlight, false)
-        })
+    ;['dragleave', 'drop'].forEach(eventName => {
+        dropArea.addEventListener(eventName, unhighlight, false)
+    });
+    ['dragenter'].forEach(eventName => {
+        dropArea.addEventListener(eventName, enterDrag, false)
+    })
+let counter = 0;
+function highlight(e) {
+    //console.log("currently ", highlights);
+    dropArea.classList.add('highlight');
+        
+}
+function enterDrag(e) {
+    counter++;
 
-    function highlight(e) {
-        dropArea.classList.add('highlight')
-        console.log("highlight");
-    }
+}
+let dragTimer;
 
-    function unhighlight(e) {
-        dropArea.classList.remove('highlight')
-        console.log("unhighlight");
+function unhighlight(e) {
+
+    counter--;
+    if (counter === 0) {
+        dropArea.classList.remove('highlight');
     }
+        
+ }
 
     dropArea.addEventListener('drop', handleDrop, false)
 
