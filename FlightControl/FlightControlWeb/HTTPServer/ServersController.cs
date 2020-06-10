@@ -13,7 +13,6 @@ namespace FlightControlWeb.HTTPServer
     [ApiController]
     public class ServersController : ControllerBase
     {
-        //private IServersDB dataBase = new MyServersDB();
         private readonly IServersDB dataBase;
 
         public ServersController(IServersDB sdb)

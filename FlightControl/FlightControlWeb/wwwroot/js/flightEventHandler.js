@@ -22,7 +22,6 @@
      */
     async getFlightPlan(flightId) {
         let flightPlan;
-        //TODO server request
         await $.ajax({
             url: "api/FlightPlan/" + flightId,
             type: "get", //send it through get method
@@ -30,8 +29,8 @@
                 flightPlan = data;
             },
             error: function (xhr) {
-                //TODO - pretty alert
-                ErrorHandler.showError("Wasn't able to get flightplan");
+                //TODO error alert
+                ErrorHandler.showError("Couldn't get flightplan of " + flightId);
             }
 
         });
@@ -99,7 +98,8 @@
      */
     flightRemoved(flightWrapperId) {
         if (this._currentPressedFlight === null) {
-            //TODO print error
+            console.error("tried to remove a null value of flight!");
+
         }
         else if (this._currentPressedFlight.id === flightWrapperId) {
             this._flightDetails.hidePressedFlight();

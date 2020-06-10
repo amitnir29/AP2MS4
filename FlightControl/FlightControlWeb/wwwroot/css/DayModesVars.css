@@ -1,0 +1,29 @@
+﻿html {
+    --backgound-color: #F9F9F9;
+    --app-color: #F5F5F5;
+    --filght-details-border-color: #BBB;
+    --flight-details-background-color: #DDD;
+    --pressed-row-color: lightblue;
+    --unpressed-row-color: #EEE;
+    --flights-list-border-color: #444;
+    --text-color: black;
+    --flights-list-table-head-background-color:var(--app-color);
+    --json-label-background-color:var(--app-color);
+    --json-button-background-color:var(--app-color);
+    
+}
+
+
+    html[data-theme='dark'] {
+        --backgound-color: #333;
+        --app-color: #444;
+        --filght-details-border-color: #555;
+        --flight-details-background-color: #666;
+        --pressed-row-color: darkblue;
+        --unpressed-row-color: #666;
+        --flights-list-border-color: #AAA;
+        --text-color: white;
+        --flights-list-table-head-background-color: #555;
+        --json-label-background-color: var(--app-color);
+        --json-button-background-color: var(--app-color);
+    }

@@ -27,8 +27,8 @@ namespace FlightControlWeb.HTTPServer
             bool syncAll = Request.Query.ContainsKey("sync_all");
 
             if (syncAll)
-                return await flightsModel.GetAllFlights(DateTime.Parse(relativeTo));
-            return await flightsModel.GetAllFlightsSync(DateTime.Parse(relativeTo));
+                return await flightsModel.GetAllFlightsSync(DateTime.Parse(relativeTo));
+            return await flightsModel.GetAllFlights(DateTime.Parse(relativeTo));
         }
 
 

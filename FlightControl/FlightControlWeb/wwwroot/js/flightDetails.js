@@ -2,7 +2,7 @@
 
 
     constructor(flightEventHandler) {
-        this._flightDetailsText = document.getElementById("flightDetailsText"); //TODO change to the actual panel.
+        this._flightDetailsText = document.getElementById("flightDetailsText");
         //the flight info click event handler
         this._flightEventHandler = flightEventHandler;
     }

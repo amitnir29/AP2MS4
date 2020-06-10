@@ -19,6 +19,7 @@ namespace FlightControlWeb.Flight
 
 
         private int passengers;
+        [Newtonsoft.Json.JsonProperty("passengers")]
         [JsonPropertyName("passengers")]
         public int Passengers
         {
@@ -28,6 +29,7 @@ namespace FlightControlWeb.Flight
 
 
         private string company;
+        [Newtonsoft.Json.JsonProperty("company_name")]
         [JsonPropertyName("company_name")]
         public string Company
         {
@@ -37,6 +39,7 @@ namespace FlightControlWeb.Flight
 
 
         private InitialLocation initLocation;
+        [Newtonsoft.Json.JsonProperty("initial_loacation")]
         [JsonPropertyName("initial_location")]
         public InitialLocation InitLocation
         {
@@ -46,6 +49,7 @@ namespace FlightControlWeb.Flight
 
 
         private IList<FlightStatus> segments;
+        [Newtonsoft.Json.JsonProperty("segments")]
         [JsonPropertyName("segments")]
         public IList<FlightStatus> Segments
         {

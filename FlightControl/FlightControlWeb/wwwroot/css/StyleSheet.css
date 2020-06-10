@@ -1,112 +1,61 @@
-﻿body {
-    /*background-color:darkblue;*/
-}
-
-.flight-details {
-    margin-top: 20px;
-    padding: 25px;
+﻿html, body, .wrapper {
+    height: 100%;
     box-sizing: border-box;
 }
 
-#mainClass {
-    margin: 1em;
+body {
+    background-color: var(--backgound-color);
 }
 
-.container {
-    /*border: dotted;*/
-    /*box-sizing: border-box;*/
-    margin: 1em;
+.wrapper {
+    padding: 1em;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 70% 25%;
+    grid-gap: 1em;
+    justify-items: stretch;
+    align-items: stretch;
+    /*border: 5px solid;*/
+    min-height: 460px;
+    background-color: var(--app-color);
+    color: var(--text-color);
 }
+
 
 #mapid {
-    width: 100%;
-    position: absolute;
-    height: 65%;
+    border: 1px solid black;
 }
 
-/*
-#planes li {
-    height: 40px;
-}
-*/
-
-/*
-.btn {
-    float: right;
-    margin-right: 300px;
-}
-.btn:active, .active {
-    background-color: red;
-    color: white;
-}
-.button{
-    margin-top:500px;
-}*/
-
-.pressed-row {
-    background-color: lightblue;
-}
-
-.unpressed-row {
-    background-color: white;
-}
-
-.tables-container{
-    position:absolute;
-    height:80%;
-}
-
-.single-table-container {
-    height: 50%; /*TODO this sets the table height. check if this is a good size*/
-    overflow: auto;
-    font-size: 0.75em;
-}
-
-#tablesAndJson {
-    width: 30%;
-    position: absolute;
-    right: 5%;
-    bottom: 5%;
-}
-
-#mapAndFlightDetails {
-    position: absolute;
-    left: 5%;
-    width: 60%;
-    bottom: 5%;
-}
-
-#flightDetails {
-    position: absolute;
-    bottom: 5%;
-    height: 25%;
-    width: 100%;
-}
-
-
-#jsonGetter {
-    position:absolute;
-    height:15%;
-}
-
-.screen-col {
-    height: 90%;
-}
-
-label {
-    margin-top: 550px;
-    /*height: 600px;*/
-    background-color: black;
+#flightDetailsText {
+    padding: 0.25em;
+    border: 5px solid var(--filght-details-border-color);
+    min-height: 5em;
+    background-color:var(--flight-details-background-color);
 }
 
 .alert {
-    margin-top: 40px;
+    margin-top: 0px;
+    /*
+    position: absolute;
+    left: 100px;
+    top: 650px;
+        */
 }
 
-.flight-delete {
-    /*TODO*/
+
+
+#flightPlanJson {
+    position: relative;
+    
 }
 
-.flight-row-data {
-    /*TODO*/
+.custom-file-label {
+    color: var(--text-color);
+    background-color: var(--json-label-background-color);
+}
+
+
+
+.relativeContainer {
+    position: relative;
 }

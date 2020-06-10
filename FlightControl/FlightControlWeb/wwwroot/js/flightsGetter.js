@@ -15,7 +15,7 @@ class FlightsGetter {
     async getFlights() {
         let now = new Date();
         let formatted = now.toISOString().split(".")[0] + "Z";
-
+        
         let flightsArray;
         const flightWrappersArray = [];
         //console.log("sending GET of " + "api/Flights/" + "?relative_to=" + formatted + "&sync_all");
@@ -27,17 +27,12 @@ class FlightsGetter {
             //dataType: 'json',
 
             success: function (data) {
-                // do other actions
-                //TODO here we should get the JSON
+                //parse the json to this variable.
                 flightsArray = data;
-                //console.log("data", data);
-                //ErrorHandler.showError("Hello there general kenobi");
-                
             },
             error: function (xhr) {
-                //console.log("failed get");
-                console.log(xhr);
-                ErrorHandler.showError("Wasn't able to get flights");
+                //console.log(xhr);
+                ErrorHandler.showError("Couldn't get flights from the server");
                 //TODO - pretty alert
             }
 
