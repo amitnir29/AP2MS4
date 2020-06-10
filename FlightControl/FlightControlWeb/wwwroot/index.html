@@ -25,6 +25,9 @@
     <meta charset="utf-8" />
     <title>AYR flights tracker</title>
     <link href="css/StyleSheet.css" rel="stylesheet" type="text/css" />
+    <link href="css/ToggleButton.css" rel="stylesheet" type="text/css" />
+    <link href="css/DayModesVars.css" rel="stylesheet" type="text/css" />
+    <link href="css/FlightsListStyle.css" rel="stylesheet" type="text/css" />
 
     <script src="js/flightsList/flightsList.js"></script>
     <script src="js/flightsList/flightListRowStyler.js"></script>
@@ -37,82 +40,115 @@
     <script src="js/ErrorHandler.js"></script>
     <script src="js/flightDetails.js"></script>
     <script src="js/map.js"></script>
+    <script src="js/uploadFile.js"></script>
+    
 </head>
 <body>
-    <table id="mainClass">
-        <tr id="mapAndLists" style="height:80%">
-            <td id="mapid">
-                map
-            </td>
-            <td id="flightsLists">
-                <!--Local flights list-->
-                <div class="single-flights-list">
-                    <div class="single-flights-list-head">
-                        <table id="localFlightsHeads" class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col" class="local-flight-data">
-                                        Local Flights
-                                    </th>
-                                    <th scope="col" class="flight-delete">
-                                        Delete Flight
-                                    </th>
-                                </tr>
-                            </thead>
-                        </table>
-                    </div>
-                    <div class="single-flights-list-body">
-                        <table id="localFlights" class="table">
-                            <tbody class="single-flights-list-body">
-                                <!--add here the flights-->
-                            </tbody>
-                        </table>
-                    </div>
+
+    <div class="wrapper">
+        <!-- flights map -->
+        <div id="mapid">
+            map
+        </div>
+        <!-- flights list -->
+        <div id="flightsLists">
+            <!--Local flights list-->
+            <div class="flights-list">
+                <table id="localFlightsHeads" class="table no-margin table-head">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="local-flight-data">
+                                Local Flights
+                            </th>
+                            <th scope="col" class="flight-delete">
+                                Delete Flight
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+                <div class="single-flights-list-body">
+                    <table id="localFlights" class="table">
+                        <tbody class="single-flights-list-body">
+                            <!--add here the flights-->
+                        </tbody>
+                    </table>
                 </div>
-                <!--External flights list-->
-                <div class="single-flights-list">
-                    <div class="single-flights-list-head">
-                        <table id="externalFlightsHead" class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col" class="local-flight-data">
-                                        External Flights
-                                    </th>
-                                </tr>
-                            </thead>
-                        </table>
-                    </div>
-                    <div class="single-flights-list-body">
-                        <table id="externalFlights" class="table">
-                            <tbody class="single-flights-list-body">
-                                <!--add here the flights-->
-                            </tbody>
-                        </table>
-                    </div>
+            </div>
+            <!--External flights list-->
+            <div  class="flights-list">
+                <table id="externalFlightsHead" class="table table-head">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="local-flight-data">
+                                External Flights
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+                <div class="single-flights-list-body">
+                    <table id="externalFlights" class="table">
+                        <tbody class="single-flights-list-body">
+                            <!--add here the flights-->
+                        </tbody>
+                    </table>
                 </div>
-            </td>
-        </tr>
-        <tr id="detailsAndJson" style="height:20%">
-            <td id="flightDetails">
-                <p id="flightDetailsText"></p>
-            </td>
-            <td id="flightPlanJson">
-                <div>
-                    <form method="POST" action="uploadFile" id="jsonGetter">
-                        <input type="file" class="custom-file-input" id="jsonFileInput" onchange="submitFile(this.files)">
-                        <label class="custom-file-label" for="jsonFileInput">Choose JSON file</label>
-                    </form>
-                </div>
-            </td>
+            </div>
+            <!--cover when drag and drop-->
+            <div class="dnd-shown dnd-cover">
+                <p>Drop JSON files here!</p>
+                <img id="dndImage" src="assets/dnd-white.png"/>
+            </div>
+        </div>
+        <div>
+            <!-- flight details-->
+            <div id="flightDetails">
+                <p id="flightDetailsText"></p>  
+            </div>
+            <!-- error messages -->
+            <div id="error_list">
+            </div>
+        </div>
+        <!--json and dark/light mode button-->
+        <div class="relativeContainer">
+            <!--json-->
+            <div id="flightPlanJson">
+                <form method="POST" action="uploadFile" id="jsonGetter">
+                    <input type="file" class="custom-file-input" id="jsonFileInput" onchange="submitFile(this.files)">
+                    <label class="custom-file-label" for="jsonFileInput">Choose JSON file</label>
+                </form>
+            </div>
+            <!--dark/light mode-->
+            <div id="dayModesButtonContainer">
+                <label class="switch">
+                    <input type="checkbox" id="switchBtn" name="theme">
+                    <span class="slider round"></span>
+                </label>
+                <label id="dayModeButton" for="switchBtn">light mode</label>
+            </div>
 
-        </tr>
+        </div>
 
-    </table>
-
-
-    <div id="error_list">
     </div>
 
+
+    
+
+    <!-- code for the button -->
+    <script>
+        let checkbox = document.querySelector('input[name=theme]');
+
+        checkbox.addEventListener('change', function () {
+            if (this.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark')
+                document.getElementById("dayModeButton").textContent = "dark mode";
+                document.getElementById("dndImage").src = "assets/dnd-black.png";
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light')
+                document.getElementById("dayModeButton").textContent = "light mode";
+                document.getElementById("dndImage").src = "assets/dnd-white.png";
+            }
+        })
+    </script>
 
     <!--code for the json input-->
     <script>
@@ -120,34 +156,7 @@
             files = [...files];
             files.forEach(uploadFile);
         }
-        function uploadFile(file) {
-            let reader = new FileReader()
-            reader.onload = function (e) {
-                // The file's text will be printed here
-                //document.write(e.target.result)
-                //console.log(e.target.result)
-                $.ajax({
-                    url: "api/FlightPlan",
-                    type: "post", //send it through get method
-                    data: e.target.result,//the json file
-                    contentType: "application/json",
 
-                    success: function (data) {
-                        //flightsArray = JSON.parse(data);
-                        //consloe
-                        //console.log("success in posting json");
-                        //console.log(data);
-                    },
-                    error: function (xhr) {
-                        ErrorHandler.showError("failed to post flightPlan to the server!")
-                        //console.log("got to error in posting json");
-                        //console.log(xhr);
-                    }
-
-                });
-            };
-            reader.readAsText(file)
-        }
     </script>
 
     <!--call the start of the client-->
@@ -156,7 +165,7 @@
         //console.log("started client handler");
         c.startClient();
     </script>
-
+    <script src="js/DragAndDrop.js"></script>
 </body>
 </html>
 
