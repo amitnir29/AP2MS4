@@ -13,7 +13,7 @@
     startClient() {
         //milliseconds between each iteration
         const intervalLength = 1500;
-        //const secondCallDelay = 250;
+        const secondCallDelay = 250;
         //init the flightEventHandler
         const flightEventHandler = new FlightEventHandler();
         //init the screen parts
