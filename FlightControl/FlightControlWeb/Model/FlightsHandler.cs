@@ -32,13 +32,18 @@ namespace FlightControlWeb.Model
             /// <returns> The flight plan. </returns>
             public async Task<FlightPlan> GetFlightPlan(string id)
             {
+                // Try get the flight plan from the local data base.
                 var local = await flightsDB.GetFlightPlan(id);
 
                 if (local != null)
                     return local;
 
+                // If flight plan not in local data base, try to retrieve it from an external server.
+                // Get the server in which the flight plan is located.
                 var relevantServer = await flightsServersDB.GetFlightServer(id);
+
                 if (relevantServer != null) {
+                    // Ask the external server for the flight plan.
                     var server = await serversDB.GetServer(relevantServer.ServerId);
 
                     IHTTPClient client = new HTTPClient(server);
@@ -80,13 +85,15 @@ namespace FlightControlWeb.Model
                 // Get first all local flights.
                 Task<IList<Flight.Flight>> localFlights = GetAllFlights(relativeTo);
 
-                // Create a list contains lists 
+                /* Create a list contains lists of external flights.
+                 * Each inner list represents flights from a specifiec server. */
                 IList<Task<IList<Flight.Flight>>> externalFlights = new List<Task<IList<Flight.Flight>>>();
 
                 IList<Task> serversUpdates = new List<Task>();
 
                 await foreach (Server server in serversDB.GetIterator())
                 {
+                    // For each server, ask it for all its flights.
                     HTTPClient client = new HTTPClient(server);
                     var externals = client.GetFlights(relativeTo.ToString("yyyy-MM-ddTHH:mm:ssZ"));
                     var res = await externals;
@@ -96,7 +103,10 @@ namespace FlightControlWeb.Model
 
                     foreach(var flight in res)
                     {
+                        // Change isExternal property of the flight to true, as it was retrieved from an external server.
                         flight.IsExternal = true;
+                        /* Add the id of the flight to the data base. Connect it to its server. Next time we want the flight plan we can
+                         * simply ask it from the relevant server. */
                         var serverUpdate = flightsServersDB.PostFlightServer(new Servers.FlightServer(flight.FlightID, server.Id));
                         serversUpdates.Add(serverUpdate);
                     }
@@ -105,6 +115,7 @@ namespace FlightControlWeb.Model
 
                 IList<Flight.Flight> temp = await localFlights;
 
+                // Join all the lists from the serers and the list of the local flight to one list of flights.
                 foreach (var flightsList in externalFlights)
                 {
                     temp = temp.Concat(await flightsList).ToList();
