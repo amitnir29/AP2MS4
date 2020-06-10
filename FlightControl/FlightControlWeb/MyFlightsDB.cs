@@ -18,10 +18,17 @@ namespace FlightControlWeb
     public class MyFlightsDB : IFlightsDB
     {
         private readonly string connectionString;
+        //private int rows;
 
         public MyFlightsDB(IConfiguration configuration)
         {
             connectionString = configuration["DefConnectionString"];
+            /*using SQLiteConnection con = new SQLiteConnection(connectionString);
+            con.OpenAsync();
+            using var command = new SQLiteCommand("SELECT COUNT(*) FROM FlightPlans", con);
+            using SQLiteDataReader rdr = (SQLiteDataReader) command.ExecuteReader();
+            rdr.Read();
+            rows = rdr.GetInt32(0);*/
         }
 
         public async Task DeleteFlightPlan(string id)
@@ -30,6 +37,7 @@ namespace FlightControlWeb
             await con.OpenAsync();
             using var command = new SQLiteCommand("DELETE FROM FlightPlans WHERE id = '" + id + "'", con);
             await command.ExecuteNonQueryAsync();
+            //rows--;
         }
 
         public async Task<FlightPlan> GetFlightPlan(string id)
@@ -57,7 +65,7 @@ namespace FlightControlWeb
 
         public async IAsyncEnumerable<FlightPlan> GetIterator()
         {
-            int rows = await NumOfRows();
+            //int rows = await NumOfRows();
             using SQLiteConnection con = new SQLiteConnection(connectionString);
             await con.OpenAsync();
             using var command = new SQLiteCommand("SELECT * FROM FlightPlans", con);
@@ -97,6 +105,7 @@ namespace FlightControlWeb
             {
                 //TODO decide what to do if there is this id already
             }
+            //rows++;
         }
 
         private async Task<int> NumOfRows()

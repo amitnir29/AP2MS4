@@ -29,7 +29,7 @@ namespace FlightControlWeb
 
         public async IAsyncEnumerable<Server> GetIterator()
         {
-            int rows = await NumOfRows();
+            //int rows = await NumOfRows();
             using SQLiteConnection con = new SQLiteConnection(connectionString);
             await con.OpenAsync();
             using var command = new SQLiteCommand("SELECT * FROM Servers", con);
