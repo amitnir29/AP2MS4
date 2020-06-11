@@ -22,7 +22,7 @@ namespace FlightControlWeb
         /// <param name="args"></param>
         public static void Main(string[] args)
         {
-            Console.WriteLine(args);
+            //Console.WriteLine(args);
             CreateHostBuilder(args).Build().Run();
             //MyFlightsServersDB flightsServers = new MyFlightsServersDB("Data Source=.\\FlightsServersDB.db;Version=3;");
             //flightsServers.PostFlightServer(new FlightServer("AYRTRY", "SERTRY"));

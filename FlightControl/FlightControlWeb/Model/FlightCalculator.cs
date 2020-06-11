@@ -52,7 +52,8 @@ namespace FlightControlWeb.Model
                     plan.Segments[plan.Segments.Count - 1].Latitude, plan.Passengers, plan.Company, launch, isExternal);
 
                 // If greater, return null - no flight at this time.
-                return null;
+                if (temp < relativeTo)
+                    return null;
             }   
 
 

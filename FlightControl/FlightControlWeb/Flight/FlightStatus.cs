@@ -9,6 +9,7 @@ namespace FlightControlWeb.Flight
     public class FlightStatus
     {
         private double longitude;
+        [Newtonsoft.Json.JsonProperty("longitude")]
         [JsonPropertyName("longitude")]
         public double Longitude
         {
@@ -17,6 +18,7 @@ namespace FlightControlWeb.Flight
         }
 
         private double latitude;
+        [Newtonsoft.Json.JsonProperty("latitude")]
         [JsonPropertyName("latitude")]
         public double Latitude
         {
@@ -26,12 +28,16 @@ namespace FlightControlWeb.Flight
 
 
         private int deltaTime;
+        [Newtonsoft.Json.JsonProperty("timespan_seconds")]
         [JsonPropertyName("timespan_seconds")]
         public int DeltaTime
         {
             get => deltaTime;
             set => deltaTime = value;
         }
+
+
+        public FlightStatus() { }
 
 
         /// <summary>

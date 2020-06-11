@@ -1,7 +1,7 @@
 ﻿class FlightWrapper {
-    constructor(flightJsonObj) {
+    constructor(flightJsonObj, mapPlaneIconReference=null) {
         this._flightDetails = flightJsonObj;
-        this._planeIconReference  = null;
+        this._planeIconReference = mapPlaneIconReference;
     }
 
     get flightDetails() {
@@ -9,7 +9,7 @@
     }
 
     get planeIconReference() {
-        return this._planeIcon;
+        return this._planeIconReference;
     }
 
     set planeIconReference(newReference) {
@@ -19,6 +19,11 @@
     get id() {
         return this._flightDetails.flight_id;
     }
+
+    get is_external() {
+        return this._flightDetails.is_external;
+    }
+
 
     /**
      * convert a FlightWrapper array into a set of the FlightWrappers' ids.

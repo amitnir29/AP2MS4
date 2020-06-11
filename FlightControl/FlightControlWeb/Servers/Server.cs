@@ -31,5 +31,8 @@ namespace FlightControlWeb.Servers
             Id = id;
             Url = url;
         }
+
+
+        public Server() { }
     }
 }
