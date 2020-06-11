@@ -89,7 +89,7 @@ namespace FlightControlWeb.Model
                  * Each inner list represents flights from a specifiec server. */
                 IList<Task<IList<Flight.Flight>>> externalFlights = new List<Task<IList<Flight.Flight>>>();
 
-                IList<Task> serversUpdates = new List<Task>();
+                IList<KeyValuePair<string, string>> serversUpdates = new List<KeyValuePair<string, string>>();
 
                 await foreach (Server server in serversDB.GetIterator())
                 {
@@ -105,15 +105,12 @@ namespace FlightControlWeb.Model
                     {
                         // Change isExternal property of the flight to true, as it was retrieved from an external server.
                         flight.IsExternal = true;
-                        /* Add the id of the flight to the data base. Connect it to its server. Next time we want the flight plan we can
-                         * simply ask it from the relevant server. */
-                        var serverUpdate = flightsServersDB.PostFlightServer(new Servers.FlightServer(flight.FlightID, server.Id));
-                        serversUpdates.Add(serverUpdate);
+                        serversUpdates.Add(new KeyValuePair<string, string>(flight.FlightID, server.Id));
                     }
-                    externalFlights.Add(externals);
-                }
+                        externalFlights.Add(externals);
+                    }
 
-                IList<Flight.Flight> temp = await localFlights;
+                    IList<Flight.Flight> temp = await localFlights;
 
                 // Join all the lists from the serers and the list of the local flight to one list of flights.
                 foreach (var flightsList in externalFlights)
@@ -121,10 +118,12 @@ namespace FlightControlWeb.Model
                     temp = temp.Concat(await flightsList).ToList();
                 }
 
-                foreach (var update in serversUpdates)
+                foreach (var pair in serversUpdates)
                 {
-                    await update;
-                }
+                /* Add the id of the flight to the data base. Connect it to its server. Next time we want the flight plan we can
+                * simply ask it from the relevant server. */
+                await flightsServersDB.PostFlightServer(new Servers.FlightServer(pair.Key, pair.Value));
+            }
 
                 return temp;
             }

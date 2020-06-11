@@ -65,6 +65,11 @@ namespace FlightControlWeb
 
         public async Task PostFlightServer(FlightServer fs)
         {
+            FlightServer exists = await this.GetFlightServer(fs.FlightId);
+
+            if (exists != null)
+                return;
+
             using SQLiteConnection con = new SQLiteConnection(connectionString);
             await con.OpenAsync();
 

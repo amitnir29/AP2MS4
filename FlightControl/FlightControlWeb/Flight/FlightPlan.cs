@@ -39,7 +39,7 @@ namespace FlightControlWeb.Flight
 
 
         private InitialLocation initLocation;
-        [Newtonsoft.Json.JsonProperty("initial_loacation")]
+        [Newtonsoft.Json.JsonProperty("initial_location")]
         [JsonPropertyName("initial_location")]
         public InitialLocation InitLocation
         {
