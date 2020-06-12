@@ -1,0 +1,61 @@
+﻿html, body, .wrapper {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--backgound-color);
+}
+
+.wrapper {
+    padding: 1em;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 70% 25%;
+    grid-gap: 1em;
+    justify-items: stretch;
+    align-items: stretch;
+    /*border: 5px solid;*/
+    min-height: 460px;
+    background-color: var(--app-color);
+    color: var(--text-color);
+}
+
+
+#mapid {
+    border: 1px solid black;
+}
+
+#flightDetailsText {
+    padding: 0.25em;
+    border: 5px solid var(--filght-details-border-color);
+    min-height: 5em;
+    background-color:var(--flight-details-background-color);
+}
+
+.alert {
+    margin-top: 0px;
+    /*
+    position: absolute;
+    left: 100px;
+    top: 650px;
+        */
+}
+
+
+
+#flightPlanJson {
+    position: relative;
+    
+}
+
+.custom-file-label {
+    color: var(--text-color);
+    background-color: var(--json-label-background-color);
+}
+
+
+
+.relativeContainer {
+    position: relative;
+}
