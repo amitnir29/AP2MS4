@@ -8,6 +8,12 @@ namespace FlightControlWeb.Model
 {
     interface IFlightCalculator
     {
-        public Flight.Flight CreateFlightFromPlan(FlightPlan plan, DateTime relativeTo, bool isExternal);
+        /// <summary>
+        /// Generate a flight from a given flight plan and a time.
+        /// </summary>
+        /// <param name="plan"> The flight plan to generate from. </param>
+        /// <param name="relativeTo"> The time (to calculate the plane's position. </param>
+        /// <returns> A corresponding flight or null if there is no flight at the given time. </returns>
+        public Flight.Flight CreateFlightFromPlan(FlightPlan plan, DateTime relativeTo);
     }
 }

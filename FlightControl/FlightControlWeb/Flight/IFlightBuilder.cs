@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 
 namespace FlightControlWeb.Flight
 {
-    interface IIDGenerator
+    public interface IFlightBuilder
     {
         /// <summary>
-        /// Generate an ID.
+        /// Create a flight.
         /// </summary>
-        /// <returns> A strinf representing an id, </returns>
-        public string GenerateID();
+        /// <returns> FLight based on the builder. </returns>
+        public Flight Create();
     }
 }

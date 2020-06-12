@@ -31,9 +31,9 @@ namespace FlightControlWeb.Model.HTTPClinet
 
                 string content = await client.GetStringAsync(uri);
 
-                var converted = JsonConvert.DeserializeObject<FlightPlan>(content);
+                FlightPlanBuilder converted = JsonConvert.DeserializeObject<FlightPlanBuilder>(content);
 
-                return converted;
+                return converted.Create();
             }
             catch(Exception)
             {
@@ -51,9 +51,17 @@ namespace FlightControlWeb.Model.HTTPClinet
 
                 string content = await client.GetStringAsync(uri);
 
-                var converted = JsonConvert.DeserializeObject<List<Flight.Flight>>(content);
+                IList<FlightBuilder> converted = JsonConvert.DeserializeObject<IList<FlightBuilder>>(content);
 
-                return converted;
+                IList<Flight.Flight> flights = new List<Flight.Flight>();
+
+                foreach (IFlightBuilder builder in converted)
+                {
+                    Flight.Flight flight = builder.Create();
+                    flights.Add(flight);
+                }
+
+                return flights;
             }
             catch (Exception)
             {

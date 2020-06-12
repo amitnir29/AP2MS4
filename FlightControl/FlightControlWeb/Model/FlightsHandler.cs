@@ -66,7 +66,8 @@ namespace FlightControlWeb.Model
 
                 await foreach (var flightPlan in flightsDB.GetIterator())
                 {
-                    var res = calculator.CreateFlightFromPlan(flightPlan, relativeTo, false);
+                    // Create a flight from the gien flight plan and the relative time.
+                    var res = calculator.CreateFlightFromPlan(flightPlan, relativeTo);
                     if (res != null)
                         flights.Add(res);
                 }
@@ -89,6 +90,8 @@ namespace FlightControlWeb.Model
                  * Each inner list represents flights from a specifiec server. */
                 IList<Task<IList<Flight.Flight>>> externalFlights = new List<Task<IList<Flight.Flight>>>();
 
+                // After getting all flights we want to know from where those flights had arrived.
+                // We want to store those flight's ids in a data base with a reference to the id of the server from which the flights had arrived.
                 IList<KeyValuePair<string, string>> serversUpdates = new List<KeyValuePair<string, string>>();
 
                 await foreach (Server server in serversDB.GetIterator())

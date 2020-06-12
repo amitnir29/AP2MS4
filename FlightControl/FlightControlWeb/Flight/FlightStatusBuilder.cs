@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FlightControlWeb.Flight
 {
-    public class FlightStatus
+    public class FlightStatusBuilder : IFlightStatusBuilder
     {
         private double longitude;
         /// <summary>
@@ -16,7 +16,13 @@ namespace FlightControlWeb.Flight
         [JsonPropertyName("longitude")]
         public double Longitude
         {
-            get => longitude;
+            set
+            {
+                if (-180 <= value && value <= 180)
+                    longitude = value;
+                else
+                    throw new ArgumentException("Longitude should be between -180 and 180");
+            }
         }
 
 
@@ -28,7 +34,7 @@ namespace FlightControlWeb.Flight
         [JsonPropertyName("latitude")]
         public double Latitude
         {
-            get => latitude;
+            set => latitude = value;
         }
 
 
@@ -40,21 +46,17 @@ namespace FlightControlWeb.Flight
         [JsonPropertyName("timespan_seconds")]
         public int DeltaTime
         {
-            get => deltaTime;
+            set => deltaTime = value;
         }
 
 
         /// <summary>
-        /// A constructor.
+        /// Create a flight status based on the builder.
         /// </summary>
-        /// <param name="longitude"> Longitude of the plane at the current status. </param>
-        /// <param name="latitude"> Latitude of the plane at the current status. </param>
-        /// <param name="deltaTime"> Time passed from last status. </param>
-        public FlightStatus(double longitude, double latitude, int deltaTime)
+        /// <returns> A flight status based on the builder. </returns>
+        public FlightStatus Create()
         {
-            this.longitude = longitude;
-            this.latitude = latitude;
-            this.deltaTime = deltaTime;
+            return new FlightStatus(longitude, latitude, deltaTime);
         }
     }
 }

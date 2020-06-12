@@ -13,9 +13,8 @@ namespace FlightControlWeb.Model
         /// </summary>
         /// <param name="plan"> The flight plan to generate from. </param>
         /// <param name="relativeTo"> The time (to calculate the plane's position. </param>
-        /// <param name="isExternal"> Indicate if the flight is given from an external server. </param>
         /// <returns> A corresponding flight or null if there is no flight at the given time. </returns>
-        public Flight.Flight CreateFlightFromPlan(FlightPlan plan, DateTime relativeTo, bool isExternal)
+        public Flight.Flight CreateFlightFromPlan(FlightPlan plan, DateTime relativeTo)
         {
             // Get launch time.
             DateTime launch = DateTime.ParseExact(plan.InitLocation.Time, "yyyy-MM-ddTHH:mm:ssZ", null).ToUniversalTime();
@@ -27,7 +26,7 @@ namespace FlightControlWeb.Model
             // If time is launch time return a flight corresponds to the launch time.
             if (relativeTo.Equals(launch))
                 return new Flight.Flight(plan.GetID(), plan.InitLocation.Longitude, plan.InitLocation.Latitude, plan.Passengers,
-                    plan.Company, launch, isExternal);
+                    plan.Company, launch, false);
 
             
 
@@ -49,7 +48,7 @@ namespace FlightControlWeb.Model
                 // If equal, return a flight corresponds to the landing.
                 if (temp.Equals(relativeTo))
                     return new Flight.Flight(plan.GetID(), plan.Segments[plan.Segments.Count - 1].Longitude,
-                    plan.Segments[plan.Segments.Count - 1].Latitude, plan.Passengers, plan.Company, launch, isExternal);
+                    plan.Segments[plan.Segments.Count - 1].Latitude, plan.Passengers, plan.Company, launch, false);
 
                 // If greater, return null - no flight at this time.
                 if (temp < relativeTo)
@@ -69,7 +68,7 @@ namespace FlightControlWeb.Model
 
             // Return flight based on the above calculations.
             return new Flight.Flight(plan.GetID(), newLongitude, newLatitude, plan.Passengers,
-                    plan.Company, launch, isExternal);
+                    plan.Company, launch, false);
         }
     }
 }

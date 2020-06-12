@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FlightControlWeb.Flight
 {
-    public class InitialLocation
+    public class InitialLocationBuilder : IInitialLocationBuilder
     {
         private double longitude;
         /// <summary>
@@ -16,7 +16,13 @@ namespace FlightControlWeb.Flight
         [JsonPropertyName("longitude")]
         public double Longitude
         {
-            get => longitude;
+            set
+            {
+                if (-180 <= value && value <= 180)
+                    longitude = value;
+                else
+                    throw new ArgumentException("Longitude should be between -180 and 180");
+            }
         }
 
 
@@ -28,7 +34,7 @@ namespace FlightControlWeb.Flight
         [JsonPropertyName("latitude")]
         public double Latitude
         {
-            get => latitude;
+            set => latitude = value;
         }
 
 
@@ -40,21 +46,17 @@ namespace FlightControlWeb.Flight
         [JsonPropertyName("date_time")]
         public string Time
         {
-            get => time;
+            set => time = value;
         }
 
 
         /// <summary>
-        /// A constructor.
+        /// Create an initial location based on the builder.
         /// </summary>
-        /// <param name="longitude"> Longitude of the plane at the current status. </param>
-        /// <param name="latitude"> Latitude of the plane at the current status. </param>
-        /// <param name="time"> Time at the current status. </param>
-        public InitialLocation(double longitude, double latitude, DateTime time)
+        /// <returns> An initial location based on the builder. </returns>
+        public InitialLocation Create()
         {
-            this.longitude = longitude;
-            this.latitude = latitude;
-            this.time = time.ToString("yyyy-MM-ddTHH:mm:ssZ");
+            return new InitialLocation(longitude, latitude, DateTime.Parse(time));
         }
     }
 }

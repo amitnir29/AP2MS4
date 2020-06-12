@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FlightControlWeb.Flight
 {
-    public class Flight
+    public class FlightBuilder : IFlightBuilder
     {
         private string flightID;
         /// <summary>
@@ -16,7 +16,7 @@ namespace FlightControlWeb.Flight
         [JsonPropertyName("flight_id")]
         public string FlightID
         {
-            get => flightID;
+            set => flightID = value;
         }
 
 
@@ -28,10 +28,10 @@ namespace FlightControlWeb.Flight
         [JsonPropertyName("passengers")]
         public int Passengers
         {
-            get => passengers;
+            set => passengers = value;
         }
 
-        
+
         private string company;
         /// <summary>
         /// The company managing the flight.
@@ -40,7 +40,7 @@ namespace FlightControlWeb.Flight
         [JsonPropertyName("company_name")]
         public string Company
         {
-            get => company;
+            set => company = value;
         }
 
 
@@ -52,9 +52,6 @@ namespace FlightControlWeb.Flight
         [JsonPropertyName("is_external")]
         public bool IsExternal
         {
-            get => isExternal;
-
-            // Allow modifying is external property as it changes when retrieved from an external server.
             set => isExternal = value;
         }
 
@@ -67,7 +64,13 @@ namespace FlightControlWeb.Flight
         [JsonPropertyName("longitude")]
         public double Longitude
         {
-            get => longitude;
+            set
+            {
+                if (-180 <= value && value <= 180)
+                    longitude = value;
+                else
+                    throw new ArgumentException("Longitude should be between -180 and 180");
+            }
         }
 
 
@@ -79,7 +82,7 @@ namespace FlightControlWeb.Flight
         [JsonPropertyName("latitude")]
         public double Latitude
         {
-            get => latitude;
+            set => latitude = value;
         }
 
 
@@ -91,29 +94,17 @@ namespace FlightControlWeb.Flight
         [JsonPropertyName("date_time")]
         public string Time
         {
-            get => time;
+            set => time = value;
         }
 
 
         /// <summary>
-        /// The default constructor.
+        /// Create a flight.
         /// </summary>
-        /// <param name="flightID"> The id of the flight. </param>
-        /// <param name="longitude"> Longitude of the plane. </param>
-        /// <param name="latitude"> Latitude of the plane. </param>
-        /// <param name="passengers"> Number of passengers on flight. </param>
-        /// <param name="company"> The company of the flight. </param>
-        /// <param name="time"> Time relative to UTC </param>
-        /// <param name="isExternal"> Indicator if the flight is given from external server or not. </param>
-        public Flight(string flightID, double longitude, double latitude, int passengers, string company, DateTime time, bool isExternal)
+        /// <returns> FLight based on the builder. </returns>
+        public Flight Create()
         {
-            this.flightID = flightID;
-            this.passengers = passengers;
-            this.company = company;
-            this.isExternal = isExternal;
-            this.longitude = longitude;
-            this.latitude = latitude;
-            this.time = time.ToString("yyyy-MM-ddTHH:mm:ssZ");
+            return new Flight(flightID, longitude, latitude, passengers, company, DateTime.Parse(time), isExternal);
         }
     }
 }

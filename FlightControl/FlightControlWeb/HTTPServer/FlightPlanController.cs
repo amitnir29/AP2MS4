@@ -7,6 +7,7 @@ using FlightControlWeb.Flight;
 using FlightControlWeb.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace FlightControlWeb.HTTPServer
 {
@@ -31,11 +32,9 @@ namespace FlightControlWeb.HTTPServer
 
         // POST: api/FlightPlan
         [HttpPost]
-        public async Task Post([FromBody] FlightPlan plan)
+        public async Task Post([FromBody] FlightPlanBuilder planBuilder)
         {
-            /*Console.WriteLine("hi");
-            Console.WriteLine(plan.GetID());
-            Console.WriteLine("hi2");*/
+            FlightPlan plan = planBuilder.Create();
             await flightsModel.AddFlightPlan(plan);
         }
     }
