@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "F:\\programming\\Visual Studio\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj": {}
+    "C:\\Users\\Lenovo\\Desktop\\לימודים\\תכנות מתקדם 2\\MS4\\GitHub\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj": {}
   },
   "projects": {
-    "F:\\programming\\Visual Studio\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj": {
+    "C:\\Users\\Lenovo\\Desktop\\לימודים\\תכנות מתקדם 2\\MS4\\GitHub\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\programming\\Visual Studio\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj",
+        "projectUniqueName": "C:\\Users\\Lenovo\\Desktop\\לימודים\\תכנות מתקדם 2\\MS4\\GitHub\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj",
         "projectName": "FlightControlWeb",
-        "projectPath": "F:\\programming\\Visual Studio\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj",
-        "packagesPath": "C:\\Users\\carme\\.nuget\\packages\\",
-        "outputPath": "F:\\programming\\Visual Studio\\AP2MS4\\FlightControl\\FlightControlWeb\\obj\\",
+        "projectPath": "C:\\Users\\Lenovo\\Desktop\\לימודים\\תכנות מתקדם 2\\MS4\\GitHub\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj",
+        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Lenovo\\Desktop\\לימודים\\תכנות מתקדם 2\\MS4\\GitHub\\AP2MS4\\FlightControl\\FlightControlWeb\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\carme\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -87,7 +90,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
         }
       }
     }
