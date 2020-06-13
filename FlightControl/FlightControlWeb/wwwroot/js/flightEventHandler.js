@@ -83,7 +83,7 @@
      * @param {FlightWrapper} flightWrapper the flight to hide
      */
     deleteFlight(flightWrapper) {
-        if (this._currentPressedFlight!==null && flightWrapper.id === this._currentPressedFlight.id) {
+        if (this._currentPressedFlight !== null && flightWrapper.id === this._currentPressedFlight.id) {
             this._currentPressedFlight = null;
             this._flightDetails.hidePressedFlight();
             this._map.hidePressedFlight();
@@ -97,12 +97,13 @@
      * @param {string} flightWrapperId
      */
     flightRemoved(flightWrapperId) {
-        if (this._currentPressedFlight === null) {
+        if (flightWrapperId === null) {
             console.error("tried to remove a null value of flight!");
 
         }
-        else if (this._currentPressedFlight.id === flightWrapperId) {
+        else if (this._currentPressedFlight !== null && this._currentPressedFlight.id === flightWrapperId) {
             this._flightDetails.hidePressedFlight();
+            this._map.hidePressedFlight();
             this._currentPressedFlight = null;
         }
     }

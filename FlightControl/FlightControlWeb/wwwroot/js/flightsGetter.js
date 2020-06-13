@@ -15,6 +15,7 @@ class FlightsGetter {
     async getFlights() {
         let now = new Date();
         let formatted = now.toISOString().split(".")[0] + "Z";
+        console.log(formatted);//TODO remove
         
         let flightsArray;
         const flightWrappersArray = [];
