@@ -9,6 +9,8 @@ namespace FlightControlWeb.Flight
 {
     public class FlightPlan
     {
+        private static IIDGenerator idGenerator = new IDGenerator("AYR");
+
         private string id;
         public string GetID()
         {
@@ -17,6 +19,7 @@ namespace FlightControlWeb.Flight
 
 
         private int passengers;
+        [Newtonsoft.Json.JsonProperty("passengers")]
         [JsonPropertyName("passengers")]
         public int Passengers
         {
@@ -26,6 +29,7 @@ namespace FlightControlWeb.Flight
 
 
         private string company;
+        [Newtonsoft.Json.JsonProperty("company_name")]
         [JsonPropertyName("company_name")]
         public string Company
         {
@@ -35,6 +39,7 @@ namespace FlightControlWeb.Flight
 
 
         private InitialLocation initLocation;
+        [Newtonsoft.Json.JsonProperty("initial_location")]
         [JsonPropertyName("initial_location")]
         public InitialLocation InitLocation
         {
@@ -44,6 +49,7 @@ namespace FlightControlWeb.Flight
 
 
         private IList<FlightStatus> segments;
+        [Newtonsoft.Json.JsonProperty("segments")]
         [JsonPropertyName("segments")]
         public IList<FlightStatus> Segments
         {
@@ -52,9 +58,15 @@ namespace FlightControlWeb.Flight
         }
 
 
-        public FlightPlan(string id, int passengers, string company, InitialLocation initialLocation, IList<FlightStatus> segments)
+        public FlightPlan()
         {
-            this.id = id;
+            this.id = idGenerator.GenerateID();
+        }
+
+
+        public FlightPlan(int passengers, string company, InitialLocation initialLocation, IList<FlightStatus> segments)
+        {
+            this.id = idGenerator.GenerateID();
             Passengers = passengers;
             Company = company;
             InitLocation = initialLocation;

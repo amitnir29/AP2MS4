@@ -1,0 +1,97 @@
+﻿.pressed-row {
+    background-color: var(--pressed-row-color);
+}
+
+.unpressed-row {
+    background-color: var(--unpressed-row-color);
+}
+
+#flightsLists {
+    display: grid;
+    grid-template-rows: 45%;
+    justify-items: stretch;
+    align-items: stretch;
+    position: relative;
+}
+
+    #flightsLists .dnd-cover {
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        color: var(--text-color);
+        background-color: var(--unpressed-row-color);
+    }
+
+        #flightsLists .dnd-cover p {
+            padding: 1em;
+            text-align: center;
+            font-size: 2em;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        #flightsLists .dnd-cover img {
+            display: block;
+            width: 33%;
+            margin-left: 33%;
+        }
+
+
+    #flightsLists .dnd-shown {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: -1;
+    }
+
+    #flightsLists.highlight .dnd-shown {
+        z-index: 1;
+    }
+
+
+.single-flights-list-body {
+    overflow-y: scroll;
+}
+
+.red-x {
+    display: block;
+    width: 100%;
+}
+
+.flight-row {
+    max-height: 30%;
+    border-top: 2px solid var(--flights-list-border-color);
+}
+
+.flights-list {
+    display: grid;
+    grid-template-rows: auto;
+    justify-items: stretch;
+    align-items: stretch;
+    grid-gap: 0;
+    border: 3px solid var(--flights-list-border-color);
+}
+
+.local-flight-data {
+    width: 88%;
+}
+
+.flight-row-data {
+    /*TODO make beautiful*/
+}
+
+.flight-delete {
+    width: 12%;
+    text-align: center;
+}
+
+.table {
+    margin-bottom: 0;
+    color: var(--text-color);
+}
+
+.table-head {
+    background-color: var(--flights-list-table-head-background-color);
+    border-bottom: 3px solid var(--flights-list-border-color);
+}

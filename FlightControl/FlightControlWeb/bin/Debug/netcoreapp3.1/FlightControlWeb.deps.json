@@ -25,10 +25,12 @@
       "FlightControlWeb/1.0.0": {
         "dependencies": {
           "Dapper": "2.0.35",
+          "Microsoft.CodeAnalysis.Analyzers": "3.0.0",
           "Microsoft.Data.Sqlite": "3.1.4",
           "Microsoft.EntityFrameworkCore": "3.1.4",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.3",
-          "System.Data.SQLite": "1.0.112.2",
+          "Newtonsoft.Json": "12.0.3",
+          "System.Data.SQLite": "1.0.113.1",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "3.1.0.0",
@@ -392,10 +394,10 @@
           "ref/netcoreapp2.1/Microsoft.Bcl.HashCode.dll": {}
         }
       },
-      "Microsoft.CodeAnalysis.Analyzers/2.9.4": {},
+      "Microsoft.CodeAnalysis.Analyzers/3.0.0": {},
       "Microsoft.CodeAnalysis.Common/3.3.1": {
         "dependencies": {
-          "Microsoft.CodeAnalysis.Analyzers": "2.9.4",
+          "Microsoft.CodeAnalysis.Analyzers": "3.0.0",
           "System.Collections.Immutable": "1.7.1",
           "System.Memory": "4.5.3",
           "System.Reflection.Metadata": "1.6.0",
@@ -865,7 +867,7 @@
       },
       "Microsoft.VisualStudio.Web.CodeGeneration.Contracts/3.1.3": {
         "dependencies": {
-          "Newtonsoft.Json": "11.0.2"
+          "Newtonsoft.Json": "12.0.3"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll": {
@@ -881,7 +883,7 @@
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "3.1.4",
           "Microsoft.VisualStudio.Web.CodeGeneration.Templating": "3.1.3",
-          "Newtonsoft.Json": "11.0.2"
+          "Newtonsoft.Json": "12.0.3"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.Core.dll": {
@@ -943,7 +945,7 @@
         "dependencies": {
           "Microsoft.CodeAnalysis.CSharp.Workspaces": "3.3.1",
           "Microsoft.VisualStudio.Web.CodeGeneration.Contracts": "3.1.3",
-          "Newtonsoft.Json": "11.0.2",
+          "Newtonsoft.Json": "12.0.3",
           "NuGet.Frameworks": "4.7.0"
         },
         "runtime": {
@@ -1036,11 +1038,11 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "Newtonsoft.Json/11.0.2": {
+      "Newtonsoft.Json/12.0.3": {
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
-            "assemblyVersion": "11.0.0.0",
-            "fileVersion": "11.0.2.21924"
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.3.23909"
           }
         },
         "compile": {
@@ -1495,17 +1497,17 @@
           "ref/netcoreapp2.1/System.Data.SqlClient.dll": {}
         }
       },
-      "System.Data.SQLite/1.0.112.2": {
+      "System.Data.SQLite/1.0.113.1": {
         "dependencies": {
-          "System.Data.SQLite.Core": "1.0.112.2",
-          "System.Data.SQLite.EF6": "1.0.112.2"
+          "System.Data.SQLite.Core": "1.0.113.1",
+          "System.Data.SQLite.EF6": "1.0.113"
         }
       },
-      "System.Data.SQLite.Core/1.0.112.2": {
+      "System.Data.SQLite.Core/1.0.113.1": {
         "runtime": {
           "lib/netstandard2.1/System.Data.SQLite.dll": {
-            "assemblyVersion": "1.0.112.1",
-            "fileVersion": "1.0.112.1"
+            "assemblyVersion": "1.0.113.0",
+            "fileVersion": "1.0.113.0"
           }
         },
         "runtimeTargets": {
@@ -1532,36 +1534,36 @@
           "runtimes/win-x64/native/netstandard2.0/SQLite.Interop.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "1.0.112.1"
+            "fileVersion": "1.0.113.0"
           },
           "runtimes/win-x64/native/netstandard2.1/SQLite.Interop.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "1.0.112.1"
+            "fileVersion": "1.0.113.0"
           },
           "runtimes/win-x86/native/netstandard2.0/SQLite.Interop.dll": {
             "rid": "win-x86",
             "assetType": "native",
-            "fileVersion": "1.0.112.1"
+            "fileVersion": "1.0.113.0"
           },
           "runtimes/win-x86/native/netstandard2.1/SQLite.Interop.dll": {
             "rid": "win-x86",
             "assetType": "native",
-            "fileVersion": "1.0.112.1"
+            "fileVersion": "1.0.113.0"
           }
         },
         "compile": {
           "lib/netstandard2.1/System.Data.SQLite.dll": {}
         }
       },
-      "System.Data.SQLite.EF6/1.0.112.2": {
+      "System.Data.SQLite.EF6/1.0.113": {
         "dependencies": {
           "EntityFramework": "6.3.0"
         },
         "runtime": {
           "lib/netstandard2.1/System.Data.SQLite.EF6.dll": {
-            "assemblyVersion": "1.0.112.1",
-            "fileVersion": "1.0.112.1"
+            "assemblyVersion": "1.0.113.0",
+            "fileVersion": "1.0.113.0"
           }
         },
         "compile": {
@@ -3802,12 +3804,12 @@
       "path": "microsoft.bcl.hashcode/1.1.0",
       "hashPath": "microsoft.bcl.hashcode.1.1.0.nupkg.sha512"
     },
-    "Microsoft.CodeAnalysis.Analyzers/2.9.4": {
+    "Microsoft.CodeAnalysis.Analyzers/3.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-alIJhS0VUg/7x5AsHEoovh/wRZ0RfCSS7k5pDSqpRLTyuMTtRgj6OJJPRApRhJHOGYYsLakf1hKeXFoDwKwNkg==",
-      "path": "microsoft.codeanalysis.analyzers/2.9.4",
-      "hashPath": "microsoft.codeanalysis.analyzers.2.9.4.nupkg.sha512"
+      "sha512": "sha512-ojG5pGAhTPmjxRGTNvuszO3H8XPZqksDwr9xLd4Ae/JBjZZdl6GuoLk7uLMf+o7yl5wO0TAqoWcEKkEWqrZE5g==",
+      "path": "microsoft.codeanalysis.analyzers/3.0.0",
+      "hashPath": "microsoft.codeanalysis.analyzers.3.0.0.nupkg.sha512"
     },
     "Microsoft.CodeAnalysis.Common/3.3.1": {
       "type": "package",
@@ -4061,12 +4063,12 @@
       "path": "netstandard.library/1.6.1",
       "hashPath": "netstandard.library.1.6.1.nupkg.sha512"
     },
-    "Newtonsoft.Json/11.0.2": {
+    "Newtonsoft.Json/12.0.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
-      "path": "newtonsoft.json/11.0.2",
-      "hashPath": "newtonsoft.json.11.0.2.nupkg.sha512"
+      "sha512": "sha512-6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "path": "newtonsoft.json/12.0.3",
+      "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
     },
     "NuGet.Frameworks/4.7.0": {
       "type": "package",
@@ -4355,26 +4357,26 @@
       "path": "system.data.sqlclient/4.7.0",
       "hashPath": "system.data.sqlclient.4.7.0.nupkg.sha512"
     },
-    "System.Data.SQLite/1.0.112.2": {
+    "System.Data.SQLite/1.0.113.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-mCeo1xj2wFCB6LXGP9R0DhD13bK+Rgoq77vQw1DQhr2tFjCOCtCp/1+ZG/GNI7UWAdau98l90iQMJrE91XMg5Q==",
-      "path": "system.data.sqlite/1.0.112.2",
-      "hashPath": "system.data.sqlite.1.0.112.2.nupkg.sha512"
+      "sha512": "sha512-80q28QKsEebMm1PhCBEKFoxTYiE6P1YtA+5IVlBeBxgB8LwDgbaAml6RIfGu719JoRtbmNqtLdhDA8jj84s0gA==",
+      "path": "system.data.sqlite/1.0.113.1",
+      "hashPath": "system.data.sqlite.1.0.113.1.nupkg.sha512"
     },
-    "System.Data.SQLite.Core/1.0.112.2": {
+    "System.Data.SQLite.Core/1.0.113.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-iYj32NThg9oSr/0IvG0HEIVi5/x5qqdqAU4wu8sSYe94e8F+QbrXmsrP/tvWTre4ugkgTgdmPsJdtxDP4TIsEg==",
-      "path": "system.data.sqlite.core/1.0.112.2",
-      "hashPath": "system.data.sqlite.core.1.0.112.2.nupkg.sha512"
+      "sha512": "sha512-ymvB558/Tgdxj2MzJjhDvPLJ/S2WgG1KzQ1cmqzsW3+YQ5DO+eAU04OpY5deK6fndM+DEU8+lwmmYHxxUS2Qvw==",
+      "path": "system.data.sqlite.core/1.0.113.1",
+      "hashPath": "system.data.sqlite.core.1.0.113.1.nupkg.sha512"
     },
-    "System.Data.SQLite.EF6/1.0.112.2": {
+    "System.Data.SQLite.EF6/1.0.113": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-5oRfN4s3PKiGf2UgmVyVyS878QWoZ+wfPOUwbBKg8TL37zNVe+3OIv42HSOCE+/TcGpYt6tbxo2oHIvxb14bQQ==",
-      "path": "system.data.sqlite.ef6/1.0.112.2",
-      "hashPath": "system.data.sqlite.ef6.1.0.112.2.nupkg.sha512"
+      "sha512": "sha512-4EioCVv8fEsI6Xp66Q/r9QI680smaLZzlIvBDXWRxPuc1/puBA8jHm7CTY3wgAOwAuiPgLsmq6RVdAjoaVuziQ==",
+      "path": "system.data.sqlite.ef6/1.0.113",
+      "hashPath": "system.data.sqlite.ef6.1.0.113.nupkg.sha512"
     },
     "System.Diagnostics.Debug/4.3.0": {
       "type": "package",

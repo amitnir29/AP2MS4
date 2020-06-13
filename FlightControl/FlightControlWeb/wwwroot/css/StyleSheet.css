@@ -1,48 +1,61 @@
-﻿body {
-    /*background-color:darkblue;*/
-}
-
-.flight_details {
-    border: solid;
-    margin-top: 20px;
-    padding: 25px;
+﻿html, body, .wrapper {
+    height: 100%;
     box-sizing: border-box;
 }
 
-.container {
-    // border: dotted;
-    box-sizing: border-box;
+body {
+    background-color: var(--backgound-color);
 }
+
+.wrapper {
+    padding: 1em;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 70% 25%;
+    grid-gap: 1em;
+    justify-items: stretch;
+    align-items: stretch;
+    /*border: 5px solid;*/
+    min-height: 460px;
+    background-color: var(--app-color);
+    color: var(--text-color);
+}
+
 
 #mapid {
-    height: 400px;
+    border: 1px solid black;
 }
 
-#planes li {
-    height: 40px;
+#flightDetailsText {
+    padding: 0.25em;
+    border: 5px solid var(--filght-details-border-color);
+    min-height: 5em;
+    background-color:var(--flight-details-background-color);
 }
 
-.btn {
-    float: right;
-    margin-right: 300px;
-}
-/*.btn:active, .active {
-    background-color: red;
-    color: white;
-}*/
-/*.button{
-    margin-top:500px;
-}*/
-
-.pressed-row {
-    background-color: lightblue;
+.alert {
+    margin-top: 0px;
+    /*
+    position: absolute;
+    left: 100px;
+    top: 650px;
+        */
 }
 
-.unpressed-row {
-    background-color: white;
+
+
+#flightPlanJson {
+    position: relative;
+    
 }
 
-.table-container {
-    height: 40vh; /*TODO this sets the table height. check if this is a good size*/
-    overflow: auto;
+.custom-file-label {
+    color: var(--text-color);
+    background-color: var(--json-label-background-color);
+}
+
+
+
+.relativeContainer {
+    position: relative;
 }

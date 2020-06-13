@@ -1,48 +1,81 @@
 ﻿//var dateFormat = require('dateformat');
 class FlightsGetter {
 
+    
+    constructor() {
+        //dictionary from flight id to flight wrappers. saves the flights of previous iteration.
+        this._prevFlights = {};
+    }
+    
+
     /**
      * gets a flights array as json from the server, converts it to an array of FlightWrappers.
      * @returns {Array[FlightWrapper]}
      * */
     async getFlights() {
-        //+ new Date().getTime()
         let now = new Date();
-        //now.setUTCSeconds(Date.now);
-        //dateFormat(now,"yyyy-MM-ddTHH:mm:ssZ");
-        //var formatted = $.datepicker.formatDate("yyyy-MM-ddTHH:mm:ssZ", now);
         let formatted = now.toISOString().split(".")[0] + "Z";
-
-        //TODO server request
-        let flightsArray; //should be const and get the return value from the server
+        console.log(formatted);//TODO remove
+        
+        let flightsArray;
         const flightWrappersArray = [];
-        //TODO server request
+        //console.log("sending GET of " + "api/Flights/" + "?relative_to=" + formatted + "&sync_all");
+        let getPlaneIconFunc = this.getPlaneIcon;
 
-            await $.ajax({
-                url: "api/Flights/" + "?relative_to=" + formatted + "&sync_all",
-                type: "get", //send it through get method
-                dataType: 'json',
+        await $.ajax({
+            url: "api/Flights/" + "?relative_to=" + formatted + "&sync_all",
+            type: "get", //send it through get method
+            //dataType: 'json',
 
-                success: function (data) {
-                    // do other actions
-                    //TODO here we should get the JSON
-                    flightsArray = data;
-                    console.log("data", data);
+            success: function (data) {
+                //parse the json to this variable.
+                flightsArray = data;
+            },
+            error: function (xhr) {
+                //console.log(xhr);
+                ErrorHandler.showError("Couldn't get flights from the server");
+                //TODO - pretty alert
+            }
 
-                    for (flight of flightsArray) {
-                        flightWrappersArray.push(new FlightWrapper(flight));
-                    }
-                },
-                error: function (xhr) {
-                    console.log(xhr);
-                    //TODO - pretty alert
-                }
+        });
+        for (let flight of flightsArray) {
+            const planeIcon = this.getPlaneIcon(flight.flight_id);
+            flightWrappersArray.push(new FlightWrapper(flight, planeIcon));
+        }
+        this.setNewFlightsDict(flightWrappersArray);
+        return flightWrappersArray;
 
-            });
-            return flightWrappersArray;
-        
-        /*code for post request TODO add to json adder
-       */
-        
     }
+
+    
+
+    /**
+     * return the current saved plane icon of this flight from the dict of previous flights.
+     * return null if this flight is not in previous flights dict.
+     * @param {string} id of the flight to get its plane icon.
+     */
+    
+    getPlaneIcon(id) {
+        if (id in this._prevFlights) {
+            return this._prevFlights[id].planeIconReference;
+        }
+        return null;
+    }
+    
+    
+    /**
+     * get an array of the new flight wrappers and set the dictionary
+     * @param {Array[FlightWrapper]} flightWrappersArray
+     */
+    
+    setNewFlightsDict(flightWrappersArray) {
+        //empty the dict.
+        this._prevFlights = {};
+        //now fill with new flights
+        for (const flightWrapper of flightWrappersArray) {
+            this._prevFlights[flightWrapper.id] = flightWrapper;
+        }
+    }
+    
+    
 }

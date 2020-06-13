@@ -9,6 +9,7 @@ namespace FlightControlWeb.Flight
     public class InitialLocation
     {
         private double longitude;
+        [Newtonsoft.Json.JsonProperty("longitude")]
         [JsonPropertyName("longitude")]
         public double Longitude
         {
@@ -17,6 +18,7 @@ namespace FlightControlWeb.Flight
         }
 
         private double latitude;
+        [Newtonsoft.Json.JsonProperty("latitude")]
         [JsonPropertyName("latitude")]
         public double Latitude
         {
@@ -26,11 +28,18 @@ namespace FlightControlWeb.Flight
 
 
         private string time;
+        [Newtonsoft.Json.JsonProperty("date_time")]
         [JsonPropertyName("date_time")]
         public string Time
         {
             get => time;
             set => time = value;
+        }
+
+
+        public InitialLocation()
+        {
+
         }
 
 

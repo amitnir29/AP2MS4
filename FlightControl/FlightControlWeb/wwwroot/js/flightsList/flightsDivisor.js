@@ -3,7 +3,10 @@
     divideFlightsToTwoArrays(flightsArray, divideFunction) {
         const trueFlights = [];
         const falseFlights = [];
-        for (flight of flightsArray) {
+
+        //return { trueFlightsArray: [], falseFlightsArray: flightsArray };
+
+        for (const flight of flightsArray) {
             if (divideFunction(flight)) {
                 trueFlights.push(flight);
             } else {

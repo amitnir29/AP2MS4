@@ -33,6 +33,9 @@ namespace FlightControlWeb.HTTPServer
         [HttpPost]
         public async Task Post([FromBody] FlightPlan plan)
         {
+            /*Console.WriteLine("hi");
+            Console.WriteLine(plan.GetID());
+            Console.WriteLine("hi2");*/
             await flightsModel.AddFlightPlan(plan);
         }
     }

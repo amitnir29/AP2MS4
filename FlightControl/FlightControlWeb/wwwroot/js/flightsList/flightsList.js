@@ -28,9 +28,9 @@ class FlightsList {
      */
     updateFlights(newFlights) {
         const flightsDivisor = new FlightsDivisor();
-        const twoFlightsObject = flightsDivisor.divideFlightsToTwoArrays(newFlights, flight => flight.flightDetails.is_external);
-        const newLocalFlights = twoFlightsObject.trueFlightsArray;
-        const newExternalFlights = twoFlightsObject.falseFlightsArray;
+        const twoFlightsObject = flightsDivisor.divideFlightsToTwoArrays(newFlights, flight => flight.is_external);
+        const newLocalFlights = twoFlightsObject.falseFlightsArray;
+        const newExternalFlights = twoFlightsObject.trueFlightsArray;
         //first remove gone flights: 
         this.removeGoneFlights(newLocalFlights, newExternalFlights);
         //now add the new flights:
@@ -55,15 +55,17 @@ class FlightsList {
         //find all the flight that should be removed because they are not in the new flights lists.
         for (const currentFlightWrapperId in this._allFlightsDict) {
             //if the current flight is not in the new lists
-            if (!(currentFlightWrapperId in newLocalFlightsIdSet) &&
-                !(currentFlightWrapperId in newExternalFlightsIdSet)) {
+            if (!newLocalFlightsIdSet.has(currentFlightWrapperId) &&
+                !newExternalFlightsIdSet.has(currentFlightWrapperId)) {
                 //remove the flight from the html and the flights dictionary. find which list it is in
-                if (currentFlightWrapperId in currentLocalFlightsIdSet) {
+                if (currentLocalFlightsIdSet.has(currentFlightWrapperId)) {
                     this.removeFlightFromTables(currentFlightWrapperId);
                     delete this._allFlightsDict[currentFlightWrapperId];
-                } else if (currentFlightWrapperId in currentExternalFlightsIdSet) {
+                    this._flightEventHandler.flightRemoved(currentFlightWrapperId);
+                } else if (currentExternalFlightsIdSet.has(currentFlightWrapperId)) {
                     this.removeFlightFromTables(currentFlightWrapperId);
                     delete this._allFlightsDict[currentFlightWrapperId];
+                    this._flightEventHandler.flightRemoved(currentFlightWrapperId);
                 } else {
                     //TODO error
                     console.error("at flightsList.removeGoneFlights, reached 'else' condition in loop");
@@ -94,6 +96,8 @@ class FlightsList {
             if (!(newLocalFlight.id in this._allFlightsDict)) {
                 //add it to the html
                 this.addTolocalFlightsHtml(newLocalFlight);
+            } else {
+                this.updateFlightHtml(newLocalFlight);
             }
             //add to the dictionary if new, update if existed
             this._allFlightsDict[newLocalFlight.id] = newLocalFlight;
@@ -104,6 +108,8 @@ class FlightsList {
             if (!(newExternalFlight.id in this._allFlightsDict)) {
                 //add it to the html
                 this.addToExternalFlightsHtml(newExternalFlight);
+            } else {
+                this.updateFlightHtml(newExternalFlight);
             }
             //add to the dictionary if new, update if existed
             this._allFlightsDict[newExternalFlight.id] = newExternalFlight;
@@ -117,10 +123,19 @@ class FlightsList {
      */
     flightWrapperDataToShow(flight) {
         let s = "";
-        s += "fight id: " + flight.id + "\n";
-        s += "company: " + flight.flightDetails.company_name + "\n";
-        s += "at coordinates (lon,lat): (" + flight.flightDetails.longitude + "," + flight.flightDetails.latitude + ")"
+        s += "fight id: " + flight.id;
+        s += ", company: " + flight.flightDetails.company_name;
         return s;
+    }
+
+    /**
+     * update the cell data
+     * @param {FlightWrapper} flight
+     */
+    updateFlightHtml(flight) {
+        const flightRow = document.getElementById(this._idConverter.flightWrapperIdToListRowId(flight.id));
+        const flightData = flightRow.cells[0];
+        flightData.innerHTML = this.flightWrapperDataToShow(flight);
     }
 
     /**
@@ -134,18 +149,28 @@ class FlightsList {
         this._rowStyler.makeUnpressed(newRow);
         //set the row's id to the flight's is
         newRow.setAttribute("id", this._idConverter.flightWrapperIdToListRowId(flight.id));
+        newRow.classList.add("flight-row");
         //add the cell that displays the flight info
         const rowData = newRow.insertCell(-1);
         //add function call onclick to show this flight
         rowData.onclick = e => this.callFlightOnClick(this.clickEventToFlightWrapperId(e));
         //add text for the cell
         rowData.innerHTML = this.flightWrapperDataToShow(flight);
+        //set the css styling
+        rowData.classList.add("local-flight-data");
+        rowData.classList.add("flight-row-data");
         //add the cell that deletes the flight
         const rowDeleteButton = newRow.insertCell(-1);
         //add function call onclick to show this flight
-        rowDeleteButton.onclick = e => this.callFlightDeleteEvent(this.clickEventToFlightWrapperId(e));
+        rowDeleteButton.onclick = e => this.callFlightDeleteEvent(flight.id);
         //add delete image
-        rowDeleteButton.innerHTML = "DELETE";//TODO change to image
+        //rowDeleteButton.innerHTML = "DELETE";
+        let deleteImage = document.createElement("img");
+        deleteImage.src = "assets/red-x.png";
+        deleteImage.classList.add("red-x");
+        rowDeleteButton.appendChild(deleteImage);
+        //set the css styling
+        rowDeleteButton.classList.add("flight-delete");
     }
 
     /**
@@ -159,10 +184,13 @@ class FlightsList {
         this._rowStyler.makeUnpressed(newRow);
         //set the row's id to the flight's is
         newRow.setAttribute("id", this._idConverter.flightWrapperIdToListRowId(flight.id));
+        newRow.classList.add("flight-row");
         //add the cell that displays the flight info
         const rowData = newRow.insertCell(-1);
         //add function call onclick to show this flight
         rowData.onclick = e => this.callFlightOnClick(this.clickEventToFlightWrapperId(e));
+        //set the css styling
+        rowData.classList.add("flight-row-data");
         //add text for the cell
         rowData.innerHTML = this.flightWrapperDataToShow(flight);
     }
@@ -216,108 +244,23 @@ class FlightsList {
      * @param {FlightWrapper} flight
      */
     deleteFlight(flight) {
+        let id = (' ' + flight.id).slice(1);
         $.ajax({
-            url: "api/Flights/" + flightId,
+            url: "api/Flights/" + id,
             type: 'DELETE', //send it through get method
 
             success: function (response) {
                 //return JSON.parse(data);
+
             },
             error: function (xhr) {
-                //TODO - pretty alert
-
+                //TODO - pretty alert error
+                ErrorHandler.showError("Coudln't delete flight " + id + " from the server!");
             }
 
         });
         this.removeFlightFromTables(flight.id);
+        delete this._allFlightsDict[flight.id];
     }
 
-}
-
-//TODO these are testing functions. delete them when can actually connect to the server.
-
-function checkL(elem) {
-    console.log("local");
-    console.log(document.getElementById(elem));
-    const styler = new FlightListRowStyler();
-    styler.makePressed(document.getElementById(elem));
-}
-
-function checkE(elem) {
-    console.log("external");
-    console.log(document.getElementById(elem));
-    const styler = new FlightListRowStyler();
-    styler.makePressed(document.getElementById(elem));
-}
-
-function check2(elem) {
-    console.log("delete");
-    console.log(document.getElementById(elem));
-    const styler = new FlightListRowStyler();
-    styler.makeUnpressed(document.getElementById(elem));
-}
-let x = 1;
-let l = 1;
-let e = 1;
-
-function aLoc() {
-    //add a new row
-    const newRow = document.getElementById("localFlights").insertRow(-1);
-    const styler = new FlightListRowStyler();
-    styler.makeUnpressed(newRow);
-    //set the row's id to the flight's is
-    newRow.setAttribute("id", x.toString());
-    x++;
-    //add the cell that displays the flight info
-    const rowData = newRow.insertCell(-1);
-    //add function call onclick to show this flight
-    rowData.onclick = e => checkL(e.target.parentNode.id); 
-    //add text for the cell
-    rowData.innerHTML = "local" + l;
-    l++;
-    //add the cell that deletes the flight
-    const rowDeleteButton = newRow.insertCell(-1);
-    //add function call onclick to show this flight
-    rowDeleteButton.onclick = e => check2(e.target.parentNode.id);
-    //add delete image
-    rowDeleteButton.innerHTML = "DELETE";
-}
-
-function aExt() {
-    //add a new row
-    const newRow = document.getElementById("externalFlights").insertRow(-1);
-    const styler = new FlightListRowStyler();
-    styler.makeUnpressed(newRow);
-    //set the row's id to the flight's is
-    newRow.setAttribute("id", x.toString());
-    x++;
-    //add the cell that displays the flight info
-    const rowData = newRow.insertCell(-1);
-    //add function call onclick to show this flight
-    rowData.onclick = e => checkE(e.target.parentNode.id);
-    //add text for the cell
-    rowData.innerHTML = "external" + e;
-    e++;
-}
-
-function rrLoc() {
-    const index = parseInt(Math.random() * (document.getElementById("localFlights").rows.length - 1)) + 1;
-    if (index !== 0) {
-        document.getElementById("localFlights").deleteRow(index);
-    }
-}
-
-function rrExt() {
-    const index = parseInt(Math.random() * (document.getElementById("externalFlights").rows.length - 1)) + 1;
-    if (index !== 0) {
-        document.getElementById("externalFlights").deleteRow(index);
-    }
-}
-
-function rlLoc() {
-    document.getElementById("localFlights").deleteRow(document.getElementById("localFlights").rows.length - 1);
-}
-
-function rlExt() {
-    document.getElementById("externalFlights").deleteRow(document.getElementById("externalFlights").rows.length - 1);
 }

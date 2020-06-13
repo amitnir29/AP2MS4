@@ -47,7 +47,7 @@ namespace FlightControlWeb
 
         public async IAsyncEnumerable<FlightServer> GetServerIterator(string serverid)
         {
-            int rows = await NumOfRows();
+            //int rows = await NumOfRows();
             using SQLiteConnection con = new SQLiteConnection(connectionString);
             await con.OpenAsync();
             using var command = new SQLiteCommand("SELECT * FROM FlightsServers WHERE serverid = '" + serverid + "'", con);
@@ -65,8 +65,14 @@ namespace FlightControlWeb
 
         public async Task PostFlightServer(FlightServer fs)
         {
+            FlightServer exists = await this.GetFlightServer(fs.FlightId);
+
+            if (exists != null)
+                return;
+
             using SQLiteConnection con = new SQLiteConnection(connectionString);
             await con.OpenAsync();
+
             using var command = new SQLiteCommand("INSERT into FlightsServers (flightid, serverid) VALUES (@FId, @SId)", con);
             command.Parameters.AddWithValue("@FId", fs.FlightId);
             command.Parameters.AddWithValue("@SId", fs.ServerId);

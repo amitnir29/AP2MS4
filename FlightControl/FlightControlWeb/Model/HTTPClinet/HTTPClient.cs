@@ -1,5 +1,6 @@
 ﻿using FlightControlWeb.Flight;
 using FlightControlWeb.Servers;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace FlightControlWeb.Model.HTTPClinet
 
         public HTTPClient(Server server)
         {
-            requestsUrl = server.Url + "/api/FlightPlan";
+            requestsUrl = server.Url;
 
             client = new System.Net.Http.HttpClient();
         }
@@ -23,21 +24,41 @@ namespace FlightControlWeb.Model.HTTPClinet
 
         public async Task<FlightPlan> GetFlightPlan(string id)
         {
-            string uri = requestsUrl + "/" + id;
+            string uri = requestsUrl  + "/api/FlightPlan/" + id;
 
-            string content = await client.GetStringAsync(uri);
+            try
+            {
 
-            return JsonSerializer.Deserialize<FlightPlan>(content);
+                string content = await client.GetStringAsync(uri);
+
+                var converted = JsonConvert.DeserializeObject<FlightPlan>(content);
+
+                return converted;
+            }
+            catch(Exception)
+            {
+                return null;
+            }
         }
 
 
         public async Task<IList<Flight.Flight>> GetFlights(string relativeTo)
         {
-            string uri = requestsUrl + "?relative_to=" + relativeTo;
+            string uri = requestsUrl + "/api/Flights/?relative_to=" + relativeTo;
 
-            string content = await client.GetStringAsync(uri);
+            try
+            {
 
-            return JsonSerializer.Deserialize<List<Flight.Flight>>(content);
+                string content = await client.GetStringAsync(uri);
+
+                var converted = JsonConvert.DeserializeObject<List<Flight.Flight>>(content);
+
+                return converted;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
     }
 }

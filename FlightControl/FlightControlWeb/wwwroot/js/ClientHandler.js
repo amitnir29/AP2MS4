@@ -12,8 +12,8 @@
 
     startClient() {
         //milliseconds between each iteration
-        const intervalLength = 1500;
-        const secondCallDelay = 250;
+        const intervalLength = 5000; //TODO change back
+        const secondCallDelay = 2500;
         //init the flightEventHandler
         const flightEventHandler = new FlightEventHandler();
         //init the screen parts
@@ -30,10 +30,10 @@
          */
         //call the first time
         this.clientIteration(flightsList, map);
-        //call the others with small delay at start
-        setTimeout(() => setInterval(() => {
-            this.clientIteration(flightsList, map);
-        }, intervalLength), secondCallDelay);
+        //call the second one with small delay
+        setTimeout(() => this.clientIteration(flightsList, map), secondCallDelay);
+        //call the others with regular delay
+        setTimeout(() =>setInterval(() => this.clientIteration(flightsList, map), intervalLength), secondCallDelay);
     }
 
     /**
@@ -43,9 +43,9 @@
      */
     async clientIteration(flightsList, map) {
         try {
-        let newFlightsArray = await this._flightsGetter.getFlights();
-        flightsList.updateFlights(newFlightsArray);
-        //TODO call the function of the map
+            let newFlightsArray = await this._flightsGetter.getFlights();
+            flightsList.updateFlights(newFlightsArray);
+            map.updateFlights(newFlightsArray);
         } catch (e) {
             console.log(e);
         }

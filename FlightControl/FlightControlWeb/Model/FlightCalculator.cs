@@ -18,7 +18,8 @@ namespace FlightControlWeb.Model
         public Flight.Flight CreateFlightFromPlan(FlightPlan plan, DateTime relativeTo, bool isExternal)
         {
             // Get launch time.
-            DateTime launch = DateTime.ParseExact(plan.InitLocation.Time, "yyyy-MM-ddTHH:mm:ssZ", null).ToUniversalTime();
+           // DateTime launch = DateTime.ParseExact(plan.InitLocation.Time, "yyyy-MM-ddTHH:mm:ssZ", null).ToUniversalTime();
+            DateTime launch = DateTime.ParseExact(plan.InitLocation.Time, "yyyy-MM-ddTHH:mm:ssZ", null);
 
             // If time is before launch return null - no flight at this time.
             if (relativeTo < launch)
@@ -52,7 +53,8 @@ namespace FlightControlWeb.Model
                     plan.Segments[plan.Segments.Count - 1].Latitude, plan.Passengers, plan.Company, launch, isExternal);
 
                 // If greater, return null - no flight at this time.
-                return null;
+                if (temp < relativeTo)
+                    return null;
             }   
 
 
