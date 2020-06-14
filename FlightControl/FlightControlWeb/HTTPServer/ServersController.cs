@@ -13,19 +13,30 @@ namespace FlightControlWeb.HTTPServer
     [ApiController]
     public class ServersController : ControllerBase
     {
-        private readonly IServersDB dataBase;
+        private readonly IServersDB serversDB;
+        private readonly IFlightsServersDB flightsServersDB;
 
-        public ServersController(IServersDB sdb)
+        /// <summary>
+        /// A constructor.
+        /// </summary>
+        /// <param name="serversDB"> The database stores the uris of the external seervers. </param>
+        /// <param name="flightsServersDB"> The database stores the connections between the external flights and the external servers. </param>
+        public ServersController(IServersDB serversDB, IFlightsServersDB flightsServersDB)
         {
-            dataBase = sdb;
+            this.serversDB = serversDB;
+            this.flightsServersDB = flightsServersDB;
         }
 
-        // GET: api/Servers
+
+        /// <summary>
+        /// Get all the external servers uris stored in the server.
+        /// </summary>
+        /// <returns> All the external servers uris stored in the server. </returns>
         [HttpGet]
         public async Task<IList<Server>> Get()
         {
             IList<Server> servers = new List<Server>();
-            await foreach (var server in dataBase.GetIterator())
+            await foreach (var server in serversDB.GetAllServers())
             {
                 servers.Add(server);
             }
@@ -33,18 +44,27 @@ namespace FlightControlWeb.HTTPServer
             return servers;
         }
 
-        // POST: api/Servers
+        
+        /// <summary>
+        /// Save an external server in the server.
+        /// </summary>
+        /// <param name="server"> The server to save. </param>
         [HttpPost]
         public async Task Post([FromBody] Server server)
         {
-            await dataBase.PostServer(server);
+            await serversDB.AddServer(server);
         }
 
-        // DELETE: api/ApiWithActions/5
+        
+        /// <summary>
+        /// Delete an external server from the server.
+        /// </summary>
+        /// <param name="id"> The id of the server to delete. </param>
         [HttpDelete("{id}")]
         public async Task Delete(string id)
         {
-            await dataBase.DeleteServer(id);
+            await serversDB.DeleteServer(id);
+            await flightsServersDB.DeleteServer(id);
         }
     }
 }

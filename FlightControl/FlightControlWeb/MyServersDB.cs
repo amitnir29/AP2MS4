@@ -27,9 +27,8 @@ namespace FlightControlWeb
             await command.ExecuteNonQueryAsync();
         }
 
-        public async IAsyncEnumerable<Server> GetIterator()
+        public async IAsyncEnumerable<Server> GetAllServers()
         {
-            //int rows = await NumOfRows();
             using SQLiteConnection con = new SQLiteConnection(connectionString);
             await con.OpenAsync();
             using var command = new SQLiteCommand("SELECT * FROM Servers", con);
@@ -64,7 +63,7 @@ namespace FlightControlWeb
             }
         }
 
-        public async Task PostServer(Server server)
+        public async Task AddServer(Server server)
         {
             using SQLiteConnection con = new SQLiteConnection(connectionString);
             await con.OpenAsync();

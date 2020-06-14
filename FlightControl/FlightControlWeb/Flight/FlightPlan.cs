@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
@@ -9,9 +10,13 @@ namespace FlightControlWeb.Flight
 {
     public class FlightPlan
     {
-        private static IIDGenerator idGenerator = new IDGenerator("AYR");
+        private readonly IIDGenerator idGenerator = new IDGenerator("AYR");
 
         private string id;
+        /// <summary>
+        /// A getter for the id member of the flightplan.
+        /// </summary>
+        /// <returns></returns>
         public string GetID()
         {
             return id;
@@ -19,6 +24,9 @@ namespace FlightControlWeb.Flight
 
 
         private int passengers;
+        /// <summary>
+        /// The number of passengers on the flight.
+        /// </summary>
         [Newtonsoft.Json.JsonProperty("passengers")]
         [JsonPropertyName("passengers")]
         public int Passengers
@@ -29,6 +37,9 @@ namespace FlightControlWeb.Flight
 
 
         private string company;
+        /// <summary>
+        /// The company managing the flight.
+        /// </summary>
         [Newtonsoft.Json.JsonProperty("company_name")]
         [JsonPropertyName("company_name")]
         public string Company
@@ -39,6 +50,10 @@ namespace FlightControlWeb.Flight
 
 
         private InitialLocation initLocation;
+        /// <summary>
+        /// The initial location of the flight.
+        /// Where the flight takes off.
+        /// </summary>
         [Newtonsoft.Json.JsonProperty("initial_location")]
         [JsonPropertyName("initial_location")]
         public InitialLocation InitLocation
@@ -49,6 +64,9 @@ namespace FlightControlWeb.Flight
 
 
         private IList<FlightStatus> segments;
+        /// <summary>
+        /// A list of locations where the flight is passing.
+        /// </summary>
         [Newtonsoft.Json.JsonProperty("segments")]
         [JsonPropertyName("segments")]
         public IList<FlightStatus> Segments
@@ -58,12 +76,14 @@ namespace FlightControlWeb.Flight
         }
 
 
-        public FlightPlan()
-        {
-            this.id = idGenerator.GenerateID();
-        }
-
-
+        /// <summary>
+        /// A constructor.
+        /// </summary>
+        /// <param name="passengers"> The number of passengers on the flight. </param>
+        /// <param name="company"> The name of the company managing the flight. </param>
+        /// <param name="initialLocation"> The initial location / where the flight takse off. </param>
+        /// <param name="segments"> A list of locations where the flight is passing. </param>
+        [JsonConstructor]
         public FlightPlan(int passengers, string company, InitialLocation initialLocation, IList<FlightStatus> segments)
         {
             this.id = idGenerator.GenerateID();
@@ -73,13 +93,27 @@ namespace FlightControlWeb.Flight
             Segments = segments;
         }
 
-        public FlightPlan(FlightPlanDB fp)
+
+        /// <summary>
+        /// Create a flight plan using the database representation of a flight plan.
+        /// </summary>
+        /// <param name="fp"> The database representation of a flight plan. </param>
+        public FlightPlan(FlightPlanDBRep dataBaseRepresentation)
         {
-            Passengers = fp.Passengers;
-            id = fp.GetID();
-            Company = fp.Company;
-            InitLocation = JsonSerializer.Deserialize<InitialLocation>(fp.InitLocation);
-            Segments = JsonSerializer.Deserialize<IList<FlightStatus>>(fp.Segments);
+            Passengers = dataBaseRepresentation.Passengers;
+            id = dataBaseRepresentation.GetID();
+            Company = dataBaseRepresentation.Company;
+            InitLocation = JsonConvert.DeserializeObject<InitialLocation>(dataBaseRepresentation.InitLocation);
+            Segments = JsonConvert.DeserializeObject<IList<FlightStatus>>(dataBaseRepresentation.Segments);
+        }
+
+
+        /// <summary>
+        /// A default constructor.
+        /// </summary>
+        public FlightPlan()
+        {
+            this.id = idGenerator.GenerateID();
         }
     }
 }

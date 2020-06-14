@@ -47,7 +47,6 @@ namespace FlightControlWeb
 
         public async IAsyncEnumerable<FlightServer> GetServerIterator(string serverid)
         {
-            //int rows = await NumOfRows();
             using SQLiteConnection con = new SQLiteConnection(connectionString);
             await con.OpenAsync();
             using var command = new SQLiteCommand("SELECT * FROM FlightsServers WHERE serverid = '" + serverid + "'", con);
@@ -63,7 +62,7 @@ namespace FlightControlWeb
             yield break;
         }
 
-        public async Task PostFlightServer(FlightServer fs)
+        public async Task AddFlightServer(FlightServer fs)
         {
             FlightServer exists = await this.GetFlightServer(fs.FlightId);
 

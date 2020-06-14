@@ -23,12 +23,6 @@ namespace FlightControlWeb
         public MyFlightsDB(IConfiguration configuration)
         {
             connectionString = configuration["DefConnectionString"];
-            /*using SQLiteConnection con = new SQLiteConnection(connectionString);
-            con.OpenAsync();
-            using var command = new SQLiteCommand("SELECT COUNT(*) FROM FlightPlans", con);
-            using SQLiteDataReader rdr = (SQLiteDataReader) command.ExecuteReader();
-            rdr.Read();
-            rows = rdr.GetInt32(0);*/
         }
 
         public async Task DeleteFlightPlan(string id)
@@ -37,7 +31,6 @@ namespace FlightControlWeb
             await con.OpenAsync();
             using var command = new SQLiteCommand("DELETE FROM FlightPlans WHERE id = '" + id + "'", con);
             await command.ExecuteNonQueryAsync();
-            //rows--;
         }
 
         public async Task<FlightPlan> GetFlightPlan(string id)
@@ -54,7 +47,7 @@ namespace FlightControlWeb
                 string comp = rdr.GetString(3);
                 string init = rdr.GetString(4);
                 string segs = rdr.GetString(5);
-                FlightPlanDB fpdb = new FlightPlanDB(tryid, pass, comp, init, segs);
+                FlightPlanDBRep fpdb = new FlightPlanDBRep(tryid, pass, comp, init, segs);
                 return new FlightPlan(fpdb);
             }
             catch (Exception)
@@ -63,9 +56,8 @@ namespace FlightControlWeb
             }
         }
 
-        public async IAsyncEnumerable<FlightPlan> GetIterator()
+        public async IAsyncEnumerable<FlightPlan> GetAllFlightPlans()
         {
-            //int rows = await NumOfRows();
             using SQLiteConnection con = new SQLiteConnection(connectionString);
             await con.OpenAsync();
             using var command = new SQLiteCommand("SELECT * FROM FlightPlans", con);
@@ -78,20 +70,20 @@ namespace FlightControlWeb
                 string init = rdr.GetString(4);
                 string segs = rdr.GetString(5);
 
-                FlightPlanDB fpdb = new FlightPlanDB(tryid, pass, comp, init, segs);
+                FlightPlanDBRep fpdb = new FlightPlanDBRep(tryid, pass, comp, init, segs);
                 FlightPlan fp = new FlightPlan(fpdb);
                 yield return fp;
             }
             yield break;
         }
 
-        public async Task PostFlightPlan(FlightPlan flightPlan)
+        public async Task AddFlightPlan(FlightPlan flightPlan)
         {
             using SQLiteConnection con = new SQLiteConnection(connectionString);
             await con.OpenAsync();
             using var command = new SQLiteCommand("INSERT into FlightPlans (id, Passengers, Company, InitLocation, Segments) " +
                     "VALUES (@Id, @Passengers, @Company, @InitLocation, @Segments)", con);
-            FlightPlanDB fpdb = new FlightPlanDB(flightPlan);
+            FlightPlanDBRep fpdb = new FlightPlanDBRep(flightPlan);
             command.Parameters.AddWithValue("@Id", fpdb.GetID());
             command.Parameters.AddWithValue("@Passengers", fpdb.Passengers);
             command.Parameters.AddWithValue("@Company", fpdb.Company);
@@ -105,7 +97,6 @@ namespace FlightControlWeb
             {
                 //TODO decide what to do if there is this id already
             }
-            //rows++;
         }
 
         private async Task<int> NumOfRows()
