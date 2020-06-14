@@ -58,7 +58,7 @@ namespace FlightControlWeb
                 string url = rdr.GetString(1);
                 return new Server(tryid, url);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return null;
             }
@@ -75,7 +75,7 @@ namespace FlightControlWeb
             {
                 await command.ExecuteNonQueryAsync();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 //TODO decide what to do if there is this id already
             }

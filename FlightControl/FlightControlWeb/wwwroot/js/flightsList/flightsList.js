@@ -58,11 +58,11 @@ class FlightsList {
             if (!newLocalFlightsIdSet.has(currentFlightWrapperId) &&
                 !newExternalFlightsIdSet.has(currentFlightWrapperId)) {
                 //remove the flight from the html and the flights dictionary. find which list it is in
-                if (currentFlightWrapperId in currentLocalFlightsIdSet) {
+                if (currentLocalFlightsIdSet.has(currentFlightWrapperId)) {
                     this.removeFlightFromTables(currentFlightWrapperId);
                     delete this._allFlightsDict[currentFlightWrapperId];
                     this._flightEventHandler.flightRemoved(currentFlightWrapperId);
-                } else if (currentFlightWrapperId in currentExternalFlightsIdSet) {
+                } else if (currentExternalFlightsIdSet.has(currentFlightWrapperId)) {
                     this.removeFlightFromTables(currentFlightWrapperId);
                     delete this._allFlightsDict[currentFlightWrapperId];
                     this._flightEventHandler.flightRemoved(currentFlightWrapperId);
