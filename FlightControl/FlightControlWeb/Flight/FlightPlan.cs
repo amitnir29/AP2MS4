@@ -81,10 +81,12 @@ namespace FlightControlWeb.Flight
         /// </summary>
         /// <param name="passengers"> The number of passengers on the flight. </param>
         /// <param name="company"> The name of the company managing the flight. </param>
-        /// <param name="initialLocation"> The initial location / where the flight takse off. </param>
+        /// <param name="initialLocation"> The initial location / where the flight
+        /// takse off. </param>
         /// <param name="segments"> A list of locations where the flight is passing. </param>
         [JsonConstructor]
-        public FlightPlan(int passengers, string company, InitialLocation initialLocation, IList<FlightStatus> segments)
+        public FlightPlan(int passengers, string company, InitialLocation initialLocation,
+            IList<FlightStatus> segments)
         {
             this.id = idGenerator.GenerateID();
             Passengers = passengers;
@@ -103,7 +105,9 @@ namespace FlightControlWeb.Flight
             Passengers = dataBaseRepresentation.Passengers;
             id = dataBaseRepresentation.GetID();
             Company = dataBaseRepresentation.Company;
-            InitLocation = JsonConvert.DeserializeObject<InitialLocation>(dataBaseRepresentation.InitLocation);
+            InitLocation = JsonConvert.DeserializeObject<InitialLocation>(
+                dataBaseRepresentation.InitLocation
+                );
             Segments = JsonConvert.DeserializeObject<IList<FlightStatus>>(dataBaseRepresentation.Segments);
         }
 

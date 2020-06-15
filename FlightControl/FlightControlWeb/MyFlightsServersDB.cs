@@ -25,7 +25,8 @@ namespace FlightControlWeb
             using SQLiteConnection con = new SQLiteConnection(connectionString);
             await con.OpenAsync();
             // Delete from DB
-            using var command = new SQLiteCommand("DELETE FROM FlightsServers WHERE serverid = '" + serverid + "'", con);
+            using var command = new SQLiteCommand("DELETE FROM FlightsServers WHERE serverid = '" +
+                serverid + "'", con);
             var res = await command.ExecuteNonQueryAsync();
 
             // Failed

@@ -21,15 +21,6 @@ namespace FlightControlWeb
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-
-
-            //using (var db = new MyDBContext())
-            //{
-            //    db.Database.EnsureCreated();
-            //    db.Database.Migrate();
-            //}
-
-
         }
 
         public IConfiguration Configuration
@@ -41,9 +32,6 @@ namespace FlightControlWeb
         public void ConfigureServices(IServiceCollection services)
         {
 
-            //services.AddEntityFrameworkSqlite()
-            //.AddDbContext<MyDBContext>();
-
             services.AddControllers();
 
 
@@ -51,8 +39,6 @@ namespace FlightControlWeb
             services.AddSingleton<IFlightsServersDB, MyFlightsServersDB>();
             services.AddSingleton<IServersDB, MyServersDB>();
             services.AddSingleton<IFlightsModel, FlightsHandler>();
-            /*services.AddSingleton(new MyServersDB("Data Source=.\\ServersDB.db;Version=3;"));
-            services.AddSingleton(new MyFlightsServersDB("Data Source=.\\FlightsServersDB.db;Version=3;"));*/
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
