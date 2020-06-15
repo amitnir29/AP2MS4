@@ -52,7 +52,7 @@ namespace FlightControlWeb
             //allow access to files stored in wwwroot
             app.UseStaticFiles();
 
-            app.UseHttpsRedirection();
+           // app.UseHttpsRedirection();
 
             app.UseRouting();
 

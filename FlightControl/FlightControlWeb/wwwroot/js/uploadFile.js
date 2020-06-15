@@ -36,6 +36,7 @@
                 //consloe
             },
             error: function (xhr) {
+                console.log(xhr);
                 ErrorHandler.showError("failed to post flightPlan to the server!");
             }
 
