@@ -9794,23 +9794,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\amit\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\carme\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\amit\\Documents\\GitHub\\AP2MS4\\FlightControl\\FlightControlWebUnitTests1\\FlightControlWebUnitTests1.csproj",
+      "projectUniqueName": "F:\\programming\\Visual Studio\\AP2MS4\\FlightControl\\FlightControlWebUnitTests1\\FlightControlWebUnitTests1.csproj",
       "projectName": "FlightControlWebUnitTests1",
-      "projectPath": "C:\\Users\\amit\\Documents\\GitHub\\AP2MS4\\FlightControl\\FlightControlWebUnitTests1\\FlightControlWebUnitTests1.csproj",
-      "packagesPath": "C:\\Users\\amit\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\amit\\Documents\\GitHub\\AP2MS4\\FlightControl\\FlightControlWebUnitTests1\\obj\\",
+      "projectPath": "F:\\programming\\Visual Studio\\AP2MS4\\FlightControl\\FlightControlWebUnitTests1\\FlightControlWebUnitTests1.csproj",
+      "packagesPath": "C:\\Users\\carme\\.nuget\\packages\\",
+      "outputPath": "F:\\programming\\Visual Studio\\AP2MS4\\FlightControl\\FlightControlWebUnitTests1\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\amit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\carme\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9823,8 +9819,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\amit\\Documents\\GitHub\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj": {
-              "projectPath": "C:\\Users\\amit\\Documents\\GitHub\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj"
+            "F:\\programming\\Visual Studio\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj": {
+              "projectPath": "F:\\programming\\Visual Studio\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj"
             }
           }
         }

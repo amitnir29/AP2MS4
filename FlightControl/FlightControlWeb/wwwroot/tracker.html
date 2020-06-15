@@ -129,13 +129,7 @@
         </div>
         <!--json and dark/light mode button-->
         <div class="relativeContainer">
-            <!--json-->
-            <div id="flightPlanJson">
-                <form method="POST" action="uploadFile" id="jsonGetter">
-                    <input type="file" class="custom-file-input" id="jsonFileInput" onchange="submitFile(this.files)">
-                    <label class="custom-file-label" for="jsonFileInput">Choose JSON file</label>
-                </form>
-            </div>
+            <p>Drag and Drop flight plan file into the flights list</p>
             <!--dark/light mode-->
             <div id="dayModesButtonContainer">
                 <label class="switch">
@@ -150,9 +144,7 @@
     </div>
 
 
-
-
-    <!-- code for the button -->
+    <!-- code for the dark mode button -->
     <script>
         let checkbox = document.querySelector('input[name=theme]');
 
@@ -175,7 +167,6 @@
             files = [...files];
             files.forEach(uploadFile);
         }
-
     </script>
 
     <!--call the start of the client-->

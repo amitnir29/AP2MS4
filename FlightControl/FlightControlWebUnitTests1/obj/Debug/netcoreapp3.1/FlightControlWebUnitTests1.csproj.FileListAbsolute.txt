@@ -456,3 +456,4 @@ C:\Users\amit\Documents\GitHub\AP2MS4\FlightControl\FlightControlWebUnitTests1\o
 C:\Users\amit\Documents\GitHub\AP2MS4\FlightControl\FlightControlWebUnitTests1\obj\Debug\netcoreapp3.1\FlightControlWebUnitTests1.dll
 C:\Users\amit\Documents\GitHub\AP2MS4\FlightControl\FlightControlWebUnitTests1\obj\Debug\netcoreapp3.1\FlightControlWebUnitTests1.pdb
 C:\Users\amit\Documents\GitHub\AP2MS4\FlightControl\FlightControlWebUnitTests1\obj\Debug\netcoreapp3.1\FlightControlWebUnitTests1.genruntimeconfig.cache
+F:\programming\Visual Studio\AP2MS4\FlightControl\FlightControlWebUnitTests1\bin\Debug\netcoreapp3.1\runtimes\linux-x86\native\libe_sqlite3.so
