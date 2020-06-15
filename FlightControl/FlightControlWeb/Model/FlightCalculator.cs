@@ -18,8 +18,8 @@ namespace FlightControlWeb.Model
         public Flight.Flight CreateFlightFromPlan(FlightPlan plan, DateTime relativeTo, bool isExternal)
         {
             // Get launch time.
-           // DateTime launch = DateTime.ParseExact(plan.InitLocation.Time, "yyyy-MM-ddTHH:mm:ssZ", null).ToUniversalTime();
-            DateTime launch = DateTime.ParseExact(plan.InitLocation.Time, "yyyy-MM-ddTHH:mm:ssZ", null).ToUniversalTime();
+            DateTime launch = DateTime.ParseExact(plan.InitLocation.Time,
+                "yyyy-MM-ddTHH:mm:ssZ", null).ToUniversalTime();
 
             // If time is before launch return null - no flight at this time.
             if (relativeTo < launch)
@@ -27,7 +27,8 @@ namespace FlightControlWeb.Model
 
             // If time is launch time return a flight corresponds to the launch time.
             if (relativeTo.Equals(launch))
-                return new Flight.Flight(plan.GetID(), plan.InitLocation.Longitude, plan.InitLocation.Latitude, plan.Passengers,
+                return new Flight.Flight(plan.GetID(), plan.InitLocation.Longitude,
+                    plan.InitLocation.Latitude, plan.Passengers,
                     plan.Company, launch, isExternal);
 
             
@@ -42,15 +43,18 @@ namespace FlightControlWeb.Model
 
             // Iterate over al segments of the flight plan. Find the first segment which its time is
             // greater then the time in the requested flight.
-            for (i = 0; temp < relativeTo && i < plan.Segments.Count; last = temp,  temp = temp.AddSeconds(plan.Segments[i++].DeltaTime)) ;
+            for (i = 0; temp < relativeTo && i < plan.Segments.Count; last = temp,
+                temp = temp.AddSeconds(plan.Segments[i++].DeltaTime));
 
             // The given time might be greater than the landing time or equal to it.
             if (i == plan.Segments.Count)
             {
                 // If equal, return a flight corresponds to the landing.
                 if (temp.Equals(relativeTo))
-                    return new Flight.Flight(plan.GetID(), plan.Segments[plan.Segments.Count - 1].Longitude,
-                    plan.Segments[plan.Segments.Count - 1].Latitude, plan.Passengers, plan.Company, launch, isExternal);
+                    return new Flight.Flight(plan.GetID(),
+                        plan.Segments[plan.Segments.Count - 1].Longitude,
+                    plan.Segments[plan.Segments.Count - 1].Latitude, plan.Passengers,
+                    plan.Company, launch, isExternal);
 
                 // If greater, return null - no flight at this time.
                 if (temp < relativeTo)

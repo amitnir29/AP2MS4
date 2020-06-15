@@ -116,8 +116,8 @@ namespace FlightControlWeb.Flight
         /// <param name="company"> The company of the flight. </param>
         /// <param name="time"> Time relative to UTC </param>
         /// <param name="isExternal"> Indicator if the flight is given from external server or not. </param>
-        [JsonConstructor]
-        public Flight(string flightID, double longitude, double latitude, int passengers, string company, DateTime time, bool isExternal)
+        public Flight(string flightID, double longitude, double latitude, int passengers,
+            string company, DateTime time, bool isExternal)
         {
             FlightID = flightID;
             Passengers = passengers;
@@ -126,6 +126,30 @@ namespace FlightControlWeb.Flight
             Longitude = longitude;
             Latitude = latitude;
             Time = time.ToString("yyyy-MM-ddTHH:mm:ssZ");
+        }
+
+
+        /// <summary>
+        /// The default constructor.
+        /// </summary>
+        /// <param name="flightID"> The id of the flight. </param>
+        /// <param name="longitude"> Longitude of the plane. </param>
+        /// <param name="latitude"> Latitude of the plane. </param>
+        /// <param name="passengers"> Number of passengers on flight. </param>
+        /// <param name="company"> The company of the flight. </param>
+        /// <param name="time"> Time relative to UTC </param>
+        /// <param name="isExternal"> Indicator if the flight is given from external server or not. </param>
+        [JsonConstructor]
+        public Flight(string flightID, double longitude, double latitude, int passengers,
+            string company, string time, bool isExternal)
+        {
+            FlightID = flightID;
+            Passengers = passengers;
+            Company = company;
+            IsExternal = isExternal;
+            Longitude = longitude;
+            Latitude = latitude;
+            Time = time;
         }
     }
 }

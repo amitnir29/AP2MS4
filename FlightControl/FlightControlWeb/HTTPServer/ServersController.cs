@@ -36,7 +36,7 @@ namespace FlightControlWeb.HTTPServer
         public async Task<ActionResult<IList<Server>>> Get()
         {
             IList<Server> servers = new List<Server>();
-            await foreach (var server in serversDB.GetAllServers())
+            await foreach (Server server in serversDB.GetAllServers())
             {
                 servers.Add(server);
             }
