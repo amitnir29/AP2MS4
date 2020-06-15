@@ -13,9 +13,12 @@ namespace FlightControlWeb.Model
         /// </summary>
         /// <param name="plan"> The flight plan to generate from. </param>
         /// <param name="relativeTo"> The time (to calculate the plane's position. </param>
-        /// <param name="isExternal"> Indicate if the flight is given from an external server. </param>
-        /// <returns> A corresponding flight or null if there is no flight at the given time. </returns>
-        public Flight.Flight CreateFlightFromPlan(FlightPlan plan, DateTime relativeTo, bool isExternal)
+        /// <param name="isExternal"> Indicate if the flight is given from an
+        /// external server. </param>
+        /// <returns> A corresponding flight or null if there is no flight at the
+        /// given time. </returns>
+        public Flight.Flight CreateFlightFromPlan(FlightPlan plan, DateTime relativeTo,
+            bool isExternal)
         {
             // Get launch time.
             DateTime launch = DateTime.ParseExact(plan.InitLocation.Time,
@@ -39,10 +42,11 @@ namespace FlightControlWeb.Model
             int i;
 
             IList<FlightStatus> segments = new List<FlightStatus>(plan.Segments);
-            segments.Insert(0, new FlightStatus(plan.InitLocation.Longitude, plan.InitLocation.Latitude, 0));
+            segments.Insert(0, new FlightStatus(plan.InitLocation.Longitude,
+                plan.InitLocation.Latitude, 0));
 
-            // Iterate over al segments of the flight plan. Find the first segment which its time is
-            // greater then the time in the requested flight.
+            /* Iterate over al segments of the flight plan. Find the first segment which
+               its time is greater then the time in the requested flight. */
             for (i = 0; temp < relativeTo && i < plan.Segments.Count; last = temp,
                 temp = temp.AddSeconds(plan.Segments[i++].DeltaTime));
 

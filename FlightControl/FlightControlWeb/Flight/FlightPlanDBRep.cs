@@ -69,9 +69,11 @@ namespace FlightControlWeb.Flight
         /// <param name="id"> The id of the flight. </param>
         /// <param name="passengers"> The number of passengers on the flight. </param>
         /// <param name="company"> The company which manages the flight. </param>
-        /// <param name="initialLocation"> A json representation of the initial location of the flight. </param>
+        /// <param name="initialLocation"> A json representation of the initial location
+        /// of the flight. </param>
         /// <param name="segments"> A json representation of the segments of the flight. </param>
-        public FlightPlanDBRep(string id, int passengers, string company, string initialLocation, string segments)
+        public FlightPlanDBRep(string id, int passengers, string company, string initialLocation,
+            string segments)
         {
             this.id = id;
             Passengers = passengers;

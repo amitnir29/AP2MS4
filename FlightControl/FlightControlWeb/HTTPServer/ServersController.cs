@@ -20,7 +20,8 @@ namespace FlightControlWeb.HTTPServer
         /// A constructor.
         /// </summary>
         /// <param name="serversDB"> The database stores the uris of the external seervers. </param>
-        /// <param name="flightsServersDB"> The database stores the connections between the external flights and the external servers. </param>
+        /// <param name="flightsServersDB"> The database stores the connections between the external
+        /// flights and the external servers. </param>
         public ServersController(IServersDB serversDB, IFlightsServersDB flightsServersDB)
         {
             this.serversDB = serversDB;
