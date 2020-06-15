@@ -23,7 +23,10 @@ namespace FlightControlWeb
             using SQLiteConnection con = new SQLiteConnection(connectionString);
             await con.OpenAsync();
             using var command = new SQLiteCommand("DELETE FROM FlightsServers WHERE serverid = '" + serverid + "'", con);
-            await command.ExecuteNonQueryAsync();
+            var res = await command.ExecuteNonQueryAsync();
+
+            if (res == 0)
+                throw new ArgumentException("No server with id " + serverid);
         }
 
         public async Task<FlightServer> GetFlightServer(string flightid)
@@ -77,11 +80,14 @@ namespace FlightControlWeb
             command.Parameters.AddWithValue("@SId", fs.ServerId);
             try
             {
-                await command.ExecuteNonQueryAsync();
+                var res = await command.ExecuteNonQueryAsync();
+
+                if (res == 0)
+                    throw new ArgumentException("Failed post serverflight.");
             }
             catch (Exception)
             {
-                //TODO decide what to do if there is this id already
+                throw new ArgumentException("Serverflight already in data base.");
             }
         }
     }

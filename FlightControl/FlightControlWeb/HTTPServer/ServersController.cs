@@ -33,7 +33,7 @@ namespace FlightControlWeb.HTTPServer
         /// </summary>
         /// <returns> All the external servers uris stored in the server. </returns>
         [HttpGet]
-        public async Task<IList<Server>> Get()
+        public async Task<ActionResult<IList<Server>>> Get()
         {
             IList<Server> servers = new List<Server>();
             await foreach (var server in serversDB.GetAllServers())
@@ -41,7 +41,7 @@ namespace FlightControlWeb.HTTPServer
                 servers.Add(server);
             }
 
-            return servers;
+            return Ok(servers);
         }
 
         
@@ -49,10 +49,23 @@ namespace FlightControlWeb.HTTPServer
         /// Save an external server in the server.
         /// </summary>
         /// <param name="server"> The server to save. </param>
+        /// <returns> The result of thhe post action. </returns>
         [HttpPost]
-        public async Task Post([FromBody] Server server)
+        public async Task<IActionResult> Post([FromBody] Server server)
         {
-            await serversDB.AddServer(server);
+            try
+            {
+                await serversDB.AddServer(server);
+                return Ok();
+            }
+            catch (ArgumentException e)
+            {
+                return BadRequest(e.Message);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
         
@@ -60,11 +73,24 @@ namespace FlightControlWeb.HTTPServer
         /// Delete an external server from the server.
         /// </summary>
         /// <param name="id"> The id of the server to delete. </param>
+        /// <returns> The result of the delete action. </returns>
         [HttpDelete("{id}")]
-        public async Task Delete(string id)
+        public async Task<IActionResult> Delete(string id)
         {
-            await serversDB.DeleteServer(id);
-            await flightsServersDB.DeleteServer(id);
+            try
+            {
+                await serversDB.DeleteServer(id);
+                await flightsServersDB.DeleteServer(id);
+                return Ok();
+            }
+            catch (ArgumentException e)
+            {
+                return BadRequest(e.Message);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
     }
 }

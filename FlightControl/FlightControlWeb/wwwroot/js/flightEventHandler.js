@@ -29,7 +29,6 @@
                 flightPlan = data;
             },
             error: function (xhr) {
-                //TODO error alert
                 ErrorHandler.showError("Couldn't get flightplan of " + flightId);
             }
 

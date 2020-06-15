@@ -1,5 +1,6 @@
 ﻿using FlightControlWeb.DB;
 using FlightControlWeb.Servers;
+using Microsoft.CodeAnalysis;
 using Microsoft.Data.Sqlite;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -24,7 +25,10 @@ namespace FlightControlWeb
             using SQLiteConnection con = new SQLiteConnection(connectionString);
             await con.OpenAsync();
             using var command = new SQLiteCommand("DELETE FROM Servers WHERE id = '" + id + "'", con);
-            await command.ExecuteNonQueryAsync();
+            var res = await command.ExecuteNonQueryAsync();
+
+            if (res == 0)
+                throw new ArgumentException("No server with id " + id);
         }
 
         public async IAsyncEnumerable<Server> GetAllServers()
@@ -72,11 +76,14 @@ namespace FlightControlWeb
             command.Parameters.AddWithValue("@Url", server.Url);
             try
             {
-                await command.ExecuteNonQueryAsync();
+                var res = await command.ExecuteNonQueryAsync();
+
+                if (res == 0)
+                    throw new ArgumentException("No server with id " + server.Id);
             }
             catch (Exception)
             {
-                //TODO decide what to do if there is this id already
+                throw new ArgumentException("Server id already in database.");
             }
         }
     }

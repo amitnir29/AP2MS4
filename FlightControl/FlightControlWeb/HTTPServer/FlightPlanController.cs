@@ -32,21 +32,34 @@ namespace FlightControlWeb.HTTPServer
         /// <param name="id"> The id of the flight plan to get. </param>
         /// <returns> The requested flight plan. </returns>
         [HttpGet("{id}", Name = "Get")]
-        public async Task<FlightPlan> Get(string id)
+        public async Task<ActionResult<FlightPlan>> Get(string id)
         {
             return await flightsModel.GetFlightPlan(id);
         }
 
-        
+
         /// <summary>
         /// A controller for the post method.
         /// Post a new flight plan into the server.
         /// </summary>
         /// <param name="plan"> The posted flight plan. </param>
+        /// <returns> The result of the post action. </returns>
         [HttpPost]
-        public async Task Post([FromBody] FlightPlan plan)
+        public async Task<IActionResult> Post([FromBody] FlightPlan plan)
         {
-            await flightsModel.AddFlightPlan(plan);
+            try
+            {
+                await flightsModel.AddFlightPlan(plan);
+                return Ok();
+            }
+            catch (ArgumentException e)
+            {
+                return BadRequest(e.Message);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
     }
 }

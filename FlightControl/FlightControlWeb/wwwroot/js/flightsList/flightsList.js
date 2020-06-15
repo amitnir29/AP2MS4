@@ -67,7 +67,6 @@ class FlightsList {
                     delete this._allFlightsDict[currentFlightWrapperId];
                     this._flightEventHandler.flightRemoved(currentFlightWrapperId);
                 } else {
-                    //TODO error
                     console.error("at flightsList.removeGoneFlights, reached 'else' condition in loop");
                 }
             }
@@ -254,7 +253,6 @@ class FlightsList {
 
             },
             error: function (xhr) {
-                //TODO - pretty alert error
                 ErrorHandler.showError("Coudln't delete flight " + id + " from the server!");
             }
 
