@@ -7855,23 +7855,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\amit\\.nuget\\packages\\": {},
+    "C:\\Users\\Lenovo\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\amit\\Documents\\GitHub\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj",
+      "projectUniqueName": "C:\\Users\\Lenovo\\Desktop\\לימודים\\תכנות מתקדם 2\\MS4\\GitHub\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj",
       "projectName": "FlightControlWeb",
-      "projectPath": "C:\\Users\\amit\\Documents\\GitHub\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj",
-      "packagesPath": "C:\\Users\\amit\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\amit\\Documents\\GitHub\\AP2MS4\\FlightControl\\FlightControlWeb\\obj\\",
+      "projectPath": "C:\\Users\\Lenovo\\Desktop\\לימודים\\תכנות מתקדם 2\\MS4\\GitHub\\AP2MS4\\FlightControl\\FlightControlWeb\\FlightControlWeb.csproj",
+      "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Lenovo\\Desktop\\לימודים\\תכנות מתקדם 2\\MS4\\GitHub\\AP2MS4\\FlightControl\\FlightControlWeb\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\amit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7944,7 +7944,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
       }
     }
   }
