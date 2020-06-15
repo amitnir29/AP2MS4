@@ -1,5 +1,6 @@
 # AP2MS4
-Web Apllication - Flight Tracker
+Web Apllication - Flight Tracker.
+
 This flight tracker is our 2nd project of the course “advanced programming 2” at Bar Ilan university.
 In this flight tracker we used a client-server mechanism, and the connection between them was made using http and REST api.
 Our flight tracker manages a data base of the flights, as well as making connections with other servers and data bases.
