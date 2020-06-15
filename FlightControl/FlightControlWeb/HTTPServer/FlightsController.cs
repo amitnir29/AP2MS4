@@ -32,17 +32,19 @@ namespace FlightControlWeb.HTTPServer
         /// <param name="relativeTo"> The time the flihts returned should be relative to. </param>
         /// <returns> All flights from the server relative to a given time. </returns>
         [HttpGet]
-        public async Task<ActionResult<IList<Flight.Flight>>> Get([FromQuery(Name ="relative_to")] string relativeTo)
+        public async Task<ActionResult<IList<Flight.Flight>>> Get(
+            [FromQuery(Name ="relative_to")] string relativeTo)
         {
             // Indicate if should ask external servers for their flights.
             bool syncAll = Request.Query.ContainsKey("sync_all");
 
             IList<Flight.Flight> res;
+            DateTime relativeToTime = DateTime.Parse(relativeTo).ToUniversalTime();
 
             if (syncAll)
-                res = await flightsModel.GetAllFlightsSync(DateTime.Parse(relativeTo).ToUniversalTime());
+                res = await flightsModel.GetAllFlightsSync(relativeToTime);
             else
-                res = await flightsModel.GetAllFlights(DateTime.Parse(relativeTo).ToUniversalTime());
+                res = await flightsModel.GetAllFlights(relativeToTime);
 
             return Ok(res);
         }

@@ -69,7 +69,8 @@ namespace FlightControlWeb.Model.HTTPClinet
                 string content = await client.GetStringAsync(uri);
 
                 // Serialize it to a flight plan object.
-                IList<Flight.Flight> converted = JsonConvert.DeserializeObject<List<Flight.Flight>>(content);
+                IList<Flight.Flight> converted =
+                    JsonConvert.DeserializeObject<List<Flight.Flight>>(content);
 
                 return converted;
             }
