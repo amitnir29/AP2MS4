@@ -15,7 +15,7 @@ namespace FlightControlWeb.Model
             private readonly IFlightsDB flightsDB;
             private readonly IFlightsServersDB flightsServersDB;
             private readonly IServersDB serversDB;
-            private IFlightCalculator calculator = new FlightCalculator();
+            private readonly IFlightCalculator calculator = new FlightCalculator();
 
 
             /// <summary>

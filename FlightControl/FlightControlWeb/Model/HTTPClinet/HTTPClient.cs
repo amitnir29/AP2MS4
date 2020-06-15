@@ -11,8 +11,8 @@ namespace FlightControlWeb.Model.HTTPClinet
 {
     public class HTTPClient : IHTTPClient
     {
-        private string requestsUrl;
-        System.Net.Http.HttpClient client;
+        private readonly string requestsUrl;
+        private readonly System.Net.Http.HttpClient client;
 
         /// <summary>
         /// The constructor.

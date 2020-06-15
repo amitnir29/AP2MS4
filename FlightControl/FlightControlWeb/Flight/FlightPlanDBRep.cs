@@ -8,7 +8,7 @@ namespace FlightControlWeb.Flight
 {
     public class FlightPlanDBRep
     {
-        private string id;
+        private readonly string id;
         /// <summary>
         /// A getter for the id of the flight plan.
         /// </summary>

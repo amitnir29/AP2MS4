@@ -98,15 +98,5 @@ namespace FlightControlWeb
                 //TODO decide what to do if there is this id already
             }
         }
-
-        private async Task<int> NumOfRows()
-        {
-            using SQLiteConnection con = new SQLiteConnection(connectionString);
-            await con.OpenAsync();
-            using var command = new SQLiteCommand("SELECT COUNT(*) FROM FlightPlans", con);
-            using SQLiteDataReader rdr = (SQLiteDataReader)await command.ExecuteReaderAsync();
-            await rdr.ReadAsync();
-            return rdr.GetInt32(0);
-        }
     }
 }

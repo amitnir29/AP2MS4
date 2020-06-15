@@ -7,7 +7,7 @@ namespace FlightControlWeb.Flight
 {
     public class IDGenerator : IIDGenerator
     {
-        private string prefix;
+        private readonly string prefix;
 
 
         /// <summary>

@@ -12,7 +12,7 @@ namespace FlightControlWeb.Flight
     {
         private readonly IIDGenerator idGenerator = new IDGenerator("AYR");
 
-        private string id;
+        private readonly string id;
         /// <summary>
         /// A getter for the id member of the flightplan.
         /// </summary>
