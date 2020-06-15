@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 using FlightControlWeb.Model;
+using System.Runtime.CompilerServices;
 
 namespace FlightControlWeb.HTTPServer
 {
@@ -31,14 +32,19 @@ namespace FlightControlWeb.HTTPServer
         /// <param name="relativeTo"> The time the flihts returned should be relative to. </param>
         /// <returns> All flights from the server relative to a given time. </returns>
         [HttpGet]
-        public async Task<IList<Flight.Flight>> Get([FromQuery(Name ="relative_to")] string relativeTo)
+        public async Task<ActionResult<IList<Flight.Flight>>> Get([FromQuery(Name ="relative_to")] string relativeTo)
         {
             // Indicate if should ask external servers for their flights.
             bool syncAll = Request.Query.ContainsKey("sync_all");
 
+            IList<Flight.Flight> res;
+
             if (syncAll)
-                return await flightsModel.GetAllFlightsSync(DateTime.Parse(relativeTo).ToUniversalTime());
-            return await flightsModel.GetAllFlights(DateTime.Parse(relativeTo).ToUniversalTime());
+                res = await flightsModel.GetAllFlightsSync(DateTime.Parse(relativeTo).ToUniversalTime());
+            else
+                res = await flightsModel.GetAllFlights(DateTime.Parse(relativeTo).ToUniversalTime());
+
+            return Ok(res);
         }
 
 
@@ -47,10 +53,23 @@ namespace FlightControlWeb.HTTPServer
         /// Delete a flight.
         /// </summary>
         /// <param name="id"> The id of the flight to delete. </param>
+        /// <returns> The result of the delete action. </returns>
         [HttpDelete("{id}")]
-        public async void Delete(string id)
+        public async Task<IActionResult> Delete(string id)
         {
-            await flightsModel.DeleteFlight(id);
+            try
+            {
+                await flightsModel.DeleteFlight(id);
+                return Ok();
+            }
+            catch (ArgumentException e)
+            {
+                return BadRequest(e.Message);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
     }
 }

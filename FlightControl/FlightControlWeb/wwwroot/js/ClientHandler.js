@@ -12,8 +12,8 @@
 
     startClient() {
         //milliseconds between each iteration
-        const intervalLength = 5000; //TODO change back
-        const secondCallDelay = 2500;
+        const intervalLength = 2500;
+        const secondCallDelay = 250;
         //init the flightEventHandler
         const flightEventHandler = new FlightEventHandler();
         //init the screen parts

@@ -27,8 +27,4 @@
                 }, 10000);
         }
     }
-    //TODO- add a green alert, probably not gonna happen
-    static showSuccess(asds){
-
-    }
 }
