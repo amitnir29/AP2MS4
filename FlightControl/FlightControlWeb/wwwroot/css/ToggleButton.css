@@ -64,5 +64,5 @@ input:checked + .slider:before {
 
 #dayModesButtonContainer {
     position: absolute;
-    bottom: 1em;
+    bottom: 4em;
 }

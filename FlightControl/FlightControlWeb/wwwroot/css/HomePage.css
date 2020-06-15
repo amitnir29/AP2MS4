@@ -1,0 +1,10 @@
+﻿#main-logo {
+    max-height: 20%;
+    max-width: 20%;
+    height: auto;
+    width: auto;
+
+    position: relative;
+    margin-top: 5%;
+    margin-left: 40%;
+}

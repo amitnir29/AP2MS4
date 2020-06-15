@@ -16,26 +16,36 @@ namespace FlightControlWeb.HTTPServer
     {
         private readonly IFlightsModel flightsModel;
 
+        /// <summary>
+        /// A constructor.
+        /// </summary>
+        /// <param name="fm"> The model. </param>
         public FlightPlanController(IFlightsModel fm)
         {
             flightsModel = fm;
         }
 
 
-        // GET: api/FlightPlan/5
+        /// <summary>
+        /// Get a flight plan.
+        /// </summary>
+        /// <param name="id"> The id of the flight plan to get. </param>
+        /// <returns> The requested flight plan. </returns>
         [HttpGet("{id}", Name = "Get")]
         public async Task<FlightPlan> Get(string id)
         {
             return await flightsModel.GetFlightPlan(id);
         }
 
-        // POST: api/FlightPlan
+        
+        /// <summary>
+        /// A controller for the post method.
+        /// Post a new flight plan into the server.
+        /// </summary>
+        /// <param name="plan"> The posted flight plan. </param>
         [HttpPost]
         public async Task Post([FromBody] FlightPlan plan)
         {
-            /*Console.WriteLine("hi");
-            Console.WriteLine(plan.GetID());
-            Console.WriteLine("hi2");*/
             await flightsModel.AddFlightPlan(plan);
         }
     }

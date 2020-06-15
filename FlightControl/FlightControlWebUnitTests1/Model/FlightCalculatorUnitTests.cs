@@ -19,8 +19,8 @@ namespace FlightControlWeb.Model.UnitTests
             DateTime launchTime = new DateTime(2020, 5, 24, 20, 4, 30);
             InitialLocation launch = new InitialLocation(100, 100, launchTime);
 
-            FlightStatus middle = new FlightStatus(200, 200, 300);
-            FlightStatus end = new FlightStatus(250, 250, 200);
+            FlightStatus middle = new FlightStatus(100, 200, 300);
+            FlightStatus end = new FlightStatus(100, 250, 200);
 
             FlightPlan flightPlan = new FlightPlan(256, "TestCompany", launch, new FlightStatus[2] { middle, end });
 
@@ -40,8 +40,8 @@ namespace FlightControlWeb.Model.UnitTests
             DateTime launchTime = new DateTime(2020, 5, 24, 20, 4, 30);
             InitialLocation launch = new InitialLocation(100, 100, launchTime);
 
-            FlightStatus middle = new FlightStatus(200, 200, 300);
-            FlightStatus end = new FlightStatus(250, 250, 200);
+            FlightStatus middle = new FlightStatus(100, 200, 300);
+            FlightStatus end = new FlightStatus(100, 250, 200);
 
             FlightPlan flightPlan = new FlightPlan(256, "TestCompany", launch, new FlightStatus[2] { middle, end });
 
@@ -61,8 +61,8 @@ namespace FlightControlWeb.Model.UnitTests
             DateTime launchTime = new DateTime(2020, 5, 24, 20, 4, 30);
             InitialLocation launch = new InitialLocation(100, 100, launchTime);
 
-            FlightStatus middle = new FlightStatus(200, 200, 300);
-            FlightStatus end = new FlightStatus(250, 250, 200);
+            FlightStatus middle = new FlightStatus(120, 200, 300);
+            FlightStatus end = new FlightStatus(140, 250, 200);
 
             FlightPlan flightPlan = new FlightPlan(256, "TestCompany", launch, new FlightStatus[2] { middle, end });
 
@@ -82,8 +82,8 @@ namespace FlightControlWeb.Model.UnitTests
             DateTime launchTime = new DateTime(2020, 5, 24, 20, 4, 30);
             InitialLocation launch = new InitialLocation(100, 100, launchTime);
 
-            FlightStatus middle = new FlightStatus(200, 200, 300);
-            FlightStatus end = new FlightStatus(250, 250, 200);
+            FlightStatus middle = new FlightStatus(120, 200, 300);
+            FlightStatus end = new FlightStatus(140, 250, 200);
 
             FlightPlan flightPlan = new FlightPlan(256, "TestCompany", launch, new FlightStatus[2] { middle, end });
 
@@ -104,8 +104,8 @@ namespace FlightControlWeb.Model.UnitTests
             DateTime launchTime = new DateTime(2020, 5, 24, 20, 4, 30);
             InitialLocation launch = new InitialLocation(100, 100, launchTime);
 
-            FlightStatus middle = new FlightStatus(200, 200, 300);
-            FlightStatus end = new FlightStatus(250, 250, 200);
+            FlightStatus middle = new FlightStatus(120, 200, 300);
+            FlightStatus end = new FlightStatus(140, 250, 200);
 
             FlightPlan flightPlan = new FlightPlan( 256, "TestCompany", launch, new FlightStatus[2] { middle, end });
 
@@ -126,8 +126,8 @@ namespace FlightControlWeb.Model.UnitTests
             DateTime launchTime = new DateTime(2020, 5, 24, 20, 4, 30);
             InitialLocation launch = new InitialLocation(100, 100, launchTime);
 
-            FlightStatus middle = new FlightStatus(200, 200, 300);
-            FlightStatus end = new FlightStatus(250, 250, 200);
+            FlightStatus middle = new FlightStatus(120, 200, 300);
+            FlightStatus end = new FlightStatus(140, 250, 200);
 
             FlightPlan flightPlan = new FlightPlan( 256, "TestCompany", launch, new FlightStatus[2] { middle, end });
 
@@ -137,7 +137,7 @@ namespace FlightControlWeb.Model.UnitTests
 
             var res = calculator.CreateFlightFromPlan(flightPlan, mereTime, false);
 
-            Assert.AreEqual(150, res.Longitude);
+            Assert.AreEqual(110, res.Longitude);
             Assert.AreEqual(150, res.Latitude);
         }
     }

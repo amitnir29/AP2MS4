@@ -24,7 +24,6 @@ let dropArea = document.getElementById('flightsLists');
     })
 let counter = 0;
 function highlight(e) {
-    //console.log("currently ", highlights);
     dropArea.classList.add('highlight');
         
 }
