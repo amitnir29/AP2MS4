@@ -19,7 +19,6 @@ class FlightsGetter {
         
         let flightsArray;
         const flightWrappersArray = [];
-        //console.log("sending GET of " + "api/Flights/" + "?relative_to=" + formatted + "&sync_all");
         let getPlaneIconFunc = this.getPlaneIcon;
 
         await $.ajax({
@@ -32,9 +31,7 @@ class FlightsGetter {
                 flightsArray = data;
             },
             error: function (xhr) {
-                //console.log(xhr);
                 ErrorHandler.showError("Couldn't get flights from the server");
-                //TODO - pretty alert
             }
 
         });

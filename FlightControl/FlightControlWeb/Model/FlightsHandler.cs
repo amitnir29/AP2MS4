@@ -15,8 +15,15 @@ namespace FlightControlWeb.Model
             private readonly IFlightsDB flightsDB;
             private readonly IFlightsServersDB flightsServersDB;
             private readonly IServersDB serversDB;
-            private IFlightCalculator calculator = new FlightCalculator();
+            private readonly IFlightCalculator calculator = new FlightCalculator();
 
+
+            /// <summary>
+            /// The constructor.
+            /// </summary>
+            /// <param name="fpdb"> A flight Plans data base. </param>
+            /// <param name="fsdb"> A flight servers data base. </param>
+            /// <param name="sdb"> A servers data base. </param>
             public FlightsHandler(IFlightsDB fpdb, IFlightsServersDB fsdb, IServersDB sdb)
             {
                 flightsDB = fpdb;
@@ -64,7 +71,7 @@ namespace FlightControlWeb.Model
             {
                 IList<Flight.Flight> flights = new List<Flight.Flight>();
 
-                await foreach (var flightPlan in flightsDB.GetIterator())
+                await foreach (var flightPlan in flightsDB.GetAllFlightPlans())
                 {
                     var res = calculator.CreateFlightFromPlan(flightPlan, relativeTo, false);
                     if (res != null)
@@ -91,7 +98,7 @@ namespace FlightControlWeb.Model
 
                 IList<KeyValuePair<string, string>> serversUpdates = new List<KeyValuePair<string, string>>();
 
-                await foreach (Server server in serversDB.GetIterator())
+                await foreach (Server server in serversDB.GetAllServers())
                 {
                     // For each server, ask it for all its flights.
                     HTTPClient client = new HTTPClient(server);
@@ -122,7 +129,7 @@ namespace FlightControlWeb.Model
                 {
                 /* Add the id of the flight to the data base. Connect it to its server. Next time we want the flight plan we can
                 * simply ask it from the relevant server. */
-                await flightsServersDB.PostFlightServer(new Servers.FlightServer(pair.Key, pair.Value));
+                await flightsServersDB.AddFlightServer(new Servers.FlightServer(pair.Key, pair.Value));
             }
 
                 return temp;
@@ -136,7 +143,7 @@ namespace FlightControlWeb.Model
             /// <param name="plan"> The flight plan to add. </param>
             public async Task AddFlightPlan(FlightPlan plan)
             {
-                await flightsDB.PostFlightPlan(plan);
+                await flightsDB.AddFlightPlan(plan);
             }
 
 

@@ -5,6 +5,10 @@
 
 body {
     background-color: var(--backgound-color);
+
+    position: fixed;
+    overflow-y: scroll;
+    width: 100%;
 }
 
 .wrapper {

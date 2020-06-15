@@ -9,6 +9,9 @@ namespace FlightControlWeb.Servers
     public class Server
     {
         private string id;
+        /// <summary>
+        /// The id of the server.
+        /// </summary>
         [JsonPropertyName("ServerId")]
         public string Id
         {
@@ -18,6 +21,9 @@ namespace FlightControlWeb.Servers
 
 
         private string url;
+        /// <summary>
+        /// The url of the server.
+        /// </summary>
         [JsonPropertyName("ServerURL")]
         public string Url
         {
@@ -26,13 +32,15 @@ namespace FlightControlWeb.Servers
         }
 
 
+        /// <summary>
+        /// The constructor.
+        /// </summary>
+        /// <param name="id"> The id of the server. </param>
+        /// <param name="url"> The url of the server. </param>
         public Server(string id, string url)
         {
             Id = id;
             Url = url;
         }
-
-
-        public Server() { }
     }
 }

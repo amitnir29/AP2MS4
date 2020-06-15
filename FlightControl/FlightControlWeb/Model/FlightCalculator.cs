@@ -19,7 +19,7 @@ namespace FlightControlWeb.Model
         {
             // Get launch time.
            // DateTime launch = DateTime.ParseExact(plan.InitLocation.Time, "yyyy-MM-ddTHH:mm:ssZ", null).ToUniversalTime();
-            DateTime launch = DateTime.ParseExact(plan.InitLocation.Time, "yyyy-MM-ddTHH:mm:ssZ", null);
+            DateTime launch = DateTime.ParseExact(plan.InitLocation.Time, "yyyy-MM-ddTHH:mm:ssZ", null).ToUniversalTime();
 
             // If time is before launch return null - no flight at this time.
             if (relativeTo < launch)
