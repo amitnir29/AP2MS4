@@ -3,189 +3,74 @@
 <head>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-
-    <!-- Latest Leaftlet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-          crossorigin="" />
-    <!-- Make sure you put this AFTER Leaflet's CSS -->
-    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-            integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-            crossorigin=""></script>
-
     <meta charset="utf-8" />
-    <title>AYR flights tracker</title>
-    <link href="css/StyleSheet.css" rel="stylesheet" type="text/css" />
-    <link href="css/ToggleButton.css" rel="stylesheet" type="text/css" />
-    <link href="css/DayModesVars.css" rel="stylesheet" type="text/css" />
-    <link href="css/FlightsListStyle.css" rel="stylesheet" type="text/css" />
-
-    <script src="js/flightsList/flightsList.js"></script>
-    <script src="js/flightsList/flightListRowStyler.js"></script>
-    <script src="js/flightsGetter.js"></script>
-    <script src="js/flightEventHandler.js"></script>
-    <script src="js/flightsList/flightListRowIdConverter.js"></script>
-    <script src="js/ClientHandler.js"></script>
-    <script src="js/flightsList/flightsDivisor.js"></script>
-    <script src="js/flightWrapper.js"></script>
-    <script src="js/ErrorHandler.js"></script>
-    <script src="js/flightDetails.js"></script>
-    <script src="js/RotatedMarker.js"></script>
-    <script src="js/map.js"></script>
-    <script src="js/uploadFile.js"></script>
-
+    <title>AYR Project</title>
+    <link href="css/HomePage.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-
     <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
         <img src="assets/logo.png" alt="Logo" style="width:5%;height:5%;margin-right:3%;" />
         <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Home</a>
-            </li>
             <li class="nav-item active">
-                <a class="nav-link" href="#">Tracker</a>
+                <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Info</a>
+                <a class="nav-link" href="tracker.html">Tracker</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Team</a>
+                <a class="nav-link" href="info.html">Info</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="team.html">Team</a>
             </li>
         </ul>
     </nav>
 
-    <div class="wrapper">
-        <!-- flights map -->
-        <div id="mapid">
-            map
-        </div>
-        <!-- flights list -->
-        <div id="flightsLists">
-            <!--Local flights list-->
-            <div class="flights-list">
-                <table id="localFlightsHeads" class="table no-margin table-head">
-                    <thead>
-                        <tr>
-                            <th scope="col" class="local-flight-data">
-                                Local Flights
-                            </th>
-                            <th scope="col" class="flight-delete">
-                                Delete Flight
-                            </th>
-                        </tr>
-                    </thead>
-                </table>
-                <div class="single-flights-list-body">
-                    <table id="localFlights" class="table">
-                        <tbody class="single-flights-list-body">
-                            <!--add here the flights-->
-                        </tbody>
-                    </table>
+    <img id="main-logo" src="assets/logo.png" alt="Logo" />
+
+    <div class="container-fluid" style="margin-top:5%">
+        <div class="row">
+            <div class="col d-flex">
+                <div class="card">
+                    <div class="row card-body">
+                        <img class="col" src="assets/track.png" alt="Track Flights" />
+                        <div class="col">
+                            <h4 class="card-title">Track Your Flights</h4>
+                            <p class="card-text">Follow your flights all over the world.</p>
+                            <a href="tracker.html" class="btn btn-primary">Start Your Journey</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!--External flights list-->
-            <div class="flights-list">
-                <table id="externalFlightsHead" class="table table-head">
-                    <thead>
-                        <tr>
-                            <th scope="col" class="local-flight-data">
-                                External Flights
-                            </th>
-                        </tr>
-                    </thead>
-                </table>
-                <div class="single-flights-list-body">
-                    <table id="externalFlights" class="table">
-                        <tbody class="single-flights-list-body">
-                            <!--add here the flights-->
-                        </tbody>
-                    </table>
+
+            <div class="col d-flex">
+                <div class="card">
+                    <div class="row card-body">
+                        <img class="col" src="assets/discover.png" alt="Discover" />
+                        <div class="col">
+                            <h4 class="card-title">Discover Our Project</h4>
+                            <p class="card-text">Join us in our journey and help us discover the airlines!.</p>
+                            <a href="tracker.html" class="btn btn-primary">Learn More Here</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!--cover when drag and drop-->
-            <div class="dnd-shown dnd-cover">
-                <p>Drop JSON files here!</p>
-                <img id="dndImage" src="assets/dnd-white.png" />
-            </div>
-        </div>
-        <div>
-            <!-- flight details-->
-            <div id="flightDetails">
-                <p id="flightDetailsText"></p>
-            </div>
-            <!-- error messages -->
-            <div id="error_list">
-            </div>
-        </div>
-        <!--json and dark/light mode button-->
-        <div class="relativeContainer">
-            <!--json-->
-            <div id="flightPlanJson">
-                <form method="POST" action="uploadFile" id="jsonGetter">
-                    <input type="file" class="custom-file-input" id="jsonFileInput" onchange="submitFile(this.files)">
-                    <label class="custom-file-label" for="jsonFileInput">Choose JSON file</label>
-                </form>
-            </div>
-            <!--dark/light mode-->
-            <div id="dayModesButtonContainer">
-                <label class="switch">
-                    <input type="checkbox" id="switchBtn" name="theme">
-                    <span class="slider round"></span>
-                </label>
-                <label id="dayModeButton" for="switchBtn">light mode</label>
-            </div>
 
-        </div>
 
+            <div class="col d-flex">
+                <div class="card">
+                    <div class="row card-body">
+                        <img class="col" src="assets/staff.png" alt="Staff" />
+                        <div class="col">
+                            <h4 class="card-title">Meet Our Staff</h4>
+                            <p class="card-text">Meet our incerdible saff who leads this project.</p>
+                            <a href="tracker.html" class="btn btn-primary">Waiting You Here</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-
-
-
-    <!-- code for the button -->
-    <script>
-        let checkbox = document.querySelector('input[name=theme]');
-
-        checkbox.addEventListener('change', function () {
-            if (this.checked) {
-                document.documentElement.setAttribute('data-theme', 'dark')
-                document.getElementById("dayModeButton").textContent = "dark mode";
-                document.getElementById("dndImage").src = "assets/dnd-black.png";
-            } else {
-                document.documentElement.setAttribute('data-theme', 'light')
-                document.getElementById("dayModeButton").textContent = "light mode";
-                document.getElementById("dndImage").src = "assets/dnd-white.png";
-            }
-        })
-    </script>
-
-    <!--code for the json input-->
-    <script>
-        function submitFile(files) {
-            files = [...files];
-            files.forEach(uploadFile);
-        }
-
-    </script>
-
-    <!--call the start of the client-->
-    <script>
-        const c = new ClientHandler();
-        c.startClient();
-    </script>
-    <script src="js/DragAndDrop.js"></script>
 </body>
 </html>
-
-
-
