@@ -28,9 +28,9 @@ namespace FlightControlWeb.DB
         public Task DeleteServer(string id);
 
         /// <summary>
-        /// Get an iterator to iterate over all t he serversin the database.
+        /// Get an iterator to iterate over all the servers in the database.
         /// </summary>
-        /// <returns> An iterator to iterate over all t he serversin the database. </returns>
+        /// <returns> An iterator to iterate over all t he servers in the database. </returns>
         public IAsyncEnumerable<Server> GetAllServers();
     }
 }

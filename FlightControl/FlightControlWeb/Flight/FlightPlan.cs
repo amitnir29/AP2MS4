@@ -82,7 +82,7 @@ namespace FlightControlWeb.Flight
         /// <param name="passengers"> The number of passengers on the flight. </param>
         /// <param name="company"> The name of the company managing the flight. </param>
         /// <param name="initialLocation"> The initial location / where the flight
-        /// takse off. </param>
+        /// takes off. </param>
         /// <param name="segments"> A list of locations where the flight is passing. </param>
         [JsonConstructor]
         public FlightPlan(int passengers, string company, InitialLocation initialLocation,

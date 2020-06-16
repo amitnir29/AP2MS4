@@ -49,8 +49,15 @@ namespace FlightControlWeb.HTTPServer
         {
             try
             {
-                await flightsModel.AddFlightPlan(plan);
-                return Ok();
+                //check if all fields got are not null 
+                bool isOk = plan.GetType().GetProperties().All(p => p.GetValue(plan) != null);
+                if (isOk)
+                {
+                    await flightsModel.AddFlightPlan(plan);
+                    return Ok();
+                }
+
+                return BadRequest("Property can't be null");
             }
             catch (ArgumentException e)
             {

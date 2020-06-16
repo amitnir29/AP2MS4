@@ -50,7 +50,7 @@ class Map {
             wrapper.planeIconReference.remove();
         }
         let flag = true;
-        //erase the current segments and flight details, only if the plane didnt disspear
+        //erase the current segments and flight details, only if the plane didn't disspear
         for (let newWrapper of this.flightWrappers) {
             if (newWrapper.id === this.selectedId) {
                 flag = false;
@@ -65,7 +65,7 @@ class Map {
         this.flightWrappers = flightWrappers2;
         //draw new icons and link them to the wrappers
         for (let wrapper of this.flightWrappers) {
-            //caculate the angle of the plane, the slope is log-log/lat-lat
+            //calculate the angle of the plane, the slope is log-log/lat-lat
             
             let long = wrapper.flightDetails.longitude;
             let lat = wrapper.flightDetails.latitude;
@@ -145,7 +145,7 @@ class Map {
                     return wrapper;
             }
         }
-        //if id doesnt exist, compare by pointers
+        //if id doesn't exist, compare by pointers
         for (let wrapper of this.flightWrappers) {
             if (object === wrapper.planeIconReference)
                 return wrapper;
@@ -166,7 +166,7 @@ class Map {
             const y = (wrapper.flightDetails.longitude - this.locations[idkey].longitude);
             const x = (wrapper.flightDetails.latitude - this.locations[idkey].latitude);
             let theta = Math.atan2(y, x);
-            //the default picure is in 45 degress angle
+            //the default picture is in 45 degrees angle
             angle = (theta * 180 / Math.PI) - 45;
         }
         return angle;

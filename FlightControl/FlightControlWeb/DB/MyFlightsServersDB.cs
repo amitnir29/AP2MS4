@@ -96,7 +96,7 @@ namespace FlightControlWeb.DB
             // Creating the query to insert
             using var command = new SQLiteCommand(
                 "INSERT into FlightsServers (flightid, serverid) VALUES (@FId, @SId)", con);
-            // Inserting the parameters eith value
+            // Inserting the parameters with value
             command.Parameters.AddWithValue("@FId", fs.FlightId);
             command.Parameters.AddWithValue("@SId", fs.ServerId);
             try

@@ -109,7 +109,7 @@ namespace FlightControlWeb.DB
                 "INSERT into FlightPlans (id, Passengers, Company, InitLocation, Segments) " +
                     "VALUES (@Id, @Passengers, @Company, @InitLocation, @Segments)", con);
             FlightPlanDBRep fpdb = new FlightPlanDBRep(flightPlan);
-            // Insert the paraameters with value
+            // Insert the parameters with value
             command.Parameters.AddWithValue("@Id", fpdb.GetID());
             command.Parameters.AddWithValue("@Passengers", fpdb.Passengers);
             command.Parameters.AddWithValue("@Company", fpdb.Company);
@@ -125,10 +125,11 @@ namespace FlightControlWeb.DB
                     throw new ArgumentException("Can't post flight");
             }
             // The id is already there
-            catch (Exception)
+            catch (Exception e)
             {
-                throw new ArgumentException("Flight id " + flightPlan.GetID()
-                    + "already found in data base.");
+                //throw new ArgumentException("Flight id " + flightPlan.GetID()
+                //    + "already found in data base.");
+                throw e;
             }
         }
     }

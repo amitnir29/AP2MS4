@@ -38,7 +38,7 @@ namespace FlightControlWeb.Model.HTTPClinet
 
             try
             {
-                // Get the content from the extenal server.
+                // Get the content from the external server.
                 string content = await client.GetStringAsync(uri);
 
                 // Serialize it to a flight plan object.
@@ -65,7 +65,7 @@ namespace FlightControlWeb.Model.HTTPClinet
 
             try
             {
-                // Get the content from the extenal server.
+                // Get the content from the external server.
                 string content = await client.GetStringAsync(uri);
 
                 // Serialize it to a flight plan object.

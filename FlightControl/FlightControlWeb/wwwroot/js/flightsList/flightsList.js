@@ -253,7 +253,7 @@ class FlightsList {
 
             },
             error: function (xhr) {
-                ErrorHandler.showError("Coudln't delete flight " + id + " from the server!");
+                ErrorHandler.showError("Couldn't delete flight " + id + " from the server!");
             }
 
         });

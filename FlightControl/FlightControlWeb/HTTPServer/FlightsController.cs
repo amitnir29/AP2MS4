@@ -29,7 +29,7 @@ namespace FlightControlWeb.HTTPServer
         /// <summary>
         /// Get all flights from the server relative to a given time.
         /// </summary>
-        /// <param name="relativeTo"> The time the flihts returned should be relative to. </param>
+        /// <param name="relativeTo"> The time the flights returned should be relative to. </param>
         /// <returns> All flights from the server relative to a given time. </returns>
         [HttpGet]
         public async Task<ActionResult<IList<Flight.Flight>>> Get(

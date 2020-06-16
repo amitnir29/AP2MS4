@@ -127,7 +127,7 @@ namespace FlightControlWeb.Model
 
                     IList<Flight.Flight> temp = await localFlights;
 
-                /* Join all the lists from the serers and the list of the local flight to
+                /* Join all the lists from the servers and the list of the local flight to
                  * one list of flights. */
                 foreach (Task<IList<Flight.Flight>> flightsList in externalFlights)
                 {
